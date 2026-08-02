@@ -11,12 +11,11 @@ access to technical evidence.
 
 ## Public Preview 1
 
-Electron Public Preview 1 is currently a release candidate. The application
-version is `0.8.0`, with the first public package being prepared for MacOs on
-Apple Silicon.
+Electron Early Public Preview 1 is publicly available for MacOs on Apple
+Silicon. The application version is `0.8.0`.
 
-No public installer is available until the official website activates a
-verified download. Do not use an installer obtained from an unofficial source.
+Download only through the official website or its linked GitHub release, and
+verify the published SHA-256 before opening the installer.
 
 The standard Preview provides 30 days of full access from first launch. Saved
 Collection data is not deleted when the Preview expires. Additional approved
@@ -73,7 +72,7 @@ download status and support:
 GitHub is used for source code, releases, issues and development information
 as those resources are made public:
 
-<https://github.com/ElectronPlatform>
+<https://github.com/ElectronPlatform/electron-rfid-intelligence-platform>
 
 ## Responsible use
 
