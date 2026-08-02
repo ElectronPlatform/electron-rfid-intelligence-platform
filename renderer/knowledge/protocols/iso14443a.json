@@ -1,0 +1,1 @@
+{"id":"iso14443a","kind":"protocol","displayName":"ISO/IEC 14443-A","frequency":"13.56 MHz","summary":"Proximity card protocol used by many NFC and smartcard families."}

@@ -1,0 +1,1 @@
+{"id":"iso15693","kind":"protocol","displayName":"ISO/IEC 15693","frequency":"13.56 MHz","summary":"Vicinity card protocol used by many library and asset tags."}

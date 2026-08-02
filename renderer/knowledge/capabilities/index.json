@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "items": [
+    {"id": "read_uid", "file": "read_uid.json"},
+    {"id": "identify", "file": "identify.json"},
+    {"id": "inventory", "file": "inventory.json"},
+    {"id": "read_info", "file": "read_info.json"},
+    {"id": "read_memory", "file": "read_memory.json"},
+    {"id": "write_memory", "file": "write_memory.json"},
+    {"id": "emulation", "file": "emulation.json"},
+    {"id": "sniffing", "file": "sniffing.json"},
+    {"id": "dictionary_attack_support", "file": "dictionary_attack_support.json"},
+    {"id": "clone_support", "file": "clone_support.json"},
+    {"id": "read_blocks", "file": "read_blocks.json"},
+    {"id": "dump_with_keys", "file": "dump_with_keys.json"},
+    {"id": "compare_dumps", "file": "compare_dumps.json"},
+    {"id": "safe_metadata_only", "file": "safe_metadata_only.json"}
+  ]
+}

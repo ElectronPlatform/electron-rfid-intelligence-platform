@@ -1,0 +1,1 @@
+{"id":"read_blocks","kind":"capability","displayName":"Read blocks","risk":"medium","summary":"Read block memory when supported and authorised."}

@@ -1,0 +1,1 @@
+{"id":"iso14443_4","kind":"protocol","displayName":"ISO/IEC 14443-4","frequency":"13.56 MHz","summary":"Higher-level contactless smartcard transport used by secure application cards."}

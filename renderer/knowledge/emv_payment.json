@@ -1,0 +1,10 @@
+{
+  "id":"emv_payment","displayName":"Contactless Payment Card","technology":"HF RFID / NFC","frequency":"13.56 MHz","protocol":"ISO/IEC 14443-A or ISO/IEC 14443-B","family":"EMV","application":"Payment card","summary":"Likely a contactless bank/payment card using EMV-style application data.",
+  "memoryLayout":{"concept":"Application-based smart card","sectorTrailer":"Unlike MIFARE Classic, payment cards do not expose simple sectors/blocks for cloning."},
+  "commonSubtypes":[{"name":"EMV contactless card"}],
+  "security":{"crypto":"Application cryptography","notes":"Payment cards use secure application protocols. Atlas only performs safe identification guidance."},
+  "knownAttacks":[],"cloneable":false,"magicCardSupport":"Not applicable.",
+  "safeRecommendedActions":["Treat as a payment card","Use safe identification only","Do not write, clone or modify","Do not store sensitive payment data"],
+  "uiHints":{"primaryTool":"EMV Safe Info Viewer","secondaryTools":["Protocol Details","Assistant Review Pack"]},
+  "beginnerExplanation":"A payment card is not the same as a simple RFID tag. Atlas should identify it safely and avoid write/clone workflows."
+}

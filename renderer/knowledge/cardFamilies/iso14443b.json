@@ -1,0 +1,21 @@
+{
+  "id": "iso14443b",
+  "kind": "cardFamily",
+  "displayName": "ISO14443-B",
+  "aliases": ["ISO 14443B", "ISO/IEC 14443-B", "NFC-B"],
+  "category": "HF proximity",
+  "manufacturer": "",
+  "protocol": "ISO/IEC 14443-B",
+  "protocolIds": ["iso14443b"],
+  "frequency": "13.56 MHz",
+  "memory": {"model": "family dependent"},
+  "security": {"model": "family dependent"},
+  "commonApplications": ["Smartcards", "Identity cards", "Transit cards"],
+  "readableFields": ["pupi", "atqb", "applicationData"],
+  "protectedFields": ["secureApplicationData", "keys"],
+  "supportedDevices": ["proxmark3", "pn532"],
+  "capabilityIds": ["read_uid", "identify"],
+  "proxmarkCommands": ["hf search", "hf 14b info"],
+  "references": [],
+  "notes": "Protocol family. Exact behavior depends on card family."
+}

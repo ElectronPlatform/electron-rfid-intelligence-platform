@@ -1,0 +1,22 @@
+{
+  "id": "ntag21x",
+  "kind": "cardFamily",
+  "displayName": "NTAG21x",
+  "aliases": ["NTAG213", "NTAG215", "NTAG216", "NFC sticker"],
+  "category": "NFC Type 2 tag",
+  "manufacturer": "NXP",
+  "manufacturerIds": ["nxp"],
+  "protocol": "ISO/IEC 14443-A / NFC Type 2",
+  "protocolIds": ["iso14443a"],
+  "frequency": "13.56 MHz",
+  "memory": {"model": "page", "notes": "Page-based user memory with lock bytes and optional password protection."},
+  "security": {"model": "lock bytes / password optional"},
+  "commonApplications": ["NFC stickers", "URLs", "Text records", "Automation tags"],
+  "readableFields": ["uid", "ndefRecords", "pages", "lockBytes"],
+  "protectedFields": ["passwordProtectedPages", "lockedPages"],
+  "supportedDevices": ["proxmark3", "flipper_zero", "chameleon_ultra", "pn532"],
+  "capabilityIds": ["read_uid", "identify", "read_memory", "write_memory", "emulation", "clone_support"],
+  "proxmarkCommands": ["hf search", "hf mfu info", "hf mfu dump"],
+  "references": [],
+  "notes": "Writing lock bytes can permanently restrict a tag."
+}

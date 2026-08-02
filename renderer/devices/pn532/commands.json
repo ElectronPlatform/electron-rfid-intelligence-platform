@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "deviceId": "pn532",
+  "commands": [
+    {
+      "command": "scan-hf",
+      "title": "Scan HF tag",
+      "category": "HF",
+      "device": "pn532",
+      "capability": "hf",
+      "safetyLevel": "read-only",
+      "description": "PN532 HF scanning is not available in this Preview.",
+      "examples": ["scan-hf"],
+      "expectedOutput": ["UID", "ATQA/SAK when available"],
+      "notes": "Electron does not yet include a PN532 command adapter.",
+      "tags": ["hf", "planned", "pn532"]
+    },
+    {
+      "command": "read-ndef",
+      "title": "Read public NDEF",
+      "category": "NDEF",
+      "device": "pn532",
+      "capability": "hf",
+      "safetyLevel": "read-only",
+      "description": "PN532 NDEF reading is not available in this Preview.",
+      "examples": ["read-ndef"],
+      "expectedOutput": ["NDEF records"],
+      "notes": "Planned profile only.",
+      "tags": ["ndef", "planned"]
+    }
+  ]
+}

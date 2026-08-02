@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "deviceId": "chameleon_ultra",
+  "commands": [
+    {
+      "command": "identify",
+      "title": "Identify tag",
+      "category": "Utility",
+      "device": "chameleon_ultra",
+      "capability": "hf",
+      "safetyLevel": "read-only",
+      "description": "Chameleon Ultra identification is not available in this Preview.",
+      "examples": ["identify"],
+      "expectedOutput": ["tag type", "UID"],
+      "notes": "Electron does not yet include a Chameleon adapter.",
+      "tags": ["planned", "identify"]
+    },
+    {
+      "command": "emulate-profile",
+      "title": "Emulate stored profile",
+      "category": "Emulation",
+      "device": "chameleon_ultra",
+      "capability": "emulation",
+      "safetyLevel": "restricted",
+      "description": "Profile emulation controls are not available in this Preview.",
+      "examples": ["emulate-profile"],
+      "expectedOutput": ["emulation status"],
+      "notes": "Requires careful workflow design before enabling.",
+      "tags": ["planned", "emulation", "restricted"]
+    }
+  ]
+}

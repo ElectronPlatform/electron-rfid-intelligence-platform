@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0",
+  "defaultLevel": "simple",
+  "components": {
+    "main-usb-port": {
+      "whyExists": "It supplies power and carries commands and results between the computer and the Proxmark3.",
+      "missingImpact": "Electron could not detect or communicate with the board through the PM3 client.",
+      "technologies": ["USB serial", "PM3 client protocol"],
+      "firmwareModules": ["USB communication", "command dispatcher"],
+      "related": ["atmel-mcu", "power-section", "power-led"],
+      "sourceHints": ["common_arm/usb_cdc.c", "client/src/comms.c"]
+    },
+    "side-usb-port": {
+      "whyExists": "This connector belongs to the physical board design, but its exact role must be confirmed for this specific board revision.",
+      "missingImpact": "No impact should be claimed until the connector role and board revision are verified.",
+      "technologies": ["board-specific connectivity"],
+      "firmwareModules": ["Unknown until the connector role is verified"],
+      "related": ["main-usb-port", "power-section", "atmel-mcu"],
+      "sourceHints": ["Hardware schematic and board-revision documentation"]
+    },
+    "hf-antenna": {
+      "whyExists": "It creates and receives the 13.56 MHz radio field used by HF and NFC tags.",
+      "missingImpact": "HF cards could not be powered, detected or read by this board.",
+      "technologies": ["ISO 14443-A/B", "MIFARE", "DESFire", "NTAG", "ISO 15693"],
+      "firmwareModules": ["HF FPGA image", "HF reader commands", "antenna tuning"],
+      "related": ["xilinx-spartan-fpga", "atmel-mcu", "power-section"],
+      "sourceHints": ["armsrc/iso14443a.c", "armsrc/iso14443b.c", "armsrc/iso15693.c", "armsrc/fpgaloader.c"]
+    },
+    "lf-antenna-module": {
+      "whyExists": "It creates and receives the low-frequency field used by 125 kHz and compatible LF tags.",
+      "missingImpact": "LF credentials and transponders could not be detected by the board.",
+      "technologies": ["EM410x", "HID Prox", "Indala", "T55xx identification"],
+      "firmwareModules": ["LF FPGA image", "LF sampling", "antenna tuning"],
+      "related": ["xilinx-spartan-fpga", "atmel-mcu", "power-section"],
+      "sourceHints": ["armsrc/lfops.c", "armsrc/lfsampling.c", "armsrc/fpgaloader.c"]
+    },
+    "xilinx-spartan-fpga": {
+      "whyExists": "It performs radio timing and signal-processing work that must happen much faster and more precisely than normal application code.",
+      "missingImpact": "Most HF and LF radio operations would no longer work.",
+      "technologies": ["HF modulation", "LF modulation", "signal sampling"],
+      "firmwareModules": ["HF FPGA image", "LF FPGA image", "FPGA loader"],
+      "related": ["hf-antenna", "lf-antenna-module", "atmel-mcu"],
+      "sourceHints": ["armsrc/fpgaloader.c"]
+    },
+    "atmel-mcu": {
+      "whyExists": "It runs the main firmware, communicates over USB and coordinates commands, memory and the FPGA.",
+      "missingImpact": "The board could not boot its main firmware or respond to Electron.",
+      "technologies": ["USB", "firmware runtime", "command execution"],
+      "firmwareModules": ["main firmware", "command dispatcher", "USB stack"],
+      "related": ["main-usb-port", "xilinx-spartan-fpga", "flash-memory"],
+      "sourceHints": ["armsrc/appmain.c", "armsrc/Standalone/readme.md", "include/pm3_cmd.h"]
+    },
+    "flash-memory": {
+      "whyExists": "It stores data or firmware-related content that must remain available after power is removed.",
+      "missingImpact": "Features that depend on persistent storage or external flash would be unavailable.",
+      "technologies": ["persistent storage", "firmware resources"],
+      "firmwareModules": ["flash storage", "filesystem support"],
+      "related": ["atmel-mcu", "main-usb-port"],
+      "sourceHints": ["armsrc/spiffs.c", "client/src/cmdflashmem.c"]
+    },
+    "buffer-chips": {
+      "whyExists": "They buffer and isolate digital signal lines so connected board sections receive clean, correctly driven signals.",
+      "missingImpact": "Signal paths could become unreliable or stop working even though Electron cannot address these chips directly.",
+      "technologies": ["digital signal routing", "logic-level buffering"],
+      "firmwareModules": ["No direct module; used indirectly by timed FPGA and MCU signals"],
+      "related": ["xilinx-spartan-fpga", "atmel-mcu", "hf-antenna", "lf-antenna-module"],
+      "sourceHints": ["Hardware schematic and PCB documentation"]
+    },
+    "button": {
+      "whyExists": "It gives the firmware a physical input for guided or standalone actions.",
+      "missingImpact": "Physical confirmation and button-driven standalone workflows would be unavailable.",
+      "technologies": ["standalone mode", "physical input"],
+      "firmwareModules": ["button input", "standalone modules"],
+      "related": ["atmel-mcu", "led-a", "led-b"],
+      "sourceHints": ["armsrc/Standalone/readme.md", "armsrc/Standalone/lf_samyrun.c", "armsrc/util.c"]
+    },
+    "power-section": {
+      "whyExists": "It converts and stabilises USB power for the MCU, FPGA and radio electronics.",
+      "missingImpact": "The board would be unstable, fail to start or risk hardware damage.",
+      "technologies": ["USB power", "voltage regulation"],
+      "firmwareModules": ["No direct software module; monitored indirectly"],
+      "related": ["main-usb-port", "power-led", "atmel-mcu", "xilinx-spartan-fpga"],
+      "sourceHints": ["Hardware schematic and board documentation"]
+    },
+    "power-led": {
+      "whyExists": "It gives immediate visual confirmation that the board is receiving power.",
+      "missingImpact": "The board could still work, but users would lose a useful power indicator.",
+      "technologies": ["power indication"],
+      "firmwareModules": ["Normally hardware-driven, not a firmware capability"],
+      "related": ["power-section", "main-usb-port"],
+      "sourceHints": ["Hardware schematic and board documentation"]
+    },
+    "led-a": {"whyExists":"It provides visible firmware feedback during operations.","missingImpact":"The operation may still work, but visual feedback would be reduced.","technologies":["status indication"],"firmwareModules":["LED status helpers"],"related":["led-b","led-c","led-d","atmel-mcu"],"sourceHints":["armsrc/appmain.c","armsrc/util.c"]},
+    "led-b": {"whyExists":"It provides visible firmware feedback during operations.","missingImpact":"The operation may still work, but visual feedback would be reduced.","technologies":["status indication"],"firmwareModules":["LED status helpers"],"related":["led-a","led-c","led-d","atmel-mcu"],"sourceHints":["armsrc/appmain.c","armsrc/util.c"]},
+    "led-c": {"whyExists":"It provides visible firmware feedback during operations.","missingImpact":"The operation may still work, but visual feedback would be reduced.","technologies":["status indication"],"firmwareModules":["LED status helpers"],"related":["led-a","led-b","led-d","atmel-mcu"],"sourceHints":["armsrc/appmain.c","armsrc/util.c"]},
+    "led-d": {"whyExists":"It provides visible firmware feedback during operations.","missingImpact":"The operation may still work, but visual feedback would be reduced.","technologies":["status indication"],"firmwareModules":["LED status helpers"],"related":["led-a","led-b","led-c","atmel-mcu"],"sourceHints":["armsrc/appmain.c","armsrc/util.c"]}
+  }
+}

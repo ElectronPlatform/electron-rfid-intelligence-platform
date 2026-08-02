@@ -1,0 +1,1 @@
+{"id":"read_info","kind":"capability","displayName":"Read card information","risk":"low","summary":"Read safe card information without modifying the card."}

@@ -1,0 +1,1 @@
+{"id":"dictionary_attack_support","kind":"capability","displayName":"Dictionary Attack Support","aliases":["Key dictionary check"],"category":"analysis","risk":"controlled","summary":"Capability marker only. No attack implementation is included in Electron."}

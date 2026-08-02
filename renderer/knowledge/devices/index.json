@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "items": [
+    {"id": "proxmark3", "file": "proxmark3.json"},
+    {"id": "flipper_zero", "file": "flipper_zero.json"},
+    {"id": "chameleon_ultra", "file": "chameleon_ultra.json"},
+    {"id": "pn532", "file": "pn532.json"}
+  ]
+}

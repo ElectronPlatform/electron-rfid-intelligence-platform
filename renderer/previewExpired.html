@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Electron Preview Expired</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="../buildConfig.js"></script>
+  <script src="../appConfig.js"></script>
+</head>
+<body class="previewExpiredBody">
+  <main class="previewExpiredPanel">
+    <img src="../assets/electron-icon.png" alt="Electron icon" class="previewExpiredIcon">
+    <div class="atlasKicker">Electron Preview</div>
+    <h1 id="previewAccessHeading">This Preview Build has expired.</h1>
+    <p>Thank you for helping test Electron.</p>
+    <p id="previewAccessReason">The standard Preview lasts 30 days from its first launch. Your Collection data has not been deleted.</p>
+    <p id="previewAccessInstruction">To reopen the full app, contact the Electron team or enter a valid signed Preview Extension Key.</p>
+
+    <div class="previewExpiredStatus" id="previewExpiredStatus">Loading Preview status...</div>
+
+    <label class="previewExtensionField">
+      Preview Extension Key
+      <input id="previewExtensionKey" placeholder="EPST1...">
+    </label>
+    <p class="small" id="previewExtensionStatus"></p>
+
+    <div class="toolbar previewExpiredActions">
+      <button id="requestExtendedAccessBtn" class="green">Request Extended Access</button>
+      <button id="applyExtensionKeyBtn">Apply Extension Key</button>
+      <button id="closeExpiredPreviewBtn" class="warn">Close</button>
+    </div>
+  </main>
+  <script src="previewExpired.js"></script>
+</body>
+</html>

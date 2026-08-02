@@ -1,0 +1,6392 @@
+{
+  "version": 1,
+  "source": "RfidResearchGroup/proxmark3 doc/commands.md",
+  "sourceUrl": "https://github.com/RfidResearchGroup/proxmark3/blob/master/doc/commands.md",
+  "license": "GPL-3.0-or-later (upstream Proxmark3 documentation)",
+  "entries": [
+    {
+      "command": "auto",
+      "description": "Automated detection process for unknown tags",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "General"
+    },
+    {
+      "command": "clear",
+      "description": "Clear screen",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "General"
+    },
+    {
+      "command": "hints",
+      "description": "Turn hints on / off",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "General"
+    },
+    {
+      "command": "msleep",
+      "description": "Add a pause in milliseconds",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "General"
+    },
+    {
+      "command": "rem",
+      "description": "Add a text line in log file",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "General"
+    },
+    {
+      "command": "exit",
+      "description": "Exit program",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "General"
+    },
+    {
+      "command": "prefs help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs"
+    },
+    {
+      "command": "prefs show",
+      "description": "Show all preferences",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs"
+    },
+    {
+      "command": "prefs get barmode",
+      "description": "Get bar mode preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get client.debug",
+      "description": "Get client debug level preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get client.delay",
+      "description": "Get client execution delay preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get client.timeout",
+      "description": "Get client execution delay preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get hf.field.timeout_sec",
+      "description": "Get PM3 HF field inactivity timeout preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get color",
+      "description": "Get color support preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get savepaths",
+      "description": "Get file folder",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get emoji",
+      "description": "Get emoji display preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get hints",
+      "description": "Get hint display preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get output",
+      "description": "Get dump output style preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get plotsliders",
+      "description": "Get plot slider display preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs get mqtt",
+      "description": "Get MQTT preference",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs get"
+    },
+    {
+      "command": "prefs set help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set barmode",
+      "description": "Set bar mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set client.debug",
+      "description": "Set client debug level",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set client.delay",
+      "description": "Set client execution delay",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set client.timeout",
+      "description": "Set client communication timeout",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set hf.field.timeout_sec",
+      "description": "Set PM3 HF field inactivity timeout",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set color",
+      "description": "Set color support",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set emoji",
+      "description": "Set emoji display",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set hints",
+      "description": "Set hint display",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set savepaths",
+      "description": "... to be adjusted next ...",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set output",
+      "description": "Set dump output style",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set plotsliders",
+      "description": "Set plot slider display",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "prefs set mqtt",
+      "description": "Set MQTT default values",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "prefs set"
+    },
+    {
+      "command": "analyse help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse lrc",
+      "description": "Generate final byte for XOR LRC",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse crc",
+      "description": "Stub method for CRC evaluations",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse chksum",
+      "description": "Checksum with adding, masking and one's complement",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse dates",
+      "description": "Look for datestamps in a given array of bytes",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse lfsr",
+      "description": "LFSR tests",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse a",
+      "description": "num bits test",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse nuid",
+      "description": "create NUID from 7byte UID",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse demodbuff",
+      "description": "Load binary string to DemodBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse freq",
+      "description": "Calc wave lengths",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse foo",
+      "description": "muxer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse regex",
+      "description": "Regex utility (subset: ^ $ . * with \\\\ escape)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "analyse units",
+      "description": "convert ETU <> US <> SSP_CLK (3.39MHz)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "analyse"
+    },
+    {
+      "command": "data help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data clear",
+      "description": "Clears various buffers used by the graph window",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data hide",
+      "description": "Hide the graph window",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data load",
+      "description": "Load contents of file into graph window",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data num",
+      "description": "Converts dec/hex/bin",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data plot",
+      "description": "Show the graph window",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data print",
+      "description": "Print the data in the DemodBuffer",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data save",
+      "description": "Save signal trace data",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data setdebugmode",
+      "description": "Set Debugging Level on client side",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data xor",
+      "description": "Xor a input string",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data biphaserawdecode",
+      "description": "Biphase decode bin stream in DemodBuffer",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data detectclock",
+      "description": "Detect ASK, FSK, NRZ, PSK clock rate of wave in GraphBuffer",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data fsktonrz",
+      "description": "Convert fsk2 to nrz wave for alternate fsk demodulating (for weak fsk)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data manrawdecode",
+      "description": "Manchester decode binary stream in DemodBuffer",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data modulation",
+      "description": "Identify LF signal for clock and modulation",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data rawdemod",
+      "description": "Demodulate the data in the GraphBuffer and output binary",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data askedgedetect",
+      "description": "Adjust Graph for manual ASK demod",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data autocorr",
+      "description": "Autocorrelation over window",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data convertbitstream",
+      "description": "Convert GraphBuffer's 0/1 values to 127 / -127",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data cthreshold",
+      "description": "Average out all values between",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data dirthreshold",
+      "description": "Max rising higher up-thres/ Min falling lower down-thres",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data decimate",
+      "description": "Decimate samples",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data envelope",
+      "description": "Generate square envelope of samples",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data grid",
+      "description": "overlay grid on graph window",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data getbitstream",
+      "description": "Convert GraphBuffer's >=1 values to 1 and <1 to 0",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data hpf",
+      "description": "Remove DC offset from trace",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data iir",
+      "description": "Apply IIR buttersworth filter on plot data",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data ltrim",
+      "description": "Trim samples from left of trace",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data mtrim",
+      "description": "Trim out samples from the specified start to the specified stop",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data norm",
+      "description": "Normalize max/min to +/-128",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data rtrim",
+      "description": "Trim samples from right of trace",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data setgraphmarkers",
+      "description": "Set the markers in the graph window",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data shiftgraphzero",
+      "description": "Shift 0 for Graphed wave + or - shift value",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data timescale",
+      "description": "Set cursor display timescale",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data undecimate",
+      "description": "Un-decimate samples",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data zerocrossings",
+      "description": "Count time between zero-crossings",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data asn1",
+      "description": "ASN1 decoder",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data atr",
+      "description": "ATR lookup",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data bitsamples",
+      "description": "Get raw samples as bitstring",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "data"
+    },
+    {
+      "command": "data bmap",
+      "description": "Convert hex value according a binary template",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data crypto",
+      "description": "Encrypt and decrypt data",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data diff",
+      "description": "Diff of input files",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data hexsamples",
+      "description": "Dump big buffer as hex bytes",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "data"
+    },
+    {
+      "command": "data samples",
+      "description": "Get raw samples for graph window ( GraphBuffer )",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "data"
+    },
+    {
+      "command": "data qrcode",
+      "description": "Create a QR code",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "data"
+    },
+    {
+      "command": "data test_ss8",
+      "description": "Test the implementation of Buffer Save States (8-bit buffer)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "data"
+    },
+    {
+      "command": "data test_ss32",
+      "description": "Test the implementation of Buffer Save States (32-bit buffer)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "data"
+    },
+    {
+      "command": "data test_ss32s",
+      "description": "Test the implementation of Buffer Save States (32-bit signed buffer)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "data"
+    },
+    {
+      "command": "emv help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "emv"
+    },
+    {
+      "command": "emv list",
+      "description": "List ISO7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "emv"
+    },
+    {
+      "command": "emv test",
+      "description": "Perform crypto logic self tests",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "emv"
+    },
+    {
+      "command": "emv challenge",
+      "description": "Generate challenge",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv exec",
+      "description": "Executes EMV contactless transaction",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv genac",
+      "description": "Generate ApplicationCryptogram",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv gpo",
+      "description": "Execute GetProcessingOptions",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv intauth",
+      "description": "Internal authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv pse",
+      "description": "Execute PPSE. It selects 2PAY.SYS.DDF01 or 1PAY.SYS.DDF01 directory",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv reader",
+      "description": "Act like an EMV reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv readrec",
+      "description": "Read files from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv roca",
+      "description": "Extract public keys and run ROCA test",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv scan",
+      "description": "Scan EMV card and save it contents to json file for emulator",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv search",
+      "description": "Try to select all applets from applets list and print installed applets",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv select",
+      "description": "Select applet",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "emv smart2nfc",
+      "description": "Complete transaction as a nfc smart card, using the ISO-7816 interface for auth",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "emv"
+    },
+    {
+      "command": "hf help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf"
+    },
+    {
+      "command": "hf list",
+      "description": "List protocol data in trace buffer",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf"
+    },
+    {
+      "command": "hf plot",
+      "description": "Plot signal",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf"
+    },
+    {
+      "command": "hf tune",
+      "description": "Continuously measure HF antenna tuning",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf"
+    },
+    {
+      "command": "hf search",
+      "description": "Search for known HF tags",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf"
+    },
+    {
+      "command": "hf sniff",
+      "description": "Generic HF Sniff",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf"
+    },
+    {
+      "command": "hf 14a help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a list",
+      "description": "List ISO 14443-a history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a antifuzz",
+      "description": "Fuzzing the anticollision phase.  Warning! Readers may react strange",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a config",
+      "description": "Configure 14a settings (use with caution)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a cuids",
+      "description": "Collect n>0 ISO14443-a UIDs in one go",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a sim",
+      "description": "Simulate ISO 14443-a tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a simaid",
+      "description": "Simulate ISO 14443-a AID Selection",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a sniff",
+      "description": "sniff ISO 14443-a traffic",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a raw",
+      "description": "Send raw hex data to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a reader",
+      "description": "Act like an ISO14443-a reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a apdu",
+      "description": "Send ISO 14443-4 APDU to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a apdufind",
+      "description": "Enumerate APDUs - CLA/INS/P1P2",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a chaining",
+      "description": "Control ISO 14443-4 input chaining",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a ndefformat",
+      "description": "Format ISO 14443-A as NFC Type 4 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a ndefread",
+      "description": "Read an NDEF file from ISO 14443-A Type 4 tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14a ndefwrite",
+      "description": "Write NDEF records to ISO 14443-A tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14a"
+    },
+    {
+      "command": "hf 14b help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b config",
+      "description": "Configure 14b settings (use with caution)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b list",
+      "description": "List ISO-14443-B history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b apdu",
+      "description": "Send ISO 14443-4 APDU to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b dump",
+      "description": "Read all memory pages of an ISO-14443-B tag, save to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b ndefread",
+      "description": "Read NDEF file on tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b raw",
+      "description": "Send raw hex data to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b rdbl",
+      "description": "Read SRI512/SRIX4 block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b reader",
+      "description": "Act as a ISO-14443-B reader to identify a tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b restore",
+      "description": "Restore from file to all memory pages of an ISO-14443-B tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b sim",
+      "description": "Fake ISO ISO-14443-B tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b sniff",
+      "description": "Eavesdrop ISO-14443-B",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b wrbl",
+      "description": "Write data to a SRI512/SRIX4 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b tearoff",
+      "description": "Tear-off attack on ST25TB/SRx counter blocks",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b valid",
+      "description": "SRIX4 checksum test",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b calypso",
+      "description": "Read contents of a Calypso card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b mobib",
+      "description": "Read contents of a Mobib card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 14b setuid",
+      "description": "Set UID for magic card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 14b"
+    },
+    {
+      "command": "hf 15 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 list",
+      "description": "List ISO-15693 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 demod",
+      "description": "Demodulate ISO-15693 from tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 dump",
+      "description": "Read all memory pages of an ISO-15693 tag, save to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 sniff",
+      "description": "Sniff ISO-15693 traffic",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 raw",
+      "description": "Send raw hex data to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 rdbl",
+      "description": "Read a block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 rdmulti",
+      "description": "Reads multiple blocks",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 reader",
+      "description": "Act like an ISO-15693 reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 restore",
+      "description": "Restore from file to all memory pages of an ISO-15693 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 samples",
+      "description": "Acquire samples as reader (enables carrier, sends inquiry)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 wipe",
+      "description": "Wipe card to zeros",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 wrbl",
+      "description": "Write a block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 sim",
+      "description": "Fake an ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 esave",
+      "description": "Save emulator memory to file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 slixwritepwd",
+      "description": "Writes a password on a SLIX ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 slixeasdisable",
+      "description": "Disable EAS mode on SLIX ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 slixeasenable",
+      "description": "Enable EAS mode on SLIX ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 slixprivacydisable",
+      "description": "Disable privacy mode on SLIX ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 slixprivacyenable",
+      "description": "Enable privacy mode on SLIX ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 slixprotectpage",
+      "description": "Protect pages on SLIX ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 passprotectafi",
+      "description": "Password protect AFI - Cannot be undone",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 passprotecteas",
+      "description": "Password protect EAS - Cannot be undone",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 findafi",
+      "description": "Brute force AFI of an ISO-15693 tag",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 writeafi",
+      "description": "Writes the AFI on an ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 writedsfid",
+      "description": "Writes the DSFID on an ISO-15693 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf 15 csetuid",
+      "description": "Set UID for magic card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf 15"
+    },
+    {
+      "command": "hf aliro help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf aliro"
+    },
+    {
+      "command": "hf aliro list",
+      "description": "List ISO 14443A/7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf aliro"
+    },
+    {
+      "command": "hf aliro info",
+      "description": "Get Aliro applet information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf aliro"
+    },
+    {
+      "command": "hf aliro read",
+      "description": "Run SELECT-AUTH0-AUTH1 and optional step-up document retrieval",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf aliro"
+    },
+    {
+      "command": "hf cipurse help",
+      "description": "This help.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse select",
+      "description": "Select CIPURSE application or file",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse auth",
+      "description": "Authenticate CIPURSE tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse read",
+      "description": "Read binary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse write",
+      "description": "Write binary file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse aread",
+      "description": "Read file attributes",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse awrite",
+      "description": "Write file attributes",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse formatall",
+      "description": "Erase all the data from chip",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse create",
+      "description": "Create file, application, key via DGI record",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse delete",
+      "description": "Delete file",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse updkey",
+      "description": "Update key",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse updakey",
+      "description": "Update key attributes",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse default",
+      "description": "Set default key and file id for all the other commands",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf cipurse test",
+      "description": "Regression tests",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf cipurse"
+    },
+    {
+      "command": "hf epa help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf epa"
+    },
+    {
+      "command": "hf epa cnonces",
+      "description": "Acquire encrypted PACE nonces of specific size",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf epa"
+    },
+    {
+      "command": "hf epa replay",
+      "description": "Perform PACE protocol by replaying given APDUs",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf epa"
+    },
+    {
+      "command": "hf epa sim",
+      "description": "Simulate PACE protocol",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf epa"
+    },
+    {
+      "command": "hf emrtd help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf emrtd"
+    },
+    {
+      "command": "hf emrtd dump",
+      "description": "Dump eMRTD files to binary files",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf emrtd"
+    },
+    {
+      "command": "hf emrtd info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf emrtd"
+    },
+    {
+      "command": "hf emrtd list",
+      "description": "List ISO 14443A/7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf emrtd"
+    },
+    {
+      "command": "hf felica help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica list",
+      "description": "List ISO 18092/FeliCa history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica seacinfo",
+      "description": "FeliCa SEAC tag information",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica raw",
+      "description": "Send raw hex data to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica rdbl",
+      "description": "read block data from authentication-not-required Service.",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica reader",
+      "description": "Act like an ISO18092/FeliCa reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica sniff",
+      "description": "Sniff ISO 18092/FeliCa traffic",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica wrbl",
+      "description": "write block data to an authentication-not-required Service.",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica dump",
+      "description": "Wait for and try dumping FeliCa",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica discnodes",
+      "description": "discover Area Code and Service Code nodes.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica rqservice",
+      "description": "verify the existence of Area and Service, and to acquire Key Version.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica rqresponse",
+      "description": "verify the existence of a card and its Mode.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica scsvcode",
+      "description": "acquire Area Code and Service Code.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica rqsyscode",
+      "description": "acquire System Code registered to the card.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica auth1",
+      "description": "authenticate a card. Start mutual authentication with Auth1",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica auth2",
+      "description": "allow a card to authenticate a Reader/Writer. Complete mutual authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica rqspecver",
+      "description": "acquire the version of card OS.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica resetmode",
+      "description": "reset Mode to Mode 0.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica litesim",
+      "description": "Emulating ISO/18092 FeliCa Lite tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica liteauth",
+      "description": "authenticate a card.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf felica litedump",
+      "description": "Wait for and try dumping FelicaLite",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf felica"
+    },
+    {
+      "command": "hf fido help",
+      "description": "This help.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fido list",
+      "description": "List ISO 14443A history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fido info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fido reg",
+      "description": "FIDO U2F Registration Message.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fido auth",
+      "description": "FIDO U2F Authentication Message.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fido make",
+      "description": "FIDO2 MakeCredential command.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fido assert",
+      "description": "FIDO2 GetAssertion command.",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf fido"
+    },
+    {
+      "command": "hf fudan help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf fudan"
+    },
+    {
+      "command": "hf fudan reader",
+      "description": "Act like a fudan reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf fudan"
+    },
+    {
+      "command": "hf fudan dump",
+      "description": "Dump FUDAN tag to binary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf fudan"
+    },
+    {
+      "command": "hf fudan rdbl",
+      "description": "Read a fudan tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf fudan"
+    },
+    {
+      "command": "hf fudan view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf fudan"
+    },
+    {
+      "command": "hf fudan wrbl",
+      "description": "Write a fudan tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf fudan"
+    },
+    {
+      "command": "hf gallagher help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher reader",
+      "description": "Read & decode all Gallagher credentials on a DESFire or Classic card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher clone",
+      "description": "Clone Gallagher credentials to a DESFire or Classic card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher delete",
+      "description": "Delete Gallagher credentials from a DESFire card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher diversifykey",
+      "description": "Diversify Gallagher key",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher decode",
+      "description": "Decode Gallagher credential block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher encode",
+      "description": "Encode Gallagher credential block",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gallagher test",
+      "description": "Test the function of Gallagher Mifare Core",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf gallagher"
+    },
+    {
+      "command": "hf gst help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf gst"
+    },
+    {
+      "command": "hf gst list",
+      "description": "List ISO 14443A/7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf gst"
+    },
+    {
+      "command": "hf gst test",
+      "description": "Perform self tests",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf gst"
+    },
+    {
+      "command": "hf gst info",
+      "description": "Get Google Smart Tap applet information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf gst"
+    },
+    {
+      "command": "hf gst read",
+      "description": "Read and decode Google Smart Tap pass objects",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf gst"
+    },
+    {
+      "command": "hf secc help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf secc"
+    },
+    {
+      "command": "hf secc info",
+      "description": "Read and decode Card Recognition Data (GP tag 0066)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf secc"
+    },
+    {
+      "command": "hf secc sim",
+      "description": "Simulate HID iCLASS SE Config Card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf secc"
+    },
+    {
+      "command": "hf secc sniff",
+      "description": "Sniff reader<->card, jam A0 D4 APDU",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf secc"
+    },
+    {
+      "command": "hf iclass help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass list",
+      "description": "List iclass history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass dump",
+      "description": "Dump Picopass / iCLASS tag to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass rdbl",
+      "description": "Read Picopass / iCLASS block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass reader",
+      "description": "Act like a Picopass / iCLASS reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass restore",
+      "description": "Restore a dump file onto a Picopass / iCLASS tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass sniff",
+      "description": "Eavesdrop Picopass / iCLASS communication",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass wrbl",
+      "description": "Write Picopass / iCLASS block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass creditepurse",
+      "description": "Credit epurse value",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass tear",
+      "description": "Performs tearoff attack on iCLASS block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass chk",
+      "description": "Check keys",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass loclass",
+      "description": "Use loclass to perform bruteforce reader attack",
+      "safetyLevel": "advanced",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass lookup",
+      "description": "Uses authentication trace to check for key in dictionary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass legrec",
+      "description": "Recovers 24 bits of the diversified key of a legacy card provided a valid nr-mac combination",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass legbrute",
+      "description": "Bruteforces 40 bits of a partial diversified key, provided 24 bits of the key and two valid nr-macs",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass unhash",
+      "description": "Reverses a diversified key to retrieve hash0 pre-images after DES encryption",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass blacktears",
+      "description": "Automated tearoff attack on new silicon cards to enable non-secure page mode",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass sim",
+      "description": "Simulate iCLASS tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass tagsim",
+      "description": "Simulate a full iCLASS 2K tag from FC/CN and keys",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass esave",
+      "description": "Save emulator memory to file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass esetblk",
+      "description": "Set emulator memory block data",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass configcard",
+      "description": "Reader configuration card generator",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass calcnewkey",
+      "description": "Calc diversified keys (blocks 3 & 4) to write new keys",
+      "safetyLevel": "restricted",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass encode",
+      "description": "Encode binary wiegand to block 7",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass encrypt",
+      "description": "Encrypt given block data",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass decrypt",
+      "description": "Decrypt given block data or tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass managekeys",
+      "description": "Manage keys to use with iclass commands",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass permutekey",
+      "description": "Permute function from 'heart of darkness' paper",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf iclass sam",
+      "description": "SAM tests",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf iclass"
+    },
+    {
+      "command": "hf ict help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf ict"
+    },
+    {
+      "command": "hf ict credential",
+      "description": "Read ICT credential and decode",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ict"
+    },
+    {
+      "command": "hf ict info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ict"
+    },
+    {
+      "command": "hf ict list",
+      "description": "List ICT history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf ict"
+    },
+    {
+      "command": "hf ict reader",
+      "description": "Act like an IS14443-a reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf ict"
+    },
+    {
+      "command": "hf jooki help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf jooki"
+    },
+    {
+      "command": "hf jooki clone",
+      "description": "Write a Jooki token",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf jooki"
+    },
+    {
+      "command": "hf jooki decode",
+      "description": "Decode Jooki token",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf jooki"
+    },
+    {
+      "command": "hf jooki encode",
+      "description": "Encode Jooki token",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf jooki"
+    },
+    {
+      "command": "hf jooki sim",
+      "description": "Simulate Jooki token",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf jooki"
+    },
+    {
+      "command": "hf ksx6924 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf ksx6924"
+    },
+    {
+      "command": "hf ksx6924 select",
+      "description": "Select application, and leave field up",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf ksx6924"
+    },
+    {
+      "command": "hf ksx6924 info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ksx6924"
+    },
+    {
+      "command": "hf ksx6924 balance",
+      "description": "Get current purse balance",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ksx6924"
+    },
+    {
+      "command": "hf ksx6924 init",
+      "description": "Perform transaction initialization with Mpda",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf ksx6924"
+    },
+    {
+      "command": "hf ksx6924 prec",
+      "description": "Send proprietary get record command (CLA=90, INS=4C)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ksx6924"
+    },
+    {
+      "command": "hf legic help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic dump",
+      "description": "Dump LEGIC Prime tag to binary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic info",
+      "description": "Display deobfuscated and decoded LEGIC Prime tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic list",
+      "description": "List LEGIC history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic rdbl",
+      "description": "Read bytes from a LEGIC Prime tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic reader",
+      "description": "LEGIC Prime Reader UID and tag info",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic restore",
+      "description": "Restore a dump file onto a LEGIC Prime tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic wipe",
+      "description": "Wipe a LEGIC Prime tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic wrbl",
+      "description": "Write data to a LEGIC Prime tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic sim",
+      "description": "Start tag simulator",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic esave",
+      "description": "Save emulator memory to file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic einfo",
+      "description": "Display deobfuscated and decoded emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic crc",
+      "description": "Calculate Legic CRC over given bytes",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf legic view",
+      "description": "Display deobfuscated and decoded content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf legic"
+    },
+    {
+      "command": "hf lto help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto dump",
+      "description": "Dump LTO-CM tag to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto list",
+      "description": "List LTO-CM history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto rdbl",
+      "description": "Read block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto reader",
+      "description": "Act like a LTO-CM reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto restore",
+      "description": "Restore dump file to LTO-CM tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf lto wrbl",
+      "description": "Write block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf lto"
+    },
+    {
+      "command": "hf mf help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf list",
+      "description": "List MIFARE history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf darkside",
+      "description": "Darkside attack",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf nested",
+      "description": "Nested attack",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf hardnested",
+      "description": "Nested attack for hardened MIFARE Classic cards",
+      "safetyLevel": "advanced",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf staticnested",
+      "description": "Nested attack against static nonce MIFARE Classic cards",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf brute",
+      "description": "Smart bruteforce to exploit weak key generators",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf autopwn",
+      "description": "Automatic key recovery tool for MIFARE Classic",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf nack",
+      "description": "Test for MIFARE NACK bug",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf chk",
+      "description": "Check keys",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf fchk",
+      "description": "Check keys fast, targets all keys on card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf decrypt",
+      "description": "Decrypt Crypto1 data from sniff or trace",
+      "safetyLevel": "advanced",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf keygen",
+      "description": "Generate key table for some known KDFs",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf auth4",
+      "description": "ISO14443-4 AES authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf acl",
+      "description": "Decode and print MIFARE Classic access rights bytes",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf dump",
+      "description": "Dump MIFARE Classic tag to binary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf isen",
+      "description": "Information Static Encrypted Nonces",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf mad",
+      "description": "Checks and prints MAD",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf personalize",
+      "description": "Personalize UID (MIFARE Classic EV1 only)",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf rdbl",
+      "description": "Read MIFARE Classic block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf rdsc",
+      "description": "Read MIFARE Classic sector",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf restore",
+      "description": "Restore MIFARE Classic binary file to tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf setmod",
+      "description": "Set MIFARE Classic EV1 load modulation strength",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf value",
+      "description": "Value blocks",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf wipe",
+      "description": "Wipe card to zeros and default keys/acc",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf wrbl",
+      "description": "Write MIFARE Classic block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf sim",
+      "description": "Simulate MIFARE card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ecfill",
+      "description": "Fill emulator memory with help of keys from emulator",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf eclr",
+      "description": "Clear emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf egetblk",
+      "description": "Get emulator memory block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf egetsc",
+      "description": "Get emulator memory sector",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ekeyprn",
+      "description": "Print keys from emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf esave",
+      "description": "Save emulator memory to file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf esetblk",
+      "description": "Set emulator memory block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf cgetblk",
+      "description": "Read block from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf cgetsc",
+      "description": "Read sector from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf cload",
+      "description": "Load dump to card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf csave",
+      "description": "Save dump from card into file or emulator",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf csetblk",
+      "description": "Write block to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf csetuid",
+      "description": "Set UID on card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf cview",
+      "description": "View card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf cwipe",
+      "description": "Wipe card to default UID/Sectors/Keys",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gen3uid",
+      "description": "Set UID without changing manufacturer block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gen3blk",
+      "description": "Overwrite manufacturer block",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gen3freeze",
+      "description": "Perma lock UID changes. irreversible",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ginfo",
+      "description": "Info about configuration of the card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ggetblk",
+      "description": "Read block from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gload",
+      "description": "Load dump to card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gsave",
+      "description": "Save dump from card into file or emulator",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gsetblk",
+      "description": "Write block to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gview",
+      "description": "View card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gchpwd",
+      "description": "Change card access password. Warning!",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gdmcfg",
+      "description": "Read config block from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gdmsetcfg",
+      "description": "Write config block to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gdmparsecfg",
+      "description": "Parse config block to card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf gdmsetblk",
+      "description": "Write block to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ndefformat",
+      "description": "Format MIFARE Classic Tag as NFC Tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ndefread",
+      "description": "Read and print NDEF records from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf ndefwrite",
+      "description": "Write NDEF records to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mf encodehid",
+      "description": "Encode a HID Credential / NDEF record to card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mf"
+    },
+    {
+      "command": "hf mfp help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp list",
+      "description": "List MIFARE Plus history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp acl",
+      "description": "Decode ACL values for Mifare Plus",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp auth",
+      "description": "Authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp chk",
+      "description": "Check keys",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp dump",
+      "description": "Dump MIFARE Plus tag to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp mad",
+      "description": "Check and print MAD",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp rdbl",
+      "description": "Read blocks from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp rdsc",
+      "description": "Read sectors from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp wrbl",
+      "description": "Write block to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp chkey",
+      "description": "Change key on card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp chconf",
+      "description": "Change config on card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp commitp",
+      "description": "Configure security layer (SL1/SL3 mode)",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp initp",
+      "description": "Fill all the card's keys in SL0 mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp wrp",
+      "description": "Write Perso command",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp ndefformat",
+      "description": "Format MIFARE Plus Tag as NFC Tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp ndefread",
+      "description": "Read and print NDEF records from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfp ndefwrite",
+      "description": "Write NDEF records to card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfp"
+    },
+    {
+      "command": "hf mfu help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu list",
+      "description": "List MIFARE Ultralight / NTAG history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu keygen",
+      "description": "Generate DES/3DES/AES MIFARE diversified keys",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu pwdgen",
+      "description": "Generate pwd from known algos",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu otptear",
+      "description": "Tear-off test on OTP bits",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu countertear",
+      "description": "Tear-off test on Ev1/NTAG Counter bits",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu cauth",
+      "description": "Ultralight-C - Authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu cchk",
+      "description": "Ultralight-C - Authentication dictionary check",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu aesauth",
+      "description": "Ultralight-AES - Authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu aeschk",
+      "description": "Ultralight-AES - Authentication dictionary check",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu setkey",
+      "description": "Ultralight C/AES - Set 3DES/AES keys",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu dump",
+      "description": "Dump MIFARE Ultralight family tag to binary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu incr",
+      "description": "Increments Ev1/NTAG counter",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu ndefread",
+      "description": "Prints NDEF records from card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu rdbl",
+      "description": "Read block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu restore",
+      "description": "Restore a dump file onto a tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu tamper",
+      "description": "NTAG 213TT - Configure the tamper feature",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu wipe",
+      "description": "Wipe card to zeros and default key",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu wrbl",
+      "description": "Write block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu esave",
+      "description": "Save emulator memory to file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu sim",
+      "description": "Simulate MIFARE Ultralight from emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu setuid",
+      "description": "Set UID - MAGIC tags only",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfu amiibo",
+      "description": "Amiibo tag operations",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfu"
+    },
+    {
+      "command": "hf mfdes help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes list",
+      "description": "List DESFire (ISO 14443A) history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes auth",
+      "description": "MIFARE DesFire Authentication",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes chk",
+      "description": "Check keys",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes default",
+      "description": "Set defaults for all the commands",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes detect",
+      "description": "Detect key type and tries to find one from the list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes formatpicc",
+      "description": "Format PICC",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes freemem",
+      "description": "Get free memory size",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getuid",
+      "description": "Get uid from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes mad",
+      "description": "Prints MAD records / files from the card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes setconfig",
+      "description": "Set card configuration",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes lsapp",
+      "description": "Show all applications with files list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getaids",
+      "description": "Get Application IDs list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getappnames",
+      "description": "Get Applications list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes bruteaid",
+      "description": "Recover AIDs by bruteforce",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes brutedamslot",
+      "description": "Recover DAM slots to delegated AIDs by bruteforce",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes createapp",
+      "description": "Create Application",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes createdelegateapp",
+      "description": "Create Delegated Application",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getdelegateappinfo",
+      "description": "Get Delegated Application info by DAM slot",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes deleteapp",
+      "description": "Delete Application",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes selectapp",
+      "description": "Select Application ID",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes selectisofid",
+      "description": "Select file by ISO ID",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes changekey",
+      "description": "Change Key",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes chkeysettings",
+      "description": "Change Key Settings",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getkeysettings",
+      "description": "Get Key Settings",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getkeyversions",
+      "description": "Get Key Versions",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes bruteisofid",
+      "description": "Recover file ISO IDs by bruteforce",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getfileids",
+      "description": "Get File IDs list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getfileisoids",
+      "description": "Get File ISO IDs list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes lsfiles",
+      "description": "Show all files list",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes dump",
+      "description": "Dump all files",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes createfile",
+      "description": "Create Standard/Backup File",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes createvaluefile",
+      "description": "Create Value File",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes createrecordfile",
+      "description": "Create Linear/Cyclic Record File",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes createmacfile",
+      "description": "Create Transaction MAC File",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes deletefile",
+      "description": "Delete File",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes getfilesettings",
+      "description": "Get file settings",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes chfilesettings",
+      "description": "Change file settings",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes read",
+      "description": "Read data from standard/backup/record/value/mac file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes write",
+      "description": "Write data to standard/backup/record/value file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes value",
+      "description": "Operations with value file (get/credit/limited credit/debit/clear)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes clearrecfile",
+      "description": "Clear record File",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf mfdes test",
+      "description": "Regression crypto tests",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf mfdes"
+    },
+    {
+      "command": "hf ntag424 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 auth",
+      "description": "Test authentication with key",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 read",
+      "description": "Read file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 write",
+      "description": "Write file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 getfs",
+      "description": "Get file settings",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 changefs",
+      "description": "Change file settings",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf ntag424 changekey",
+      "description": "Change key",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf ntag424"
+    },
+    {
+      "command": "hf saflok help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok read",
+      "description": "Read Saflok card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok provision",
+      "description": "Provision Saflok card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok encode",
+      "description": "Encode Saflok card data",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok decode",
+      "description": "Decode Saflok card data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok modify",
+      "description": "Modify Saflok card data",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok encrypt",
+      "description": "Encrypt 17-byte decrypted block",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok decrypt",
+      "description": "Decrypt 17-byte encrypted block",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok interrogate",
+      "description": "Interrogate saflok card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok cksum",
+      "description": "Generate checksum for data block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf saflok selftest",
+      "description": "Run self-test",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf saflok"
+    },
+    {
+      "command": "hf seos help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos list",
+      "description": "List SEOS history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos sam",
+      "description": "SAM tests",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos pacs",
+      "description": "Extract PACS Information from card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos write",
+      "description": "Write an ADF to the card",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos adf",
+      "description": "Read an ADF from the card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos gdf",
+      "description": "Read an GDF from card",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos sim",
+      "description": "Simulate Seos tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf seos managekeys",
+      "description": "Manage keys to use with SEOS commands",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf seos"
+    },
+    {
+      "command": "hf st25ta help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf st25ta info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf st25ta list",
+      "description": "List ISO 14443A/7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf st25ta ndefread",
+      "description": "read NDEF file on tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf st25ta protect",
+      "description": "change protection on tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf st25ta pwd",
+      "description": "change password on tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf st25ta sim",
+      "description": "Fake ISO 14443A/ST tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf st25ta"
+    },
+    {
+      "command": "hf tesla help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf tesla"
+    },
+    {
+      "command": "hf tesla info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf tesla"
+    },
+    {
+      "command": "hf tesla list",
+      "description": "List ISO 14443A/7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf tesla"
+    },
+    {
+      "command": "hf texkom help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf texkom"
+    },
+    {
+      "command": "hf texkom reader",
+      "description": "Act like a Texkom reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf texkom"
+    },
+    {
+      "command": "hf texkom sim",
+      "description": "Simulate a Texkom tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf texkom"
+    },
+    {
+      "command": "hf thinfilm help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf thinfilm"
+    },
+    {
+      "command": "hf thinfilm info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf thinfilm"
+    },
+    {
+      "command": "hf thinfilm list",
+      "description": "List NFC Barcode / Thinfilm history - not correct",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf thinfilm"
+    },
+    {
+      "command": "hf thinfilm sim",
+      "description": "Fake Thinfilm tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf thinfilm"
+    },
+    {
+      "command": "hf topaz help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz list",
+      "description": "List Topaz history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz dump",
+      "description": "Dump TOPAZ family tag to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz raw",
+      "description": "Send raw hex data to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz rdbl",
+      "description": "Read block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz reader",
+      "description": "Act like a Topaz reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz sim",
+      "description": "Simulate Topaz tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz sniff",
+      "description": "Sniff Topaz reader-tag communication",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf topaz wrbl",
+      "description": "Write block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hf topaz"
+    },
+    {
+      "command": "hf vas help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf vas"
+    },
+    {
+      "command": "hf vas info",
+      "description": "Get VAS applet information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf vas"
+    },
+    {
+      "command": "hf vas reader",
+      "description": "Read and decrypt VAS message",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf vas"
+    },
+    {
+      "command": "hf vas decrypt",
+      "description": "Decrypt a previously captured VAS cryptogram",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf vas"
+    },
+    {
+      "command": "hf waveshare help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf waveshare"
+    },
+    {
+      "command": "hf waveshare load",
+      "description": "Load image file to Waveshare NFC ePaper",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf waveshare"
+    },
+    {
+      "command": "hf xerox help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hf xerox list",
+      "description": "List ISO-14443B history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hf xerox info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hf xerox dump",
+      "description": "Read all memory pages of an Fuji/Xerox tag, save to file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hf xerox reader",
+      "description": "Act like a Fuji/Xerox reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hf xerox view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hf xerox rdbl",
+      "description": "Read Fuji/Xerox block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hf xerox"
+    },
+    {
+      "command": "hw help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hw"
+    },
+    {
+      "command": "hw detectreader",
+      "description": "Detect external reader field",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw status",
+      "description": "Show runtime status information about the connected Proxmark3",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw tearoff",
+      "description": "Program a tearoff hook for the next command supporting tearoff",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw timeout",
+      "description": "Set the communication timeout on the client side",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hw"
+    },
+    {
+      "command": "hw version",
+      "description": "Show version information about the client and Proxmark3",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "hw"
+    },
+    {
+      "command": "hw break",
+      "description": "Send break loop usb command",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw bootloader",
+      "description": "Reboot into bootloader mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw connect",
+      "description": "Connect to the device via serial port",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "hw"
+    },
+    {
+      "command": "hw dbg",
+      "description": "Set device side debug level",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw fpgaoff",
+      "description": "Turn off FPGA on device",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw lcd",
+      "description": "Send command/data to LCD",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw lcdreset",
+      "description": "Hardware reset LCD",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw ping",
+      "description": "Test if the Proxmark3 is responsive",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw readmem",
+      "description": "Read from MCU flash",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw reset",
+      "description": "Reset the device",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw setlfdivisor",
+      "description": "Drive LF antenna at 12MHz / (divisor + 1)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw sethfthresh",
+      "description": "Set thresholds in HF/14a mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw setmux",
+      "description": "Set the ADC mux to a specific value",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw standalone",
+      "description": "Start installed standalone mode on device",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw tia",
+      "description": "Trigger a Timing Interval Acquisition to re-adjust the RealTimeCounter divider",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw tune",
+      "description": "Measure tuning of device antenna",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "hw decay",
+      "description": "Measure HF antenna decay after field-off",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "hw"
+    },
+    {
+      "command": "lf help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf"
+    },
+    {
+      "command": "lf config",
+      "description": "Get/Set config for LF sampling, bit/sample, decimation, frequency",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf cmdread",
+      "description": "Modulate LF reader field to send command before read",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf read",
+      "description": "Read LF tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf relay",
+      "description": "LF relay between two pm3 devices (tag/rdr mode)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf search",
+      "description": "Read and Search for valid known tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf"
+    },
+    {
+      "command": "lf sim",
+      "description": "Simulate LF tag from buffer",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf simask",
+      "description": "Simulate ASK tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf simfsk",
+      "description": "Simulate FSK tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf simpsk",
+      "description": "Simulate PSK tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf simbidir",
+      "description": "Simulate LF tag (with bidirectional data transmission between reader and tag)",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf sniff",
+      "description": "Sniff LF traffic between reader and tag",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf tune",
+      "description": "Continuously measure LF antenna tuning",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf"
+    },
+    {
+      "command": "lf awid help",
+      "description": "this help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf awid brute",
+      "description": "bruteforce card number against reader",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf awid clone",
+      "description": "clone AWID tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf awid demod",
+      "description": "demodulate an AWID FSK tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf awid reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf awid sim",
+      "description": "simulate AWID tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf awid watch",
+      "description": "continuously watch for cards.  Reader mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf awid"
+    },
+    {
+      "command": "lf cotag help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf cotag"
+    },
+    {
+      "command": "lf cotag demod",
+      "description": "demodulate an COTAG tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf cotag"
+    },
+    {
+      "command": "lf cotag reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf cotag"
+    },
+    {
+      "command": "lf destron help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf destron"
+    },
+    {
+      "command": "lf destron demod",
+      "description": "demodulate an Destron tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf destron"
+    },
+    {
+      "command": "lf destron reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf destron"
+    },
+    {
+      "command": "lf destron clone",
+      "description": "clone Destron tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf destron"
+    },
+    {
+      "command": "lf destron sim",
+      "description": "simulate Destron tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf destron"
+    },
+    {
+      "command": "lf em help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em"
+    },
+    {
+      "command": "lf em 410x help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x demod",
+      "description": "demodulate a EM410x tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x sim",
+      "description": "simulate EM410x tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x brute",
+      "description": "reader bruteforce attack by simulating EM410x tags",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x watch",
+      "description": "watches for EM410x 125/134 kHz tags",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x spoof",
+      "description": "watches for EM410x 125/134 kHz tags, and replays them",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 410x clone",
+      "description": "clone EM410x Tag ID to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 410x"
+    },
+    {
+      "command": "lf em 4x05 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 clonehelp",
+      "description": "Shows the available clone commands",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 brute",
+      "description": "Bruteforce password",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 chk",
+      "description": "Check passwords",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 config",
+      "description": "Create common configuration words",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 demod",
+      "description": "Demodulate a EM4x05/EM4x69 tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 dump",
+      "description": "Dump EM4x05/EM4x69 tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 read",
+      "description": "Read word data from EM4x05/EM4x69",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 sniff",
+      "description": "Attempt to recover em4x05 commands from sample buffer",
+      "safetyLevel": "advanced",
+      "offlineAvailable": true,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 unlock",
+      "description": "Execute tear off against EM4x05/EM4x69",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 wipe",
+      "description": "Wipe EM4x05/EM4x69 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x05 write",
+      "description": "Write word data to EM4x05/EM4x69",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x05"
+    },
+    {
+      "command": "lf em 4x50 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 brute",
+      "description": "Bruteforce attack to find password",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 chk",
+      "description": "Check passwords",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 dump",
+      "description": "Dump EM4x50 tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 login",
+      "description": "Login into EM4x50 tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 rdbl",
+      "description": "Read EM4x50 word data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 reader",
+      "description": "Show standard read mode data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 restore",
+      "description": "Restore EM4x50 dump to tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 wipe",
+      "description": "Wipe EM4x50 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 wrbl",
+      "description": "Write EM4x50 word data",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 wrpwd",
+      "description": "Change EM4x50 password",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 esave",
+      "description": "Save emulator memory to file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x50 sim",
+      "description": "Simulate EM4x50 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x50"
+    },
+    {
+      "command": "lf em 4x70 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 brute",
+      "description": "Bruteforce EM4X70 to find partial key",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 write",
+      "description": "Write EM4x70",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 unlock",
+      "description": "Unlock EM4x70 for writing",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 auth",
+      "description": "Authenticate EM4x70",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 setpin",
+      "description": "Write PIN",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 setkey",
+      "description": "Write key",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 calc",
+      "description": "Calculate EM4x70 challenge and response",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 recover",
+      "description": "Recover remaining key from partial key",
+      "safetyLevel": "advanced",
+      "offlineAvailable": true,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf em 4x70 autorecover",
+      "description": "Recover entire key from writable tag",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf em 4x70"
+    },
+    {
+      "command": "lf fdxb help",
+      "description": "this help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf fdxb"
+    },
+    {
+      "command": "lf fdxb demod",
+      "description": "demodulate a FDX-B ISO11784/85 tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf fdxb"
+    },
+    {
+      "command": "lf fdxb reader",
+      "description": "attempt to read at 134kHz and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf fdxb"
+    },
+    {
+      "command": "lf fdxb clone",
+      "description": "clone animal ID tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf fdxb"
+    },
+    {
+      "command": "lf fdxb sim",
+      "description": "simulate Animal ID tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf fdxb"
+    },
+    {
+      "command": "lf gallagher help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf gallagher"
+    },
+    {
+      "command": "lf gallagher demod",
+      "description": "demodulate an GALLAGHER tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf gallagher"
+    },
+    {
+      "command": "lf gallagher reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf gallagher"
+    },
+    {
+      "command": "lf gallagher clone",
+      "description": "clone GALLAGHER tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf gallagher"
+    },
+    {
+      "command": "lf gallagher sim",
+      "description": "simulate GALLAGHER tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf gallagher"
+    },
+    {
+      "command": "lf gproxii help",
+      "description": "this help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf gproxii"
+    },
+    {
+      "command": "lf gproxii demod",
+      "description": "demodulate a G Prox II tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf gproxii"
+    },
+    {
+      "command": "lf gproxii reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf gproxii"
+    },
+    {
+      "command": "lf gproxii clone",
+      "description": "clone Guardall tag to T55x7 or Q5/T5555",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf gproxii"
+    },
+    {
+      "command": "lf gproxii sim",
+      "description": "simulate Guardall tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf gproxii"
+    },
+    {
+      "command": "lf hid help",
+      "description": "this help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hid demod",
+      "description": "demodulate HID Prox tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hid reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hid clone",
+      "description": "clone HID tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hid sim",
+      "description": "simulate HID tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hid brute",
+      "description": "bruteforce facility code or card number against reader",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hid watch",
+      "description": "continuously watch for cards.  Reader mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf hid"
+    },
+    {
+      "command": "lf hitag help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag list",
+      "description": "List Hitag trace history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag reader",
+      "description": "Act like a Hitag 2 reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag test",
+      "description": "Perform self tests",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag dump",
+      "description": "Dump Hitag 2 tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag read",
+      "description": "Read Hitag memory",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag sniff",
+      "description": "Eavesdrop Hitag communication",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag wrbl",
+      "description": "Write a block (page) in Hitag memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag eload",
+      "description": "Upload file into emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag eview",
+      "description": "View emulator memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag sim",
+      "description": "Simulate Hitag transponder",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag cc",
+      "description": "Hitag S: test all provided challenges",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag crack2",
+      "description": "Recover 2048bits of crypto stream",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag chk",
+      "description": "Check keys",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag lookup",
+      "description": "Uses authentication trace to check for key in dictionary file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag ta",
+      "description": "Hitag 2: test all recorded authentications",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag"
+    },
+    {
+      "command": "lf hitag hts help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts list",
+      "description": "List Hitag S trace history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts reader",
+      "description": "Act like a Hitag S reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts rdbl",
+      "description": "Read Hitag S page",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts dump",
+      "description": "Dump Hitag S pages to a file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts restore",
+      "description": "Restore Hitag S memory from dump file",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts wrbl",
+      "description": "Write Hitag S page",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag hts sim",
+      "description": "Simulate Hitag S transponder",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag hts"
+    },
+    {
+      "command": "lf hitag htu help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf hitag htu list",
+      "description": "List Hitag µ trace history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf hitag htu reader",
+      "description": "Act like a Hitag µ reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf hitag htu rdbl",
+      "description": "Read Hitag µ block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf hitag htu dump",
+      "description": "Dump Hitag µ blocks to a file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf hitag htu wrbl",
+      "description": "Write Hitag µ block",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf hitag htu sim",
+      "description": "Simulate Hitag µ transponder",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf hitag htu"
+    },
+    {
+      "command": "lf idteck help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf idteck"
+    },
+    {
+      "command": "lf idteck demod",
+      "description": "demodulate an Idteck tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf idteck"
+    },
+    {
+      "command": "lf idteck reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf idteck"
+    },
+    {
+      "command": "lf idteck clone",
+      "description": "clone Idteck tag to T55x7 or Q5/T5555",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf idteck"
+    },
+    {
+      "command": "lf idteck sim",
+      "description": "simulate Idteck tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf idteck"
+    },
+    {
+      "command": "lf indala help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf indala brute",
+      "description": "Bruteforce an Indala reader with a specified facility code",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf indala demod",
+      "description": "Demodulate an Indala tag (PSK1) from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf indala altdemod",
+      "description": "Alternative method to demodulate samples for Indala 64 bit UID (option '224' for 224 bit)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf indala reader",
+      "description": "Read an Indala tag from the antenna",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf indala clone",
+      "description": "Clone Indala tag to T55x7 or Q5/T5555",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf indala sim",
+      "description": "Simulate Indala tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf indala"
+    },
+    {
+      "command": "lf io help",
+      "description": "this help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf io"
+    },
+    {
+      "command": "lf io demod",
+      "description": "demodulate an ioProx tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf io"
+    },
+    {
+      "command": "lf io reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf io"
+    },
+    {
+      "command": "lf io clone",
+      "description": "clone ioProx tag to T55x7 or Q5/T5555",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf io"
+    },
+    {
+      "command": "lf io sim",
+      "description": "simulate ioProx tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf io"
+    },
+    {
+      "command": "lf io watch",
+      "description": "continuously watch for cards. Reader mode",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf io"
+    },
+    {
+      "command": "lf jablotron help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf jablotron"
+    },
+    {
+      "command": "lf jablotron demod",
+      "description": "demodulate an Jablotron tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf jablotron"
+    },
+    {
+      "command": "lf jablotron reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf jablotron"
+    },
+    {
+      "command": "lf jablotron clone",
+      "description": "clone jablotron tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf jablotron"
+    },
+    {
+      "command": "lf jablotron sim",
+      "description": "simulate jablotron tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf jablotron"
+    },
+    {
+      "command": "lf keri help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf keri"
+    },
+    {
+      "command": "lf keri demod",
+      "description": "demodulate an KERI tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf keri"
+    },
+    {
+      "command": "lf keri reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf keri"
+    },
+    {
+      "command": "lf keri clone",
+      "description": "clone KERI tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf keri"
+    },
+    {
+      "command": "lf keri sim",
+      "description": "simulate KERI tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf keri"
+    },
+    {
+      "command": "lf motorola help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf motorola"
+    },
+    {
+      "command": "lf motorola demod",
+      "description": "demodulate an MOTOROLA tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf motorola"
+    },
+    {
+      "command": "lf motorola reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf motorola"
+    },
+    {
+      "command": "lf motorola clone",
+      "description": "clone MOTOROLA tag to T55x7",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf motorola"
+    },
+    {
+      "command": "lf motorola sim",
+      "description": "simulate MOTOROLA tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf motorola"
+    },
+    {
+      "command": "lf nedap help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf nedap"
+    },
+    {
+      "command": "lf nedap demod",
+      "description": "demodulate Nedap tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf nedap"
+    },
+    {
+      "command": "lf nedap reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf nedap"
+    },
+    {
+      "command": "lf nedap clone",
+      "description": "clone Nedap tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf nedap"
+    },
+    {
+      "command": "lf nedap sim",
+      "description": "simulate Nedap tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf nedap"
+    },
+    {
+      "command": "lf nexwatch help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf nexwatch"
+    },
+    {
+      "command": "lf nexwatch demod",
+      "description": "demodulate a NexWatch tag (nexkey, quadrakey) from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf nexwatch"
+    },
+    {
+      "command": "lf nexwatch reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf nexwatch"
+    },
+    {
+      "command": "lf nexwatch clone",
+      "description": "clone NexWatch tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf nexwatch"
+    },
+    {
+      "command": "lf nexwatch sim",
+      "description": "simulate NexWatch tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf nexwatch"
+    },
+    {
+      "command": "lf noralsy help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf noralsy"
+    },
+    {
+      "command": "lf noralsy demod",
+      "description": "demodulate an Noralsy tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf noralsy"
+    },
+    {
+      "command": "lf noralsy reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf noralsy"
+    },
+    {
+      "command": "lf noralsy clone",
+      "description": "clone Noralsy tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf noralsy"
+    },
+    {
+      "command": "lf noralsy sim",
+      "description": "simulate Noralsy tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf noralsy"
+    },
+    {
+      "command": "lf pac help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf pac"
+    },
+    {
+      "command": "lf pac demod",
+      "description": "demodulate a PAC tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf pac"
+    },
+    {
+      "command": "lf pac reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf pac"
+    },
+    {
+      "command": "lf pac clone",
+      "description": "clone PAC tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf pac"
+    },
+    {
+      "command": "lf pac sim",
+      "description": "simulate PAC tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf pac"
+    },
+    {
+      "command": "lf paradox help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf paradox"
+    },
+    {
+      "command": "lf paradox demod",
+      "description": "demodulate a Paradox FSK tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf paradox"
+    },
+    {
+      "command": "lf paradox reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf paradox"
+    },
+    {
+      "command": "lf paradox clone",
+      "description": "clone paradox tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf paradox"
+    },
+    {
+      "command": "lf paradox sim",
+      "description": "simulate paradox tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf paradox"
+    },
+    {
+      "command": "lf pcf7931 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf pcf7931"
+    },
+    {
+      "command": "lf pcf7931 reader",
+      "description": "Read content of a PCF7931 transponder",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf pcf7931"
+    },
+    {
+      "command": "lf pcf7931 write",
+      "description": "Write data on a PCF7931 transponder.",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf pcf7931"
+    },
+    {
+      "command": "lf pcf7931 config",
+      "description": "Configure the password, the tags initialization delay and time offsets (optional)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf pcf7931"
+    },
+    {
+      "command": "lf presco help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf presco"
+    },
+    {
+      "command": "lf presco demod",
+      "description": "demodulate Presco tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf presco"
+    },
+    {
+      "command": "lf presco reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf presco"
+    },
+    {
+      "command": "lf presco clone",
+      "description": "clone presco tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf presco"
+    },
+    {
+      "command": "lf presco sim",
+      "description": "simulate presco tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf presco"
+    },
+    {
+      "command": "lf pyramid help",
+      "description": "this help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf pyramid"
+    },
+    {
+      "command": "lf pyramid demod",
+      "description": "demodulate a Pyramid FSK tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf pyramid"
+    },
+    {
+      "command": "lf pyramid reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf pyramid"
+    },
+    {
+      "command": "lf pyramid clone",
+      "description": "clone pyramid tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf pyramid"
+    },
+    {
+      "command": "lf pyramid sim",
+      "description": "simulate pyramid tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf pyramid"
+    },
+    {
+      "command": "lf securakey help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf securakey"
+    },
+    {
+      "command": "lf securakey demod",
+      "description": "demodulate an Securakey tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf securakey"
+    },
+    {
+      "command": "lf securakey reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf securakey"
+    },
+    {
+      "command": "lf securakey clone",
+      "description": "clone Securakey tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf securakey"
+    },
+    {
+      "command": "lf securakey sim",
+      "description": "simulate Securakey tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf securakey"
+    },
+    {
+      "command": "lf ti help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf ti"
+    },
+    {
+      "command": "lf ti demod",
+      "description": "Demodulate raw bits for TI LF tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf ti"
+    },
+    {
+      "command": "lf ti reader",
+      "description": "Read and decode a TI 134 kHz tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf ti"
+    },
+    {
+      "command": "lf ti write",
+      "description": "Write new data to a r/w TI 134 kHz tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf ti"
+    },
+    {
+      "command": "lf t55xx help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx clonehelp",
+      "description": "Shows the available clone commands",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx config",
+      "description": "Set/Get T55XX configuration (modulation, inverted, offset, rate)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx dangerraw",
+      "description": "Sends raw bitstream. Dangerous, do not use!!",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx detect",
+      "description": "Try detecting the tag modulation from reading the configuration block",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx deviceconfig",
+      "description": "Set/Get T55XX device configuration",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx dump",
+      "description": "Dump T55xx card Page 0 block 0-7",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx info",
+      "description": "Show T55x7 configuration data (page 0/ blk 0)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx p1detect",
+      "description": "Try detecting if this is a t55xx tag by reading page 1",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx read",
+      "description": "Read T55xx block data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx resetread",
+      "description": "Send Reset Cmd then lf read the stream to attempt to identify the start of it",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx restore",
+      "description": "Restore T55xx card Page 0 / Page 1 blocks",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx trace",
+      "description": "Show T55x7 traceability data (page 1/ blk 0-1)",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx wakeup",
+      "description": "Send AOR wakeup command",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx view",
+      "description": "Display content from tag dump file",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx write",
+      "description": "Write T55xx block data",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx bruteforce",
+      "description": "Simple bruteforce attack to find password",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx chk",
+      "description": "Check passwords",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx protect",
+      "description": "Password protect tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx recoverpw",
+      "description": "Try to recover from bad password write from a cloner",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx sniff",
+      "description": "Attempt to recover T55xx commands from sample buffer",
+      "safetyLevel": "advanced",
+      "offlineAvailable": true,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx special",
+      "description": "Show block changes with 64 different offsets",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf t55xx wipe",
+      "description": "Wipe a T55xx tag and set defaults (will destroy any data on tag)",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf t55xx"
+    },
+    {
+      "command": "lf viking help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf viking"
+    },
+    {
+      "command": "lf viking demod",
+      "description": "demodulate a Viking tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf viking"
+    },
+    {
+      "command": "lf viking reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf viking"
+    },
+    {
+      "command": "lf viking clone",
+      "description": "clone Viking tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf viking"
+    },
+    {
+      "command": "lf viking sim",
+      "description": "simulate Viking tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf viking"
+    },
+    {
+      "command": "lf visa2000 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf visa2000"
+    },
+    {
+      "command": "lf visa2000 demod",
+      "description": "demodulate an VISA2000 tag from the GraphBuffer",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "lf visa2000"
+    },
+    {
+      "command": "lf visa2000 reader",
+      "description": "attempt to read and extract tag data",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "lf visa2000"
+    },
+    {
+      "command": "lf visa2000 clone",
+      "description": "clone Visa2000 tag to T55x7, Q5/T5555 or EM4305/4469",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf visa2000"
+    },
+    {
+      "command": "lf visa2000 sim",
+      "description": "simulate Visa2000 tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "lf visa2000"
+    },
+    {
+      "command": "mem help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "mem"
+    },
+    {
+      "command": "mem baudrate",
+      "description": "Set Flash memory Spi baudrate",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem"
+    },
+    {
+      "command": "mem dump",
+      "description": "Dump data from flash memory",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem"
+    },
+    {
+      "command": "mem info",
+      "description": "Flash memory information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem"
+    },
+    {
+      "command": "mem load",
+      "description": "Load data to flash memory",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem"
+    },
+    {
+      "command": "mem wipe",
+      "description": "Wipe data from flash memory",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "mem"
+    },
+    {
+      "command": "mem spiffs help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs copy",
+      "description": "Copy a file to another (destructively) in SPIFFS file system",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs check",
+      "description": "Check/try to defrag faulty/fragmented file system",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs dump",
+      "description": "Dump a file from SPIFFS file system",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs info",
+      "description": "File system information and usage statistics",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs mount",
+      "description": "Mount the SPIFFS file system if not already mounted",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs remove",
+      "description": "Remove a file from SPIFFS file system",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs rename",
+      "description": "Rename/move a file in SPIFFS file system",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs test",
+      "description": "Test SPIFFS Operations",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs tree",
+      "description": "Print the Flash memory file system tree",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs unmount",
+      "description": "Un-mount the SPIFFS file system",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs upload",
+      "description": "Upload file into SPIFFS file system",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs view",
+      "description": "View file on SPIFFS file system",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mem spiffs wipe",
+      "description": "Wipe all files from SPIFFS file system   * dangerous *",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "mem spiffs"
+    },
+    {
+      "command": "mqtt help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "mqtt"
+    },
+    {
+      "command": "mqtt send",
+      "description": "Send messages or json file over MQTT",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "mqtt"
+    },
+    {
+      "command": "mqtt receive",
+      "description": "Receive message or json file over MQTT",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "mqtt"
+    },
+    {
+      "command": "nfc help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc"
+    },
+    {
+      "command": "nfc decode",
+      "description": "Decode NDEF records",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "nfc"
+    },
+    {
+      "command": "nfc type1 read",
+      "description": "read NFC Forum Tag Type 1",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc type1"
+    },
+    {
+      "command": "nfc type1 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc type1"
+    },
+    {
+      "command": "nfc type2 read",
+      "description": "read NFC Forum Tag Type 2",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc type2"
+    },
+    {
+      "command": "nfc type2 help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc type2"
+    },
+    {
+      "command": "nfc type4a format",
+      "description": "format ISO-14443-a tag as NFC Tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "nfc type4a"
+    },
+    {
+      "command": "nfc type4a read",
+      "description": "read NFC Forum Tag Type 4 A",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc type4a"
+    },
+    {
+      "command": "nfc type4a write",
+      "description": "write NFC Forum Tag Type 4 A",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "nfc type4a"
+    },
+    {
+      "command": "nfc type4a st25taread",
+      "description": "read ST25TA as NFC Forum Tag Type 4",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc type4a"
+    },
+    {
+      "command": "nfc type4a help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc type4a"
+    },
+    {
+      "command": "nfc type4b read",
+      "description": "read NFC Forum Tag Type 4 B",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc type4b"
+    },
+    {
+      "command": "nfc type4b help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc type4b"
+    },
+    {
+      "command": "nfc mf cformat",
+      "description": "format MIFARE Classic Tag as NFC Tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "nfc mf"
+    },
+    {
+      "command": "nfc mf cread",
+      "description": "read NFC Type MIFARE Classic Tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc mf"
+    },
+    {
+      "command": "nfc mf cwrite",
+      "description": "write NFC Type MIFARE Classic Tag",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "nfc mf"
+    },
+    {
+      "command": "nfc mf pread",
+      "description": "read NFC Type MIFARE Plus Tag",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc mf"
+    },
+    {
+      "command": "nfc mf help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc mf"
+    },
+    {
+      "command": "nfc barcode read",
+      "description": "read NFC Barcode",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "nfc barcode"
+    },
+    {
+      "command": "nfc barcode sim",
+      "description": "simulate NFC Barcode",
+      "safetyLevel": "restricted",
+      "offlineAvailable": false,
+      "section": "nfc barcode"
+    },
+    {
+      "command": "nfc barcode help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "nfc barcode"
+    },
+    {
+      "command": "piv help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "piv"
+    },
+    {
+      "command": "piv select",
+      "description": "Select the PIV applet",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "piv"
+    },
+    {
+      "command": "piv getdata",
+      "description": "Gets a container on a PIV card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "piv"
+    },
+    {
+      "command": "piv authsign",
+      "description": "Authenticate with the card",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "piv"
+    },
+    {
+      "command": "piv scan",
+      "description": "Scan PIV card for known containers",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "piv"
+    },
+    {
+      "command": "piv list",
+      "description": "List ISO7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "piv"
+    },
+    {
+      "command": "smart help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "smart"
+    },
+    {
+      "command": "smart list",
+      "description": "List ISO 7816 history",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "smart"
+    },
+    {
+      "command": "smart brute",
+      "description": "Bruteforce SFI",
+      "safetyLevel": "advanced",
+      "offlineAvailable": false,
+      "section": "smart"
+    },
+    {
+      "command": "smart info",
+      "description": "Tag information",
+      "safetyLevel": "read-only",
+      "offlineAvailable": false,
+      "section": "smart"
+    },
+    {
+      "command": "smart pcsc",
+      "description": "Turn pm3 into pcsc reader and relay to host OS via vpcd",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "smart"
+    },
+    {
+      "command": "smart reader",
+      "description": "Act like an IS07816 reader",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "smart"
+    },
+    {
+      "command": "smart raw",
+      "description": "Send raw hex data to tag",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "smart"
+    },
+    {
+      "command": "smart upgrade",
+      "description": "Upgrade sim module firmware",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "smart"
+    },
+    {
+      "command": "smart setclock",
+      "description": "Set clock speed",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "smart"
+    },
+    {
+      "command": "script help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "script"
+    },
+    {
+      "command": "script list",
+      "description": "List available scripts",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "script"
+    },
+    {
+      "command": "script run",
+      "description": "<name> - execute a script",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "script"
+    },
+    {
+      "command": "trace help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "trace"
+    },
+    {
+      "command": "trace extract",
+      "description": "Extract authentication challenges found in trace",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "trace"
+    },
+    {
+      "command": "trace list",
+      "description": "List protocol data in trace buffer",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "trace"
+    },
+    {
+      "command": "trace load",
+      "description": "Load trace from file",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "trace"
+    },
+    {
+      "command": "trace save",
+      "description": "Save trace buffer to file",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "trace"
+    },
+    {
+      "command": "usart help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "usart"
+    },
+    {
+      "command": "usart btpin",
+      "description": "Change BT add-on PIN",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart btfactory",
+      "description": "Reset BT add-on to factory settings",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart tx",
+      "description": "Send string over USART",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart rx",
+      "description": "Receive string over USART",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart txrx",
+      "description": "Send string over USART and wait for response",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart txhex",
+      "description": "Send bytes over USART",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart rxhex",
+      "description": "Receive bytes over USART",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "usart config",
+      "description": "Configure USART",
+      "safetyLevel": "unknown",
+      "offlineAvailable": false,
+      "section": "usart"
+    },
+    {
+      "command": "wiegand help",
+      "description": "This help",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "wiegand"
+    },
+    {
+      "command": "wiegand list",
+      "description": "List available wiegand formats",
+      "safetyLevel": "read-only",
+      "offlineAvailable": true,
+      "section": "wiegand"
+    },
+    {
+      "command": "wiegand encode",
+      "description": "Encode to wiegand raw hex (currently for HID Prox)",
+      "safetyLevel": "unknown",
+      "offlineAvailable": true,
+      "section": "wiegand"
+    },
+    {
+      "command": "wiegand decode",
+      "description": "Convert raw hex to decoded wiegand format (currently for HID Prox)",
+      "safetyLevel": "restricted",
+      "offlineAvailable": true,
+      "section": "wiegand"
+    }
+  ]
+}

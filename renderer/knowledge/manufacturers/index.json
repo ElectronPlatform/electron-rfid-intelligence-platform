@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "items": [
+    {"id": "nxp", "file": "nxp.json"},
+    {"id": "hid", "file": "hid.json"},
+    {"id": "st_microelectronics", "file": "st_microelectronics.json"}
+  ]
+}

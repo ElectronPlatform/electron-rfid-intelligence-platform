@@ -1,0 +1,1 @@
+{"id":"clone_support","kind":"capability","displayName":"Clone Support","aliases":["Copy to test tag"],"category":"write","risk":"controlled","summary":"Capability marker for compatible authorised test tags only."}

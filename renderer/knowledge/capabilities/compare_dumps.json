@@ -1,0 +1,1 @@
+{"id":"compare_dumps","kind":"capability","displayName":"Compare dumps","risk":"low","summary":"Compare stored dumps to understand differences over time."}

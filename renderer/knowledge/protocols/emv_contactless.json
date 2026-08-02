@@ -1,0 +1,1 @@
+{"id":"emv_contactless","kind":"protocol","displayName":"EMV Contactless","frequency":"13.56 MHz","summary":"Payment application protocol family. Electron treats this as safe metadata only."}

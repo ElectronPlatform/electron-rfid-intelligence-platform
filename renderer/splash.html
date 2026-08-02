@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Electron</title>
+  <style>
+    :root{--blue:#38bdf8;--deep:#020617;--line:#2563eb;--text:#e5f2ff;--muted:#9db4d6}
+    *{box-sizing:border-box}
+    body{
+      margin:0;width:100vw;height:100vh;overflow:hidden;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 50% 48%, rgba(14,165,233,.2), transparent 22%),
+        radial-gradient(circle at 50% 50%, #0b1d3d 0%, #020617 58%, #000 100%);
+      display:grid;place-items:center;
+    }
+    .splash{position:relative;width:min(920px,94vw);height:min(680px,92vh);display:grid;place-items:center}
+    .atom{
+      position:absolute;
+      top:150px;
+      left:50%;
+      width:430px;
+      height:270px;
+      transform:translateX(-50%);
+      display:grid;
+      place-items:center;
+      animation:fadeIn .8s ease .2s both;
+    }
+    .orbitSvg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      overflow:visible;
+      filter:drop-shadow(0 0 10px rgba(56,189,248,.55));
+    }
+    .orbitPath{
+      fill:none;
+      stroke:rgba(56,189,248,.68);
+      stroke-width:1.35;
+      vector-effect:non-scaling-stroke;
+    }
+    .orbitGlow{
+      fill:none;
+      stroke:rgba(37,99,235,.22);
+      stroke-width:5;
+    }
+    .orbitParticle{
+      fill:#67e8f9;
+      filter:drop-shadow(0 0 8px #67e8f9) drop-shadow(0 0 16px rgba(56,189,248,.95));
+    }
+    .orbitParticle.small{opacity:.72}
+    .core{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:138px;height:138px;border-radius:50%;
+      display:grid;place-items:center;
+      background:radial-gradient(circle,#2563eb 0%,#0ea5e9 38%,#071a3d 72%);
+      box-shadow:0 0 24px #38bdf8,0 0 70px rgba(37,99,235,.82);
+      animation:corePulse 3.2s ease-in-out infinite;
+    }
+    .core::before{content:"";position:absolute;inset:-18px;border:1px solid rgba(96,239,255,.45);border-radius:50%;animation:charge 3s ease-out forwards}
+    .mark{font-size:82px;font-weight:1000;letter-spacing:-8px;color:#f8fbff;-webkit-text-stroke:2px rgba(2,6,23,.35);text-shadow:0 2px 8px rgba(2,6,23,.75),0 0 10px rgba(255,255,255,.45)}
+    .module{position:absolute;width:170px;text-align:center;opacity:0;animation:fadeIn .8s ease forwards}
+    .module b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+    .module span{display:block;margin-top:4px;color:var(--muted);font-size:12px;line-height:1.25}
+    .module::before{
+      content:"";display:block;margin:0 auto 8px;width:48px;height:48px;border-radius:50%;
+      border:1px solid rgba(59,130,246,.75);
+      background:radial-gradient(circle,rgba(56,189,248,.35),rgba(15,23,42,.4));
+      box-shadow:0 0 18px rgba(37,99,235,.55);
+    }
+    .m1{top:22px;left:50%;transform:translateX(-50%);animation-delay:.25s}
+    .m2{top:120px;left:70px;animation-delay:.45s}
+    .m3{top:120px;right:70px;animation-delay:.65s}
+    .m4{top:330px;right:20px;animation-delay:.85s}
+    .m5{top:330px;left:20px;animation-delay:1.05s}
+    .m6{bottom:70px;right:150px;animation-delay:1.25s}
+    .m7{bottom:70px;left:150px;animation-delay:1.45s}
+    .brand{position:absolute;top:380px;text-align:center;animation:fadeIn .9s ease .8s both}
+    .brand h1{margin:0;font-size:52px;letter-spacing:.28em;font-weight:800}
+    .brand p{margin:6px 0 0;color:#60a5fa;letter-spacing:.22em;font-weight:800}
+    .tagline{margin-top:24px;color:#b7c7df;font-size:18px;letter-spacing:.04em}
+    .progress{position:absolute;bottom:38px;width:min(430px,70vw);text-align:center}
+    .step{height:24px;color:#60a5fa;font-size:16px;margin-bottom:12px}
+    .bar{height:8px;border-radius:999px;background:rgba(30,58,138,.45);overflow:hidden}
+    .fill{height:100%;width:4%;background:linear-gradient(90deg,#2563eb,#67e8f9);box-shadow:0 0 18px #38bdf8;transition:width .42s ease}
+    .build{
+      position:absolute;top:18px;right:18px;border:1px solid rgba(59,130,246,.45);
+      border-radius:14px;padding:12px 16px;background:rgba(2,6,23,.42);text-align:left
+    }
+    .build b{display:block;color:#60a5fa;letter-spacing:.08em}.build span{color:#cbd5e1;font-size:13px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+    @keyframes charge{from{transform:scale(.85);opacity:.3}to{transform:scale(1.25);opacity:.85}}
+    @keyframes corePulse{0%,100%{filter:brightness(.95)}50%{filter:brightness(1.16)}}
+    @media(max-width:760px){.module span{display:none}.module{width:120px}.brand h1{font-size:36px}.atom{top:158px;transform:translateX(-50%) scale(.88)}.brand{top:378px}}
+  </style>
+</head>
+<body>
+  <div class="splash">
+    <div class="build"><b>PREVIEW BUILD</b><span>Release Candidate 0.8.0</span></div>
+    <div class="module m1"><b>Knowledge Engine</b><span>Smart information</span></div>
+    <div class="module m2"><b>Research Library</b><span>Learn and recognise</span></div>
+    <div class="module m3"><b>Report Engine</b><span>Professional reports</span></div>
+    <div class="module m4"><b>Device Manager</b><span>Reader support</span></div>
+    <div class="module m5"><b>Device Safety</b><span>Predictable workflows</span></div>
+    <div class="module m6"><b>Card Intelligence</b><span>RFID insight</span></div>
+    <div class="module m7"><b>Feedback Engine</b><span>User-controlled support</span></div>
+    <div class="atom">
+      <svg class="orbitSvg" viewBox="0 0 430 270" aria-hidden="true">
+        <defs>
+          <path id="orbitPath" d="M 5 135 A 210 95 0 1 0 425 135 A 210 95 0 1 0 5 135"></path>
+        </defs>
+        <g transform="rotate(0 215 135)">
+          <use href="#orbitPath" class="orbitGlow"></use>
+          <use href="#orbitPath" class="orbitPath"></use>
+          <circle r="5.2" class="orbitParticle">
+            <animateMotion dur="3.8s" repeatCount="indefinite" rotate="auto"><mpath href="#orbitPath"></mpath></animateMotion>
+          </circle>
+          <circle r="3.2" class="orbitParticle small">
+            <animateMotion dur="3.8s" begin="-1.9s" repeatCount="indefinite" rotate="auto"><mpath href="#orbitPath"></mpath></animateMotion>
+          </circle>
+        </g>
+        <g transform="rotate(60 215 135)">
+          <use href="#orbitPath" class="orbitGlow"></use>
+          <use href="#orbitPath" class="orbitPath"></use>
+          <circle r="5.2" class="orbitParticle">
+            <animateMotion dur="4.5s" begin="-1.1s" repeatCount="indefinite" rotate="auto"><mpath href="#orbitPath"></mpath></animateMotion>
+          </circle>
+          <circle r="3.2" class="orbitParticle small">
+            <animateMotion dur="4.5s" begin="-3.35s" repeatCount="indefinite" rotate="auto"><mpath href="#orbitPath"></mpath></animateMotion>
+          </circle>
+        </g>
+        <g transform="rotate(120 215 135)">
+          <use href="#orbitPath" class="orbitGlow"></use>
+          <use href="#orbitPath" class="orbitPath"></use>
+          <circle r="5.2" class="orbitParticle">
+            <animateMotion dur="5.2s" begin="-2s" repeatCount="indefinite" rotate="auto"><mpath href="#orbitPath"></mpath></animateMotion>
+          </circle>
+          <circle r="3.2" class="orbitParticle small">
+            <animateMotion dur="5.2s" begin="-4.6s" repeatCount="indefinite" rotate="auto"><mpath href="#orbitPath"></mpath></animateMotion>
+          </circle>
+        </g>
+      </svg>
+      <div class="core"><div class="mark">E</div></div>
+    </div>
+    <div class="brand"><h1>ELECTRON</h1><p>RFID INTELLIGENCE PLATFORM</p><div class="tagline">Read. Analyze. Understand. Secure.</div></div>
+    <div class="progress"><div id="step" class="step">Initializing Electron...</div><div class="bar"><div class="fill"></div></div></div>
+  </div>
+  <script>
+    const step=document.getElementById('step');
+    const fill=document.querySelector('.fill');
+    function showProgress(progress={}){
+      const percent=Math.max(0,Math.min(100,Number(progress.percent)||0));
+      fill.style.width=`${percent}%`;
+      step.textContent=progress.label || 'Starting Electron...';
+    }
+    showProgress({percent:4,label:'Starting Electron...'});
+    window.splashApi?.onProgress(showProgress);
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "proxmark3",
+  "kind": "device",
+  "displayName": "Proxmark3",
+  "aliases": ["PM3", "Proxmark3 Easy", "Proxmark3 RDV4"],
+  "category": "multi-protocol RFID tool",
+  "families": ["HF", "LF"],
+  "capabilityIds": ["read_uid", "identify", "inventory", "read_info", "read_memory", "write_memory", "sniffing", "dictionary_attack_support", "clone_support", "dump_with_keys"],
+  "supportedProtocols": ["iso14443a", "iso14443b", "iso15693"],
+  "notes": "Primary live scanning device for the current Electron build."
+}

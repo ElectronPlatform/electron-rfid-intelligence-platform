@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# macOS
+.DS_Store
+
+# npm
+npm-debug.log*
+
+# Build output
+dist/
+dist-*/
+build/
+.electron-cache/
+.electron-builder-cache/
+
+# Oude ontwikkelbackups
+_backup_before_*/
+backups/
+
+# Losse backupbestanden
+*_backup_*.js
+*_backup_*.css
+*.local.json
+*.local.js
+*.local.env
+
+renderer/index_backup_before_*.html
+
+# Maintainer-only local configuration
+tools/private/
+tools/maintainer.local.json

@@ -1,0 +1,1 @@
+{"id":"safe_metadata_only","kind":"capability","displayName":"Safe metadata only","risk":"low","summary":"Do not read, store or infer protected application data."}

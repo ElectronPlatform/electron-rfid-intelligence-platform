@@ -1,0 +1,11 @@
+{
+  "id": "chameleon_ultra",
+  "kind": "device",
+  "displayName": "Chameleon Ultra",
+  "aliases": ["ChameleonUltra"],
+  "category": "HF/NFC emulation tool",
+  "families": ["HF", "NFC"],
+  "capabilityIds": ["read_uid", "identify", "read_memory", "write_memory", "emulation", "clone_support"],
+  "supportedProtocols": ["iso14443a"],
+  "notes": "Future integration target. Exact support depends on firmware and authorised use."
+}

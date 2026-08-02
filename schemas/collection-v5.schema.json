@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://electron-rfid.local/schema/collection-v5.schema.json",
+  "title": "Electron Collection Database Version 5",
+  "type": "object",
+  "required": [
+    "version",
+    "settings",
+    "assets",
+    "log"
+  ],
+  "properties": {
+    "version": {
+      "const": 5
+    },
+    "settings": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "assetId"
+        ],
+        "properties": {
+          "assetId": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "log": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,1 @@
+{"id":"identify","kind":"capability","displayName":"Identify card","risk":"low","summary":"Detect card family and safe public identifiers."}

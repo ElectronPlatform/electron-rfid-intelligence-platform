@@ -1,0 +1,1 @@
+{"id":"iso14443b","kind":"protocol","displayName":"ISO/IEC 14443-B","aliases":["ISO14443B","NFC-B"],"category":"HF proximity","frequency":"13.56 MHz","summary":"Proximity card protocol used by some identity, transit and secure smartcard systems."}

@@ -1,0 +1,28 @@
+{
+  "id":"mifare_classic","displayName":"MIFARE Classic","technology":"HF RFID","frequency":"13.56 MHz","protocol":"ISO/IEC 14443-A","family":"MIFARE","application":"Access card / test card / legacy stored-value card","summary":"A widely used memory card family with sectors, blocks and Crypto-1 authentication.",
+  "memoryLayout":{"concept":"Sector/block memory model","sectorTrailer":"Each sector has data blocks and a sector trailer containing Key A, access bits and Key B."},
+  "commonSubtypes":[{"name":"MIFARE Classic 1K","memory":"1024 bytes","sectors":16,"blocks":64},{"name":"MIFARE Classic 4K","memory":"4096 bytes"}],
+  "security":{"crypto":"Crypto-1","notes":"Legacy security. Many systems rely on keys and access bits."},
+  "knownAttacks":["Nested","Hardnested","Darkside","Default key checks"],"cloneable":true,"magicCardSupport":"Possible with compatible magic/test cards when legally authorized.",
+  "safeRecommendedActions":["Create a read-only identification record","Make a full backup only for cards you own or are authorized to test","Use Sector Explorer after a dump is available","Compare future dumps to track changes"],
+  "uiHints":{"primaryTool":"Sector Explorer","secondaryTools":["Dump History","Compare Dumps","Key Manager"]},
+  "beginnerExplanation":"MIFARE Classic cards store data in sectors and blocks. To understand one properly, first identify it, then create a legal backup, then inspect the sectors.",
+  "cardProfile":{
+    "name":"MIFARE Classic",
+    "chipFamily":"MIFARE Classic",
+    "description":"MIFARE Classic is an HF memory-card family with sectors and blocks. Public scan data can identify the card, while sector contents usually require valid keys.",
+    "typicalApplications":["Access control","Legacy transit","Stored-value systems","Test cards"],
+    "publicReadableData":["uid","atqa","sak","manufacturer block"],
+    "authenticatedReadableData":["sector data","sector trailers","application data"],
+    "normallyAbsentData":["person name unless an application stored it","NFC Forum NDEF unless formatted that way","payment credentials"],
+    "safePm3Commands":["hf search","hf 14a info","hf mf info"],
+    "compatibleHardware":["Proxmark3","Flipper Zero","Chameleon Ultra","PN532","ACR122U"],
+    "limitations":["Sector contents require valid authorized keys","UID alone does not explain the application","Legacy security means deployments vary widely"],
+    "recommendedNextSteps":["Record UID, ATQA and SAK","Use authorized keys before reading sectors","Add Known by You context","Compare future dumps if you own the card"],
+    "meaning":"This card can contain structured data in sectors. Without valid keys, Electron can identify the family but cannot explain protected sector contents.",
+    "notVisibleReasons":["Protected sectors require authentication with valid keys.","Names, expiry dates or balances only appear if the issuer application stored them on-card.","Some systems store real-world meaning in a backend database instead of on the card."],
+    "relatedKnowledgeRecords":["mifare_classic","mifare_mini","mifare_plus"],
+    "similarCards":["MIFARE Mini","MIFARE Plus","MIFARE Ultralight"],
+    "faqs":[{"question":"Why can Electron identify the card but not read all contents?","answer":"MIFARE Classic uses sector keys. Identification is public, but sector data is protected until a valid authorized key is available."},{"question":"Does UID tell me what the card is used for?","answer":"Not by itself. UID identifies the physical card; the application meaning depends on stored sector data or a backend system."}]
+  }
+}

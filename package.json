@@ -1,0 +1,130 @@
+{
+  "name": "electron-rfid-intelligence-platform",
+  "version": "0.8.0",
+  "description": "Electron - RFID Intelligence Platform",
+  "author": "Electron Preview Team",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --developer-mode",
+    "start:developer": "electron . --developer-mode",
+    "preview:check": "node scripts/preview-build-check.js",
+    "command-library:verify": "node tests/device-command-library-bundled.test.js",
+    "pm3:preview:verify": "node scripts/verify-pm3-preview-runtime.js",
+    "pack:mac": "npm run preview:check && npm run command-library:verify && npm run pm3:preview:verify && ELECTRON_LOCAL_ADHOC_SIGN=1 electron-builder --mac dir",
+    "build:mac": "npm run preview:check && npm run command-library:verify && npm run pm3:preview:verify && ELECTRON_LOCAL_ADHOC_SIGN=1 electron-builder --mac"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "app.electronrfid.preview",
+    "productName": "Electron Preview",
+    "icon": "assets/electron-icon.png",
+    "asar": true,
+    "afterPack": "scripts/after-pack-local-mac.js",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "assets/electron-icon.png",
+      "target": [
+        "dir",
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "assets/electron-icon.png",
+      "target": ["nsis", "portable"]
+    },
+    "linux": {
+      "icon": "assets/icons/linux",
+      "target": ["AppImage", "deb"]
+    },
+    "files": [
+      "main.js",
+      "fileReadRetry.js",
+      "pm3ProcessLifecycle.js",
+      "pm3CommunicationLayer.js",
+      "deviceStudioStartupPolicy.js",
+      "collectionRecordId.js",
+      "collectionSchema.js",
+      "collectionValidation.js",
+      "collectionService.js",
+      "collectionMigrationArtifacts.js",
+      "collectionMigrationService.js",
+      "deviceStudioService.js",
+      "connectionCompatibilityContract.js",
+      "connectionCompatibilityEvidenceAdapter.js",
+      "connectionCompatibilityStateReducer.js",
+      "connectionCompatibilityEngine.js",
+      "connectionCompatibilityService.js",
+      "connectionCompatibilityIpc.js",
+      "buildConfig.js",
+      "maintainerCapability.js",
+      "appConfig.js",
+      "previewLicenseManager.js",
+      "previewExtensionToken.js",
+      "previewDeviceFingerprint.js",
+      "preload.js",
+      "renderer/**/*",
+      "!renderer/knowledge/index.html",
+      "!renderer/knowledge/researchManager.js",
+      "!renderer/knowledge/style.css",
+      "!renderer/knowledge/README.md",
+      "schemas/**/*",
+      "assets/**/*",
+    "!assets/devices/**/originals/**",
+    "starter-db.json",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../proxmark3-iceman-device-studio/client/build-electron-public-preview-1/pm3-electron-public-preview-1",
+        "to": "pm3/pm3-electron-public-preview-1"
+      },
+      {
+        "from": "../proxmark3-iceman-device-studio/client/build-electron-public-preview-1/proxmark3",
+        "to": "pm3/proxmark3"
+      },
+      {
+        "from": "THIRD_PARTY_NOTICES.md",
+        "to": "legal/THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "from": "ELECTRON_PUBLIC_PREVIEW_LICENSE_v1.0.md",
+        "to": "legal/ELECTRON_PUBLIC_PREVIEW_LICENSE_v1.0.md"
+      },
+      {
+        "from": "PUBLIC_PREVIEW_NOTICE.md",
+        "to": "legal/PUBLIC_PREVIEW_NOTICE.md"
+      },
+      {
+        "from": "KNOWN_LIMITATIONS.md",
+        "to": "legal/KNOWN_LIMITATIONS.md"
+      },
+      {
+        "from": "QUICK_START.md",
+        "to": "legal/QUICK_START.md"
+      },
+      {
+        "from": "RELEASE_NOTES_PUBLIC_PREVIEW_1.md",
+        "to": "legal/RELEASE_NOTES_PUBLIC_PREVIEW_1.md"
+      },
+      {
+        "from": "third_party/electron/LICENSE",
+        "to": "legal/ELECTRON_LICENSE.txt"
+      },
+      {
+        "from": "third_party/electron/LICENSES.chromium.html",
+        "to": "legal/CHROMIUM_THIRD_PARTY_LICENSES.html"
+      },
+      {
+        "from": "../proxmark3-iceman-device-studio/LICENSE.txt",
+        "to": "legal/PROXMARK3_GPL_LICENSE.txt"
+      }
+    ]
+  },
+  "allowScripts": {
+    "electron@31.7.7": true
+  }
+}

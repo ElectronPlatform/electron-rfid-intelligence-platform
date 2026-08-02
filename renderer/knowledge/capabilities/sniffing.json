@@ -1,0 +1,1 @@
+{"id":"sniffing","kind":"capability","displayName":"Sniffing","aliases":["Trace communication"],"category":"analysis","risk":"controlled","summary":"Observe reader/card communication where legal and technically supported."}

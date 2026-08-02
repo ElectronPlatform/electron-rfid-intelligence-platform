@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "deviceId": "acr122u",
+  "commands": [
+    {
+      "command": "pcsc-identify",
+      "title": "Identify HF card through PC/SC",
+      "category": "HF",
+      "device": "acr122u",
+      "capability": "hf",
+      "safetyLevel": "read-only",
+      "description": "ACR122U identification is not available in this Preview.",
+      "examples": ["pcsc-identify"],
+      "expectedOutput": ["ATR", "UID when exposed"],
+      "notes": "Electron does not yet include a PC/SC adapter.",
+      "tags": ["planned", "pcsc", "hf"]
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "deviceId": "proxmark3-easy",
+  "schemaVersion": "1.0",
+  "defaultImage": "mainboard-full",
+  "images": [
+    {
+      "id": "mainboard-full",
+      "title": "Mainboard overview",
+      "category": "PCB",
+      "file": "images/pcb/mainboard-full.jpeg",
+      "width": 976,
+      "height": 1536,
+      "description": "Primary Proxmark3 Easy board overview with HF antenna and main electronics."
+    },
+    {
+      "id": "assembled-front-lf",
+      "title": "Assembled front with LF antenna",
+      "category": "Overview",
+      "file": "images/components/assembled-front-lf.jpeg",
+      "width": 990,
+      "height": 1536,
+      "description": "Front assembly showing the removable LF antenna module."
+    },
+    {
+      "id": "front-profile-usb",
+      "title": "USB profile",
+      "category": "Profile",
+      "file": "images/profile/front-profile-usb.jpeg",
+      "width": 1536,
+      "height": 484,
+      "description": "Side view of the USB-facing edge."
+    },
+    {
+      "id": "left-profile",
+      "title": "Left profile",
+      "category": "Profile",
+      "file": "images/profile/left-profile.jpeg",
+      "description": "Left side profile view for physical orientation."
+    },
+    {
+      "id": "right-profile",
+      "title": "Right profile",
+      "category": "Profile",
+      "file": "images/profile/right-profile.jpeg",
+      "description": "Right side profile view for physical orientation."
+    },
+    {
+      "id": "back-profile",
+      "title": "Back profile",
+      "category": "Profile",
+      "file": "images/profile/back-profile.jpeg",
+      "description": "Back profile view for physical orientation."
+    },
+    {
+      "id": "macro-xilinx",
+      "title": "Xilinx Spartan FPGA macro",
+      "category": "Macro",
+      "file": "images/macros/xilinx-spartan-xc2s30.jpeg",
+      "width": 1152,
+      "height": 1536,
+      "description": "Macro photograph of the Xilinx Spartan FPGA."
+    },
+    {
+      "id": "macro-atmel",
+      "title": "Atmel MCU macro",
+      "category": "Macro",
+      "file": "images/macros/atmel-at91sam7s512.jpeg",
+      "width": 1152,
+      "height": 1536,
+      "description": "Macro photograph of the Atmel AT91SAM7S512 MCU."
+    },
+    {
+      "id": "macro-buffer",
+      "title": "74HC244 buffer macro",
+      "category": "Macro",
+      "file": "images/macros/74hc244-buffer-chips.jpeg",
+      "width": 1152,
+      "height": 1536,
+      "description": "Macro photograph of the 74HC244 buffer chips."
+    },
+    {
+      "id": "lf-antenna-module",
+      "title": "LF antenna module",
+      "category": "Component",
+      "file": "images/components/lf-antenna-module.jpeg",
+      "description": "Close-up of the LF antenna module."
+    },
+    {
+      "id": "lower-closeup",
+      "title": "Lower electronics close-up",
+      "category": "PCB",
+      "file": "images/pcb/mainboard-lower-closeup.jpeg",
+      "description": "Lower board area with power and surrounding electronics."
+    }
+  ],
+  "hotspots": [
+    {
+      "componentId": "power-led",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "left",
+      "order": 3,
+      "labelX": -23.292972999661885,
+      "labelY": 88.18129746594822,
+      "markerX": 13.2,
+      "markerY": 94.375
+    },
+    {
+      "componentId": "led-a",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "bottom",
+      "order": 5,
+      "labelOffset": {
+        "x": 30,
+        "y": -25
+      },
+      "labelX": 89.75731855876296,
+      "labelY": 107.09727432359824,
+      "markerWidth": 3.175224606288765,
+      "markerHeight": 3.0958323100417147,
+      "markerX": 85.31430151877042,
+      "markerY": 94.34436377452563
+    },
+    {
+      "componentId": "led-b",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "bottom",
+      "order": 4,
+      "labelOffset": {
+        "x": 20,
+        "y": -5
+      },
+      "markerWidth": 2.944812168571957,
+      "markerHeight": 3.1583126933607275,
+      "markerX": 77.26300479856936,
+      "markerY": 94.3242340985658
+    },
+    {
+      "componentId": "led-c",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "bottom",
+      "order": 3,
+      "labelOffset": {
+        "x": 30,
+        "y": -25
+      },
+      "labelX": 66.97890700459587,
+      "labelY": 107.3632553107541,
+      "markerWidth": 3.148144476210746,
+      "markerHeight": 3.054478122318713,
+      "markerX": 69.55514070823186,
+      "markerY": 94.46465080549169
+    },
+    {
+      "componentId": "led-d",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "bottom",
+      "order": 2,
+      "labelOffset": {
+        "x": 25,
+        "y": -5
+      },
+      "markerWidth": 3.257558091477108,
+      "markerHeight": 3.2445025964881893,
+      "markerX": 62.10820383430227,
+      "markerY": 94.42481872738458
+    },
+    {
+      "componentId": "main-usb-port",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "bottom",
+      "order": 1,
+      "labelOffset": {
+        "x": 20,
+        "y": -5
+      },
+      "markerX": 50.6,
+      "markerY": 96
+    },
+    {
+      "componentId": "side-usb-port",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "right",
+      "order": 4,
+      "markerX": 93.85893385570792,
+      "markerY": 81
+    },
+    {
+      "componentId": "button",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "right",
+      "order": 1,
+      "labelX": 119.931982055544,
+      "labelY": 58.536577640876,
+      "markerSize": 3.2954945192347793,
+      "markerX": 94.88770057933563,
+      "markerY": 57.782594878042325
+    },
+    {
+      "componentId": "xilinx-spartan-fpga",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "left",
+      "order": 2,
+      "markerColor": "#3af83d",
+      "color": "#3af83d",
+      "lineColor": "#38bdf8",
+      "markerX": 26.48364106197641,
+      "markerY": 78.82629306920204
+    },
+    {
+      "componentId": "atmel-mcu",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "right",
+      "order": 3,
+      "markerX": 67.54182469887049,
+      "markerY": 77.08281469318574
+    },
+    {
+      "componentId": "flash-memory",
+      "imageId": "mainboard-full",
+      "shape": "point",
+      "display": "smart-callout",
+      "side": "right",
+      "order": 2,
+      "labelX": 126.14754676640626,
+      "labelY": 68.16604096738867,
+      "markerX": 63.379868272154866,
+      "markerY": 59.43313665183236
+    },
+    {
+      "componentId": "lf-antenna-module",
+      "imageId": "assembled-front-lf",
+      "shape": "circle",
+      "showCallout": true,
+      "labelPosition": "bottom",
+      "labelX": 121.64062647443058,
+      "labelY": 96.8268910107358,
+      "calloutAnchorX": 86.73016281503126,
+      "calloutAnchorY": 81.67048371361346,
+      "lineColor": "#38bdf8",
+      "x": 51.62773403944214,
+      "y": 70.40803370333286,
+      "r": 39.216830302396346,
+      "aspect": 0.6440637471548654
+    },
+    {
+      "componentId": "xilinx-spartan-fpga",
+      "imageId": "macro-xilinx",
+      "shape": "rect",
+      "labelPosition": "top",
+      "x": 26.05760082627392,
+      "y": 2.805235745614036,
+      "w": 68.7588213679203,
+      "h": 96
+    },
+    {
+      "componentId": "atmel-mcu",
+      "imageId": "macro-atmel",
+      "shape": "rect",
+      "labelPosition": "top",
+      "x": 20,
+      "y": 12.491393008474576,
+      "w": 65,
+      "h": 49.265757415254235
+    },
+    {
+      "componentId": "lf-antenna-module",
+      "imageId": "lf-antenna-module",
+      "shape": "circle",
+      "labelPosition": "bottom",
+      "color": "#3df83a",
+      "x": 49.714780482835906,
+      "y": 51.34636316688516,
+      "r": 38.02778343689518,
+      "aspect": 1.0389759168696948
+    },
+    {
+      "componentId": "power-section",
+      "imageId": "lower-closeup",
+      "shape": "rect",
+      "labelPosition": "bottom",
+      "color": "#38bdf8",
+      "strokeWidth": 3,
+      "x": 61.64853728544962,
+      "y": 74.7979891502251,
+      "w": 31.10970698029091,
+      "h": 12
+    },
+    {
+      "componentId": "hf-antenna",
+      "imageId": "mainboard-full",
+      "shape": "rect",
+      "showCallout": true,
+      "labelPosition": "bottom",
+      "labelX": 127.55671550960022,
+      "labelY": 14.750323769388677,
+      "calloutAnchorX": 51.01421218591869,
+      "calloutAnchorY": 24.33817315358077,
+      "lineColor": "#38bdf8",
+      "x": 6.399116116231696,
+      "y": 2.6152064436573035,
+      "w": 89.23019213937398,
+      "h": 43.445933419846924
+    },
+    {
+      "componentId": "side-usb-port",
+      "imageId": "front-profile-usb",
+      "shape": "ellipse",
+      "showCallout": true,
+      "labelPosition": "bottom",
+      "labelX": 65.28201613104,
+      "labelY": 121.0224068611643,
+      "calloutAnchorX": 51.790823691620155,
+      "calloutAnchorY": 86.41706473964601,
+      "color": "#38bdf8",
+      "lineColor": "#38bdf8",
+      "strokeWidth": 3,
+      "x": 49.5446165484907,
+      "y": 77.46681833310231,
+      "rx": 8.678387088743207,
+      "ry": 9.265999211766989
+    },
+    {
+      "componentId": "button",
+      "imageId": "left-profile",
+      "shape": "rect",
+      "showCallout": true,
+      "labelPosition": "bottom",
+      "labelX": 52.89261928223859,
+      "labelY": 130,
+      "calloutAnchorX": 42.88316038603348,
+      "calloutAnchorY": 85.22656817203472,
+      "color": "#38bdf8",
+      "lineColor": "#38bdf8",
+      "strokeWidth": 3,
+      "x": 38.06753979554714,
+      "y": 68.73285338884499,
+      "w": 6.661751702769969,
+      "h": 16.49371478318973
+    },
+    {
+      "componentId": "buffer-chips",
+      "imageId": "macro-buffer",
+      "shape": "rect",
+      "labelPosition": "bottom",
+      "color": "#3af873",
+      "strokeWidth": 3,
+      "x": 28.46685921511019,
+      "y": 26.563676898884083,
+      "w": 32.43591912682801,
+      "h": 72.75383618927893
+    },
+    {
+      "componentId": "buffer-chips",
+      "imageId": "mainboard-full",
+      "shape": "rect",
+      "showCallout": true,
+      "labelPosition": "bottom",
+      "labelX": -27.303034964082016,
+      "labelY": 62.06236758474576,
+      "calloutAnchorX": 8.34880116327982,
+      "calloutAnchorY": 58.99548546742583,
+      "color": "#38bdf8",
+      "lineColor": "#38bdf8",
+      "strokeWidth": 3,
+      "x": 8.34880116327982,
+      "y": 48.973186945511124,
+      "w": 13.211402198530315,
+      "h": 17.597852803892998
+    },
+    {
+      "componentId": "power-section",
+      "imageId": "mainboard-full",
+      "shape": "rect",
+      "showCallout": true,
+      "labelPosition": "bottom",
+      "labelX": 132.23821369309928,
+      "labelY": 96.80879754535223,
+      "calloutAnchorX": 91.20090934275424,
+      "calloutAnchorY": 89.74443338685117,
+      "color": "#38bdf8",
+      "lineColor": "#38bdf8",
+      "strokeWidth": 3,
+      "x": 61.87795109018723,
+      "y": 84.435326527741,
+      "w": 29.322958252567012,
+      "h": 8.773979574947035
+    }
+  ]
+}

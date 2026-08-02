@@ -1,0 +1,171 @@
+{
+  "version": "1.0",
+  "defaultDeviceId": "proxmark3",
+  "devices": [
+    {
+      "id": "proxmark3",
+      "displayName": "Proxmark3",
+      "family": "Proxmark3",
+      "connectionType": "pm3 client",
+      "supportedFrequencies": ["HF", "LF"],
+      "supportStatus": "supported",
+      "commandLibrary": "devices/proxmark3/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "full"},
+        "lf": {"supported": true, "level": "full"},
+        "write": {"supported": true, "level": "restricted"},
+        "sniff": {"supported": true, "level": "full"},
+        "emulation": {"supported": true, "level": "full"},
+        "standalone": {"supported": true, "level": "full"},
+        "bluetooth": {"supported": false, "level": "none"},
+        "firmwareUpdate": {"supported": true, "level": "restricted"},
+        "logging": {"supported": true, "level": "full"},
+        "commandConsole": {"supported": true, "level": "full"},
+        "deviceInfo": {"supported": true, "level": "full"}
+      },
+      "notes": "Electron can communicate with this Proxmark3. Use the buttons below to connect, identify HF/LF tags and view device information.",
+      "knownLimitations": ["Only one app can use the serial port at a time.", "Write workflows remain restricted by Electron safety rules."]
+    },
+    {
+      "id": "proxmark3_easy",
+      "displayName": "Proxmark3 Easy",
+      "family": "Proxmark3",
+      "connectionType": "pm3 client",
+      "supportedFrequencies": ["HF", "LF"],
+      "supportStatus": "profile-only",
+      "commandLibrary": "devices/proxmark3/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "full"},
+        "lf": {"supported": true, "level": "partial"},
+        "write": {"supported": true, "level": "restricted"},
+        "sniff": {"supported": true, "level": "partial"},
+        "emulation": {"supported": true, "level": "partial"},
+        "standalone": {"supported": false, "level": "none"},
+        "commandConsole": {"supported": true, "level": "pm3-compatible"},
+        "deviceInfo": {"supported": true, "level": "full"}
+      },
+      "notes": "Prepared profile. Uses the Proxmark3 command model when the pm3 client supports the connected hardware.",
+      "knownLimitations": ["Not separately tested in Electron yet."]
+    },
+    {
+      "id": "proxmark3_rdv4",
+      "displayName": "Proxmark3 RDV4",
+      "family": "Proxmark3",
+      "connectionType": "pm3 client",
+      "supportedFrequencies": ["HF", "LF"],
+      "supportStatus": "profile-only",
+      "commandLibrary": "devices/proxmark3/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "full"},
+        "lf": {"supported": true, "level": "full"},
+        "write": {"supported": true, "level": "restricted"},
+        "sniff": {"supported": true, "level": "full"},
+        "emulation": {"supported": true, "level": "full"},
+        "standalone": {"supported": true, "level": "full"},
+        "bluetooth": {"supported": true, "level": "device-dependent"},
+        "firmwareUpdate": {"supported": true, "level": "restricted"},
+        "logging": {"supported": true, "level": "full"},
+        "commandConsole": {"supported": true, "level": "pm3-compatible"},
+        "deviceInfo": {"supported": true, "level": "full"}
+      },
+      "notes": "Prepared RDV4 profile. Electron still uses the same pm3 bridge for now.",
+      "knownLimitations": ["RDV4-specific features are not separated in the UI yet."]
+    },
+    {
+      "id": "pn532",
+      "displayName": "PN532",
+      "family": "PN532",
+      "connectionType": "serial / I2C / SPI bridge",
+      "supportedFrequencies": ["HF"],
+      "supportStatus": "planned",
+      "commandLibrary": "devices/pn532/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "partial"},
+        "lf": {"supported": false, "level": "none"},
+        "write": {"supported": true, "level": "limited"},
+        "sniff": {"supported": false, "level": "none"},
+        "emulation": {"supported": true, "level": "limited"},
+        "commandConsole": {"supported": false, "level": "not-yet-implemented"},
+        "deviceInfo": {"supported": false, "level": "not-yet-implemented"}
+      },
+      "notes": "Prepared profile only. Electron does not yet include a PN532 adapter.",
+      "knownLimitations": ["No LF support.", "No active PN532 command runner yet."]
+    },
+    {
+      "id": "chameleon_ultra",
+      "displayName": "Chameleon Ultra",
+      "family": "Chameleon",
+      "connectionType": "USB / Bluetooth",
+      "supportedFrequencies": ["HF", "LF"],
+      "supportStatus": "planned",
+      "commandLibrary": "devices/chameleon/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "partial"},
+        "lf": {"supported": true, "level": "partial"},
+        "write": {"supported": true, "level": "restricted"},
+        "sniff": {"supported": false, "level": "none"},
+        "emulation": {"supported": true, "level": "full"},
+        "bluetooth": {"supported": true, "level": "full"},
+        "commandConsole": {"supported": false, "level": "not-yet-implemented"}
+      },
+      "notes": "Prepared profile for future adapter work.",
+      "knownLimitations": ["Command execution is not wired in Electron yet."]
+    },
+    {
+      "id": "flipper_zero",
+      "displayName": "Flipper Zero",
+      "family": "Flipper",
+      "connectionType": "USB / Bluetooth",
+      "supportedFrequencies": ["HF", "LF"],
+      "supportStatus": "planned",
+      "commandLibrary": "devices/flipper/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "partial"},
+        "lf": {"supported": true, "level": "partial"},
+        "write": {"supported": true, "level": "restricted"},
+        "sniff": {"supported": false, "level": "none"},
+        "emulation": {"supported": true, "level": "partial"},
+        "bluetooth": {"supported": true, "level": "full"},
+        "commandConsole": {"supported": false, "level": "not-yet-implemented"}
+      },
+      "notes": "Prepared profile only. Electron does not yet control Flipper Zero.",
+      "knownLimitations": ["No active Flipper adapter yet."]
+    },
+    {
+      "id": "acr122u",
+      "displayName": "ACR122U",
+      "family": "PC/SC reader",
+      "connectionType": "PC/SC USB",
+      "supportedFrequencies": ["HF"],
+      "supportStatus": "planned",
+      "commandLibrary": "devices/acr122u/commands.json",
+      "capabilities": {
+        "hf": {"supported": true, "level": "limited"},
+        "lf": {"supported": false, "level": "none"},
+        "write": {"supported": true, "level": "limited"},
+        "sniff": {"supported": false, "level": "none"},
+        "emulation": {"supported": false, "level": "none"},
+        "commandConsole": {"supported": false, "level": "not-yet-implemented"}
+      },
+      "notes": "Prepared PC/SC profile only.",
+      "knownLimitations": ["No active PC/SC adapter yet.", "HF only."]
+    },
+    {
+      "id": "custom_unknown",
+      "displayName": "Custom / Unknown device",
+      "family": "Custom",
+      "connectionType": "manual",
+      "supportedFrequencies": [],
+      "supportStatus": "manual-profile",
+      "commandLibrary": "devices/custom/commands.json",
+      "capabilities": {
+        "hf": {"supported": false, "level": "unknown"},
+        "lf": {"supported": false, "level": "unknown"},
+        "write": {"supported": false, "level": "unknown"},
+        "commandConsole": {"supported": false, "level": "manual"}
+      },
+      "notes": "Use this profile when documenting a reader that Electron does not yet support.",
+      "knownLimitations": ["No automatic command execution."]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://electron-rfid.local/schema/collection-v6.schema.json",
+  "title": "Electron Collection Database Version 6 Identity Contract",
+  "type": "object",
+  "required": [
+    "version",
+    "settings",
+    "assets",
+    "log",
+    "relationships",
+    "identityDecisions",
+    "migration"
+  ],
+  "properties": {
+    "version": {
+      "const": 6
+    },
+    "settings": {
+      "type": "object"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/collectionRecord"
+      }
+    },
+    "log": {
+      "type": "array"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "identityDecisions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "migration": {
+      "$ref": "#/$defs/migrationMetadata"
+    }
+  },
+  "$defs": {
+    "recordId": {
+      "type": "string",
+      "pattern": "^rec_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "collectionRecord": {
+      "type": "object",
+      "required": [
+        "recordId",
+        "assetId",
+        "identitySchemaVersion",
+        "previousAssetIds"
+      ],
+      "properties": {
+        "recordId": {
+          "$ref": "#/$defs/recordId"
+        },
+        "assetId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "identitySchemaVersion": {
+          "const": 1
+        },
+        "previousAssetIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "migrationMetadata": {
+      "type": "object",
+      "required": [
+        "migrationId",
+        "sourceVersion",
+        "completedVersion",
+        "completedAt"
+      ],
+      "properties": {
+        "migrationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceVersion": {
+          "const": 5
+        },
+        "completedVersion": {
+          "const": 6
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

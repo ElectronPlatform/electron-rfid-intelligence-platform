@@ -1,0 +1,5589 @@
+:root {
+  --bg: #061426;
+  --panel: #0b1d36;
+  --ink: #e8f1ff;
+  --muted: #a9bdd8;
+  --line: #21466f;
+  --header: #081426;
+  --accent: #2e6cf6;
+  --green: #20b981;
+  --red: #ef5b68;
+  --orange: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Header and navigation */
+.appChrome {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  background: var(--header);
+  box-shadow: 0 8px 22px rgba(2, 8, 23, .28);
+}
+
+header {
+  background: var(--header);
+  color: #fff;
+  padding: 12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.appBrand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+.appBrand img{
+  width:54px;
+  height:54px;
+  border-radius:14px;
+  object-fit:cover;
+  box-shadow:0 0 0 1px rgba(255,255,255,.18),0 8px 24px rgba(37,99,235,.25);
+}
+.appBrand h1,.appBrand p{margin-left:0;}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+header p {
+  margin: 4px 0 0;
+  color: #cbd5e1;
+}
+.previewHeaderActions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.headerPm3LedPanel{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-left:auto;
+  margin-right:auto;
+  min-width:0;
+  color:#95a8c4;
+  user-select:none;
+}
+.headerPm3LedCaption{
+  margin-right:4px;
+  color:#9fb1cc;
+  font-size:.68rem;
+  font-weight:850;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.headerPm3Led{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  min-width:22px;
+  color:rgba(var(--header-led-rgb,148,163,184),.72);
+  font-size:.68rem;
+  font-weight:900;
+  line-height:1;
+}
+.headerPm3Led i{
+  width:15px;
+  height:15px;
+  box-sizing:border-box;
+  flex:none;
+  border:1px solid rgba(var(--header-led-rgb,148,163,184),.58);
+  border-radius:4px;
+  background:
+    radial-gradient(circle at 33% 27%,rgba(255,255,255,.25) 0 8%,transparent 24%),
+    radial-gradient(circle at 50% 56%,rgba(var(--header-led-rgb,148,163,184),.22),rgba(3,12,27,.94) 73%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.15),inset 0 -3px 4px rgba(0,0,0,.64),0 0 5px rgba(var(--header-led-rgb,148,163,184),.18);
+  transition:background .14s ease,box-shadow .14s ease,border-color .14s ease,transform .14s ease;
+}
+.headerPm3Led.is-on{color:#eef6ff;}
+.headerPm3Led.is-on i{
+  border-color:rgba(255,255,255,.95);
+  background:
+    radial-gradient(circle at 32% 25%,#fff 0 9%,rgba(255,255,255,.8) 17%,transparent 31%),
+    radial-gradient(circle at 50% 58%,rgba(var(--header-led-rgb),.98),rgba(var(--header-led-rgb),.56) 58%,rgba(5,12,25,.94) 100%);
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.8),inset 0 -2px 4px rgba(0,0,0,.3),0 0 8px rgba(var(--header-led-rgb),.96),0 0 20px rgba(var(--header-led-rgb),.56);
+  transform:scale(1.06);
+}
+.headerPm3LedPower{--header-led-rgb:255,255,255;}
+.headerPm3Led[data-header-pm3-led="d"]{--header-led-rgb:56,189,248;}
+.headerPm3Led[data-header-pm3-led="c"]{--header-led-rgb:245,158,11;}
+.headerPm3Led[data-header-pm3-led="b"]{--header-led-rgb:239,68,68;}
+.headerPm3Led[data-header-pm3-led="a"]{--header-led-rgb:34,197,94;}
+.headerPm3LedDivider{width:1px;height:18px;margin:0 4px;background:rgba(148,163,184,.34);}
+@media(max-width:850px){.headerPm3LedCaption{display:none;}.headerPm3LedPanel{gap:5px;}.headerPm3LedDivider{margin:0 2px;}.headerPm3Led b{display:none;}}
+.previewBuildBadge{
+  display:inline-flex;
+  align-items:center;
+  border:1px solid rgba(250,204,21,.65);
+  background:#facc15;
+  color:#422006;
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:900;
+  white-space:nowrap;
+}
+#sendFeedbackBtn{
+  background:#0ea5e9;
+  white-space:nowrap;
+}
+body.previewMode header{
+  box-shadow:inset 0 -3px 0 #facc15;
+}
+.previewWelcome,
+.previewFeedbackForm{
+  display:grid;
+  gap:10px;
+}
+.previewWelcome p,
+.previewWelcome ul{
+  margin:0;
+  color:#334155;
+  line-height:1.45;
+}
+.previewWelcome ul{
+  padding-left:20px;
+}
+.previewFeedbackForm textarea{
+  min-height:140px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 8px;
+  background: #0b1b31;
+  position: relative;
+  z-index: 1;
+}
+
+nav button {
+  background: #334155;
+}
+
+nav button.active {
+  background: var(--accent);
+}
+
+nav .navigationGuideHelpIcon{
+  align-self:center;
+  flex:0 0 auto;
+  margin:0 2px;
+  transform:none;
+}
+.helpNavigationGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin:14px 0;
+}
+.helpNavigationGrid>div{
+  padding:9px 10px;
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  background:#f8fafc;
+}
+.helpNavigationGrid b{display:block;color:#0f172a;}
+.helpNavigationGrid span{display:block;margin-top:3px;color:#475569;line-height:1.35;font-size:.9rem;}
+@media(max-width:600px){.helpNavigationGrid{grid-template-columns:1fr;}}
+
+/* General layout */
+main {
+  max-width: none;
+  margin: 12px auto;
+  padding: 0 14px;
+}
+
+.settingsWindowBody{
+  background:var(--bg);
+}
+
+.settingsWindowMain{
+  margin:0;
+  padding:20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .16);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.compactToolbar {
+  margin: 7px 0;
+  gap: 8px;
+}
+
+/* Buttons and inputs */
+button {
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+button.green {
+  background: var(--green);
+}
+
+button.bad {
+  background: var(--red);
+}
+
+button.warn {
+  background: var(--orange);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #071529;
+  color: var(--ink);
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  padding: 0;
+}
+
+textarea {
+  min-height: 140px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.notesField {
+  min-height: 112px;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Dashboard */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: #0b1d36;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card b {
+  display: block;
+  font-size: 28px;
+  margin-top: 4px;
+}
+
+/* Tables */
+.tablewrap {
+  overflow: auto;
+  max-height: 620px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  background: #071529;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+th {
+  background: #14345b;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+tr:hover td {
+  background: #123d67;
+}
+
+/* Shared small UI elements */
+.status {
+  font-weight: 800;
+  font-size: 16px;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(14,72,122,.38);
+  border: 1px solid var(--line);
+}
+
+.smallStatus {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.deviceConnectionStatusCardHost{
+  margin:10px 0 14px;
+}
+.deviceConnectionStatusCard{
+  border:1px solid rgba(56,189,248,.34);
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(8,27,52,.96),rgba(4,17,35,.96));
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+  padding:14px;
+}
+.deviceConnectionStatusHeading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:11px;
+}
+.deviceConnectionStatusHeading span,
+.deviceConnectionNextStep span{
+  display:block;
+  color:#62d5ff;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+.deviceConnectionStatusHeading h3{
+  margin:4px 0 0;
+  color:#f8fbff;
+}
+.deviceConnectionStatusHeading small{
+  color:#8fa4c5;
+  text-align:right;
+}
+.deviceConnectionStatusGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+}
+.deviceConnectionStatusItem{
+  border:1px solid rgba(148,163,184,.22);
+  border-radius:10px;
+  background:rgba(15,23,42,.58);
+  padding:10px 12px;
+}
+.deviceConnectionStatusItem span{
+  display:block;
+  color:#91a5c4;
+  font-size:.72rem;
+  font-weight:850;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.deviceConnectionStatusItem b{
+  display:block;
+  margin-top:5px;
+  color:#e5edf9;
+  overflow-wrap:anywhere;
+}
+.deviceConnectionStatusItem.ready{
+  border-color:rgba(34,197,94,.48);
+  background:rgba(34,197,94,.09);
+}
+.deviceConnectionStatusItem.ready b{color:#bbf7d0;}
+.deviceConnectionStatusItem.missing{
+  border-color:rgba(239,68,68,.46);
+  background:rgba(239,68,68,.08);
+}
+.deviceConnectionStatusItem.missing b{color:#fecaca;}
+.deviceConnectionStatusItem.pending{
+  border-color:rgba(245,158,11,.42);
+  background:rgba(245,158,11,.07);
+}
+.deviceConnectionStatusItem.pending b{color:#fde68a;}
+.deviceConnectionNextStep{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid rgba(96,165,250,.18);
+}
+.deviceConnectionNextStep b{
+  display:block;
+  margin-top:4px;
+  color:#dcecff;
+  font-size:.9rem;
+}
+.deviceConnectionNextStep button{
+  flex:0 0 auto;
+}
+@media (max-width:850px){
+  .deviceConnectionStatusHeading,
+  .deviceConnectionNextStep{align-items:stretch;flex-direction:column;}
+  .deviceConnectionStatusHeading small{text-align:left;}
+  .deviceConnectionStatusGrid{grid-template-columns:1fr;}
+}
+
+.small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.normalPre {
+  background: #0b1020;
+  color: #e5e7eb;
+  padding: 14px;
+  border-radius: 10px;
+  overflow: auto;
+  white-space: pre-wrap;
+  min-height: 160px;
+  resize: vertical;
+}
+
+.photoBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px dashed var(--line);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 12px;
+  background: rgba(7,21,41,.72);
+}
+
+.photoPreview {
+  width: 220px;
+  height: 150px;
+  flex: 0 0 auto;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #071529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photoPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #071529;
+}
+
+.photoPlaceholder {
+  color: #64748b;
+  font-size: 13px;
+  text-align: center;
+  padding: 12px;
+}
+
+.photoInfo {
+  min-width: 260px;
+  flex: 1 1 auto;
+}
+
+.photoName {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.photoToolbar {
+  margin-bottom: 0;
+}
+
+.photoDetailModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .50);
+  z-index: 11000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.photoDetailCard {
+  width: min(1100px, 96vw);
+  max-height: 92vh;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.photoDetailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.photoDetailHeader h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.photoDetailBody {
+  padding: 12px;
+  overflow: auto;
+  text-align: center;
+  background: #0b1020;
+}
+
+.photoDetailBody img {
+  max-width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.matchPanel {
+  border: 1px solid var(--line);
+  background: #071529;
+  color: #e8f1ff;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 0 0 8px;
+}
+
+.matchPanel.warn {
+  border-color: #f59e0b;
+  background: rgba(146, 64, 14, .24);
+  color: #fff3c4;
+}
+
+.matchPanel.good {
+  border-color: #22c55e;
+  background: rgba(20, 83, 45, .30);
+  color: #dcfce7;
+}
+
+.matchRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 6px 0;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Label preview */
+.labelPreview {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 18px;
+  border: 2px solid #111;
+  background: #fff;
+  color: #0f172a;
+  min-width: 260px;
+  font-family: Arial, sans-serif;
+}
+
+.labelPreview .asset {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.labelPreview .alias {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.labelPreview .uid {
+  font-family: monospace;
+  font-size: 14px;
+  margin-top: 6px;
+  color: #334155;
+}
+
+/* Device Console */
+.liveSection {
+  height: calc(100vh - 136px);
+  max-height: calc(100vh - 136px);
+  overflow: hidden;
+}
+
+.liveWorkspace {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.liveTop {
+  flex: 0 0 auto;
+  min-height: 0;
+  max-height: 52%;
+  overflow-y: auto;
+  position:relative;
+}
+
+.liveTopScrollHint{
+  background:linear-gradient(90deg,rgba(8,28,53,.96),rgba(20,52,91,.96));
+  border:1px solid rgba(56,189,248,.62);
+  border-radius:999px;
+  bottom:10px;
+  box-shadow:0 5px 16px rgba(0,0,0,.28);
+  color:#dff7ff;
+  font-size:12px;
+  font-weight:800;
+  left:50%;
+  letter-spacing:.01em;
+  padding:7px 13px;
+  pointer-events:none;
+  position:absolute;
+  transform:translateX(-50%);
+  z-index:3;
+}
+
+.liveControlPanel {
+  margin-bottom: 8px;
+  padding: 12px;
+}
+
+.liveControlPanel h2 {
+  margin: 0 0 8px;
+}
+
+.deviceQuickCommandBlock{
+  margin:8px 0;
+}
+
+.deviceCommandBlockLabel{
+  color:#64748b;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin:0 0 6px 2px;
+}
+
+.deviceConnectPanel{
+  display:grid;
+  grid-template-columns:minmax(220px,320px) minmax(0,1fr);
+  gap:10px;
+  align-items:end;
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  background:#f8fafc;
+  padding:8px 10px;
+  margin:8px 0;
+}
+.deviceConnectPanel label{
+  margin:0;
+}
+.deviceProfileSummary{
+  color:#475569;
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+}
+.deviceProfileSummary b{
+  color:#0f172a;
+}
+.deviceProfilePills{
+  display:grid;
+  gap:5px;
+  grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  margin-top:7px;
+}
+.deviceProfilePills span{
+  border:1px solid #dbe3ef;
+  background:#fff;
+  border-radius:999px;
+  padding:2px 7px;
+  color:#334155;
+  font-size:11px;
+  font-weight:800;
+  text-align:center;
+}
+
+.commandSetPanel{
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  padding:8px 10px;
+  margin-top:8px;
+  background:#f8fafc;
+}
+.commandSetPanel summary{cursor:pointer;color:#0f172a;}
+.deviceCommandLibraryPanel{
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  padding:8px 10px;
+  margin-top:8px;
+  background:#f8fafc;
+}
+.deviceCommandLibraryLauncher{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.deviceCommandLibraryLauncher .small{
+  display:block;
+  margin-top:2px;
+}
+.deviceCommandLibraryPanel summary{
+  cursor:pointer;
+  color:#0f172a;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.deviceLibraryToolbar{
+  display:grid;
+  grid-template-columns:minmax(140px,220px) minmax(180px,1fr) auto auto auto;
+  gap:8px;
+  align-items:end;
+  margin-top:8px;
+}
+.deviceLibraryToolbar label{
+  margin:0;
+}
+.deviceCommandLibraryList{
+  display:grid;
+  gap:8px;
+  max-height:360px;
+  overflow:auto;
+  margin-top:8px;
+}
+.deviceCommandItem{
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  background:#fff;
+  padding:9px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+}
+.deviceCommandItem h4{
+  margin:0 0 4px;
+  font-size:14px;
+}
+.deviceCommandItem code{
+  display:inline-block;
+  background:#0f172a;
+  color:#e5e7eb;
+  border-radius:7px;
+  padding:4px 7px;
+  font-size:12px;
+  margin:2px 0 5px;
+}
+.deviceCommandItem p{
+  margin:0;
+  color:#475569;
+  font-size:12px;
+  line-height:1.35;
+}
+.deviceCommandMeta{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.deviceCommandMeta span{
+  border:1px solid #dbe3ef;
+  border-radius:999px;
+  padding:2px 7px;
+  font-size:11px;
+  font-weight:800;
+  color:#334155;
+}
+.deviceCommandActions{
+  display:flex;
+  gap:6px;
+  align-items:start;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.deviceCommandActions button{
+  padding:7px 10px;
+  white-space:nowrap;
+}
+.deviceCommandCustomBadge{
+  display:inline-flex;
+  align-items:center;
+  border:1px solid #bbf7d0;
+  background:#ecfdf5;
+  color:#166534;
+  border-radius:999px;
+  padding:1px 6px;
+  font-size:10px;
+  font-weight:900;
+  margin-left:6px;
+  vertical-align:middle;
+  text-transform:uppercase;
+}
+.deviceCommandLibraryModal{
+  display:grid;
+  gap:12px;
+}
+.deviceCommandLibraryModal .deviceLibraryToolbar{
+  grid-template-columns:minmax(150px,190px) minmax(220px,1fr) auto auto;
+}
+.deviceLibraryMoreTools{position:relative;align-self:end;}
+.deviceLibraryMoreTools summary{list-style:none;cursor:pointer;white-space:nowrap;}
+.deviceLibraryMoreTools summary::-webkit-details-marker{display:none;}
+.deviceLibraryMoreTools summary::after{content:"⌄";margin-left:7px;font-weight:900;}
+.deviceLibraryMoreTools[open] summary::after{content:"⌃";}
+.deviceLibraryMoreTools>div{position:absolute;right:0;top:calc(100% + 7px);z-index:3;display:grid;gap:6px;min-width:150px;padding:8px;border:1px solid #dbe3ef;border-radius:10px;background:#fff;box-shadow:0 12px 32px rgba(15,23,42,.18);}
+.deviceCommandLibrarySafetyStatus{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px;padding:9px 11px;border-left:3px solid currentColor;font-size:12px;font-weight:750;line-height:1.4;}.deviceCommandLibrarySafetyStatus.protected{color:#991b1b;background:#fef2f2;}.deviceCommandLibrarySafetyStatus.advanced{color:#92400e;background:#fffbeb;}.deviceCommandLibrarySafetyStatus.unavailable{color:#475569;background:#f8fafc;}.deviceCommandLibrarySafetyStatus b{font-weight:900;}
+.deviceCommandLibraryTerminalWrap{
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  background:#f8fafc;
+  padding:10px;
+  position:relative;
+}
+.deviceCommandLibraryTerminal{
+  min-height:120px;
+  max-height:none;
+  height:150px;
+  overflow:auto;
+  margin-top:8px;
+}
+.commandSetGrid{
+  display:grid;
+  grid-template-columns:minmax(160px,1fr) minmax(160px,1fr);
+  gap:8px;
+  margin-top:8px;
+}
+.commandSetPanel textarea{
+  width:100%;
+  min-height:72px;
+  resize:vertical;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  font-size:13px;
+}
+.backupInlinePanel details{
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  padding:10px 12px;
+  background:#f8fafc;
+}
+.backupInlinePanel summary{
+  cursor:pointer;
+  color:#0f172a;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  list-style:none;
+}
+.backupInlinePanel summary::-webkit-details-marker{display:none;}
+.backupInlinePanel summary::before{
+  content:"▸";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:20px;
+  height:20px;
+  border-radius:999px;
+  background:#eaf2ff;
+  color:#2563eb;
+  font-weight:900;
+  font-size:13px;
+  transition:transform .12s ease;
+}
+.backupInlinePanel details[open] summary::before{
+  transform:rotate(90deg);
+}
+.backupInlinePanel details[open] summary::after{
+  content:"Click to collapse";
+  margin-left:auto;
+  color:#64748b;
+  font-size:12px;
+  font-weight:800;
+}
+.backupInlinePanel summary .small{
+  font-weight:600;
+  color:#64748b;
+}
+.backupInlineGrid{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:minmax(220px,1.05fr) repeat(3,minmax(220px,1fr));
+  gap:14px;
+  align-items:start;
+}
+.backupFileField,
+.backupSelectField{
+  gap:5px;
+}
+.backupFieldTitle{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:22px;
+  color:#334155;
+  font-weight:800;
+}
+.backupFieldTitle .sectionHelpIcon{
+  position:static;
+  width:16px;
+  height:16px;
+  min-width:16px;
+  font-size:11px;
+  line-height:16px;
+  margin:0;
+  transform:none;
+}
+.fieldHint{
+  display:block;
+  color:#64748b;
+  font-size:12px;
+  line-height:1.35;
+  font-weight:600;
+  min-height:34px;
+}
+.backupFilePicker{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:8px;
+  align-items:center;
+}
+.backupFilePicker input{
+  min-width:0;
+}
+.backupFilePicker button{
+  white-space:nowrap;
+}
+.backupOutputLabel{
+  display:block;
+  margin-top:12px;
+  font-weight:800;
+  color:#334155;
+}
+.backupOutputLabel .fieldHint{
+  min-height:0;
+  margin-top:2px;
+}
+.backupOutputLabel textarea{
+  margin-top:8px;
+}
+.backupStatusPanel{
+  display:grid;
+  grid-template-columns:1fr 1fr 2fr;
+  gap:10px;
+  align-items:stretch;
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  background:#fff;
+  padding:10px;
+  margin-top:12px;
+}
+.backupStatusPanel>div{
+  border-right:1px solid #e5e7eb;
+  padding-right:10px;
+}
+.backupStatusPanel>div:last-child{
+  border-right:none;
+  padding-right:0;
+}
+.backupStatusPanel b{
+  display:block;
+  color:#0f172a;
+  margin-bottom:4px;
+}
+.backupStatusPanel span{
+  color:#475569;
+  font-weight:800;
+}
+.backupStatusPanel.backupComplete{
+  border-color:#bbf7d0;
+  background:#f0fdf4;
+}
+.backupStatusPanel.backupPartial{
+  border-color:#fde68a;
+  background:#fffbeb;
+}
+.backupStatusFiles{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.backupStatusFiles span{
+  border:1px solid #dbe3ef;
+  background:#fff;
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:12px;
+}
+.backupStatusFiles .muted{
+  color:#64748b;
+  background:#f8fafc;
+}
+.backupNotApplicable{
+  opacity:.68;
+}
+.backupNotApplicable input{
+  background:#f8fafc;
+}
+.backupWorkflow{
+  display:grid;
+  gap:10px;
+}
+.backupWorkflowTitle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.backupWorkflowTitle .sectionHelpIcon{
+  position:static;
+  width:16px;
+  height:16px;
+  min-width:16px;
+  font-size:11px;
+  line-height:16px;
+  margin:0;
+  transform:none;
+}
+.backupWorkflowStep{
+  display:grid;
+  grid-template-columns:82px 1fr;
+  gap:10px;
+  border:1px solid #dbe3ef;
+  border-radius:10px;
+  background:#fff;
+  padding:10px;
+}
+.backupStepNum{
+  color:#2563eb;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.backupWorkflowStep code{
+  display:block;
+  margin:6px 0;
+  background:#0f172a;
+  color:#e5e7eb;
+  border-radius:8px;
+  padding:7px 9px;
+  font-size:12px;
+}
+.backupWorkflowStep p{
+  margin:0;
+  color:#475569;
+}
+.backupWorkflowStep p span{
+  font-weight:900;
+  color:#334155;
+}
+.inlineCheck{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:6px 0;
+  font-weight:800;
+  color:#334155;
+  width:auto;
+}
+.inlineCheck input{
+  flex:0 0 auto;
+}
+
+.pm3SafetyTableWrap{
+  margin-top:8px;
+  max-height:260px;
+  overflow:auto;
+}
+
+.pm3SafetyTable code{
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+
+.customPm3ActionEditor label{
+  display:block;
+  font-weight:800;
+  color:#0f172a;
+  margin:0 0 12px;
+}
+
+.customPm3ActionEditor input,
+.customPm3ActionEditor textarea{
+  width:100%;
+  margin-top:6px;
+}
+
+.customPm3ActionEditor textarea{
+  min-height:92px;
+  resize:vertical;
+}
+
+.customPm3ActionDetail h4{
+  margin:0 0 8px;
+  color:#0f172a;
+}
+
+.customPm3ActionDetail section{
+  margin:12px 0;
+}
+
+.customPm3ActionDetail ol{
+  margin:8px 0 0;
+  padding-left:22px;
+}
+
+.customPm3ActionDetail li{
+  margin:8px 0;
+}
+
+.customPm3RiskBox{
+  border:1px solid #fed7aa;
+  background:#fff7ed;
+  border-radius:12px;
+  padding:12px;
+}
+
+.badText{
+  color:#991b1b;
+}
+
+.databaseManagerModal{
+  display:grid;
+  gap:14px;
+}
+
+.databaseManagerStats{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.databaseManagerStats div{
+  border:1px solid #dbeafe;
+  background:#f8fbff;
+  border-radius:12px;
+  padding:12px;
+}
+
+.databaseManagerStats span{
+  display:block;
+  color:#64748b;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.databaseManagerStats b{
+  display:block;
+  color:#0f172a;
+  font-size:24px;
+  margin-top:4px;
+}
+
+.databaseManagerWarning{
+  border:1px solid #fecaca;
+  background:#fff5f5;
+  border-radius:12px;
+  padding:12px;
+  color:#7f1d1d;
+}
+
+.databaseManagerWarning p{
+  margin:6px 0 0;
+}
+
+.consolePanel {
+  flex: 1 1 auto;
+  display:flex;
+  flex-direction:column;
+  min-height: 170px;
+  height: 260px;
+  background: #0b1020;
+  border-radius: 12px;
+  border: 1px solid #1f2937;
+  overflow: hidden;
+  position: relative;
+}
+
+/* In a smaller window the controls deserve the space first.  The output is
+   still available, but no longer silently pushes command sets below view. */
+@media (max-height: 1100px){
+  .liveTop{
+    flex:1 1 auto;
+    max-height:none;
+  }
+  .consolePanel{
+    flex:0 0 clamp(180px, 27vh, 260px);
+    height:auto;
+  }
+}
+
+.consolePanelHeader{
+  align-items:center;
+  background:#111827;
+  border-bottom:1px solid #1f2937;
+  color:#dbeafe;
+  display:flex;
+  font-size:13px;
+  justify-content:space-between;
+  padding:8px 10px;
+}
+
+.consolePanelActions{
+  align-items:center;
+  display:flex;
+  gap:7px;
+}
+
+.consolePanelActions button{
+  font-size:12px;
+  padding:6px 9px;
+}
+
+#console {
+  flex:1 1 auto;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  background: #0b1020;
+  color: #e5e7eb;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13px;
+}
+
+.terminalResizeHandle{
+  flex:0 0 auto;
+  min-height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-bottom:1px solid rgba(148,163,184,.35);
+  border-top:1px solid rgba(148,163,184,.25);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 10px, rgba(148,163,184,.18) 10px 12px),
+    #172033;
+  color:#cbd5e1;
+  cursor:ns-resize;
+  user-select:none;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:0;
+  text-transform:uppercase;
+}
+.terminalResizeHandle:hover,
+.terminalResizeHandle.dragging{
+  background:
+    repeating-linear-gradient(90deg, transparent 0 10px, rgba(226,232,240,.34) 10px 12px),
+    #223047;
+  color:#fff;
+}
+.deviceCommandLibraryTerminalWrap .terminalResizeHandle{
+  border-radius:0 0 8px 8px;
+  margin-top:-1px;
+}
+.resizablePreWrap{
+  display:flex;
+  flex-direction:column;
+}
+.resizablePreWrap .normalPre{
+  margin-bottom:0;
+}
+
+.liveSection .matchPanel {
+  max-height: 160px;
+  overflow: auto;
+}
+
+/* Inventory table */
+#assetTable {
+  width: max-content;
+  border-collapse: collapse;
+}
+
+#assetTable th,
+#assetTable td {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.clipText {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.openTagCell {
+  cursor: pointer;
+  color: #1f5fe0;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.clipCell {
+  position: relative;
+  cursor: text;
+  user-select: text;
+}
+
+.clipCell:hover::after {
+  content: attr(data-full);
+  position: absolute;
+  left: 4px;
+  top: 100%;
+  margin-top: 4px;
+  max-width: 620px;
+  min-width: 80px;
+  white-space: normal;
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 2px;
+  padding: 6px 8px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .20);
+  opacity: 0;
+  animation: inventoryHoverText .15s ease .45s forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes inventoryHoverText {
+  to { opacity: 1; }
+}
+
+#assetTable .clipCell:hover::after {
+  display: none;
+}
+
+#assetTable .clipCell.isTruncated:hover::after {
+  display: block;
+}
+
+.charCounter {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #6b7280;
+  text-align: right;
+}
+
+.charCounter.nearLimit {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.charCounter.atLimit {
+  color: #dc2626;
+  font-weight: 800;
+}
+
+/* Change Log */
+.logTableWrap {
+  width: 100%;
+  max-height: 62vh;
+  overflow: auto;
+  border: 1px solid #d1d5db;
+  border-radius: 2px;
+}
+
+#logTable {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+}
+
+#logTable th,
+#logTable td {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+#logTable .log-date { width: 13ch; min-width: 13ch; }
+#logTable .log-tagid { width: 11ch; min-width: 11ch; }
+#logTable .log-action { width: 14ch; min-width: 14ch; }
+#logTable .log-field { width: 14ch; min-width: 14ch; }
+#logTable .log-changes { min-width: 28ch; }
+#logTable .log-notes { width: 30ch; min-width: 30ch; }
+
+.log-time {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.logChangeCell {
+  vertical-align: top;
+  cursor: text;
+  user-select: text;
+}
+
+#logTable .logChangeCell {
+  cursor: pointer;
+  user-select: none;
+}
+
+#logTable .logChangeCell:hover {
+  background: rgba(46,108,246,.16);
+}
+
+#logTable .logChangeCell:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: -3px;
+}
+
+.logChangeSummary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-width:280px;
+  max-width:620px;
+}
+.logChangeSummary b{
+  overflow:hidden;
+  color:#dceaff;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.logChangeSummary span{
+  flex:0 0 auto;
+  color:#7dd3fc;
+  font-size:11px;
+  font-weight:800;
+}
+
+.compactChangeLine {
+  display: block;
+  line-height: 1.35;
+  margin: 1px 0;
+  white-space: nowrap;
+}
+
+.changeLabel {
+  display: inline-block;
+  width: 8ch;
+  font-size: 11px;
+  font-weight: 800;
+  vertical-align: baseline;
+}
+
+.previousLabel {
+  color: #64748b;
+}
+
+.newLabel {
+  color: #15803d;
+}
+
+.changeText {
+  display: inline;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+
+/* Change Log detail modal */
+.logDetailModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .45);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.logDetailCard {
+  width: min(1500px, 96vw);
+  max-height: 90vh;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.logDetailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.logDetailHeader h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.logDetailBody {
+  padding: 12px;
+  overflow: hidden;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.logDiffSummary {
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+.logDiffGrid {
+  display: grid;
+  grid-template-columns: 18ch minmax(420px, 1fr) minmax(420px, 1fr);
+  gap: 0;
+  min-width: 980px;
+  max-height: calc(90vh - 122px);
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: auto;
+  background: #fff;
+  align-content: start;
+}
+
+.logDiffRow {
+  display: contents;
+}
+
+.logDiffHead,
+.logDiffKey,
+.logDiffValue {
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  padding: 7px 8px;
+}
+
+.logDiffHead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #e5e7eb;
+  font-weight: 800;
+  box-shadow: 0 1px 0 #cbd5e1;
+}
+
+.logDiffKeyHead {
+  color: #334155;
+}
+
+.logDiffKey {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 800;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.logDiffValue,
+.logDiffRaw {
+  margin: 0;
+  min-height: 24px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: pre;
+  overflow: auto;
+  user-select: text;
+}
+
+.diffSame {
+  background: #0b1020;
+  color: #e5e7eb;
+}
+
+.diffOldChanged {
+  background: #3b1111;
+  color: #fecaca;
+}
+
+.diffNewChanged {
+  background: #052e16;
+  color: #bbf7d0;
+}
+
+.logDiffRawGrid {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(420px, 1fr);
+  gap: 12px;
+  min-width: 860px;
+}
+
+.logDiffRaw {
+  max-height: 66vh;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .logDiffGrid {
+    grid-template-columns: 14ch minmax(360px, 1fr) minmax(360px, 1fr);
+  }
+
+  .logDiffRawGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+
+  .liveSection {
+    height: calc(100vh - 176px);
+    max-height: calc(100vh - 176px);
+  }
+}
+
+
+/* Inventory photo indicator */
+.photoIndicatorHead,
+.photoIndicatorCell {
+  width: 7ch;
+  min-width: 7ch;
+  text-align: center;
+}
+
+.photoIndicatorCell {
+  font-size: 16px;
+}
+
+/* Shared Studio palette for the established workspaces.
+   Device Studio remains the reference point, while the older tools keep their
+   existing workflows and controls inside the same calm dark environment. */
+#tab-edit .panel,
+#tab-live .panel,
+#tab-restore .panel,
+#tab-compare .panel,
+#tab-labels .panel,
+#tab-standalone-studio .panel,
+#tab-cardlab .panel,
+#tab-research .panel,
+#tab-portal .panel,
+#tab-history .panel,
+#tab-log .panel {
+  background:linear-gradient(145deg,rgba(12,33,61,.98),rgba(7,21,41,.98));
+  border-color:rgba(96,165,250,.28);
+  color:#e8f1ff;
+}
+#tab-edit h2,#tab-edit h3,#tab-live h2,#tab-live h3,#tab-restore h2,#tab-restore h3,
+#tab-compare h2,#tab-compare h3,#tab-labels h2,#tab-labels h3,#tab-cardlab h2,
+#tab-standalone-studio h2,#tab-standalone-studio h3,
+#tab-cardlab h3,#tab-research h2,#tab-research h3,#tab-portal h2,#tab-portal h3,
+#tab-history h2,#tab-log h2 {color:#f5f9ff;}
+#tab-edit .small,#tab-live .small,#tab-restore .small,#tab-compare .small,
+#tab-labels .small,#tab-cardlab .small,#tab-research .small,#tab-portal .small,
+#tab-standalone-studio .small,
+#tab-history .small,#tab-log .small {color:#a9bdd8;}
+
+/* Device Console: preserve command behaviour while matching the Studio palette. */
+#tab-live .deviceCommandBlockLabel,#tab-live .deviceProfileSummary,
+#tab-live .deviceCommandItem p {color:#a9bdd8;}
+#tab-live .deviceProfileSummary b,#tab-live .deviceCommandLibraryPanel summary,
+#tab-live .commandSetPanel summary {color:#eef6ff;}
+#tab-live .deviceConnectPanel,#tab-live .commandSetPanel,#tab-live .deviceCommandLibraryPanel,
+#tab-live .backupInlinePanel details,#tab-live .deviceCommandLibraryTerminalWrap {
+  border-color:rgba(96,165,250,.25);background:rgba(7,21,41,.72);
+}
+#tab-live .deviceProfilePills span,#tab-live .deviceCommandMeta span {
+  border-color:rgba(96,165,250,.28);background:rgba(20,52,91,.65);color:#cfe4ff;
+}
+#tab-live .deviceProfilePills span.blocked,
+#tab-live .deviceCommandMeta .deviceCommandSafeModeBadge{
+  background:rgba(127,29,29,.72);
+  border-color:rgba(248,113,113,.78);
+  color:#fee2e2;
+}
+.deviceProfileSummaryHead{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}.deviceProfileSummaryHead>span:not(.deviceProfileSafetyNotice){color:#9db4d6;font-weight:750;}.deviceProfileSafetyNotice span{color:inherit;}
+.deviceProfileSafetyNotice{
+  align-items:center;
+  border:1px solid currentColor;
+  border-radius:999px;
+  display:inline-flex;
+  gap:8px;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.2;
+  padding:4px 8px;
+}
+.deviceProfileSafetyNotice.protected{color:#fee2e2;background:rgba(127,29,29,.32);}
+.deviceProfileSafetyNotice.off{color:#fef3c7;background:rgba(113,63,18,.34);}
+.deviceProfileCapabilities{margin-top:5px;color:#9db4d6;font-size:11px;font-weight:800;}
+.deviceProfileCapabilities summary{cursor:pointer;width:max-content;}
+.deviceProfileCapabilities .deviceProfilePills{margin-top:7px;}
+#tab-live .deviceCommandItem {border-color:rgba(96,165,250,.25);background:rgba(9,29,55,.9);}
+#tab-live .deviceCommandItem.isSafeModeBlocked{border-color:rgba(248,113,113,.78);background:linear-gradient(90deg,rgba(127,29,29,.42),rgba(9,29,55,.92));}
+#tab-live .deviceCommandItem.isSafeModeBlocked h4{color:#fee2e2;}
+.deviceCommandSafeModeBadge{font-size:11px;}
+.deviceCommandItem.isSafeModeBlocked .deviceCommandActions button[disabled]{background:rgba(127,29,29,.82);border-color:rgba(252,165,165,.75);color:#fee2e2;cursor:not-allowed;opacity:1;}
+.deviceCommandHelpIcon{display:inline-flex;vertical-align:middle;margin-left:4px;transform:translateY(-2px)!important;}
+.deviceCommandHelpDetail{display:grid;gap:10px;}.deviceCommandHelpSection{padding:10px;border:1px solid #dbe3ef;border-radius:9px;background:#f8fafc;}.deviceCommandHelpSection b{display:block;color:#0f172a;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;}.deviceCommandHelpSection p{margin:5px 0 0;color:#475569;line-height:1.42;}.deviceCommandHelpSection code{display:block;margin-top:6px;padding:7px 8px;border-radius:7px;background:#0f172a;color:#e5e7eb;overflow-wrap:anywhere;}
+
+/* Command Library uses the standard Electron dark surface instead of a white utility dialog. */
+.deviceCommandLibraryDarkCard{background:#07162a;border-color:rgba(96,165,250,.34);color:#eef6ff;box-shadow:0 28px 80px rgba(0,0,0,.52);}
+.deviceCommandLibraryDarkCard .teModalHeader,.deviceCommandLibraryDarkCard .teModalFooter{border-color:rgba(96,165,250,.22);}
+.deviceCommandLibraryDarkCard .teModalTitleBlock h3{color:#f8fbff;}
+.deviceCommandLibraryDarkCard .teModalSubtitle,.deviceCommandLibraryDarkCard .teModalBody{color:#a9bdd8;}
+.deviceCommandLibraryDarkCard .teModalX{background:rgba(37,99,235,.18);color:#cfe4ff;}
+.deviceCommandLibraryDarkCard .teModalX:hover{background:rgba(37,99,235,.36);}
+.deviceCommandLibraryDarkCard .teBtnSecondary{background:rgba(148,163,184,.2);color:#eef6ff;}
+.deviceCommandLibraryDarkCard input,.deviceCommandLibraryDarkCard select{background:#061428;color:#eef6ff;border-color:rgba(96,165,250,.46);}
+.deviceCommandLibraryDarkCard .deviceCommandItem{border-color:rgba(96,165,250,.28);background:rgba(9,29,55,.94);}
+.deviceCommandLibraryDarkCard .deviceCommandItem h4{color:#eef6ff;}
+.deviceCommandLibraryDarkCard .deviceCommandItem p{color:#b9cce5;}
+.deviceCommandLibraryDarkCard .deviceCommandMeta span{border-color:rgba(96,165,250,.28);background:rgba(20,52,91,.72);color:#cfe4ff;}
+.deviceCommandLibraryDarkCard .deviceCommandItem.isSafeModeBlocked{border-color:rgba(248,113,113,.78);background:linear-gradient(90deg,rgba(127,29,29,.48),rgba(9,29,55,.94));}
+.deviceCommandLibraryDarkCard .deviceCommandItem.isSafeModeBlocked h4{color:#fee2e2;}
+.deviceCommandLibraryDarkCard .deviceCommandLibraryTerminalWrap{border-color:rgba(96,165,250,.28);background:rgba(5,18,35,.84);}
+.deviceCommandLibraryDarkCard .deviceCommandLibrarySafetyStatus.protected{color:#fecaca;background:rgba(127,29,29,.38);}
+.deviceCommandLibraryDarkCard .deviceCommandLibrarySafetyStatus.advanced{color:#fde68a;background:rgba(113,63,18,.38);}
+.deviceCommandLibraryDarkCard .deviceCommandLibrarySafetyStatus.unavailable{color:#cbd5e1;background:rgba(51,65,85,.45);}
+.deviceCommandLibraryDarkCard .deviceLibraryMoreTools>div{border-color:rgba(96,165,250,.35);background:#0b213e;box-shadow:0 12px 32px rgba(0,0,0,.42);}
+.deviceCommandLibraryDarkCard .deviceLibraryMoreTools summary{color:#cfe4ff;}
+
+/* Card Lab keeps its guide-like layout, now visually part of the same workshop. */
+#tab-cardlab .atlasHero,#tab-cardlab .atlasProgressBox,#tab-cardlab .atlasCard,
+#tab-cardlab .atlasModuleRow,#tab-cardlab .electronReportHero,#tab-cardlab .electronKnowledgePanel,
+#tab-cardlab .electronCapabilityItem,#tab-cardlab .electronReadableData,
+#tab-cardlab .electronReadableField,#tab-cardlab .electronTechnicalDetails,
+#tab-cardlab .electronSecondaryDetails,#tab-cardlab .electronMemoryNotes,
+#tab-cardlab .electronSavedBox {
+  border-color:rgba(96,165,250,.28);background:rgba(7,21,41,.80);color:#dceaff;
+  box-shadow:none;
+}
+#tab-cardlab .atlasHeroEmpty,#tab-cardlab .electronReportHero,
+#tab-cardlab .electronReadableData {background:linear-gradient(145deg,rgba(12,45,79,.92),rgba(7,21,41,.92));}
+#tab-cardlab .atlasHero p,#tab-cardlab .atlasCard p,#tab-cardlab .atlasCard ul,
+#tab-cardlab .atlasCard small,#tab-cardlab .atlasModuleRow span,#tab-cardlab .atlasModuleRow small,
+#tab-cardlab .electronReportHero p,#tab-cardlab .electronCapabilityItem small,
+#tab-cardlab .electronReadableField span,#tab-cardlab .electronKnowledgeDetail p,
+#tab-cardlab .electronInvestigating ol {color:#a9bdd8;}
+#tab-cardlab .atlasCard b,#tab-cardlab .atlasKnowledgeDetails summary,
+#tab-cardlab .atlasModuleRow b,#tab-cardlab .electronCapabilityItem b,
+#tab-cardlab .electronReadableField b,#tab-cardlab .electronKnowledgePanel b,
+#tab-cardlab .electronTechnicalDetails summary {color:#eef6ff;}
+#tab-cardlab .atlasScore,#tab-cardlab .atlasPill,#tab-cardlab .atlasMiniTools span,#tab-cardlab .atlasMiniTool,
+#tab-cardlab .atlasModuleHeader span,#tab-cardlab .electronCapBadge {
+  border-color:rgba(96,165,250,.32);background:rgba(20,52,91,.72);color:#cfe4ff;
+}
+#tab-cardlab .atlasWizardStep {border-color:rgba(96,165,250,.24);background:rgba(7,21,41,.68);}
+#tab-cardlab .atlasWizardStep span {background:#14345b;color:#dceaff;}
+#tab-cardlab .atlasWizardStep.active {background:rgba(14,72,122,.5);border-color:#38bdf8;}
+
+/* Local research and portal screens use the same dark cards; status colours stay meaningful. */
+#tab-research .electronLearnResearchPanel,#tab-research .electronResearchRecord,
+#tab-research .electronSourceNotice,#tab-research .electronSavedBox,
+#tab-research .electronMemoryNotes,#tab-research .electronSecondaryDetails,
+#tab-portal .portalNav,#tab-portal .portalContent,#tab-portal .portalHero,
+#tab-portal .portalPreviewCard,#tab-portal .portalCard,#tab-portal .portalWorkflow > div,
+#tab-portal .portalPrinciples > div,#tab-portal .portalPreviewTimeline > div {
+  border-color:rgba(96,165,250,.25);background:rgba(7,21,41,.82);color:#dceaff;
+  box-shadow:none;
+}
+#tab-research .electronResearchRecord p,#tab-research .electronResearchRecord small,
+#tab-research .electronSourceNotice p,#tab-research .electronSourceNotice small,
+#tab-portal .portalPageTitle p,#tab-portal .portalHero p,#tab-portal .portalPreviewCard span,
+#tab-portal .portalCard span,#tab-portal .portalCard small,#tab-portal .portalWorkflow p,
+#tab-portal .portalPrinciples p,#tab-portal .portalPreviewTimeline span {color:#a9bdd8;}
+#tab-research .electronResearchRecord b,#tab-research .electronSourceNotice b,
+#tab-portal .portalPageTitle h3,#tab-portal .portalHero h3,
+#tab-portal .portalPreviewCard b,#tab-portal .portalCard b {color:#eef6ff;}
+#tab-portal .portalNav button {color:#cfe4ff;}
+#tab-portal .portalNav button.active,#tab-portal .portalNav button:hover {background:#1c6ae5;color:#fff;}
+
+#assetTable tbody tr {
+  cursor: pointer;
+}
+
+#assetTable tbody tr:hover td {
+  background: #f8fafc;
+}
+
+/* Settings */
+.settingsPage{
+  display:grid;
+  gap:18px;
+}
+
+.settingsHero{
+  border:1px solid rgba(96,165,250,.36);
+  background:linear-gradient(145deg,rgba(12,33,61,.98),rgba(7,21,41,.98));
+  border-radius:18px;
+  padding:18px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.settingsHeroActions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.settingsHero span{
+  display:block;
+  color:#38bdf8;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.settingsHero h2{
+  margin:0 0 6px;
+  font-size:24px;
+  color:#f5f9ff;
+}
+
+.settingsHero p{
+  margin:0;
+  color:#a9bdd8;
+  font-weight:700;
+}
+
+.settingsGrid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+}
+
+.settingsStack{
+  display:grid;
+  gap:12px;
+}
+
+.settingsCard{
+  border:1px solid rgba(96,165,250,.28);
+  background:rgba(7,21,41,.88);
+  border-radius:12px;
+  padding:14px;
+}
+
+.settingsCard h3{
+  margin:0 0 8px;
+  color:#f5f9ff;
+}
+
+.settingsCard .grid{
+  margin-top:10px;
+}
+
+/* Keep the separate Settings window visually part of Electron. */
+.settingsWindowBody .settingsCard .small,
+.settingsWindowBody .settingsCard label,
+.settingsWindowBody .settingsCard .previewLicenseStatus,
+.settingsWindowBody .settingsCard .previewChecklistResult{
+  color:#a9bdd8;
+}
+.settingsWindowBody .settingsCard input,
+.settingsWindowBody .settingsCard select,
+.settingsWindowBody .settingsCard textarea{
+  background:#071529;
+  border-color:rgba(96,165,250,.45);
+  color:#e8f1ff;
+}
+.settingsWindowBody .settingsCard input::placeholder,
+.settingsWindowBody .settingsCard textarea::placeholder{color:#7186a7;}
+.settingsWindowBody .helpEngineToggleLabel{color:#dcecff;}
+
+.settingsCardTitleRow{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.settingsCardTitleRow h3{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.engineeringModeSettingsCard{
+  border-color:rgba(56,189,248,.42);
+  background:linear-gradient(145deg,rgba(7,21,41,.96),rgba(11,31,57,.92));
+}
+
+.engineeringModeToggleLabel{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:max-content;
+  max-width:100%;
+  margin:12px 0 6px;
+  color:#eaf5ff !important;
+  font-weight:800;
+}
+
+.engineeringModeToggleLabel input{
+  width:18px;
+  height:18px;
+  margin:0;
+  accent-color:#38bdf8;
+}
+
+.engineeringModeBadge{
+  min-width:46px;
+  padding:5px 10px;
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:999px;
+  background:rgba(15,23,42,.72);
+  color:#a9bdd8;
+  font-size:12px;
+  font-weight:900;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+
+.engineeringModeBadge[data-enabled="true"]{
+  border-color:rgba(56,189,248,.55);
+  background:rgba(14,116,144,.25);
+  color:#7dd3fc;
+}
+
+.engineeringModeStatus{
+  margin:10px 0 0;
+  padding-top:10px;
+  border-top:1px solid rgba(96,165,250,.18);
+}
+
+.engineeringModeAcknowledgement ul{
+  margin:10px 0;
+  padding-left:22px;
+}
+
+.engineeringModeAcknowledgement li{
+  margin:7px 0;
+}
+
+.previewLicenseGrid,
+.previewExpiredStatus{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;
+  margin:10px 0;
+}
+
+.previewAccessCard{
+  border-color:rgba(56,189,248,.38);
+  background:linear-gradient(145deg,rgba(7,21,41,.96),rgba(10,27,50,.94));
+}
+
+.previewAccessHeading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+}
+
+.previewAccessKicker{
+  display:block;
+  margin-bottom:5px;
+  color:#67d4ff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.previewAccessBadge{
+  flex:0 0 auto;
+  padding:7px 12px;
+  border:1px solid rgba(74,222,128,.45);
+  border-radius:999px;
+  background:rgba(22,101,52,.24);
+  color:#b8f7cb;
+  font-weight:900;
+}
+
+.previewAccessBadge[data-state="ending"]{
+  border-color:rgba(250,204,21,.48);
+  background:rgba(133,77,14,.25);
+  color:#fde68a;
+}
+
+.previewAccessBadge[data-state="expired"]{
+  border-color:rgba(248,113,113,.48);
+  background:rgba(127,29,29,.26);
+  color:#fecaca;
+}
+
+.previewAccessSummary{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:10px;
+  margin:14px 0;
+}
+
+.previewAccessSummary div{
+  min-width:0;
+  padding:12px;
+  border:1px solid rgba(96,165,250,.30);
+  border-radius:10px;
+  background:rgba(15,23,42,.58);
+}
+
+.previewAccessSummary span{
+  display:block;
+  color:#a9bdd8;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.previewAccessSummary b{
+  display:block;
+  margin-top:5px;
+  color:#eef6ff;
+  overflow-wrap:anywhere;
+}
+
+.previewAccessExplanation,
+.previewAccessOptionGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:10px;
+  margin:12px 0;
+}
+
+.previewAccessExplanation article,
+.previewAccessOptionGrid article{
+  padding:13px;
+  border:1px solid rgba(96,165,250,.22);
+  border-radius:10px;
+  background:rgba(2,13,30,.45);
+}
+
+.previewAccessExplanation h4,
+.previewAccessOptions h4,
+.previewExtensionSteps h4{
+  margin:0 0 6px;
+  color:#f0f7ff;
+}
+
+.previewAccessExplanation p,
+.previewAccessOptionGrid p{
+  margin:0;
+  color:#b5c8e2;
+  line-height:1.5;
+}
+
+.previewAccessOptions{
+  margin-top:16px;
+}
+
+.previewAccessOptionGrid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.previewAccessOptionGrid span{
+  display:block;
+  margin-bottom:5px;
+  color:#67d4ff;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.previewAccessOptionGrid strong{
+  display:block;
+  margin-bottom:7px;
+  color:#eef6ff;
+}
+
+.previewExtensionSteps{
+  margin:16px 0 12px;
+  padding:13px;
+  border:1px solid rgba(103,212,255,.22);
+  border-radius:10px;
+  background:rgba(8,47,73,.24);
+}
+
+.previewExtensionSteps ol{
+  margin:8px 0 0;
+  padding-left:22px;
+  color:#bfd0e7;
+}
+
+.previewExtensionSteps li{
+  margin:6px 0;
+  line-height:1.45;
+}
+
+.previewAccessActions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin:12px 0 16px;
+}
+
+.previewAccessActions p{
+  flex-basis:100%;
+  margin:0;
+}
+
+.previewExtensionDetails,
+.previewTechnicalDetails{
+  margin-top:10px;
+  border:1px solid rgba(96,165,250,.24);
+  border-radius:10px;
+  background:rgba(2,13,30,.4);
+}
+
+.previewExtensionDetails summary,
+.previewTechnicalDetails summary{
+  padding:12px 13px;
+  color:#dcecff;
+  font-weight:850;
+  cursor:pointer;
+}
+
+.previewExtensionBody{
+  padding:0 13px 13px;
+  color:#b8cbe3;
+}
+
+.previewExtensionBody p{
+  margin:0 0 12px;
+  line-height:1.5;
+}
+
+.previewExtensionBody label{
+  display:block;
+}
+
+.previewExtensionBody input{
+  width:100%;
+  margin-top:6px;
+}
+
+.previewTechnicalDetails .previewLicenseGrid{
+  padding:0 12px 12px;
+}
+
+.previewLicenseGrid div,
+.previewExpiredStatus div{
+  border:1px solid #dbe4f0;
+  background:#f8fbff;
+  border-radius:10px;
+  padding:10px;
+}
+
+.previewLicenseGrid span,
+.previewExpiredStatus span{
+  display:block;
+  color:#64748b;
+  font-weight:800;
+}
+
+/* The Preview Build information lives inside Settings, so it follows the
+   same dark cards there.  The separate expiry window keeps its own layout. */
+.settingsWindowBody .previewLicenseGrid div{
+  border-color:rgba(96,165,250,.30);
+  background:rgba(15,23,42,.58);
+}
+.settingsWindowBody .previewLicenseGrid span{color:#a9bdd8;}
+.settingsWindowBody .previewLicenseGrid b{display:block;margin-top:3px;color:#eef6ff;overflow-wrap:anywhere;}
+
+.previewExpiredBody{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0f172a;
+  color:#0f172a;
+}
+
+.previewExpiredPanel{
+  width:min(680px, calc(100vw - 36px));
+  background:#fff;
+  border-radius:18px;
+  padding:28px;
+  border:1px solid #dbe4f0;
+  box-shadow:0 24px 80px rgba(15,23,42,.35);
+}
+
+.previewExpiredIcon{
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  margin-bottom:14px;
+}
+
+.previewExpiredPanel h1{
+  margin:0 0 10px;
+}
+
+.previewExtensionField{
+  display:block;
+  margin-top:14px;
+}
+
+.previewExpiredActions{
+  margin-top:16px;
+}
+
+@media(max-width:900px){
+  .settingsGrid{grid-template-columns:1fr}
+  .previewAccessSummary,
+  .previewAccessOptionGrid{grid-template-columns:1fr}
+  .previewAccessHeading{display:block}
+  .previewAccessBadge{display:inline-block;margin-top:8px}
+}
+
+@media(max-width:640px){
+  .previewAccessExplanation{grid-template-columns:1fr}
+}
+
+
+/* Dashboard table filters */
+.dashboardFilterRow {
+  cursor: pointer;
+}
+
+.dashboardFilterRow:hover td {
+  background: #eef2ff;
+}
+
+
+/* Inventory real photo thumbnails */
+.photoIndicatorHead,
+.photoIndicatorCell {
+  width: 36px;
+  min-width: 36px;
+  text-align: center;
+}
+
+.photoIndicatorCell {
+  vertical-align: middle;
+}
+
+.emptyPhotoCell {
+  cursor: pointer;
+}
+
+.inventoryPhotoThumb {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border: 1px solid #cbd5e1;
+  border-radius: 2px;
+  background: #fff;
+  cursor: zoom-in;
+  display: inline-block;
+}
+
+
+/* Compact inventory rows */
+.inventoryTable td,
+.inventoryTable th {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.photoIndicatorCell{
+  padding-top:2px !important;
+  padding-bottom:2px !important;
+  vertical-align:middle;
+}
+
+/* Collection workspace: the saved-record area uses the calm Studio palette
+   while keeping its existing table and file-management controls intact. */
+.collectionStudio{
+  color:#e6f4ff;
+}
+.collectionStudio .collectionHero{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  padding:20px;
+  background:linear-gradient(135deg,rgba(10,35,68,.94),rgba(7,18,38,.96));
+  border-color:rgba(56,189,248,.34);
+  box-shadow:0 12px 32px rgba(2,8,23,.18);
+}
+.collectionStudio .collectionHero h2{
+  margin:4px 0 7px;
+  color:#f5fbff;
+}
+.collectionStudio .collectionHero p{
+  max-width:760px;
+  margin:0;
+  color:#b8cbe4;
+  line-height:1.45;
+}
+.collectionHeroHint{
+  flex:0 0 auto;
+  padding:8px 11px;
+  border:1px solid rgba(56,189,248,.36);
+  border-radius:999px;
+  background:rgba(14,116,144,.16);
+  color:#bae6fd;
+  font-size:.78rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.collectionStudio .atlasKicker,
+.collectionPanelKicker{
+  color:#38bdf8;
+}
+.collectionStudio .collectionMetricCards{
+  margin:0 0 12px;
+}
+.collectionStudio .card,
+.collectionStudio .panel{
+  background:linear-gradient(145deg,rgba(12,31,61,.97),rgba(7,18,38,.98));
+  border-color:rgba(96,165,250,.24);
+  box-shadow:0 10px 26px rgba(2,8,23,.15);
+}
+.collectionStudio .card{
+  min-height:94px;
+  transition:transform .16s ease,border-color .16s ease,background .16s ease;
+}
+.collectionStudio .card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(56,189,248,.72);
+  background:rgba(14,44,80,.96);
+}
+.collectionStudio .card span,
+.collectionStudio .small,
+.collectionStudio label{
+  color:#a9bdd6;
+}
+.collectionStudio .card b,
+.collectionStudio h2,
+.collectionStudio h3,
+.collectionStudio th,
+.collectionStudio td{
+  color:#edf7ff;
+}
+.collectionSummaryGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-bottom:12px;
+}
+.collectionSummaryPanel{
+  min-width:0;
+  margin:0;
+}
+.collectionSummaryPanel h3{
+  margin:3px 0 12px;
+}
+.collectionStudio table{
+  background:rgba(5,15,33,.55);
+}
+.collectionStudio th,
+.collectionStudio td{
+  border-color:rgba(96,165,250,.20);
+}
+.collectionStudio th{
+  background:rgba(19,50,89,.78);
+}
+.collectionStudio tr:hover td,
+.collectionStudio .dashboardFilterRow:hover td{
+  background:rgba(14,72,122,.38);
+}
+.collectionStudio #assetTable tbody tr:hover td{
+  background:rgba(14,72,122,.62);
+  color:#f8fbff;
+}
+.collectionStudio #assetTable tbody tr:hover td .small,
+.collectionStudio #assetTable tbody tr:hover td a{
+  color:#dbeafe;
+}
+.collectionInventoryPanel{
+  margin-bottom:14px;
+}
+.collectionInventoryHeading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+}
+.collectionInventoryHeading h2{
+  margin:3px 0 0;
+}
+.collectionInventoryHeading p{
+  margin:0 0 3px;
+  text-align:right;
+}
+.collectionStudio .tablewrap{
+  border-color:rgba(96,165,250,.30);
+  background:rgba(5,15,33,.55);
+}
+.collectionStudio input,
+.collectionStudio select,
+.collectionStudio textarea{
+  border-color:rgba(96,165,250,.34);
+  background:#07152c;
+  color:#eef8ff;
+}
+.collectionStudio input::placeholder{
+  color:#7f9abb;
+}
+.collectionStudio #clearSearchBtn{
+  color:#a9bdd6!important;
+}
+@media(max-width:760px){
+  .collectionStudio .collectionHero,
+  .collectionInventoryHeading{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .collectionHeroHint,
+  .collectionInventoryHeading p{
+    white-space:normal;
+    text-align:left;
+  }
+  .collectionSummaryGrid{grid-template-columns:1fr;}
+}
+
+/* Delta Viewer toggle */
+.deltaToggleBtn {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.logDiffGrid.deltaOnlyChanges .diffUnchangedRow,
+.logDiffGrid.deltaOnlyChanges .diffUnchangedRow + .logDiffValue,
+.logDiffGrid.deltaOnlyChanges .diffUnchangedRow + .logDiffValue + .logDiffValue {
+  display: none;
+}
+
+/* Keep Delta / Change detail viewer above import preview modal */
+.logDetailModal {
+  z-index: 30000 !important;
+}
+
+.logDetailCard {
+  z-index: 30001 !important;
+}
+
+
+/* Team Electron Help Engine */
+.helpButtonWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.helpInfoIcon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 15px;
+  height: 15px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 80;
+  line-height: 1;
+}
+
+.helpInfoIcon svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+  transition: transform .15s ease, filter .15s ease;
+  transform-origin: center center;
+}
+
+.helpInfoIcon:hover svg {
+  transform: scale(1.32);
+  filter: drop-shadow(0 0 4px rgba(37,99,235,.55));
+}
+
+.helpInfoIcon circle {
+  fill: #ffffff;
+  stroke: #2563eb;
+  stroke-width: 1.35;
+}
+
+.helpInfoIcon text {
+  fill: #2563eb;
+  font-size: 9px;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+.helpInfoIcon:hover circle {
+  fill: #eff6ff;
+  stroke: #1d4ed8;
+}
+
+.helpInfoIcon:hover text {
+  fill: #1d4ed8;
+}
+
+.sectionTitleWithHelp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.sectionHelpIcon {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #2563eb;
+  border: 1.6px solid #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-10px);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.sectionHelpIcon:hover {
+  background: #eff6ff;
+  box-shadow: 0 0 4px rgba(37,99,235,.45);
+}
+
+.helpEngineToggleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-size: 14px;
+  margin: 4px 0 4px;
+}
+
+.helpEngineToggleLabel input {
+  width: auto;
+}
+
+.helpEngineOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, .35);
+  z-index: 120000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.helpEngineCard {
+  width: min(460px, 94vw);
+  max-height: 86vh;
+  display:flex;
+  flex-direction:column;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .35);
+  overflow: hidden;
+}
+
+.helpEngineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f8fafc;
+}
+
+.helpEngineHeader h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.helpEngineBody {
+  padding: 16px;
+  min-height:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.helpEngineBody p {
+  margin: 0 0 10px;
+}
+
+.helpEngineBody ul {
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+
+.helpEngineBody li {
+  margin-bottom: 7px;
+}
+
+
+/* Project Atlas - Card Lab / Knowledge Engine */
+.atlasOutput {
+  margin-top: 12px;
+}
+
+.atlasHero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 16px;
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  margin-bottom: 12px;
+}
+
+.atlasHero h3 {
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+
+.atlasHero p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.atlasScore {
+  min-width: 98px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 14px;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.atlasScore span {
+  display: block;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.atlasScore small {
+  color: #1e40af;
+  font-weight: 700;
+}
+
+.atlasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.atlasCard {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px;
+}
+
+.atlasCard b {
+  display: block;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.atlasCard p {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.atlasCard ul {
+  margin: 0 0 0 18px;
+  padding: 0;
+}
+
+.atlasCard li {
+  margin-bottom: 6px;
+}
+
+.atlasCard small {
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.atlasModuleList {
+  display: grid;
+  gap: 8px;
+}
+
+.atlasKnowledgeDetails summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #111827;
+}
+
+.atlasKnowledgeDetails summary span {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.atlasKnowledgeDetails[open] .atlasModuleList {
+  margin-top: 14px;
+}
+
+.atlasModuleRow {
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.atlasModuleRow b,
+.atlasModuleRow span,
+.atlasModuleRow small {
+  display: block;
+}
+
+.atlasModuleRow span {
+  color: #334155;
+  margin-top: 2px;
+}
+
+.atlasModuleRow small {
+  color: #64748b;
+  margin-top: 4px;
+}
+
+
+/* Project Atlas Sprint 1.1 polish */
+.atlasTitle .sectionHelpIcon {
+  margin-left: 6px;
+  vertical-align: super;
+}
+
+.atlasHeroEmpty {
+  border-color: #bfdbfe;
+  background: linear-gradient(180deg, #eff6ff, #ffffff);
+}
+
+.atlasScoreNeutral {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.atlasScoreNeutral small {
+  color: #475569;
+}
+
+.atlasRawJson summary {
+  cursor: pointer;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.atlasRawJson:not([open]) {
+  padding: 4px 0;
+}
+
+.atlasRawJson[open] .normalPre {
+  max-height: 420px;
+  overflow: auto;
+}
+.atlasRawJson[open] .resizablePreWrap .normalPre{
+  max-height:none;
+}
+
+/* Project Atlas Sprint 2 - Card Intelligence workspace */
+.atlasActionBar {
+  align-items: center;
+  gap: 8px;
+}
+
+.atlasActionBar .secondary {
+  background: #334155;
+}
+
+.atlasKicker {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.atlasHeroDetected {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border-color: #bfdbfe;
+}
+
+.atlasHeroUnknown {
+  background: linear-gradient(180deg, #fff7ed, #ffffff);
+  border-color: #fed7aa;
+}
+
+.atlasPillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.atlasPill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 8px;
+}
+
+.atlasIntelligenceGrid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.atlasWideCard {
+  grid-column: span 2;
+}
+
+.atlasActionCard {
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.atlasActionCard:hover {
+  transform: translateY(-1px);
+  border-color: #93c5fd;
+  box-shadow: 0 10px 24px rgba(37,99,235,.10);
+  cursor: pointer;
+}
+
+.atlasMiniTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.atlasMiniTools span,.atlasMiniTool {
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 6px;
+}
+
+.atlasModuleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.atlasModuleHeader span {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .atlasWideCard {
+    grid-column: span 1;
+  }
+}
+
+/* Project Atlas Sprint 4 - Beginner Guided Card Lab */
+.atlasWorkspace{position:relative;overflow:hidden}
+.atlasTopBar{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.atlasTopBar h2{margin-top:0}
+.atlasWizard{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:10px;margin:14px 0 16px 0}
+.atlasWizardStep{border:1px solid #dbe4f0;background:#f8fafc;border-radius:16px;padding:10px 12px;display:flex;align-items:center;gap:10px;min-height:52px;opacity:.72}
+.atlasWizardStep span{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:#e5e7eb;color:#111827;font-weight:900}
+.atlasWizardStep b{display:block;font-size:14px}
+.atlasWizardStep small{display:block;color:#6b7280;font-size:12px;margin-left:auto;text-align:right}
+.atlasWizardStep.active{opacity:1;border-color:#2563eb;background:#eff6ff;box-shadow:0 6px 20px rgba(37,99,235,.12)}
+.atlasWizardStep.active span{background:#2563eb;color:white}
+.atlasWizardStep.done{opacity:1;border-color:#16a34a;background:#f0fdf4}
+.atlasWizardStep.done span{background:#16a34a;color:white}
+.atlasWizardStep.reportReady{opacity:1;border-color:#16a34a;background:#f0fdf4;box-shadow:0 6px 20px rgba(22,163,74,.12)}
+.atlasWizardStep.reportReady span{background:#16a34a;color:white}
+.atlasStatusPanel{margin:8px 0 12px 0}
+.atlasMainActions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 18px 0}
+button.atlasPrimaryAction{font-size:18px;padding:13px 24px;border-radius:16px;font-weight:900;box-shadow:0 8px 24px rgba(22,163,74,.22)}
+.atlasProgressBox{border:1px solid #dbe4f0;background:#f8fafc;border-radius:18px;padding:18px;margin:12px 0;color:#111827}
+.atlasProgressBox b{font-size:18px}
+.atlasOtherInput summary{cursor:pointer;color:#111827}
+.atlasOtherInput textarea{min-height:170px;margin-top:12px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px}
+.atlasOutput{margin-top:8px}
+.atlasHero{border:1px solid #dbe4f0;border-radius:20px;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#f8fafc;margin:12px 0}
+.atlasHero h3{margin:4px 0 6px 0;font-size:22px}
+.atlasHero p{margin:0;color:#374151;line-height:1.45}
+.atlasHeroDetected{background:#f0fdf4;border-color:#bbf7d0}
+.electronReportReadyCard{border:1px solid #bbf7d0;background:#f0fdf4;border-radius:18px;padding:16px;margin:0 0 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;box-shadow:0 8px 24px rgba(22,163,74,.10)}
+.electronReportReadyCard h3{margin:3px 0 10px;font-size:20px;color:#14532d}
+.electronReportReadyGrid{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 12px;font-size:13px}
+.electronReportReadyGrid span{color:#475569}
+.electronReportReadyGrid b{color:#0f172a;overflow-wrap:anywhere}
+.electronReportReadyActions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.electronReportReadyActions button{white-space:nowrap}
+.atlasHeroUnknown{background:#fff7ed;border-color:#fed7aa}
+.atlasKicker{text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:900;color:#2563eb}
+.atlasScore{min-width:92px;height:92px;border-radius:22px;background:white;border:1px solid #dbe4f0;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(15,23,42,.08)}
+.atlasScore span{font-size:26px;font-weight:900;color:#111827}
+.atlasScore small{font-size:11px;color:#6b7280;text-transform:uppercase;font-weight:800}
+.atlasScoreNeutral span{color:#2563eb}
+.atlasPillRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.atlasPill{display:inline-flex;align-items:center;border:1px solid #dbe4f0;background:white;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:800;color:#334155}
+.atlasGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:12px 0}
+.atlasIntelligenceGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.atlasCard{border:1px solid #dbe4f0;background:white;border-radius:18px;padding:14px;min-height:112px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.atlasCard b{display:block;margin-bottom:8px;color:#111827}
+.atlasCard p{margin:0;color:#374151;line-height:1.45}
+.atlasCard small{color:#64748b;line-height:1.35}
+.atlasCard ul{margin:0;padding-left:18px;color:#374151;line-height:1.45}
+.atlasActionCard{cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease}
+.atlasActionCard:hover{transform:translateY(-1px);border-color:#93c5fd;box-shadow:0 12px 28px rgba(37,99,235,.10)}
+.atlasWideCard{grid-column:span 2}
+.atlasMiniTools{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.atlasMiniTools span,.atlasMiniTool{font-size:11px;border:1px solid #dbe4f0;border-radius:999px;padding:4px 8px;background:#f8fafc;color:#334155;font-weight:800}
+.atlasModuleList{display:flex;flex-direction:column;gap:8px}
+.atlasModuleRow{border:1px solid #dbe4f0;background:#fff;border-radius:14px;padding:10px 12px}
+.atlasModuleHeader{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.atlasModuleHeader span{font-size:11px;border:1px solid #dbe4f0;background:#f8fafc;border-radius:999px;padding:3px 8px;color:#334155;font-weight:800}
+@media (max-width:1100px){.atlasWizard,.atlasGrid,.atlasIntelligenceGrid{grid-template-columns:1fr 1fr}.atlasWideCard{grid-column:span 2}}
+@media (max-width:760px){.atlasWizard,.atlasGrid,.atlasIntelligenceGrid{grid-template-columns:1fr}.atlasWideCard{grid-column:span 1}.atlasHero{align-items:flex-start;flex-direction:column}.atlasScore{width:92px}}
+
+
+/* Electron Sprint 5 - Recognition Confidence and guided intelligence polish */
+.atlasScore{min-width:118px;height:104px}
+.atlasScore small{max-width:104px;line-height:1.15;text-align:center;text-transform:none;font-size:10.5px}
+.atlasHeroDetected .atlasScore{border-color:#bbf7d0;background:#ffffff}
+.atlasHeroDetected .atlasScore span{color:#15803d}
+.atlasCard[data-atlas-action="why"] ul{margin-top:4px}
+.atlasCard[data-atlas-action="application"]{border-color:#bfdbfe;background:#f8fbff}
+
+/* Electron Sprint 7.1 - Explore Card */
+button.atlasExploreAction{
+  background:#2563eb;
+  font-size:18px;
+  padding:13px 24px;
+  border-radius:16px;
+  font-weight:900;
+  box-shadow:0 8px 24px rgba(15,23,42,.20);
+}
+button.atlasExploreAction:hover{background:#1d4ed8}
+.electronInvestigating ol{margin:10px 0 0 20px;line-height:1.55;color:#334155}
+.electronReport{margin-bottom:14px}
+.electronReportHero{
+  border:1px solid #bfdbfe;
+  border-radius:20px;
+  padding:18px;
+  background:linear-gradient(180deg,#eff6ff,#ffffff);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin:12px 0;
+}
+.electronReportHero h3{margin:4px 0 6px 0;font-size:24px}
+.electronReportHero p{margin:0;color:#334155;line-height:1.45}
+.electronCapabilityGrid{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.electronCapabilityItem{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:9px 10px;
+  background:#f8fafc;
+}
+.electronCapabilityItem b{display:block;margin:0 0 3px;color:#111827}
+.electronCapabilityItem small{display:block;color:#64748b;line-height:1.35}
+.electronCapBadge{
+  flex:0 0 auto;
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:11px;
+  font-weight:900;
+  border:1px solid #cbd5e1;
+  background:#fff;
+  color:#334155;
+  text-transform:uppercase;
+}
+.electronCap_yes{background:#f0fdf4;border-color:#86efac;color:#166534}
+.electronCap_possible,.electronCap_partial{background:#eff6ff;border-color:#93c5fd;color:#1d4ed8}
+.electronCap_planned{background:#f8fafc;border-color:#cbd5e1;color:#475569}
+.electronCap_caution{background:#fffbeb;border-color:#fcd34d;color:#92400e}
+.electronCap_no{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+.electronCap_unknown{background:#f8fafc;border-color:#cbd5e1;color:#475569}
+@media (max-width:760px){.electronReportHero{align-items:flex-start;flex-direction:column}}
+
+.electronKnowledgePanels{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:12px 0;
+}
+.electronKnowledgePanel{
+  border:1px solid #dbe4f0;
+  background:#fff;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 8px 24px rgba(15,23,42,.04);
+}
+.electronKnowledgePanel b{
+  display:block;
+  color:#111827;
+  margin-bottom:8px;
+}
+.electronKnowledgeChipRow,
+.electronDeviceMiniGrid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.electronKnowledgeChip,
+.electronDeviceChip{
+  border:1px solid #bfdbfe;
+  background:#eff6ff;
+  color:#1d4ed8;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:12px;
+  font-weight:900;
+  min-height:32px;
+  box-shadow:none;
+}
+.electronDeviceChip{
+  border-color:#bbf7d0;
+  background:#f0fdf4;
+  color:#166534;
+}
+.electronKnowledgeChip:hover,
+.electronDeviceChip:hover{
+  transform:translateY(-1px);
+  filter:brightness(.98);
+}
+.electronKnowledgeDetail p{
+  color:#334155;
+  line-height:1.5;
+}
+.electronDetailGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:12px 0;
+}
+.electronDetailGrid section{
+  border:1px solid #e5e7eb;
+  background:#f8fafc;
+  border-radius:14px;
+  padding:10px 12px;
+}
+.electronDetailGrid h4{
+  margin:0 0 8px;
+  color:#111827;
+}
+.electronDetailGrid ul{
+  margin:0;
+  padding-left:18px;
+  color:#334155;
+  line-height:1.45;
+}
+.electronCommandIntro{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+}
+.electronCommandIntro code{
+  border:1px solid #bfdbfe;
+  background:#eff6ff;
+  color:#1d4ed8;
+  border-radius:8px;
+  padding:4px 7px;
+  font-weight:900;
+}
+.electronInlineCommandRunner{
+  border:1px solid #c7d2fe;
+  background:#f8fbff;
+  border-radius:16px;
+  padding:12px;
+  margin-top:12px;
+}
+.electronCommandPreview{
+  border:1px solid #dbe4f0;
+  background:#f8fafc;
+  border-radius:14px;
+  padding:10px 12px;
+  margin:10px 0;
+}
+.electronCommandPreview b{
+  display:block;
+  color:#111827;
+  margin-bottom:8px;
+}
+.electronCommandPreview pre{
+  margin:0;
+}
+.electronInlineCommandHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+}
+.electronInlineCommandHeader b{
+  color:#111827;
+}
+.electronInlineCommandHeader span{
+  border:1px solid #dbe4f0;
+  background:#fff;
+  color:#475569;
+  border-radius:999px;
+  padding:4px 8px;
+  font-size:11px;
+  font-weight:900;
+}
+.electronInlineCommandOutput{
+  max-height:360px;
+  overflow:auto;
+  margin:0;
+}
+@media (max-width:760px){
+  .electronKnowledgePanels,
+  .electronDetailGrid{grid-template-columns:1fr}
+}
+
+
+/* Electron Sprint 7.2 - Memory Explorer */
+.electronMemoryExplorer{margin-top:10px}
+.electronMemoryHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border:1px solid #dbeafe;background:#f8fbff;border-radius:16px;padding:12px;margin:8px 0 10px}
+.electronMemoryHeader h3{margin:3px 0 4px;font-size:18px}
+.electronMemoryHeader p{margin:0;color:#475569;line-height:1.4}
+.electronMemorySummary{min-width:88px;border:1px solid #bfdbfe;border-radius:14px;background:#fff;padding:8px;text-align:center}
+.electronMemorySummary b{display:block;font-size:22px;margin:0;color:#1d4ed8}
+.electronMemorySummary small{display:block;color:#64748b;font-weight:800;font-size:11px;line-height:1.15}
+.electronMemoryIntro{border:1px solid #e5e7eb;background:#fff;border-radius:12px;padding:10px;margin-bottom:10px;color:#334155}
+.electronMemoryGrid{display:grid;gap:8px;margin:8px 0 10px}
+.electronMemoryGrid.sectors{grid-template-columns:repeat(auto-fit,minmax(116px,1fr))}
+.electronMemoryGrid.pages{grid-template-columns:repeat(auto-fit,minmax(90px,1fr))}
+.electronMemoryGrid.generic{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.electronMemoryCell{border:1px solid #d1d5db;border-radius:12px;padding:9px;background:#fff;min-height:74px}
+.electronMemoryCell b{display:block;margin:0 0 4px;color:#111827;font-size:13px}
+.electronMemoryCell small{display:block;color:#475569;line-height:1.25;font-size:11px}
+.electronMemoryCell em{display:inline-block;margin-top:6px;color:#64748b;font-size:10.5px;font-style:normal;font-weight:800}
+.electronMemoryCell.mem_known{border-color:#86efac;background:#f0fdf4}
+.electronMemoryCell.mem_possible{border-color:#93c5fd;background:#eff6ff}
+.electronMemoryCell.mem_unknown{border-color:#e5e7eb;background:#f8fafc}
+.electronMemoryCell.mem_protected{border-color:#fcd34d;background:#fffbeb}
+.electronMemoryNotes{border:1px solid #e5e7eb;border-radius:12px;background:#fff;padding:10px;margin-top:8px}
+.electronMemoryNotes b{display:block;margin-bottom:6px}
+.electronMemoryNotes ul{margin:0 0 0 18px;padding:0;color:#334155;line-height:1.45}
+.electronSecondaryDetails{margin:14px 0;border:1px solid #e5e7eb;border-radius:14px;background:#fff;padding:10px}
+.electronSecondaryDetails summary{cursor:pointer;font-weight:900;color:#0f172a}
+@media (max-width:760px){.electronMemoryHeader{flex-direction:column}.electronMemorySummary{width:100%}}
+
+
+/* Electron Sprint 7.3 - Learn & Research */
+.electronLearnResearchPanel{margin:14px 0;border:1px solid #dbeafe;border-radius:20px;background:linear-gradient(180deg,#f8fbff,#ffffff);padding:14px}
+.electronLRHero{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
+.electronLRHero h3{margin:4px 0 4px;font-size:22px}.electronLRHero p{margin:0;color:#475569}
+.electronResearchCount{min-width:90px;border:1px solid #bfdbfe;border-radius:16px;background:#fff;text-align:center;padding:9px}
+.electronResearchCount b{display:block;font-size:24px;color:#1d4ed8}.electronResearchCount small{display:block;font-size:11px;color:#64748b;font-weight:800;line-height:1.1}
+.electronLRGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.electronLearnCard{min-height:150px;display:flex;flex-direction:column;align-items:flex-start}.electronLearnCard p{width:100%}.electronLearnCard button{margin-top:auto}.electronLearnCard small{display:block;margin-top:8px;line-height:1.35}
+.electronLearnCard .helpButtonWrap{margin-top:auto}
+.electronLearnCard .helpButtonWrap > button:not(.helpInfoIcon){margin-top:0}
+.electronLearnCard .helpInfoIcon{margin-top:0}
+.electronTopicList{display:flex;flex-direction:column;gap:7px;margin-top:10px}.electronTopicBtn{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;text-align:left;font-weight:800}
+.electronTopicList .electronTopicBtn{margin-top:0}
+.electronTopicBtn:hover{background:#dbeafe}.electronResearchMini{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.electronResearchMini span{font-size:11px;border:1px solid #dbe4f0;border-radius:999px;padding:4px 8px;background:#f8fafc;color:#334155;font-weight:800}
+.electronTeachForm{display:grid;gap:10px}.electronTeachForm textarea{min-height:90px}.electronSignaturePreview{min-height:120px;max-height:240px;font-size:11px}
+@media (max-width:900px){.electronLRGrid{grid-template-columns:1fr}.electronLRHero{flex-direction:column;align-items:flex-start}.electronResearchCount{width:100%}}
+
+
+/* Electron Sprint 7.4 - Electron Memory */
+.electronKnownByYou{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid #a7f3d0;background:#ecfdf5;border-radius:18px;padding:14px 16px;margin:12px 0;box-shadow:0 8px 24px rgba(16,185,129,.10)}
+.electronKnownByYou b{display:block;margin-bottom:4px;color:#065f46}.electronKnownByYou p{margin:0 0 4px;color:#064e3b}.electronKnownByYou small{color:#047857}.electronKnownByYou button{background:#059669}
+.electronSourceNotice{
+  border:1px solid #cbd5e1;
+  background:#f8fafc;
+  border-radius:16px;
+  padding:12px 14px;
+  margin:0 0 14px;
+}
+.electronSourceNotice b{display:block;color:#0f172a;font-size:16px;margin-bottom:4px}
+.electronSourceNotice p{margin:0;color:#475569;font-weight:700}
+.electronSourceNotice small{display:block;margin-top:6px;color:#64748b;font-weight:700}
+.electronSourceNotice.live{border-color:#bfdbfe;background:#eff6ff}
+.electronSourceNotice.live b{color:#1e40af}
+.electronSourceNotice.stored{border-color:#e2e8f0;background:#f8fafc}
+.electronSourceNotice.stored b{color:#334155}
+.electronSourceNotice.noLive{border-color:#fcd34d;background:#fffbeb}
+.electronSourceNotice.noLive b{color:#92400e}
+.electronResearchLibraryPanel .cards{margin-top:12px}.electronResearchList{display:grid;gap:10px;margin-top:12px}.electronResearchRecord{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border:1px solid #dbe4f0;border-radius:18px;background:#fff;padding:14px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.electronResearchRecord b{font-size:16px}.electronResearchRecord p{margin:4px 0;color:#374151}.electronResearchRecord small{color:#64748b}.electronTeachForm{display:grid;gap:12px}.electronTeachForm textarea{min-height:100px}.electronSignaturePreview{max-height:220px;min-height:120px;font-size:12px}
+@media (max-width:760px){.electronResearchRecord,.electronKnownByYou{flex-direction:column;align-items:stretch}}
+
+/* Electron Sprint 7.4.3 - Teach Electron save confirmation */
+.electronStorageBanner{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 10px;
+  align-items:center;
+  border:1px solid #bbf7d0;
+  background:#f0fdf4;
+  color:#14532d;
+  border-radius:14px;
+  padding:10px 12px;
+  margin:12px 0;
+}
+.electronStorageBanner span{color:#166534;font-size:12px;font-weight:700}
+.electronRecordStorage{
+  display:inline-block;
+  margin-top:8px;
+  border:1px solid #bbf7d0;
+  background:#f0fdf4;
+  color:#166534;
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:11px;
+  font-weight:800;
+}
+.electronRecordJustSaved{
+  border-color:#22c55e!important;
+  box-shadow:0 0 0 3px rgba(34,197,94,.18),0 14px 34px rgba(15,23,42,.08)!important;
+}
+.electronSavedNotice{display:grid;gap:12px}
+.electronSavedHero{
+  border:1px solid #bbf7d0;
+  background:#f0fdf4;
+  color:#14532d;
+  border-radius:16px;
+  padding:12px;
+}
+.electronSavedHero b{display:block;font-size:17px;margin-bottom:4px}.electronSavedHero p{margin:0;color:#166534}
+.electronSavedBox{
+  border:1px solid #dbe4f0;
+  background:#fff;
+  border-radius:14px;
+  padding:12px;
+}
+.electronSavedBox span{display:block;color:#64748b;font-size:12px;font-weight:900;text-transform:uppercase}.electronSavedBox b{display:block;color:#0f172a;font-size:16px;margin-top:3px}
+
+/* Electron Sprint 7.4.3C - proper modal / popup UX */
+.teModalOverlay{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(15,23,42,.42);
+  backdrop-filter:blur(4px);
+}
+.teModalCard{
+  width:min(720px,calc(100vw - 48px));
+  max-height:calc(100vh - 48px);
+  overflow:auto;
+  background:#fff;
+  color:#0f172a;
+  border:1px solid #d8e2f0;
+  border-radius:18px;
+  box-shadow:0 28px 80px rgba(15,23,42,.32);
+}
+.teModalCardSm{width:min(520px,calc(100vw - 48px));}
+.teModalCardMd{width:min(720px,calc(100vw - 48px));}
+.teModalCardLg{width:min(920px,calc(100vw - 48px));}
+.teModalCardXl{width:min(1120px,calc(100vw - 48px));}
+.teModalHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 22px 12px;
+  border-bottom:1px solid #e6edf7;
+}
+.teModalTitleBlock h3{margin:0;font-size:22px;line-height:1.2;color:#0f172a;}
+.teModalSubtitle{margin-top:4px;color:#64748b;font-size:14px;font-weight:700;}
+.teModalX{
+  appearance:none;
+  border:0;
+  background:#eef4ff;
+  color:#1e3a8a;
+  border-radius:10px;
+  width:34px;
+  height:34px;
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+}
+.teModalX:hover{background:#dbeafe;}
+.teModalBody{padding:18px 22px;color:#334155;}
+.teModalBody p{margin:0 0 12px;}
+.teModalFooter{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  padding:14px 22px 20px;
+  border-top:1px solid #e6edf7;
+}
+.teBtn{
+  appearance:none;
+  border:0;
+  border-radius:10px;
+  padding:10px 16px;
+  font-weight:800;
+  cursor:pointer;
+  font-size:15px;
+}
+.teBtnPrimary{background:#2563eb;color:#fff;}
+.teBtnSuccess{background:#16a34a;color:#fff;}
+.teBtnDanger{background:#dc2626;color:#fff;}
+.teBtnWarning{background:#f59e0b;color:#111827;}
+.teBtnSecondary{background:#e5e7eb;color:#111827;}
+.teBtnGhost{background:transparent;color:#2563eb;}
+.teBtn:hover{filter:brightness(.96);}
+.teModalClosing{opacity:0;transition:opacity .12s ease;}
+
+/* The Command Library deliberately uses the Electron dark workspace palette.
+   These rules live after the generic modal defaults so the entire dialog,
+   including its header and footer, remains readable rather than reverting to
+   a white surface. */
+.teModalCard.deviceCommandLibraryDarkCard{
+  background:#07162a;
+  color:#eef6ff;
+  border-color:rgba(96,165,250,.42);
+  box-shadow:0 28px 80px rgba(0,0,0,.58);
+}
+.teModalCard.deviceCommandLibraryDarkCard .teModalHeader,
+.teModalCard.deviceCommandLibraryDarkCard .teModalBody,
+.teModalCard.deviceCommandLibraryDarkCard .teModalFooter{
+  background:#07162a;
+  color:#c7d9f0;
+  border-color:rgba(96,165,250,.24);
+}
+.teModalCard.deviceCommandLibraryDarkCard .teModalTitleBlock h3{color:#f8fbff;}
+.teModalCard.deviceCommandLibraryDarkCard .teModalSubtitle{color:#b8cce6;}
+.teModalCard.deviceCommandLibraryDarkCard .teModalX{
+  background:rgba(37,99,235,.23);
+  color:#edf6ff;
+}
+.teModalCard.deviceCommandLibraryDarkCard .teModalX:hover{background:rgba(37,99,235,.46);}
+.teModalCard.deviceCommandLibraryDarkCard .teBtnSecondary{
+  background:rgba(148,163,184,.24);
+  color:#f8fbff;
+}
+.teModalCard.deviceCommandLibraryDarkCard label{color:#cfe1f7;}
+.teModalCard.deviceCommandLibraryDarkCard .deviceLibraryMoreTools summary{
+  display:inline-flex;
+  align-items:center;
+  min-height:38px;
+  padding:0 11px;
+  border:1px solid rgba(96,165,250,.42);
+  border-radius:9px;
+  background:rgba(20,52,91,.72);
+  color:#e1efff;
+  font-weight:800;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandItem p{color:#d5e4f5;}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandItem code{
+  background:#030d1e;
+  color:#f4f8ff;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandMeta span{
+  background:#183c69;
+  border-color:rgba(125,190,255,.44);
+  color:#edf6ff;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandItem.isSafeModeBlocked{
+  background:linear-gradient(90deg,#67232f 0%,#273650 48%,#0b213e 100%);
+  border-color:#fb7185;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandItem.isSafeModeBlocked h4,
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandItem.isSafeModeBlocked p{color:#fff1f2;}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandItem.isSafeModeBlocked .deviceCommandMeta span{
+  background:#7f2634;
+  border-color:#fda4af;
+  color:#fff7f7;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandLibrarySafetyStatus.protected{
+  background:#662631;
+  border-left-color:#fb7185;
+  color:#fff1f2;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandLibrarySafetyStatus.advanced{
+  background:#59421b;
+  border-left-color:#fbbf24;
+  color:#fff4c2;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandLibrarySafetyStatus.unavailable{
+  background:#263b57;
+  border-left-color:#93c5fd;
+  color:#e7f0ff;
+}
+.teModalCard.deviceCommandLibraryDarkCard .deviceCommandLibraryTerminalWrap{
+  background:#07162a;
+  border-color:rgba(96,165,250,.32);
+}
+.teModalCard.deviceCommandLibraryDarkCard .electronInlineCommandHeader{color:#eef6ff;}
+.teToast{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:100000;
+  padding:12px 16px;
+  border-radius:12px;
+  background:#0f172a;
+  color:#fff;
+  box-shadow:0 18px 45px rgba(15,23,42,.28);
+  opacity:0;
+  transform:translateY(10px);
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  font-weight:700;
+}
+.teToastVisible{opacity:1;transform:translateY(0);}
+.teToast_success{background:#166534;}
+.teToast_error{background:#991b1b;}
+.teToast_info{background:#0f172a;}
+.teToast_warning{background:#92400e;}
+
+/* Electron v0.8.0 Patch 01 - Memory Foundation UI */
+.electronCardIntelligenceCard{
+  border:1px solid #d8e2f0;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+  border-radius:18px;
+  padding:18px;
+  margin:0 0 18px;
+  box-shadow:0 12px 30px rgba(15,23,42,.08);
+}
+.electronCIHeader{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:flex-start;
+}
+.electronCIHeader h3{margin:4px 0 4px;color:#0f172a;font-size:22px;}
+.electronCIHeader p{margin:0;color:#475569;font-weight:700;}
+.electronCIConfidence{
+  min-width:150px;
+  text-align:center;
+  border:1px solid #dbeafe;
+  background:#eff6ff;
+  border-radius:14px;
+  padding:12px;
+  color:#1e3a8a;
+}
+.electronCIConfidence b{display:block;font-size:16px;}
+.electronCIConfidence small{display:block;color:#64748b;font-weight:800;text-transform:uppercase;font-size:11px;margin-top:3px;}
+.electronCIGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+  margin:14px 0;
+}
+.electronCITile{
+  border:1px solid #e2e8f0;
+  background:#fff;
+  border-radius:14px;
+  padding:13px;
+}
+.electronCITile span{display:block;color:#64748b;font-size:12px;font-weight:900;text-transform:uppercase;}
+.electronCITile b{display:block;color:#0f172a;font-size:24px;line-height:1.1;margin:5px 0;}
+.electronCITile small{display:block;color:#64748b;font-weight:700;}
+.electronCIActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:8px;
+}
+.electronCIActions button:not(.helpInfoIcon){
+  border:0;
+  border-radius:12px;
+  padding:10px 14px;
+  background:#2563eb;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+.electronCIActions button:not(.helpInfoIcon):first-child{background:#16a34a;}
+.electronCIActions button.electronActionPrimary{background:#2563eb;}
+.electronCIActions.compact{margin-top:12px;}
+.electronCIActions button:not(.helpInfoIcon):hover{filter:brightness(.96);}
+.electronCIActions .helpInfoIcon,
+.electronLearnCard .helpInfoIcon{
+  width:15px;
+  height:15px;
+  min-width:15px;
+  min-height:15px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:inherit;
+  box-shadow:none;
+}
+.electronCardIntelModal h4{margin:18px 0 8px;color:#0f172a;}
+.electronCIHumanSummary{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:flex-start;
+  border:1px solid #d8e2f0;
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:14px;
+}
+.electronCIHumanSummary span{
+  display:block;
+  color:#64748b;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.electronCIHumanSummary h3{margin:4px 0;color:#0f172a;font-size:22px;}
+.electronCIHumanSummary p{margin:0;color:#475569;font-weight:700;}
+.electronIntelResearchRow{
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:10px 12px;
+  margin:8px 0;
+  background:#fff;
+}
+.electronIntelResearchRow b{display:block;color:#0f172a;}
+.electronIntelResearchRow small{display:block;color:#64748b;margin-top:3px;font-weight:700;}
+.electronRecordStorage + .electronRecordStorage{margin-top:3px;}
+.electronProtectedData{
+  border:1px solid #fde68a;
+  background:#fffbeb;
+  border-radius:16px;
+  padding:14px;
+  margin:14px 0;
+}
+.electronProtectedPills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.electronProtectedPills span{
+  border:1px solid #fcd34d;
+  background:#fff7ed;
+  color:#92400e;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:900;
+}
+.electronKeyStatus{
+  display:grid;
+  gap:3px;
+  border:1px solid #fcd34d;
+  background:#fff7ed;
+  border-radius:12px;
+  padding:10px 12px;
+  margin:10px 0;
+}
+.electronKeyStatus b{color:#92400e;}
+.electronKeyStatus span{color:#111827;font-weight:900;}
+.electronKeyStatus small{color:#92400e;font-weight:700;}
+.electronKeyStatus.keyAvailable{
+  border-color:#86efac;
+  background:#f0fdf4;
+}
+.electronKeyStatus.keyAvailable b,
+.electronKeyStatus.keyAvailable small{color:#166534;}
+.electronKeyStatus.keyUsed{
+  border-color:#22c55e;
+  background:#ecfdf5;
+}
+.electronKeyStatus.keyReading{
+  border-color:#93c5fd;
+  background:#eff6ff;
+}
+.electronKeyStatus.keyReading b,
+.electronKeyStatus.keyReading small{color:#1d4ed8;}
+.electronKeyStatus.keyFailed{
+  border-color:#fca5a5;
+  background:#fef2f2;
+}
+.electronKeyStatus.keyFailed b,
+.electronKeyStatus.keyFailed small{color:#991b1b;}
+.electronProtectedRows{display:grid;gap:8px;margin-top:10px;}
+.electronProtectedRows div{
+  border:1px solid #fde68a;
+  background:#fff;
+  border-radius:12px;
+  padding:9px 11px;
+}
+.electronProtectedRows b{display:block;color:#0f172a;}
+.electronProtectedRows span{display:inline-block;margin-top:4px;color:#92400e;font-weight:900;text-transform:uppercase;font-size:11px;}
+.electronProtectedRows small{display:block;margin-top:3px;color:#64748b;font-weight:700;}
+.electronAuthorizedDebug{
+  border:1px solid #bfdbfe;
+  background:#f8fbff;
+  border-radius:16px;
+  padding:14px;
+  margin:14px 0;
+}
+.electronAuthorizedDebug details{
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  background:#fff;
+  padding:10px 12px;
+  margin-top:10px;
+}
+.electronAuthorizedDebug ul{margin:8px 0 0;padding-left:20px;color:#334155;font-weight:700;}
+.electronDebugFields{display:grid;gap:8px;margin-top:10px;}
+.electronDebugFields div{border:1px solid #e2e8f0;border-radius:10px;padding:8px 10px;background:#fff;}
+.electronDebugFields span{display:block;color:#64748b;font-size:11px;font-weight:900;text-transform:uppercase;}
+.electronDebugFields b{display:block;color:#0f172a;margin-top:3px;}
+.electronDebugFields small{display:block;color:#64748b;margin-top:3px;}
+.electronAuthorizedRaw{max-height:260px;overflow:auto;font-size:11px;}
+.electronLfIntel{
+  border:1px solid #bae6fd;
+  background:#f0f9ff;
+  border-radius:16px;
+  padding:14px;
+  margin:14px 0;
+}
+.electronAltList{display:grid;gap:8px;margin-top:8px;}
+.electronAltList div{
+  border:1px solid #dbeafe;
+  background:#fff;
+  border-radius:10px;
+  padding:8px 10px;
+}
+.electronAltList b{display:block;color:#0f172a;}
+.electronAltList small{display:block;color:#64748b;margin-top:3px;font-weight:700;}
+.electronLfActions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.electronLfActions button{
+  border:0;
+  border-radius:8px;
+  background:#2563eb;
+  color:#fff;
+  padding:9px 12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.electronLfActions button:hover{filter:brightness(.96);}
+.electronDeviceList{display:grid;gap:10px;margin-top:8px;}
+.electronDeviceItem{
+  display:grid;
+  grid-template-columns:minmax(120px,1fr) auto;
+  gap:4px 10px;
+  align-items:center;
+  border:1px solid #e2e8f0;
+  background:#fff;
+  border-radius:12px;
+  padding:10px 12px;
+}
+.electronDeviceItem b{color:#0f172a;}
+.electronDeviceItem span{
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.electronDeviceItem small{grid-column:1/-1;color:#64748b;font-weight:700;}
+.electronDevice_supported{background:#dcfce7;color:#166534;border:1px solid #86efac;}
+.electronDevice_possible{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;}
+.electronDevice_limited{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;}
+.electronDevice_unknown,.electronDevice_planned{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1;}
+.electronTechnicalDetails{
+  margin-top:14px;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:10px;
+  background:#fff;
+}
+.electronTechnicalDetails summary{cursor:pointer;font-weight:900;color:#0f172a;}
+@media (max-width:760px){
+  .electronCIHeader{display:block;}
+  .electronCIConfidence{text-align:left;margin-top:12px;}
+  .electronCIHumanSummary{display:block;}
+  .electronDeviceItem{grid-template-columns:1fr;}
+}
+
+/* Electron v0.8.0 Patch 02 - Readable card data */
+.electronReadableData{
+  border:1px solid #dbeafe;
+  background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);
+  border-radius:16px;
+  padding:14px;
+  margin:14px 0;
+}
+.electronReadableData.compact{padding:12px;margin:12px 0;}
+.electronSectionTitle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.electronSectionTitle b{color:#0f172a;font-size:16px;}
+.electronSectionTitle span{
+  border:1px solid #bfdbfe;
+  background:#eff6ff;
+  color:#1e40af;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:900;
+}
+.electronReadableGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:10px;
+}
+.electronReadableField{
+  border:1px solid #e2e8f0;
+  background:#fff;
+  border-radius:12px;
+  padding:10px 12px;
+}
+.electronReadableField span{
+  display:block;
+  color:#64748b;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.electronReadableField b{
+  display:block;
+  margin-top:4px;
+  color:#0f172a;
+  font-size:15px;
+  word-break:break-word;
+}
+.small.muted{color:#64748b;}
+
+/* Full Card Report export */
+.electronReportExportChoice{display:flex;flex-direction:column;gap:14px;}
+.electronReportFormatGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.electronReportFormat{border:1px solid var(--border,#d8dee8);border-radius:14px;padding:14px;background:var(--panel,#fff);text-align:left;cursor:pointer;min-height:92px;color:#0f172a;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.electronReportFormat:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(15,23,42,.12);}
+.electronReportFormat:disabled{cursor:progress;opacity:.64;transform:none;box-shadow:none;}
+.electronReportFormat b{display:block;font-size:1.15rem;margin-bottom:6px;color:#0f172a;}
+.electronReportFormat span{display:block;font-size:.85rem;opacity:.78;line-height:1.35;color:#334155;}
+@media (max-width: 760px){.electronReportFormatGrid{grid-template-columns:1fr;}}
+
+.previewScreenshotPaste{
+  border:1px dashed #93c5fd;
+  background:#f8fbff;
+  border-radius:12px;
+  padding:12px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  color:#334155;
+  outline:none;
+}
+.previewScreenshotPaste:focus,.previewScreenshotPaste.dragOver{
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,.14);
+}
+.previewScreenshotPaste.hasImage{
+  border-color:#16a34a;
+  background:#f0fdf4;
+}
+.previewScreenshotPaste b{color:#0f172a;}
+.previewScreenshotPaste span,.previewScreenshotPaste small{color:#64748b;}
+.previewScreenshotPaste button{
+  align-self:flex-start;
+  margin-top:4px;
+  padding:7px 10px;
+  font-size:.85rem;
+}
+.previewScreenshotPreview{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  margin-top:6px;
+}
+.previewScreenshotThumb{
+  border:1px solid #bfdbfe;
+  background:#fff;
+  border-radius:10px;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.previewScreenshotThumb img{
+  width:100%;
+  height:92px;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid #e2e8f0;
+  background:#f8fafc;
+}
+.previewScreenshotThumb span{
+  font-size:.78rem;
+  color:#475569;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.previewScreenshotThumb button{
+  margin:0;
+  padding:6px 8px;
+  font-size:.78rem;
+}
+.previewFeedbackStatus{margin-top:10px;color:#64748b;}
+.previewFeedbackResult{
+  border:1px solid #bbf7d0;
+  background:#f0fdf4;
+  border-radius:12px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  color:#166534;
+}
+.previewFeedbackResult b{color:#14532d;font-size:1.05rem;}
+.previewFeedbackResult span,.previewFeedbackResult small{color:#166534;}
+.previewFeedbackResult code{
+  display:block;
+  border:1px solid #86efac;
+  background:#fff;
+  color:#0f172a;
+  border-radius:8px;
+  padding:8px;
+  white-space:normal;
+  word-break:break-all;
+}
+
+/* Electron Portal */
+.electronPortalPanel{padding:22px;}
+.portalHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+.portalHeader h2{margin:0 0 4px;}
+.portalHeaderActions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.portalLayout{
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  gap:18px;
+}
+.portalNav{
+  border:1px solid #dbe3ee;
+  background:#f8fbff;
+  border-radius:12px;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  align-self:start;
+}
+.portalNav button{
+  width:100%;
+  text-align:left;
+  border:none;
+  border-radius:8px;
+  padding:10px 12px;
+  background:transparent;
+  color:#334155;
+  font-weight:800;
+  cursor:pointer;
+}
+.portalNav button.active,.portalNav button:hover{background:#2563eb;color:#fff;}
+.portalContent{
+  min-height:430px;
+  border:1px solid #dbe3ee;
+  border-radius:12px;
+  background:#fff;
+  padding:18px;
+}
+.portalPageTitle h3{margin:0;color:#0f172a;font-size:1.35rem;}
+.portalPageTitle p{margin:4px 0 16px;color:#64748b;}
+.portalHero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 260px;
+  gap:16px;
+  border:1px solid #bfdbfe;
+  background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:16px;
+}
+.portalHero h3{margin:4px 0 8px;font-size:1.55rem;color:#0f172a;}
+.portalHero p{margin:0;color:#475569;line-height:1.45;}
+.portalPreviewCard,.portalCard{
+  border:1px solid #e2e8f0;
+  background:#fff;
+  border-radius:12px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.portalPreviewCard b,.portalCard b{color:#0f172a;font-size:1rem;word-break:break-word;}
+.portalPreviewCard span,.portalCard span,.portalCard small{color:#64748b;}
+.portalStatePill{
+  align-self:flex-start;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:.78rem;
+  font-weight:900;
+}
+.portalStatePill.full{background:#dcfce7;color:#166534;border:1px solid #86efac;}
+.portalStatePill.ending{background:#fef3c7;color:#92400e;border:1px solid #fcd34d;}
+.portalStatePill.free{background:#e0f2fe;color:#075985;border:1px solid #7dd3fc;}
+.portalCards,.portalSupportGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:12px;
+  margin-bottom:16px;
+}
+.portalCard.wide{grid-column:1/-1;}
+.portalCard button,.portalActionBand button,.portalWorkflow button{
+  align-self:flex-start;
+  margin-top:3px;
+}
+.portalActionBand{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  border-top:1px solid #e2e8f0;
+  padding-top:14px;
+}
+.portalWorkflow,.portalPrinciples{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:12px;
+}
+.portalWorkflow > div,.portalPrinciples > div{
+  border:1px solid #dbe3ee;
+  border-radius:12px;
+  background:#f8fafc;
+  padding:14px;
+}
+.portalWorkflow p,.portalPrinciples p{color:#475569;line-height:1.42;}
+.portalPreviewTimeline{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-bottom:16px;
+}
+.portalPreviewTimeline > div{
+  border:1px solid #dbe3ee;
+  border-radius:12px;
+  padding:14px;
+  background:#f8fafc;
+}
+.portalPreviewTimeline > div.active{border-color:#86efac;background:#f0fdf4;}
+.portalPreviewTimeline b,.portalPreviewTimeline span{display:block;}
+.portalPreviewTimeline span{margin-top:6px;color:#64748b;}
+.portalExtensionForm textarea{min-height:140px;}
+@media (max-width:900px){
+  .portalLayout{grid-template-columns:1fr;}
+  .portalNav{flex-direction:row;overflow:auto;}
+  .portalNav button{white-space:nowrap;}
+  .portalHero{grid-template-columns:1fr;}
+  .portalPreviewTimeline{grid-template-columns:1fr;}
+}
+
+/* Device Studio - read-only Proxmark3 Easy visualizer */
+.studioDirectory{margin-bottom:16px;background:linear-gradient(135deg,rgba(10,35,68,.88),rgba(7,18,38,.90));border-color:rgba(56,189,248,.30);}
+.studioDirectoryHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;}
+.studioDirectoryHeader h2{margin:4px 0 6px;color:#f4f9ff;}
+.studioDirectoryHeader .small{margin:0;color:#a9bad4;max-width:780px;}
+.studioDirectoryBoundary{flex:0 0 auto;padding:8px 11px;border:1px solid rgba(34,197,94,.40);border-radius:999px;background:rgba(34,197,94,.10);color:#bbf7d0;font-size:.78rem;font-weight:850;white-space:nowrap;}
+.studioDirectoryCards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.studioDirectoryCard{display:grid;gap:7px;min-height:164px;padding:14px;text-align:left;border:1px solid rgba(96,165,250,.24);border-radius:13px;background:rgba(8,22,45,.70);box-shadow:none;color:#e6f4ff;transition:border-color .16s ease,transform .16s ease,background .16s ease;}
+.studioDirectoryCard.recommended{border-color:rgba(34,197,94,.62);background:linear-gradient(145deg,rgba(9,54,57,.88),rgba(8,28,53,.82));}
+.studioDirectoryCard.recommended>span,.studioDirectoryCard.recommended small i{color:#86efac;}
+.studioDirectoryCard:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.70);background:rgba(14,44,80,.82);}
+.studioDirectoryCard>span{color:#38bdf8;font-size:.7rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;}
+.studioDirectoryCard>b{font-size:1.08rem;color:#f8fbff;}
+.studioDirectoryCard p{margin:0;color:#b8cbe4;line-height:1.38;font-size:.88rem;}
+.studioDirectoryCard small{display:flex;justify-content:space-between;gap:8px;align-items:end;margin-top:auto;color:#8faed4;font-weight:750;}
+.studioDirectoryCard small i{font-style:normal;color:#7dd3fc;}
+@media(max-width:1080px){.studioDirectoryCards{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:650px){.studioDirectoryHeader{flex-direction:column;}.studioDirectoryCards{grid-template-columns:1fr;}.studioDirectoryBoundary{white-space:normal;}}
+
+.deviceStudioPanel{
+  background:linear-gradient(180deg,#071327 0%,#081a33 52%,#06101f 100%);
+  border-color:#17365f;
+  color:#eef6ff;
+}
+.deviceStudioHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  padding:6px 4px 18px;
+  border-bottom:1px solid rgba(96,165,250,.22);
+  margin-bottom:18px;
+}
+.deviceStudioHeader h2{margin:4px 0 6px;font-size:2rem;color:#f8fbff;}
+.deviceStudioHeader .small{color:#a9bad4;}
+.deviceStudioBoundary{
+  border:1px solid rgba(34,197,94,.45);
+  background:rgba(34,197,94,.12);
+  color:#bbf7d0;
+  border-radius:999px;
+  padding:9px 13px;
+  font-weight:900;
+  white-space:nowrap;
+}
+.deviceStudioHeaderActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.deviceStudioHeaderActions button{white-space:nowrap;}
+.atlasTopBarActions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;}
+.cardViewerLaunch{position:relative;display:flex;align-items:center;gap:6px;}
+.cardViewerLaunch #atlasCardViewerBtn{padding:9px 14px;border:1px solid rgba(167,139,250,.55);background:rgba(109,40,217,.24);color:#ede9fe;font-weight:900;}
+.cardViewerLaunch #atlasCardViewerBtn:hover{border-color:#a78bfa;background:rgba(109,40,217,.42);}
+.cardViewerLaunch .sectionHelpIcon{position:static;flex:0 0 auto;transform:none;z-index:2;}
+.deviceStudioRefreshActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.deviceStudioRefreshActions #deviceStudioQuickRefreshBtn{background:#0f766e;border-color:#14b8a6;}
+.deviceStudioRefreshActions #deviceStudioQuickRefreshBtn:hover{background:#0d9488;}
+.deviceStudioRefreshProgress{flex:0 0 100%;min-width:220px;margin-top:2px;padding:7px 9px;border:1px solid rgba(56,189,248,.38);border-radius:9px;background:rgba(2,20,43,.76);}
+.deviceStudioRefreshProgressLabel{display:flex;align-items:center;gap:7px;color:#d8f4ff;font-size:.72rem;font-weight:800;line-height:1.2;}.deviceStudioRefreshProgressLabel b{margin-left:auto;color:#f8fbff;font-variant-numeric:tabular-nums;}
+.deviceStudioRefreshSpinner{width:11px;height:11px;box-sizing:border-box;border:2px solid rgba(125,211,252,.32);border-top-color:#38bdf8;border-radius:50%;}.deviceStudioRefreshProgress.isRunning .deviceStudioRefreshSpinner{animation:deviceStudioRefreshSpin .75s linear infinite;}.deviceStudioRefreshProgress.isComplete .deviceStudioRefreshSpinner{border-color:#34d399;background:#34d399;}
+.deviceStudioRefreshProgressTrack{height:6px;margin-top:6px;overflow:hidden;border-radius:999px;background:rgba(148,163,184,.22);}.deviceStudioRefreshProgressTrack span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#0ea5e9,#38bdf8);transition:width .35s ease;}.deviceStudioRefreshProgress.isComplete .deviceStudioRefreshProgressTrack span{background:linear-gradient(90deg,#10b981,#34d399);}
+@keyframes deviceStudioRefreshSpin{to{transform:rotate(360deg);}}
+.deviceStudioSafeModeGroup{display:flex;align-items:center;gap:5px;}.deviceStudioSafeModeControl{display:flex;align-items:center;gap:7px;padding:8px 10px;border:1px solid rgba(34,197,94,.45);border-radius:10px;background:rgba(34,197,94,.10);color:#d1fae5;font-size:.78rem;font-weight:900;cursor:pointer;white-space:nowrap;}.deviceStudioSafeModeControl input{width:16px;height:16px;accent-color:#22c55e;cursor:pointer;}.deviceStudioSafeModeControl:has(input:disabled){opacity:.62;cursor:not-allowed;}.deviceStudioSafeModeControl:has(input:not(:checked)){border-color:rgba(250,204,21,.65);background:rgba(250,204,21,.12);color:#fef3c7;}
+.deviceStudioSafeModeGroup .deviceStudioSafeModeHelpIcon{flex:0 0 auto;width:15px;height:15px;margin-left:1px;padding:0;border:0;background:transparent;transform:none;}.deviceStudioSafeModeHelpIcon svg{display:block;width:15px;height:15px;}.deviceStudioSafeModeHelpIcon circle{fill:#fff;stroke:#2563eb;stroke-width:1.35;}.deviceStudioSafeModeHelpIcon text{fill:#2563eb;font-size:9px;font-weight:700;font-family:Arial,sans-serif;}.deviceStudioSafeModeHelpIcon:hover svg{transform:scale(1.32);filter:drop-shadow(0 0 4px rgba(37,99,235,.55));}
+.deviceStudioDisclosureNav{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:16px;padding:9px 11px;border:1px solid rgba(96,165,250,.20);border-radius:12px;background:rgba(2,6,23,.28);position:static;top:auto;z-index:auto;}
+.deviceStudioDisclosureNav>span{margin-right:4px;color:#8fa4c5;font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;}
+.deviceStudioDisclosureNav button{padding:7px 10px;border:1px solid rgba(96,165,250,.28);border-radius:999px;background:rgba(14,165,233,.10);color:#c8f4ff;box-shadow:none;font-size:.78rem;}
+.deviceStudioDisclosureNav button:hover{border-color:rgba(56,189,248,.75);background:rgba(14,165,233,.22);}
+.deviceStudioDisclosure{margin-top:12px;border:1px solid rgba(96,165,250,.22);border-radius:14px;background:rgba(2,6,23,.28);overflow:hidden;}
+.deviceStudioDisclosure>summary{cursor:pointer;padding:12px 14px;color:#e0faff;font-weight:900;list-style:none;}
+.deviceStudioDisclosure>summary::-webkit-details-marker{display:none;}
+.deviceStudioDisclosure>summary::before{content:'+';display:inline-block;width:18px;color:#38bdf8;font-size:1.1rem;}
+.deviceStudioDisclosure[open]>summary::before{content:'−';}
+.deviceStudioDisclosure>.deviceStudioStatusPanel,.deviceStudioDisclosure>.deviceStudioFirmwareLearning{margin:0;border:0;border-top:1px solid rgba(96,165,250,.16);border-radius:0;box-shadow:none;}
+.deviceStudioDisclosureHint{margin:0;padding:14px;color:#a9bad4;}
+.deviceStudioActivitySpinner{display:inline-block;width:10px;height:10px;margin-right:8px;border:2px solid rgba(110,210,255,.28);border-top-color:#54cfff;border-radius:50%;animation:deviceStudioSpin .8s linear infinite;vertical-align:-1px;}
+@keyframes deviceStudioSpin{to{transform:rotate(360deg)}}
+.deviceStudioDisclosureGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:14px;border-top:1px solid rgba(96,165,250,.16);}
+.deviceStudioDisclosureGrid div,.deviceStudioAdvancedStack>div{padding:10px;border:1px solid rgba(96,165,250,.16);border-radius:10px;background:rgba(15,23,42,.38);min-width:0;}
+.deviceStudioDisclosureGrid span,.deviceStudioAdvancedStack span{display:block;color:#8fa4c5;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;}
+.deviceStudioDisclosureGrid b,.deviceStudioAdvancedStack b{display:block;margin-top:4px;color:#eef6ff;overflow-wrap:anywhere;}
+.deviceStudioHistoryList{display:grid;gap:6px;padding:14px;border-top:1px solid rgba(96,165,250,.16);}
+.deviceStudioHistoryList div{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:8px;background:rgba(15,23,42,.38);color:#dbeafe;}
+.deviceStudioHistoryList span{color:#8fa4c5;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;overflow-wrap:anywhere;}
+.deviceStudioCapabilitySummary{display:flex;flex-wrap:wrap;gap:8px;padding:14px;border-top:1px solid rgba(96,165,250,.16);}
+.deviceStudioCapabilitySummary span{padding:7px 10px;border:1px solid rgba(56,189,248,.35);border-radius:999px;background:rgba(14,165,233,.12);color:#c8f4ff;font-size:.82rem;}
+.deviceStudioActionSummary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 14px 4px;}
+.deviceStudioActionSummary>div{display:grid;gap:3px;padding:10px;border:1px solid rgba(56,189,248,.18);border-radius:10px;background:rgba(15,23,42,.38);}
+.deviceStudioActionSummary b{color:#eef6ff;}.deviceStudioActionSummary span{color:#c6d6ef;font-size:.84rem;}.deviceStudioActionSummary small{color:#8fa4c5;overflow-wrap:anywhere;}
+.deviceStudioSourcePreviewHeader{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px;color:#8fa4c5;font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;}
+.deviceStudioSourcePreviewHeader button{padding:6px 9px;border:1px solid rgba(96,165,250,.28);border-radius:8px;background:rgba(14,165,233,.10);color:#c8f4ff;box-shadow:none;font-size:.75rem;}
+.deviceStudioFirmwareLearning .deviceStudioSourcePreview{max-height:420px;overflow:auto;}
+.deviceStudioAdvancedStack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:14px;border-top:1px solid rgba(96,165,250,.16);}
+.deviceStudioAdvancedStack details{grid-column:1/-1;}
+.deviceStudioSignalExplorer{grid-column:1/-1;display:grid;gap:10px;padding:12px;border:1px solid rgba(56,189,248,.25);border-radius:12px;background:rgba(14,165,233,.06);}
+.deviceStudioSignalExplorer h4{margin:0;color:#e0faff;}
+.deviceStudioScopeMetrics{display:flex;flex-wrap:wrap;gap:14px;color:#9fb1ce;font-size:.8rem;}
+.deviceStudioScopeMetrics b{display:inline;color:#eef6ff;text-transform:none;letter-spacing:0;}
+.deviceStudioScopeWaveform{display:block;width:100%;height:180px;border:1px solid rgba(96,165,250,.24);border-radius:8px;background:#020617;}
+.deviceStudioSignalExplorer button{width:max-content;display:inline-block;margin-right:8px;}
+.deviceStudioScopeInterpretation{display:grid;gap:4px;padding:12px 14px;border:1px solid rgba(72,201,255,.35);border-radius:10px;background:rgba(8,30,54,.65);}
+.deviceStudioScopeInterpretation strong{font-size:1.05rem;color:#dcecff;}
+.deviceStudioScopeInterpretation small{color:#a9bdd6;}
+.deviceStudioScopeInterpretation.live{border-color:rgba(40,205,130,.65);}
+.deviceStudioScopeInterpretation.neutral{border-color:rgba(150,170,195,.45);}
+.deviceStudioScopeAdvanced{margin:4px 0 8px;}
+.deviceStudioScopeAdvanced summary{cursor:pointer;color:#9fc6e8;font-weight:700;padding:6px 0;}
+.deviceStudioTuneExplorer{display:grid;gap:8px;padding:12px;border:1px solid rgba(40,205,130,.35);border-radius:10px;background:rgba(8,38,38,.35);margin-bottom:12px;}
+.deviceStudioTuneExplorer h4,.deviceStudioTuneExplorer h5{margin:0;color:#b9d8ef;}
+.deviceStudioTuneExplorer [data-device-studio-tune-result]{color:#dcecff;line-height:1.5;}
+.deviceStudioTuneExplorer [data-device-studio-tune-result] small{display:block;color:#a9bdd6;margin-top:4px;}
+.deviceStudioTuneGuide{padding:10px 12px;border:1px solid rgba(108,160,230,.34);border-radius:8px;background:rgba(8,23,52,.52);color:#d7e6fa;}
+.deviceStudioTuneGuide.active{border-color:rgba(40,205,130,.5);background:rgba(8,52,40,.38);}
+.deviceStudioTuneGuide b{color:#f1f7ff;}
+.deviceStudioTuneGuide ol{margin:7px 0 2px 20px;padding:0;display:grid;gap:4px;}
+.deviceStudioTuneGuide small{display:block;margin-top:7px;color:#a9bdd6;}
+.deviceStudioButtonControls{display:grid;gap:8px;margin-top:12px;padding:12px;border:1px solid rgba(56,189,248,.28);border-radius:11px;background:rgba(14,165,233,.08);}
+.deviceStudioButtonControls h4{margin:0;color:#e0faff;}.deviceStudioButtonControls p,.deviceStudioButtonControls small{margin:0;color:#a9bad4;line-height:1.4;}.deviceStudioButtonControls label{display:grid;gap:4px;color:#8fa4c5;font-size:.8rem;font-weight:800;}.deviceStudioButtonControls select{padding:7px;border-radius:7px;background:#0f172a;color:#9fb1ce;border:1px solid rgba(96,165,250,.22);}
+.deviceStudioLayout{
+  display:grid;
+  grid-template-columns:minmax(190px,220px) minmax(0,1fr) minmax(280px,320px);
+  gap:16px;
+  align-items:start;
+  min-width:0;
+}
+.deviceStudioLayout > *{min-width:0;}
+.deviceStudioBox,.deviceStudioInfo,.deviceStudioStatusPanel{
+  border:1px solid rgba(96,165,250,.24);
+  background:rgba(2,6,23,.38);
+  border-radius:14px;
+  box-shadow:0 14px 38px rgba(0,0,0,.18);
+}
+.deviceStudioBox{padding:14px;margin-bottom:14px;}
+.deviceStudioBox h3,.deviceStudioStatusPanel h3{margin:0 0 10px;color:#f8fbff;}
+.deviceStudioCategories{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.deviceStudioCategoryBtn{
+  border:1px solid rgba(56,189,248,.38);
+  background:rgba(14,165,233,.12);
+  color:#bff5ff;
+  border-radius:999px;
+  padding:8px 10px;
+  box-shadow:none;
+}
+.deviceStudioComponentGroup{display:grid;gap:7px;margin-top:12px;}
+.deviceStudioComponentGroup h4{
+  margin:8px 0 2px;
+  color:#38bdf8;
+  font-size:.78rem;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.deviceStudioComponentBtn{
+  width:100%;
+  border:1px solid rgba(96,165,250,.22);
+  background:rgba(15,23,42,.56);
+  border-radius:10px;
+  padding:9px 10px;
+  color:#eef6ff;
+  text-align:left;
+  display:grid;
+  gap:2px;
+  box-shadow:none;
+}
+.deviceStudioComponentBtn span{font-weight:850;}
+.deviceStudioComponentBtn small{color:#8fa4c5;}
+.deviceStudioComponentBtn.active{
+  border-color:rgba(56,189,248,.82);
+  background:rgba(37,99,235,.25);
+  box-shadow:0 0 20px rgba(56,189,248,.18);
+}
+.deviceStudioStage{
+  border:1px solid rgba(96,165,250,.24);
+  background:radial-gradient(circle at 50% 35%,rgba(56,189,248,.16),transparent 42%),rgba(2,6,23,.42);
+  border-radius:16px;
+  padding:14px;
+  min-height:640px;
+}
+.deviceStudioImageFrame{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  min-height:590px;
+  border-radius:12px;
+  background:rgba(2,6,23,.44);
+}
+.deviceStudioImageFrame img{
+  max-width:100%;
+  max-height:780px;
+  object-fit:contain;
+  display:block;
+  border-radius:10px;
+}
+.deviceStudioHotspotLayer{
+  position:absolute;
+  inset:0;
+}
+.deviceStudioHotspot{
+  position:absolute;
+  border:var(--device-hotspot-stroke-width,3px) solid var(--device-hotspot-color,rgba(56,189,248,.72));
+  background:color-mix(in srgb,var(--device-hotspot-color,#38bdf8) 14%,transparent);
+  color:#e0faff;
+  min-width:18px;
+  min-height:18px;
+  padding:0;
+  box-shadow:0 0 18px rgba(56,189,248,.24);
+  cursor:pointer;
+}
+.deviceStudioHotspot:hover,.deviceStudioHotspot.active{
+  border-color:var(--device-hotspot-color,#e0faff);
+  background:color-mix(in srgb,var(--device-hotspot-color,#38bdf8) 24%,transparent);
+  box-shadow:0 0 28px color-mix(in srgb,var(--device-hotspot-color,#38bdf8) 60%,transparent);
+}
+.deviceStudioHotspot span{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:calc(100% + 7px);
+  width:max-content;
+  max-width:180px;
+  padding:5px 8px;
+  border-radius:8px;
+  background:rgba(2,6,23,.86);
+  border:1px solid rgba(96,165,250,.34);
+  font-size:.72rem;
+  font-weight:850;
+  pointer-events:none;
+  opacity:.92;
+}
+.deviceStudioHotspot.bottom span{bottom:auto;top:calc(100% + 7px);}
+.deviceStudioHotspot.left span{left:auto;right:calc(100% + 7px);top:50%;bottom:auto;transform:translateY(-50%);}
+.deviceStudioHotspot.right span{left:calc(100% + 7px);top:50%;bottom:auto;transform:translateY(-50%);}
+.deviceStudioImageCaption{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:11px 4px 0;
+}
+.deviceStudioImageCaption b{color:#f8fbff;}
+.deviceStudioImageCaption span{color:#9fb1ce;}
+.deviceStudioGallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+.deviceStudioThumb{
+  border:1px solid rgba(96,165,250,.20);
+  background:rgba(2,6,23,.44);
+  border-radius:12px;
+  padding:8px;
+  display:grid;
+  gap:7px;
+  color:#dbeafe;
+  text-align:left;
+  box-shadow:none;
+}
+.deviceStudioThumb img{width:100%;height:86px;object-fit:cover;border-radius:8px;}
+.deviceStudioThumb span{font-size:.82rem;font-weight:850;}
+.deviceStudioThumb.active{
+  border-color:rgba(56,189,248,.82);
+  box-shadow:0 0 20px rgba(56,189,248,.20);
+}
+.deviceStudioInfo{
+  padding:16px;
+  position:static;
+}
+.deviceStudioInfoHeader span{
+  color:#38bdf8;
+  text-transform:uppercase;
+  letter-spacing:.10em;
+  font-size:.78rem;
+  font-weight:900;
+}
+.deviceStudioInfoHeader h3{margin:6px 0 6px;font-size:1.5rem;color:#f8fbff;}
+.deviceStudioInfoHeader p{margin:0 0 12px;color:#c6d6ef;line-height:1.45;}
+.deviceStudioDetailImage{
+  width:100%;
+  max-height:230px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid rgba(96,165,250,.24);
+  margin-bottom:12px;
+}
+.deviceStudioInfoBlock{
+  border:1px solid rgba(96,165,250,.16);
+  border-radius:12px;
+  padding:11px;
+  margin-top:10px;
+  background:rgba(15,23,42,.44);
+}
+.deviceStudioInfoBlock.warning{
+  border-color:rgba(245,158,11,.38);
+  background:rgba(245,158,11,.08);
+}
+.deviceStudioInfoBlock h4{
+  margin:0 0 6px;
+  color:#e0faff;
+  font-size:.82rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.deviceStudioInfoBlock p{margin:0;color:#c6d6ef;line-height:1.42;}
+.deviceStudioMeta{
+  display:grid;
+  gap:5px;
+  margin-top:12px;
+  color:#8fa4c5;
+  font-size:.82rem;
+}
+.deviceStudioStatusPanel{padding:14px;margin-top:14px;}
+.deviceStudioStatusGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  margin-top:10px;
+}
+.deviceStudioStatusGrid div{
+  min-width:0;overflow:hidden;
+  border:1px solid rgba(96,165,250,.18);
+  border-radius:10px;
+  padding:10px;
+  background:rgba(15,23,42,.42);
+}
+.deviceStudioStatusGrid span{
+  display:block;
+  color:#8fa4c5;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.deviceStudioStatusGrid b{display:block;margin-top:4px;color:#eef6ff;overflow-wrap:anywhere;word-break:break-word;white-space:normal;}
+.deviceStudioEmpty{
+  color:#a9bad4;
+  padding:18px;
+}
+@media (max-width:1450px){
+  .deviceStudioLayout{grid-template-columns:220px minmax(0,1fr);}
+  .deviceStudioInfo{grid-column:1/-1;position:static;}
+}
+@media (max-width:850px){
+  .deviceStudioLayout{grid-template-columns:1fr;}
+  .deviceStudioHeader{flex-direction:column;}
+  .deviceStudioImageFrame{min-height:420px;}
+  .deviceStudioStatusGrid{grid-template-columns:1fr;}
+}
+
+
+/* Device Studio v2.1 - responsive image-anchored callouts
+   The overlay is now attached to the displayed PM3 image, not to the whole stage/window. */
+.deviceStudioImageFrame{
+  overflow:visible;
+  min-height:590px;
+  padding:18px 12px;
+  box-sizing:border-box;
+}
+.deviceStudioBoardWrap{
+  position:relative;
+  display:block;
+  line-height:0;
+  max-width:100%;
+  max-height:100%;
+}
+.deviceStudioBoardWrap > img{
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  object-fit:fill;
+  display:block;
+}
+.deviceStudioBoardWrap .deviceStudioHotspotLayer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:visible;
+}
+.deviceStudioBoardWrap-calibrating:not(.deviceStudioBoardWrap-show-guides) .deviceStudioCallout,
+.deviceStudioBoardWrap-calibrating:not(.deviceStudioBoardWrap-show-guides) .deviceStudioHotspot{
+  opacity:0;
+  pointer-events:none;
+}
+.deviceStudioBoardWrap-calibrating .deviceStudioEditorSelectedSource{opacity:0;pointer-events:none;}
+.deviceStudioBoardWrap .deviceStudioHotspot{min-width:0;min-height:0;box-sizing:border-box;}
+.deviceStudioDeveloperOnly{border-color:rgba(250,204,21,.72)!important;background:rgba(250,204,21,.16)!important;color:#fef08a!important;}
+.deviceStudioHotspotEditor{position:absolute;inset:0;z-index:12;pointer-events:none;}
+.deviceStudioEditorToolbar{position:absolute;right:calc(100% + 22px);top:0;z-index:20;display:flex;align-items:flex-start;gap:7px;width:220px;padding:10px;border:1px solid rgba(250,204,21,.74);border-radius:12px;background:rgba(24,24,27,.94);color:#fef9c3;line-height:1.25;box-shadow:0 10px 26px rgba(0,0,0,.36);pointer-events:auto;transform:translate(var(--editor-panel-x,0px),var(--editor-panel-y,0px));}
+.deviceStudioEditorToolbarContent{display:grid;min-width:0;flex:1;gap:6px;}.deviceStudioEditorToolbar b{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;line-height:1.2;}.deviceStudioEditorToolbarContent>span{font-size:.88rem;font-weight:850;color:#fff;line-height:1.25;overflow-wrap:anywhere;}.deviceStudioEditorToolbar small{color:#d6d3d1;font-size:.72rem;line-height:1.38;overflow-wrap:anywhere;}.deviceStudioEditorSaveHint{margin:0;padding:6px 7px;border-left:2px solid rgba(56,189,248,.85);border-radius:0 6px 6px 0;background:rgba(14,116,144,.16);color:#e0faff;font-size:.71rem;line-height:1.35;overflow-wrap:anywhere;}.deviceStudioEditorSaveHint strong{color:#fef3c7;}.deviceStudioEditorToolbarActions{display:grid;gap:6px;margin-top:2px;}.deviceStudioEditorToolbar button{width:100%;margin:0;padding:7px 9px;border-color:#facc15;background:#a16207;color:#fff;box-shadow:none;white-space:normal;line-height:1.15;}
+.deviceStudioEditorGuideToggle{display:flex;align-items:center;gap:6px;color:#e0faff;font-size:.72rem;font-weight:800;cursor:pointer;}.deviceStudioEditorGuideToggle input{accent-color:#38bdf8;}
+.deviceStudioEditorToolbar .deviceStudioEditorDelete{border-color:rgba(248,113,113,.82);background:#991b1b;}
+.deviceStudioEditorToolbar label{display:flex;align-items:center;gap:4px;color:#fef3c7;font-size:.72rem;font-weight:800;}
+.deviceStudioEditorToolbar select{max-width:92px;padding:4px 6px;border:1px solid rgba(250,204,21,.58);border-radius:6px;background:#27272a;color:#fff;}
+.deviceStudioEditorToolbar input[type="color"]{width:28px;height:28px;padding:2px;border:1px solid rgba(250,204,21,.58);border-radius:6px;background:#27272a;}
+.deviceStudioEditorComponentPicker{position:absolute;left:calc(100% + 22px);top:0;z-index:20;display:grid;gap:8px;width:240px;padding:10px;border:1px solid rgba(250,204,21,.74);border-radius:12px;background:rgba(24,24,27,.94);color:#fef9c3;box-shadow:0 10px 26px rgba(0,0,0,.36);pointer-events:auto;transform:translate(var(--editor-panel-x,0px),var(--editor-panel-y,0px));}
+.deviceStudioEditorPanelGrip{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:24px;color:#fde68a;font-size:1.2rem;line-height:1;cursor:grab;user-select:none;touch-action:none;}
+.deviceStudioEditorPanelGrip:active{cursor:grabbing;}
+.deviceStudioEditorComponentPicker .deviceStudioEditorPanelGrip{position:absolute;right:5px;top:3px;}
+.deviceStudioEditorComponentPicker label{font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;}
+.deviceStudioEditorComponentPicker select{width:100%;min-height:0;max-height:180px;padding:5px 7px;border:1px solid rgba(250,204,21,.58);border-radius:6px;background:#27272a;color:#fff;font-size:.8rem;line-height:1.25;}
+.deviceStudioEditorAddComponent{display:grid;grid-template-columns:1fr;gap:6px;padding-top:8px;border-top:1px solid rgba(250,204,21,.25);}.deviceStudioEditorAddComponent input{min-width:0;padding:6px 7px;border:1px solid rgba(250,204,21,.45);border-radius:6px;background:#27272a;color:#fff;font-size:.76rem;}.deviceStudioEditorAddComponent button{padding:7px;border:1px solid rgba(56,189,248,.72);border-radius:6px;background:rgba(14,116,144,.58);color:#e0faff;font-size:.76rem;font-weight:800;box-shadow:none;white-space:normal;}
+.deviceStudioEditorComponentPicker small{color:#d6d3d1;font-size:.71rem;line-height:1.3;}
+.deviceStudioEditorMarkerControls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:8px;padding-top:8px;border-top:1px solid rgba(250,204,21,.25);}
+.deviceStudioEditorMarkerControls label{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px;color:#fef3c7;font-size:.72rem;font-weight:800;letter-spacing:normal;text-transform:none;line-height:1.2;}
+.deviceStudioEditorMarkerControls select{width:auto;max-width:92px;}
+.deviceStudioEditorMarkerControls input[type="color"]{width:29px;height:27px;padding:2px;border:1px solid rgba(250,204,21,.58);border-radius:6px;background:#27272a;}
+.deviceStudioEditorStrokeControl{grid-column:1/-1;grid-template-columns:auto minmax(0,1fr) auto!important;gap:7px!important;}.deviceStudioEditorStrokeControl input[type="range"]{min-width:0;width:100%;accent-color:#38bdf8;}.deviceStudioEditorStrokeControl output{min-width:30px;color:#e0faff;font-variant-numeric:tabular-nums;}
+@media(max-width:1250px){.deviceStudioEditorToolbar{right:auto;left:10px;top:10px;width:min(240px,42vw);}.deviceStudioEditorComponentPicker{left:auto;right:10px;top:10px;width:min(250px,42vw);}}
+@media(max-width:800px){.deviceStudioEditorComponentPicker{top:auto;bottom:10px;width:min(240px,48vw);}.deviceStudioEditorComponentPicker select{max-height:150px;}.deviceStudioEditorToolbar{width:min(240px,48vw);}}
+.deviceStudioEditorShape{position:absolute;box-sizing:border-box;border:var(--editor-shape-stroke-width,3px) solid var(--editor-shape-color,#facc15);background:color-mix(in srgb,var(--editor-shape-color,#facc15) 18%,transparent);box-shadow:0 0 0 2px rgba(24,24,27,.55),0 0 20px color-mix(in srgb,var(--editor-shape-color,#facc15) 46%,transparent);cursor:move;pointer-events:auto;z-index:14;touch-action:none;}
+.deviceStudioEditorShape::before,.deviceStudioEditorShape::after{content:"";position:absolute;left:50%;top:50%;background:var(--editor-shape-color,#facc15);transform:translate(-50%,-50%);pointer-events:none;opacity:.9;}.deviceStudioEditorShape::before{width:16px;height:1px;}.deviceStudioEditorShape::after{width:1px;height:16px;}
+.deviceStudioEditorHandle{position:absolute;width:12px;height:12px;min-width:0;min-height:0;padding:0;border:2px solid #fff;border-radius:2px;background:#f59e0b;box-shadow:0 1px 5px rgba(0,0,0,.55);transform:translate(-50%,-50%);cursor:crosshair;pointer-events:auto;}
+.deviceStudioEditorHandle-n{left:50%;top:0}.deviceStudioEditorHandle-ne{left:100%;top:0}.deviceStudioEditorHandle-e{left:100%;top:50%}.deviceStudioEditorHandle-se{left:100%;top:100%}.deviceStudioEditorHandle-s{left:50%;top:100%}.deviceStudioEditorHandle-sw{left:0;top:100%}.deviceStudioEditorHandle-w{left:0;top:50%}.deviceStudioEditorHandle-nw{left:0;top:0}
+.deviceStudioEditorRadius{left:100%;top:50%;border-radius:999px;cursor:ew-resize;}
+.deviceStudioEditorCalloutMarker{position:absolute;width:var(--editor-marker-size,2%);height:var(--editor-marker-size,2%);margin-left:calc(var(--editor-marker-size,2%) / -2);margin-top:calc(var(--editor-marker-size,2%) / -2);box-sizing:border-box;border:var(--editor-marker-stroke-width,3px) dashed var(--editor-marker-color,#38bdf8);border-radius:999px;background:transparent;box-shadow:0 0 0 2px rgba(0,0,0,.45),0 0 12px color-mix(in srgb,var(--editor-marker-color,#38bdf8) 65%,transparent);cursor:move;pointer-events:auto;z-index:15;touch-action:none;}
+.deviceStudioEditorCalloutMarker::before,.deviceStudioEditorCalloutMarker::after{content:"";position:absolute;left:50%;top:50%;background:var(--editor-marker-color,#38bdf8);transform:translate(-50%,-50%);pointer-events:none;opacity:.9;}.deviceStudioEditorCalloutMarker::before{width:calc(100% + 12px);height:1px;}.deviceStudioEditorCalloutMarker::after{width:1px;height:calc(100% + 12px);}
+.deviceStudioEditorLedShape{position:absolute;width:var(--editor-led-width,3.2%);height:var(--editor-led-height,2.4%);margin-left:calc(var(--editor-led-width,3.2%) / -2);margin-top:calc(var(--editor-led-height,2.4%) / -2);box-sizing:border-box;border:2px dashed var(--editor-marker-color,#38bdf8);border-radius:3px;background:transparent;box-shadow:0 0 0 1px rgba(0,0,0,.65),0 0 9px color-mix(in srgb,var(--editor-marker-color,#38bdf8) 55%,transparent);cursor:move;pointer-events:auto;z-index:15;touch-action:none;}
+.deviceStudioEditorLedShape::before,.deviceStudioEditorLedShape::after{content:"";position:absolute;left:50%;top:50%;background:var(--editor-marker-color,#38bdf8);transform:translate(-50%,-50%);pointer-events:none;opacity:.9;}.deviceStudioEditorLedShape::before{width:13px;height:1px;}.deviceStudioEditorLedShape::after{width:1px;height:13px;}
+.deviceStudioEditorCalloutMarker.rect{border-radius:2px;}
+.deviceStudioEditorCalloutResize{position:absolute;right:-7px;top:50%;width:11px;height:11px;min-width:0;min-height:0;padding:0;border:2px solid #fff;border-radius:999px;background:var(--editor-marker-color,#38bdf8);transform:translateY(-50%);cursor:ew-resize;}
+.deviceStudioEditorShapeCalloutAnchor{position:absolute;width:22px;min-width:0;height:22px;min-height:0;margin:-11px 0 0 -11px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;cursor:move;pointer-events:auto;z-index:16;touch-action:none;}
+.deviceStudioEditorShapeCalloutAnchor::before,.deviceStudioEditorShapeCalloutAnchor::after{content:"";position:absolute;left:50%;top:50%;background:var(--editor-callout-anchor-color,#38bdf8);box-shadow:0 0 5px rgba(2,6,23,.9);transform:translate(-50%,-50%);pointer-events:none;}.deviceStudioEditorShapeCalloutAnchor::before{width:18px;height:2px;}.deviceStudioEditorShapeCalloutAnchor::after{width:2px;height:18px;}
+.deviceStudioEditorCalloutLabelHandle{position:absolute;min-width:24px;min-height:24px;padding:2px 6px;border:1px dashed #facc15;border-radius:6px;background:rgba(24,24,27,.94);color:#fef08a;font-weight:950;line-height:1;cursor:move;pointer-events:auto;z-index:15;transform:translate(-50%,-50%);touch-action:none;}
+.deviceStudioEditorLabelPreview{outline:1px dashed #facc15;outline-offset:3px;cursor:move!important;pointer-events:auto;z-index:15;touch-action:none;}.deviceStudioEditorLabelPreview .deviceStudioEditorLabelMoveHandle{position:absolute;left:50%;top:-12px;display:grid;place-items:center;width:14px;height:14px;margin-left:-7px;border:1px solid rgba(250,204,21,.88);border-radius:999px;background:rgba(2,6,23,.96);color:#fef08a;font-size:.88rem;font-weight:700;line-height:1;pointer-events:none;}
+.deviceStudioEditorCalloutPreviewLine{position:absolute;transform-origin:0 50%;pointer-events:none;z-index:13;opacity:.92;filter:drop-shadow(0 0 2px rgba(0,0,0,.7));}
+.deviceStudioEditorMenu{position:absolute;z-index:16;display:grid;gap:5px;min-width:155px;padding:8px;border:1px solid rgba(250,204,21,.8);border-radius:10px;background:rgba(24,24,27,.96);box-shadow:0 12px 30px rgba(0,0,0,.48);pointer-events:auto;transform:translate(8px,8px);}
+.deviceStudioEditorMenu b{font-size:.72rem;color:#fef3c7;line-height:1.25;}
+.deviceStudioEditorMenu button{padding:6px 8px;border:1px solid rgba(250,204,21,.44);border-radius:7px;background:rgba(120,53,15,.48);color:#fff;text-align:left;box-shadow:none;font-size:.78rem;}
+.deviceStudioEditorMenu button:last-child{border-color:rgba(148,163,184,.38);background:rgba(51,65,85,.65);}
+.deviceStudioCallout{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.deviceStudioCalloutDot{
+  position:absolute;
+  width:var(--device-callout-marker-size,12px);
+  height:var(--device-callout-marker-size,12px);
+  margin-left:calc(var(--device-callout-marker-size,12px) / -2);
+  margin-top:calc(var(--device-callout-marker-size,12px) / -2);
+  padding:0;
+  border-radius:999px;
+  border:var(--device-callout-stroke-width,3px) solid var(--device-callout-marker-color,#e0faff);
+  background:var(--device-callout-marker-color,#38bdf8);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--device-callout-marker-color,#38bdf8) 20%,transparent),0 0 18px color-mix(in srgb,var(--device-callout-marker-color,#38bdf8) 55%,transparent);
+  pointer-events:auto;
+  z-index:4;
+  cursor:pointer;
+}
+.deviceStudioCalloutDot.rect{border-radius:3px;}
+.deviceStudioCalloutLine{
+  position:absolute;
+  height:var(--device-callout-stroke-width,3px);
+  background:linear-gradient(90deg,rgba(224,250,255,.95),rgba(56,189,248,.5));
+  transform-origin:0 50%;
+  pointer-events:none;
+  z-index:2;
+}
+.deviceStudioCalloutLabel{
+  position:absolute;
+  transform:translateY(-50%);
+  border:1px solid rgba(96,165,250,.34);
+  background:rgba(2,6,23,.88);
+  color:#e0faff;
+  border-radius:999px;
+  padding:5px 8px;
+  font-size:.68rem;
+  font-weight:900;
+  line-height:1;
+  white-space:nowrap;
+  box-shadow:0 8px 22px rgba(2,6,23,.32);
+  pointer-events:auto;
+  z-index:3;
+  cursor:pointer;
+}
+.deviceStudioCalloutLabel i{display:block;margin-top:2px;font-size:.62rem;font-style:normal;text-transform:uppercase;letter-spacing:.06em;opacity:.75;}
+.deviceStudioPhotoLed{position:absolute;width:var(--device-led-w,3.2%);height:var(--device-led-h,2.4%);margin-left:calc(var(--device-led-w,3.2%) / -2);margin-top:calc(var(--device-led-h,2.4%) / -2);border-radius:3px;z-index:4;pointer-events:auto;cursor:pointer;opacity:.78;transform:scale(.96);background:transparent;border:2px solid var(--device-led-color,#22c55e);box-sizing:border-box;box-shadow:inset 0 0 3px color-mix(in srgb,var(--device-led-color) 45%,transparent),0 0 3px color-mix(in srgb,var(--device-led-color) 30%,transparent);}
+.deviceStudioCallout[data-device-studio-component="power-led"]{--device-led-color:#ffffff;--device-led-status-color:#35f06f;}
+.deviceStudioCallout[data-device-studio-component="led-a"]{--device-led-color:#35f06f;}
+.deviceStudioCallout[data-device-studio-component="led-b"]{--device-led-color:#ff3030;}
+.deviceStudioCallout[data-device-studio-component="led-c"]{--device-led-color:#ffb321;}
+.deviceStudioCallout[data-device-studio-component="led-d"]{--device-led-color:#2f8dff;}
+.deviceStudioCallout[data-device-studio-component="power-led"] .deviceStudioCalloutDot,.deviceStudioCallout[data-device-studio-component^="led-"] .deviceStudioCalloutDot{border-color:var(--device-led-color);background:var(--device-led-color);box-shadow:0 0 8px color-mix(in srgb,var(--device-led-color) 55%,transparent);}
+.deviceStudioCallout.deviceStudioState-live .deviceStudioPhotoLed{opacity:1;animation:deviceStudioPhotoLedGlow .58s ease-in-out infinite alternate;}
+.deviceStudioCallout.deviceStudioState-live[data-device-studio-component="power-led"] .deviceStudioPhotoLed{animation:none;transform:scale(.90);box-shadow:inset 0 0 8px 3px #fff,inset 0 0 18px 7px rgba(53,240,111,.42),0 0 8px 3px #fff,0 0 14px 5px rgba(53,240,111,.30);}
+.deviceStudioCallout[data-device-studio-component="power-led"] .deviceStudioCalloutDot,.deviceStudioCallout[data-device-studio-component^="led-"] .deviceStudioCalloutDot{border-color:transparent!important;background:transparent!important;box-shadow:none!important;animation:none!important;}
+.deviceStudioCallout.deviceStudioState-live[data-device-studio-component="led-d"]{--device-led-status-color:#35f06f;}
+.deviceStudioCallout.deviceStudioState-fault .deviceStudioPhotoLed{--device-led-status-color:#ff2525;opacity:1;animation:deviceStudioPhotoLedError .34s steps(2,end) infinite;}
+.deviceStudioCallout.deviceStudioState-simulated .deviceStudioPhotoLed{opacity:1;animation:deviceStudioPhotoLedGlow .58s ease-in-out infinite alternate;}
+@keyframes deviceStudioPhotoLedGlow{from{transform:scale(.86);box-shadow:inset 0 0 5px 2px var(--device-led-color),0 0 4px 1px var(--device-led-color)}to{transform:scale(.98);box-shadow:inset 0 0 13px 6px var(--device-led-color),inset 0 0 28px 12px color-mix(in srgb,var(--device-led-status-color,var(--device-led-color)) 62%,transparent),0 0 10px 3px var(--device-led-color),0 0 18px 6px color-mix(in srgb,var(--device-led-status-color,var(--device-led-color)) 42%,transparent)}}
+@keyframes deviceStudioPhotoLedError{0%{opacity:.18;transform:scale(.65);box-shadow:0 0 4px 1px var(--device-led-color)}100%{opacity:1;transform:scale(1.15);box-shadow:0 0 7px 3px var(--device-led-color),0 0 18px 9px var(--device-led-status-color)}}
+.deviceStudioHotspot.deviceStudioState-live{border-color:var(--device-hotspot-color,#22c55e);background:color-mix(in srgb,var(--device-hotspot-color,#22c55e) 20%,transparent);box-shadow:0 0 24px color-mix(in srgb,var(--device-hotspot-color,#22c55e) 45%,transparent);}
+.deviceStudioHotspot.deviceStudioState-fault{border-color:var(--device-hotspot-color,#ef4444);background:color-mix(in srgb,var(--device-hotspot-color,#ef4444) 20%,transparent);box-shadow:0 0 24px color-mix(in srgb,var(--device-hotspot-color,#ef4444) 40%,transparent);}
+.deviceStudioHotspot.deviceStudioState-unknown{border-color:var(--device-hotspot-color,#64748b);background:color-mix(in srgb,var(--device-hotspot-color,#64748b) 18%,transparent);}
+.deviceStudioHotspot.deviceStudioState-simulated{border-color:#a855f7;background:rgba(168,85,247,.24);box-shadow:0 0 30px rgba(168,85,247,.58);animation:deviceStudioSimPulse 1.2s ease-in-out infinite alternate;}
+@keyframes deviceStudioSimPulse{from{filter:brightness(.85)}to{filter:brightness(1.45)}}
+.deviceStudioInfoBlock.liveState.live,.deviceStudioStatusGrid div.live{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.09);}
+.deviceStudioInfoBlock.liveState.fault,.deviceStudioStatusGrid div.fault{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08);}
+.deviceStudioInfoBlock.liveState.unknown,.deviceStudioStatusGrid div.unknown{border-color:rgba(148,163,184,.26);}
+.deviceStudioTelemetry{margin-top:7px!important;color:#93c5fd!important;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;}
+.deviceStudioInfoBlock.liveState small{display:block;margin-top:7px;color:#8fa4c5;}
+.deviceStudioLearningLevels{display:flex;gap:7px;margin:0 0 12px;padding:5px;border-radius:12px;background:rgba(15,23,42,.64);}
+.deviceStudioLearningLevels button{flex:1;padding:8px 6px;border-radius:8px;background:transparent;border:1px solid transparent;color:#9fb1ce;box-shadow:none;}
+.deviceStudioLearningLevels button.active{background:rgba(14,165,233,.18);border-color:rgba(56,189,248,.55);color:#e0faff;}
+.deviceStudioQuestionGrid{display:grid;gap:9px;}
+.deviceStudioQuestionGrid div{padding:11px;border:1px solid rgba(96,165,250,.18);border-radius:11px;background:rgba(15,23,42,.42);}
+.deviceStudioQuestionGrid span,.deviceStudioFirmwareLearning span{display:block;color:#38bdf8;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;}
+.deviceStudioQuestionGrid p{margin:5px 0 0;color:#d5e5f8;line-height:1.43;}
+.deviceStudioRelated,.deviceStudioDiscoveryActions{display:flex;flex-wrap:wrap;gap:7px;}
+.deviceStudioRelated button,.deviceStudioDiscoveryActions button{padding:7px 9px;border-radius:9px;font-size:.76rem;box-shadow:none;}
+.deviceStudioDiscoveryActions{margin:12px 0;}
+.deviceStudioDiscoveryActions button{background:rgba(14,165,233,.12);border:1px solid rgba(56,189,248,.34);color:#c8f4ff;}
+.deviceStudioSimulation{display:grid;gap:4px;padding:11px;border:1px solid rgba(168,85,247,.54);border-radius:11px;background:rgba(168,85,247,.12);color:#eadcff;}
+.deviceStudioSimulation.physical{border-color:rgba(34,197,94,.50);background:rgba(34,197,94,.10);color:#dcfce7;}
+.deviceStudioInfoBlock.source code{color:#c4b5fd;overflow-wrap:anywhere;}
+.deviceStudioLegacyCache{display:none!important;}
+.deviceStudioCompactSummary{display:grid;gap:12px;}
+.deviceStudioCompactSummary>span{color:#38bdf8;text-transform:uppercase;letter-spacing:.10em;font-size:.75rem;font-weight:900;}
+.deviceStudioCompactSummary h3{margin:-3px 0 0;font-size:1.45rem;color:#f8fbff;}
+.deviceStudioCompactFact{padding:10px 11px;border:1px solid rgba(96,165,250,.18);border-radius:11px;background:rgba(15,23,42,.42);}
+.deviceStudioCompactFact b{display:block;color:#8fa4c5;text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;}
+.deviceStudioCompactFact p{margin:5px 0;color:#dcecff;line-height:1.4;font-weight:700;}
+.deviceStudioCompactFact small{display:block;color:#8fa4c5;line-height:1.35;}
+.deviceStudioCompactActions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;}
+.deviceStudioCompactActions>.helpButtonWrap{display:block;position:relative;width:100%;}
+.deviceStudioCompactActions button:not(.helpInfoIcon){width:100%;padding:8px 5px;border:1px solid rgba(56,189,248,.36);border-radius:9px;background:rgba(14,165,233,.12);color:#d6f6ff;box-shadow:none;font-weight:800;}
+.deviceStudioCompactActions>.helpButtonWrap:last-child>button:not(.helpInfoIcon){background:rgba(37,99,235,.50);border-color:rgba(96,165,250,.70);}
+.deviceStudioCompactActions>.helpButtonWrap>.helpInfoIcon{top:-7px;right:-7px;}
+.deviceStudioOverlayBackdrop{position:fixed;inset:0;background:rgba(1,6,17,.60);backdrop-filter:blur(2px);z-index:1000;}
+.deviceStudioOverlay{position:fixed;z-index:1001;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1240px,84vw);height:min(82vh,920px);display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(96,165,250,.55);border-radius:20px;background:linear-gradient(155deg,#091a33,#071224 65%,#050c18);box-shadow:0 28px 90px rgba(0,0,0,.60);color:#eef6ff;}
+.deviceStudioOverlay header{display:flex;justify-content:space-between;gap:24px;padding:23px 26px 18px;border-bottom:1px solid rgba(96,165,250,.20);background:rgba(2,6,23,.26);cursor:grab;user-select:none;touch-action:none;}
+.deviceStudioOverlay.dragging header{cursor:grabbing;}
+.deviceStudioOverlay header>div{min-width:0;}.deviceStudioOverlay header span{display:block;color:#38bdf8;font-size:.73rem;font-weight:900;letter-spacing:.10em;text-transform:uppercase;}
+.deviceStudioOverlay header h2{margin:6px 0;font-size:1.85rem;color:#f8fbff;}.deviceStudioOverlay header p{margin:0;color:#b9cce5;line-height:1.42;}
+.deviceStudioOverlayClose{flex:0 0 auto;display:flex;align-items:center;gap:7px;height:max-content;padding:8px 11px;border:1px solid rgba(96,165,250,.35);border-radius:9px;background:rgba(15,23,42,.72);color:#dcecff;box-shadow:none;font-weight:800;}.deviceStudioOverlayClose:first-letter{font-size:1.5rem;line-height:.6;}
+.deviceStudioOverlayTabs{display:flex;gap:8px;overflow-x:auto;padding:13px 26px 11px;border-bottom:1px solid rgba(96,165,250,.18);background:rgba(2,6,23,.20);}.deviceStudioOverlayTabGroup{position:relative;display:flex;flex:0 0 auto;}.deviceStudioOverlayTabs .deviceStudioOverlayTabGroup>button:not(.deviceStudioOverlayTabHelp){padding:8px 12px;border:1px solid rgba(96,165,250,.28);border-radius:999px;background:rgba(15,23,42,.46);color:#b8cce6;box-shadow:none;font-weight:800;}.deviceStudioOverlayTabs .deviceStudioOverlayTabGroup>button.active{border-color:rgba(56,189,248,.75);background:rgba(14,165,233,.20);color:#e0faff;}.deviceStudioOverlayTabHelp{position:absolute;top:-7px;right:-6px;z-index:3;transform:none!important;}
+.deviceStudioOverlayBody{flex:1;min-height:0;overflow:auto;padding:22px 26px 30px;scrollbar-color:rgba(56,189,248,.75) rgba(15,23,42,.75);scrollbar-width:thin;}.deviceStudioOverlayBody:focus{outline:none;}
+.deviceStudioOverlayGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}.deviceStudioOverlayGrid .deviceStudioInfoBlock{margin:0;}.deviceStudioOverlay .deviceStudioInfoBlock small{display:block;margin-top:8px;color:#8fa4c5;line-height:1.35;}.deviceStudioOverlay .deviceStudioActionSummary{padding:8px 0 0;}.deviceStudioOverlay .deviceStudioActionSummary>div{min-width:0;}
+.deviceStudioSafeNow{grid-column:1/-1;display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:14px;margin:0;padding:13px 16px;border:1px solid rgba(56,189,248,.28);border-radius:12px;background:rgba(14,116,144,.10);}.deviceStudioSafeNow span{color:#7dd3fc;font-size:.78rem;font-weight:900;letter-spacing:.10em;text-transform:uppercase;}.deviceStudioSafeNow p{margin:0;color:#dcecff;line-height:1.42;font-weight:650;}.deviceStudioOverlayActions{grid-column:1/-1;}
+.deviceStudioOverlayFullDetail{margin-top:16px;padding:16px;border:1px solid rgba(96,165,250,.20);border-radius:13px;background:rgba(2,6,23,.34);}.deviceStudioOverlayFullDetail h3{margin:0 0 6px;color:#e0faff;}.deviceStudioOverlayFullDetail>p{margin:0;color:#c6d6ef;line-height:1.42;}.deviceStudioOverlayFullDetail>small{display:block;margin-top:6px;color:#8fa4c5;}.deviceStudioOverlayFullDetail .deviceStudioFirmwareLearning{margin-top:14px;}.deviceStudioOverlayFullDetail .deviceStudioStatusGrid{margin-top:14px;}
+.cardViewerOverlay{width:min(1120px,84vw);min-width:min(620px,calc(100vw - 16px));min-height:min(420px,calc(100vh - 16px));max-width:calc(100vw - 16px);max-height:calc(100vh - 16px);}
+.cardViewerOverlay.maximized{min-width:100vw;min-height:100vh;max-width:100vw;max-height:100vh;border-radius:0;}
+.cardViewerOverlay.maximized header{cursor:default;}
+.cardViewerOverlay .deviceStudioOverlayBody{padding-bottom:44px;}
+.cardViewerOverlay.resizing{user-select:none;}
+.electronWorkflowProgress{box-sizing:border-box;padding:14px;border:1px solid rgba(56,189,248,.72);border-radius:14px;background:linear-gradient(145deg,rgba(4,24,48,.98),rgba(3,12,27,.98));box-shadow:0 18px 48px rgba(0,0,0,.58),0 0 0 1px rgba(125,211,252,.08);color:#eaf6ff;}
+.electronWorkflowProgressHost{position:fixed;z-index:100002;right:22px;bottom:22px;width:min(390px,calc(100vw - 44px));pointer-events:none;}
+.electronWorkflowProgressHost:empty{display:none;}
+.electronWorkflowProgressHost>.electronWorkflowProgress{width:100%;pointer-events:auto;animation:electronWorkflowAppear .16s ease-out;}
+@keyframes electronWorkflowAppear{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.cardViewerOverlay>.electronWorkflowProgress{position:absolute;z-index:7;right:20px;bottom:48px;width:min(390px,calc(100% - 40px));}
+.electronWorkflowProgressHeader{display:flex;align-items:center;gap:10px;}.electronWorkflowProgressHeader>div{min-width:0;}.electronWorkflowProgressHeader small{display:block;color:#7dd3fc;font-size:.67rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;}.electronWorkflowProgressHeader strong{display:block;margin-top:3px;color:#f8fbff;font-size:1rem;overflow-wrap:anywhere;}
+.electronWorkflowSpinner{flex:0 0 auto;width:15px;height:15px;border:2px solid rgba(125,211,252,.28);border-top-color:#38bdf8;border-radius:50%;animation:electronWorkflowSpin .75s linear infinite;}
+.electronWorkflowOutcomeIcon{flex:0 0 auto;display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:rgba(34,197,94,.18);color:#86efac;font-weight:900;}.electronWorkflowOutcomeIcon.warning{background:rgba(245,158,11,.18);color:#fcd34d;}.electronWorkflowOutcomeIcon.cancelled,.electronWorkflowOutcomeIcon.failed{background:rgba(239,68,68,.18);color:#fca5a5;}
+@keyframes electronWorkflowSpin{to{transform:rotate(360deg)}}
+.electronWorkflowProgress>p{margin:11px 0 8px;color:#dbeafe;font-weight:800;line-height:1.4;}.electronWorkflowCurrentCommand{display:block;margin-bottom:9px;padding:7px 9px;border:1px solid rgba(96,165,250,.18);border-radius:8px;background:#020617;color:#bfdbfe;font-size:.72rem;overflow-wrap:anywhere;}
+.electronWorkflowIndeterminate{height:5px;overflow:hidden;border-radius:999px;background:rgba(148,163,184,.2);}.electronWorkflowIndeterminate span{display:block;width:38%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#0ea5e9,#67e8f9);animation:electronWorkflowMove 1.15s ease-in-out infinite alternate;}
+@keyframes electronWorkflowMove{from{transform:translateX(-18%)}to{transform:translateX(182%)}}
+.electronWorkflowMeta{display:flex;justify-content:space-between;gap:12px;margin-top:8px;color:#8fa4c5;font-size:.68rem;font-weight:750;}.electronWorkflowMeta span:last-child{text-align:right;}
+.electronWorkflowProgress ol{display:grid;gap:6px;max-height:172px;margin:10px 0 0;padding:0;overflow:auto;list-style:none;}.electronWorkflowProgress li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:7px;padding:7px 8px;border-radius:8px;background:rgba(15,23,42,.6);}.electronWorkflowProgress li>span{color:#7dd3fc;font-weight:900;}.electronWorkflowProgress li.completed>span{color:#86efac;}.electronWorkflowProgress li.failed>span,.electronWorkflowProgress li.cancelled>span{color:#fca5a5;}.electronWorkflowProgress li b{display:block;color:#dcecff;font-size:.72rem;line-height:1.35;}.electronWorkflowProgress li code{display:block;margin-top:3px;color:#7890b2;font-size:.66rem;overflow-wrap:anywhere;}
+.electronWorkflowCancel{margin-top:10px;padding:7px 10px;border:1px solid #fecaca!important;background:#f8fafc!important;color:#7f1d1d!important;font-weight:900;}.electronWorkflowCancel:disabled{opacity:.66;cursor:wait;}
+.cardViewerHeaderActions{display:flex;align-items:flex-start;gap:8px;flex:0 0 auto;min-width:max-content!important;}
+.cardViewerWindowControl{display:flex;align-items:center;gap:7px;height:max-content;padding:8px 11px;border:1px solid rgba(56,189,248,.42);border-radius:9px;background:rgba(14,116,144,.18);color:#c8f4ff;box-shadow:none;font-weight:800;}
+.cardViewerWindowControl:hover{border-color:#7dd3fc;background:rgba(14,116,144,.38);color:#f0fbff;}
+.deviceStudioOverlay header .cardViewerWindowControl span{display:inline;color:inherit;font-size:1rem;line-height:1;letter-spacing:0;text-transform:none;}
+.cardViewerWindowControl b{font-size:.8rem;}
+.cardViewerResizeHandle{position:absolute;z-index:8;right:5px;bottom:5px;width:31px;min-width:0;height:31px;min-height:0;padding:0;border:1px solid rgba(125,211,252,.68);border-radius:9px;background:rgba(7,28,52,.94);color:#7dd3fc;box-shadow:0 4px 16px rgba(0,0,0,.35);cursor:nwse-resize;touch-action:none;display:grid;place-items:center;}
+.cardViewerResizeHandle:hover{border-color:#7dd3fc;background:#0c3d62;color:#e0f7ff;}
+.cardViewerResizeHandle span{font-size:1.15rem;line-height:1;transform:translate(1px,1px);}
+.cardViewerHero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:14px;align-items:stretch;}
+.cardViewerHero>div{padding:18px;border:1px solid rgba(96,165,250,.24);border-radius:15px;background:linear-gradient(145deg,rgba(12,45,79,.82),rgba(7,21,41,.82));}
+.cardViewerHero span,.cardViewerSectionTitle span{display:block;color:#7dd3fc;font-size:.72rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;}
+.cardViewerHero h3{margin:7px 0 6px;color:#f8fbff;font-size:1.65rem;}.cardViewerHero p{margin:0;color:#cfe4ff;font:700 .96rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere;}
+.cardViewerStatus{display:flex;flex-direction:column;justify-content:center;gap:7px;}.cardViewerStatus.authenticated{border-color:rgba(52,211,153,.45);background:rgba(6,78,59,.28);}.cardViewerStatus.public{border-color:rgba(56,189,248,.34);}.cardViewerStatus b{color:#eef6ff;}.cardViewerStatus small{color:#a9bdd8;line-height:1.4;}
+.cardViewerMeta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0 16px;}.cardViewerMeta span{padding:10px 12px;border:1px solid rgba(96,165,250,.18);border-radius:10px;background:rgba(2,6,23,.28);color:#8fa4c5;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;}.cardViewerMeta b{display:block;margin-top:4px;color:#dcecff;font-size:.82rem;text-transform:none;letter-spacing:normal;overflow-wrap:anywhere;}
+.cardViewerSection{padding:16px;border:1px solid rgba(96,165,250,.22);border-radius:14px;background:rgba(2,6,23,.28);}.cardViewerSectionTitle{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:12px;}.cardViewerSectionTitle h3{margin:4px 0 0;color:#f1f7ff;}.cardViewerSectionTitle>small{color:#8fa4c5;text-align:right;}
+.cardViewerFields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}.cardViewerField{padding:11px 12px;border:1px solid rgba(96,165,250,.17);border-radius:10px;background:rgba(15,23,42,.42);min-width:0;}.cardViewerField.wide{grid-column:1/-1;}.cardViewerField span{display:block;color:#8fa4c5;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;}.cardViewerField b{display:block;margin-top:5px;color:#eef6ff;overflow-wrap:anywhere;}.cardViewerField small{display:block;margin-top:5px;color:#7890b2;line-height:1.35;}
+.cardViewerGroups{display:grid;gap:14px;}.cardViewerGroup{display:grid;gap:8px;}.cardViewerGroup h4{margin:0;padding-bottom:7px;border-bottom:1px solid rgba(96,165,250,.16);color:#cfe4ff;font-size:.82rem;letter-spacing:.04em;}
+.cardViewerEmvCoverage{margin-top:12px;border-color:rgba(56,189,248,.3);background:rgba(8,47,73,.14);}.cardViewerEmvCoverageGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}.cardViewerEmvCoverageRow{display:grid;gap:6px;padding:11px 12px;border:1px solid rgba(96,165,250,.18);border-radius:10px;background:rgba(15,23,42,.46);}.cardViewerEmvCoverageRow>div{display:flex;align-items:start;justify-content:space-between;gap:12px;}.cardViewerEmvCoverageRow span{color:#b9cbe2;font-size:.75rem;font-weight:900;}.cardViewerEmvCoverageRow b{color:#fcd34d;font-size:.75rem;text-align:right;}.cardViewerEmvCoverageRow.detected{border-color:rgba(52,211,153,.36);}.cardViewerEmvCoverageRow.detected b{color:#bbf7d0;}.cardViewerEmvCoverageRow p{margin:0;color:#a9bdd8;font-size:.78rem;line-height:1.4;}.cardViewerEmvCoverageRow small{color:#7890b2;font-size:.7rem;line-height:1.35;overflow-wrap:anywhere;}.cardViewerEmvCoverageFooter{margin:10px 0 0;color:#93a9c8;font-size:.75rem;line-height:1.4;}
+.cardViewerColumns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0;}.cardViewerKey,.cardViewerAccess{display:grid;gap:5px;padding:11px 12px;border:1px solid rgba(96,165,250,.18);border-radius:10px;background:rgba(15,23,42,.42);}.cardViewerKey+.cardViewerKey,.cardViewerAccess+.cardViewerAccess{margin-top:8px;}.cardViewerKey span{display:block;color:#8fa4c5;font-size:.72rem;text-transform:uppercase;}.cardViewerKey b{color:#dcecff;}.cardViewerKey code{padding:8px;border-radius:7px;background:#020617;color:#fde68a;font-size:.9rem;overflow-wrap:anywhere;}.cardViewerKey small,.cardViewerAccess span{color:#93a9c8;font-size:.78rem;line-height:1.35;}.cardViewerAccess.readable{border-color:rgba(52,211,153,.36);}.cardViewerAccess.readable b{color:#bbf7d0;}.cardViewerAccess.not-confirmed b{color:#fcd34d;}
+.cardViewerEmptyText{margin:0;color:#93a9c8;line-height:1.5;}.cardViewerNotice{margin-top:12px;padding:13px 15px;border:1px solid rgba(250,204,21,.28);border-radius:12px;background:rgba(113,63,18,.13);}.cardViewerNotice b{color:#fde68a;}.cardViewerNotice p{margin:5px 0;color:#dce7f7;}.cardViewerNotice small{color:#b5c5da;line-height:1.4;}
+.cardViewerEmpty{display:grid;justify-items:start;gap:10px;max-width:650px;margin:8vh auto 0;padding:24px;border:1px solid rgba(96,165,250,.24);border-radius:16px;background:rgba(7,21,41,.78);}.cardViewerEmpty span{color:#7dd3fc;font-size:.72rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;}.cardViewerEmpty h3,.cardViewerEmpty p{margin:0;}.cardViewerEmpty p{color:#a9bdd8;line-height:1.5;}.cardViewerEmpty button{margin-top:4px;background:#2563eb;color:#fff;font-weight:800;}
+.cardViewerDeepScan{margin-top:12px;border-color:rgba(249,115,22,.38);background:rgba(124,45,18,.12);}.cardViewerDeepScan p{color:#b9cbe2;}.cardViewerDeepScan button{background:#ea580c;color:#fff;font-weight:900;}.cardViewerDeepScan button:hover{background:#f97316;}.cardViewerDeepScan button:disabled{opacity:.62;cursor:wait;}.cardViewerDeepScanStatus{margin:10px 0 0;padding:9px 11px;border-radius:8px;background:rgba(2,6,23,.46);color:#fed7aa;font:700 .8rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;}
+.cardViewerRecovery{margin-top:12px;border-color:rgba(239,68,68,.42);background:rgba(69,10,10,.2);}.cardViewerRecovery>p{color:#c6d4e8;line-height:1.5;}.cardViewerRecovery>button{background:#991b1b;color:#fff;font-weight:900;}.cardViewerRecovery>button:hover{background:#b91c1c;}.cardViewerRecovery>button:disabled{opacity:.58;cursor:wait;}.cardViewerRecoveryDetails{display:grid;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(248,113,113,.25);}.cardViewerRecoverySummary{display:flex;flex-wrap:wrap;gap:8px;}.cardViewerRecoverySummary span{padding:7px 10px;border:1px solid rgba(125,211,252,.2);border-radius:9px;background:rgba(2,6,23,.42);color:#9fb3ce;font-size:.78rem;}.cardViewerRecoverySummary b{color:#eaf2ff;}.cardViewerRecoveryStrategies{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;}.cardViewerRecoveryStrategy{display:grid;align-content:start;gap:9px;padding:12px;border:1px solid rgba(96,165,250,.2);border-radius:11px;background:rgba(4,15,34,.72);}.cardViewerRecoveryStrategy>div{display:flex;justify-content:space-between;gap:10px;align-items:start;}.cardViewerRecoveryStrategy strong{color:#f8fafc;}.cardViewerRecoveryStrategy span{color:#fca5a5;font-size:.7rem;text-align:right;text-transform:uppercase;}.cardViewerRecoveryStrategy p{min-height:44px;margin:0;color:#aebfd7;font-size:.78rem;line-height:1.45;}.cardViewerRecoveryStrategy button{justify-self:start;background:#b91c1c;color:#fff;font-weight:800;}.cardViewerRecoveryStrategy button:hover{background:#dc2626;}.cardViewerRecoveryStrategy.unavailable{opacity:.62;}.cardViewerRecoveryStrategy button:disabled{cursor:not-allowed;}.cardViewerRecoveryCancel{justify-self:start;background:#f8fafc!important;color:#7f1d1d!important;border:1px solid #fecaca!important;font-weight:900;}.cardViewerRecoveryStatus{margin:0;padding:9px 11px;border-radius:8px;background:rgba(2,6,23,.6);color:#fecaca;font:700 .8rem/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;}
+@media(max-width:720px){
+  .cardViewerHeaderActions{gap:5px;}
+  .cardViewerWindowControl b,.cardViewerHeaderActions .deviceStudioOverlayClose span{display:none;}
+  .electronWorkflowProgressHost{right:12px;bottom:12px;width:calc(100vw - 24px);}
+  .cardViewerOverlay>.electronWorkflowProgress{left:12px;right:12px;bottom:44px;width:auto;}
+}
+.cardViewerRecoveryUnavailable{margin-top:12px;border-color:rgba(245,158,11,.3);background:rgba(69,45,10,.13);}.cardViewerRecoveryUnavailable p{margin:0;color:#b9c8dc;line-height:1.5;}.cardViewerRecoveryUnavailable small{color:#fcd34d;}
+@media(max-width:1000px){.deviceStudioOverlay{width:94vw;height:88vh;}.deviceStudioOverlay header{padding:18px;}.deviceStudioOverlayBody{padding:18px;}.deviceStudioOverlayTabs{padding-left:18px;padding-right:18px;}.deviceStudioOverlayGrid{grid-template-columns:1fr;}.deviceStudioCompactActions{grid-template-columns:1fr;}.deviceStudioOverlayClose span{display:none;}}
+@media(max-width:800px){.cardViewerHero,.cardViewerColumns{grid-template-columns:1fr;}.cardViewerMeta,.cardViewerFields,.cardViewerEmvCoverageGrid{grid-template-columns:1fr;}.cardViewerSectionTitle{align-items:start;flex-direction:column;gap:5px;}.cardViewerSectionTitle>small{text-align:left;}}
+.deviceStudioFirmwareLearning{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px;}
+.deviceStudioFirmwareLearning .deviceStudioSourceLegend{grid-column:1/-1;}
+.deviceStudioFirmwareLearning>div{padding:12px;border:1px solid rgba(168,85,247,.28);border-radius:11px;background:rgba(88,28,135,.10);}
+.deviceStudioFirmwareLearning h4{margin:5px 0;color:#f3e8ff;}
+.deviceStudioFirmwareLearning p{margin:0;color:#c6d6ef;line-height:1.42;}
+.deviceStudioExplorerWide{grid-column:1/-1!important;}
+.deviceStudioSourceList details{margin-top:7px;padding:8px 10px;border:1px solid rgba(56,189,248,.18);border-radius:8px;background:rgba(2,6,23,.24);}
+.deviceStudioSourceList summary{cursor:pointer;color:#dbeafe;}
+.deviceStudioSourceList code{color:#93c5fd;}
+.deviceStudioCapabilityCards,.deviceStudioMetricGrid{display:grid;grid-template-columns:repeat(4,minmax(100px,1fr));gap:8px;margin-top:8px;min-width:0;}
+.deviceStudioMetricGrid{overflow-x:scroll;grid-template-columns:repeat(4,minmax(180px,1fr));padding-bottom:8px;max-width:100%;cursor:grab;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:rgba(56,189,248,.85) rgba(15,23,42,.75);}
+.deviceStudioMetricGrid:active,.deviceStudioMetricGrid.dragging{cursor:grabbing;}
+.deviceStudioMetricGrid::-webkit-scrollbar{height:10px;}
+.deviceStudioMetricGrid::-webkit-scrollbar-track{background:rgba(15,23,42,.78);border-radius:999px;}
+.deviceStudioMetricGrid::-webkit-scrollbar-thumb{background:rgba(56,189,248,.85);border-radius:999px;border:2px solid rgba(15,23,42,.78);}
+.deviceStudioCapabilityCards>div,.deviceStudioMetricGrid>span{padding:9px;border:1px solid rgba(56,189,248,.18);border-radius:8px;background:rgba(2,6,23,.24);}
+.deviceStudioCapabilityCards p{margin:4px 0!important;font-size:.86rem;}
+.deviceStudioCapabilityCards small{color:#a9bddb;line-height:1.3;display:block;}
+.deviceStudioCapabilityCards .deviceStudioAdapterMap{margin-top:7px;color:#7dd3fc;font-size:.72rem;}
+.deviceStudioMetricGrid span{color:#9db4d6;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;}
+.deviceStudioMetricGrid b{display:block;color:#eef6ff;margin-top:4px;font-size:.85rem;text-transform:none;letter-spacing:normal;}
+.deviceStudioMetricGrid small{display:block;margin-top:5px;color:#a9bdd6;font-size:.7rem;line-height:1.35;text-transform:none;letter-spacing:normal;}
+.deviceStudioOverlay .deviceStudioMetricGrid{grid-template-columns:repeat(2,minmax(0,1fr));overflow-x:visible;cursor:default;padding-bottom:0;}
+.deviceStudioOverlay .deviceStudioMetricGrid>span{min-width:0;overflow-wrap:anywhere;word-break:break-word;}
+.deviceStudioStatusWide{min-width:0;overflow:hidden;overflow-wrap:anywhere;}
+.deviceStudioStatusWide b,.deviceStudioStatusWide small{overflow-wrap:anywhere;word-break:break-word;white-space:normal;}
+.deviceStudioSourceButtons{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0;}
+.deviceStudioSourceButtons button{padding:7px 9px;border:1px solid rgba(56,189,248,.35);border-radius:7px;background:rgba(14,116,144,.16);color:#dbeafe;cursor:pointer;}
+.deviceStudioSourcePreview{max-height:260px;overflow:auto;margin:8px 0 0;padding:10px;border-radius:8px;background:#020617;color:#c7e4ff;font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;}
+@media(max-width:1000px){.deviceStudioSafeNow{grid-template-columns:1fr;gap:5px;}.deviceStudioOverlay{max-width:calc(100vw - 16px);max-height:calc(100vh - 16px);}}
+@media(max-width:900px){.deviceStudioCapabilityCards,.deviceStudioMetricGrid{grid-template-columns:repeat(2,minmax(180px,1fr));}}
+.deviceStudioCalloutLabel.right{transform:translate(-100%,-50%);}
+.deviceStudioCalloutLabel.center{transform:translate(-50%,-50%);}
+.deviceStudioCallout.active .deviceStudioCalloutDot,
+.deviceStudioCallout:hover .deviceStudioCalloutDot{
+  background:#facc15;
+  border-color:#fff7c2;
+  box-shadow:0 0 0 4px rgba(250,204,21,.18),0 0 28px rgba(250,204,21,.62);
+}
+.deviceStudioCallout.active .deviceStudioCalloutLine,
+.deviceStudioCallout:hover .deviceStudioCalloutLine{
+  background:linear-gradient(90deg,rgba(255,247,194,.98),rgba(250,204,21,.72));
+  height:2px;
+}
+.deviceStudioCallout.active .deviceStudioCalloutLabel,
+.deviceStudioCallout:hover .deviceStudioCalloutLabel{
+  border-color:rgba(250,204,21,.72);
+  color:#fff7c2;
+  box-shadow:0 0 22px rgba(250,204,21,.22);
+}
+.deviceStudioCalloutDot:focus-visible,
+.deviceStudioCalloutLabel:focus-visible{
+  outline:3px solid rgba(250,204,21,.48);
+  outline-offset:3px;
+}
+
+
+/* Device Studio v3 - Smart Annotation Engine safe-zone overrides */
+.deviceStudioImageStage{
+  overflow:visible !important;
+  padding:34px 110px 76px 110px !important;
+  min-height:680px !important;
+}
+.deviceStudioPhotoFrame{
+  position:relative;
+  overflow:visible !important;
+  margin:0 auto !important;
+  width:min(560px,64vw) !important;
+}
+.deviceStudioPhotoFrame img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.deviceStudioCallout{position:absolute;inset:0;pointer-events:none;}
+.deviceStudioShapeCalloutAnchor{position:absolute;width:0;height:0;pointer-events:none;z-index:1;}
+.deviceStudioCalloutDot{
+  position:absolute;width:13px;height:13px;margin-left:-6.5px;margin-top:-6.5px;padding:0;border-radius:999px;
+  border:var(--device-callout-stroke-width,3px) solid #e0faff;background:#38bdf8;box-shadow:0 0 0 3px rgba(56,189,248,.18),0 0 18px rgba(56,189,248,.55);
+  pointer-events:auto;z-index:5;
+}
+.deviceStudioCalloutLine{
+  position:absolute;height:var(--device-callout-stroke-width,3px);background:linear-gradient(90deg,rgba(224,250,255,.9),rgba(56,189,248,.45));
+  transform-origin:0 50%;pointer-events:none;z-index:2;
+}
+.deviceStudioCalloutLabel{
+  position:absolute;border:1px solid rgba(96,165,250,.38);background:rgba(2,6,23,.94);color:#e0faff;
+  border-radius:999px;padding:5px 9px;font-size:.72rem;font-weight:900;line-height:1;white-space:nowrap;
+  box-shadow:0 8px 22px rgba(2,6,23,.32);pointer-events:auto;z-index:4;
+}
+.deviceStudioCalloutLabel.left{transform:translate(-100%,-50%);}
+.deviceStudioCalloutLabel.right{transform:translate(0,-50%);}
+.deviceStudioCalloutLabel.top{transform:translate(-50%,-100%);}
+.deviceStudioCalloutLabel.bottom{transform:translate(-50%,0);}
+.deviceStudioCallout.active .deviceStudioCalloutDot,.deviceStudioCallout:hover .deviceStudioCalloutDot{
+  background:#facc15;border-color:#fff7c2;box-shadow:0 0 0 4px rgba(250,204,21,.18),0 0 28px rgba(250,204,21,.62);
+}
+.deviceStudioCallout.active .deviceStudioCalloutLine,.deviceStudioCallout:hover .deviceStudioCalloutLine{
+  background:linear-gradient(90deg,rgba(255,247,194,.98),rgba(250,204,21,.72));height:calc(var(--device-callout-stroke-width,3px) + .5px);
+}
+.deviceStudioCallout.active .deviceStudioCalloutLabel,.deviceStudioCallout:hover .deviceStudioCalloutLabel{
+  border-color:rgba(250,204,21,.72);color:#fff7c2;box-shadow:0 0 22px rgba(250,204,21,.22);
+}
+@media (max-width: 1100px){
+  .deviceStudioImageStage{padding:28px 92px 82px 92px !important;min-height:640px !important;}
+  .deviceStudioPhotoFrame{width:min(500px,62vw) !important;}
+}
+
+
+/* Device Studio bottom label spacing refinement */
+.deviceStudioCallout.side-bottom .deviceStudioCalloutLabel,
+.deviceStudioCalloutLabel.bottom{
+  font-size:.66rem !important;
+  padding:4px 7px !important;
+  letter-spacing:.01em;
+}
+.deviceStudioImageStage{
+  padding-bottom:96px !important;
+  min-height:700px !important;
+}
+
+
+/* Device Studio USB + LED two-row layout refinement */
+.deviceStudioCallout.side-bottom .deviceStudioCalloutLabel,
+.deviceStudioCalloutLabel.bottom{
+  font-size:.64rem !important;
+  padding:4px 7px !important;
+  letter-spacing:.01em;
+}
+.deviceStudioImageStage{
+  padding-bottom:112px !important;
+  min-height:720px !important;
+}
+@media (max-width: 1100px){
+  .deviceStudioImageStage{
+    padding-bottom:122px !important;
+    min-height:720px !important;
+  }
+}
+
+/* Final palette pass: these older workspace-specific rules are declared above
+   the Device Studio styles, so they are collected here to keep their visual
+   result consistent without changing any existing workflow. */
+#tab-cardlab .atlasHero,#tab-cardlab .atlasProgressBox,#tab-cardlab .atlasCard,
+#tab-cardlab .atlasModuleRow,#tab-cardlab .electronReportHero,#tab-cardlab .electronKnowledgePanel,
+#tab-cardlab .electronCapabilityItem,#tab-cardlab .electronReadableData,
+#tab-cardlab .electronReadableField,#tab-cardlab .electronTechnicalDetails,
+#tab-cardlab .electronSecondaryDetails,#tab-cardlab .electronMemoryNotes,
+#tab-cardlab .electronSavedBox,#tab-cardlab .electronMemoryHeader,
+#tab-cardlab .electronMemorySummary,#tab-cardlab .electronMemoryIntro,
+#tab-cardlab .electronMemoryCell,#tab-cardlab .electronLearnResearchPanel,
+#tab-cardlab .electronResearchCount,#tab-cardlab .electronCardIntelligenceCard,
+#tab-cardlab .electronCIConfidence,#tab-cardlab .electronCITile,
+#tab-research .electronLearnResearchPanel,
+#tab-research .electronResearchRecord,#tab-research .electronSourceNotice,
+#tab-research .electronSavedBox,#tab-research .electronMemoryNotes,
+#tab-research .electronSecondaryDetails,#tab-portal .portalNav,#tab-portal .portalContent,
+#tab-portal .portalHero,#tab-portal .portalPreviewCard,#tab-portal .portalCard,
+#tab-portal .portalWorkflow > div,#tab-portal .portalPrinciples > div,
+#tab-portal .portalPreviewTimeline > div{
+  border-color:rgba(96,165,250,.25)!important;
+  background:rgba(7,21,41,.88)!important;
+  color:#dceaff!important;
+  box-shadow:none!important;
+}
+#tab-cardlab .atlasHeroEmpty,#tab-cardlab .electronReportHero,#tab-cardlab .electronReadableData,
+#tab-research .electronLearnResearchPanel,#tab-portal .portalHero{
+  background:linear-gradient(145deg,rgba(12,45,79,.92),rgba(7,21,41,.92))!important;
+}
+#tab-cardlab .atlasHero p,#tab-cardlab .atlasCard p,#tab-cardlab .atlasCard ul,
+#tab-cardlab .atlasCard small,#tab-cardlab .atlasModuleRow span,#tab-cardlab .atlasModuleRow small,
+#tab-cardlab .electronReportHero p,#tab-cardlab .electronCapabilityItem small,
+#tab-cardlab .electronReadableField span,#tab-cardlab .electronKnowledgeDetail p,
+#tab-cardlab .electronInvestigating ol,#tab-cardlab .electronMemoryHeader p,
+#tab-cardlab .electronMemorySummary small,#tab-cardlab .electronMemoryCell small,
+#tab-cardlab .electronMemoryCell em,#tab-cardlab .electronLRHero p,
+#tab-cardlab .electronCIHeader p,#tab-cardlab .electronCIConfidence small,
+#tab-cardlab .electronCITile span,#tab-cardlab .electronCITile small,
+#tab-research .electronResearchRecord p,
+#tab-research .electronResearchRecord small,#tab-research .electronSourceNotice p,
+#tab-research .electronSourceNotice small,#tab-portal .portalPageTitle p,#tab-portal .portalHero p,
+#tab-portal .portalPreviewCard span,#tab-portal .portalCard span,#tab-portal .portalCard small,
+#tab-portal .portalWorkflow p,#tab-portal .portalPrinciples p,#tab-portal .portalPreviewTimeline span{
+  color:#a9bdd8!important;
+}
+#tab-cardlab .atlasCard b,#tab-cardlab .atlasKnowledgeDetails summary,#tab-cardlab .atlasModuleRow b,
+#tab-cardlab .electronCapabilityItem b,#tab-cardlab .electronReadableField b,
+#tab-cardlab .electronKnowledgePanel b,#tab-cardlab .electronTechnicalDetails summary,
+#tab-cardlab .electronMemoryCell b,#tab-cardlab .electronLRHero h3,
+#tab-cardlab .electronMemorySummary b,#tab-cardlab .electronResearchCount b,
+#tab-cardlab .electronCIHeader h3,#tab-cardlab .electronCITile b,
+#tab-research .electronResearchRecord b,#tab-research .electronSourceNotice b,
+#tab-portal .portalPageTitle h3,#tab-portal .portalHero h3,#tab-portal .portalPreviewCard b,
+#tab-portal .portalCard b{color:#eef6ff!important;}
+#tab-cardlab .atlasScore,#tab-cardlab .atlasPill,#tab-cardlab .atlasMiniTools span,#tab-cardlab .atlasMiniTool,
+#tab-cardlab .atlasModuleHeader span,#tab-cardlab .electronCapBadge{
+  border-color:rgba(96,165,250,.32)!important;background:rgba(20,52,91,.72)!important;color:#cfe4ff!important;
+}
+#tab-cardlab .atlasWizardStep{border-color:rgba(96,165,250,.24)!important;background:rgba(7,21,41,.68)!important;}
+#tab-cardlab .atlasWizardStep span{background:#14345b!important;color:#dceaff!important;}
+#tab-cardlab .atlasWizardStep.active{background:rgba(14,72,122,.5)!important;border-color:#38bdf8!important;}
+#tab-cardlab .atlasOtherInput summary,
+#tab-cardlab .atlasRawJson summary{color:#eef6ff!important;}
+#tab-cardlab .atlasOtherInput p,
+#tab-cardlab .atlasRawJson .normalPre,
+#tab-cardlab .atlasOtherInput textarea{color:#dceaff!important;}
+#tab-cardlab .atlasOtherInput textarea::placeholder{color:#93acd0!important;}
+
+/* Collection export preview uses the same dark, high-contrast palette as the
+   rest of Electron instead of its older light dialog styling. */
+.updateExportOverlay{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(0,0,0,.7);
+}
+.updateExportModal{
+  display:flex;
+  flex-direction:column;
+  width:96vw;
+  min-width:min(1100px,96vw);
+  max-width:1800px;
+  max-height:94vh;
+  overflow:hidden;
+  border:1px solid rgba(96,165,250,.38);
+  border-radius:18px;
+  background:#07162a;
+  color:#eef6ff;
+  box-shadow:0 24px 72px rgba(0,0,0,.58);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+.updateExportModalHeader,
+.updateExportModalFooter{
+  padding:16px 20px;
+  background:#0b213e;
+  border-color:rgba(96,165,250,.24);
+}
+.updateExportModalHeader{border-bottom:1px solid rgba(96,165,250,.24);}
+.updateExportModalFooter{
+  display:flex;
+  gap:10px;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:14px 20px;
+  border-top:1px solid rgba(96,165,250,.24);
+}
+.updateExportModalBody{padding:14px 20px;overflow:auto;}
+.updateExportModal .small{color:#a9bdd8;}
+.updateExportModal td{color:#dceaff;}
+.updateExportModal .previousLabel{color:#9db4d6;}
+.updateExportModal .newLabel{color:#4ade80;}
+.updateExportCancelButton{
+  border:1px solid rgba(248,113,113,.65);
+  background:rgba(127,29,29,.55);
+  color:#fecaca;
+}
+#tab-edit .backupInlinePanel details{background:rgba(7,21,41,.82);border-color:rgba(96,165,250,.28);color:#dceaff;}
+#tab-edit .backupInlinePanel summary,
+#tab-edit .backupFieldTitle,
+#tab-edit .backupOutputLabel,
+#tab-edit .backupWorkflowTitle{color:#eef6ff!important;}
+#tab-edit .backupInlinePanel summary .small,
+#tab-edit .backupInlinePanel .fieldHint{color:#a9bdd8!important;}
+#tab-edit .backupInlinePanel details[open] summary::after{color:#93acd0;}
+#tab-edit .backupStatusPanel,
+#tab-edit .backupWorkflowStep{background:rgba(7,21,41,.72);border-color:rgba(96,165,250,.28);color:#dceaff;}
+#tab-edit .backupStatusPanel>div{border-color:rgba(148,163,184,.25);}
+#tab-edit .backupStatusPanel b,
+#tab-edit .backupStatusPanel span,
+#tab-edit .backupWorkflowStep p,
+#tab-edit .backupWorkflowStep p span{color:#dceaff;}
+#tab-edit .backupStatusFiles span{background:rgba(20,52,91,.72);border-color:rgba(96,165,250,.28);color:#cfe4ff;}
+#tab-edit .backupStatusFiles .muted{background:rgba(7,21,41,.72);color:#93acd0;}
+#tab-edit .backupWorkflowStep code{background:#0b1730;color:#e5efff;}
+#tab-standalone-studio .standaloneStudioPanel{background:linear-gradient(145deg,rgba(12,33,61,.98),rgba(7,21,41,.98));color:#dceaff;}
+.standaloneStudioHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.standaloneStudioGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0;}
+.standaloneStudioGrid>div{border:1px solid rgba(96,165,250,.28);border-radius:16px;padding:16px;background:rgba(7,21,41,.72);}
+.standaloneStudioGrid h3{margin-top:0;}
+.standaloneStudioGrid p{color:#a9bdd8;line-height:1.5;}
+.blueAction{background:#2563eb;color:#fff;border:0;border-radius:12px;padding:11px 18px;font-weight:800;cursor:pointer;}
+.blueAction:hover{background:#1d4ed8;}
+@media (max-width:760px){.standaloneStudioGrid{grid-template-columns:1fr;}}
+#tab-portal .portalNav button{color:#cfe4ff!important;}
+#tab-portal .portalNav button.active,#tab-portal .portalNav button:hover{background:#1c6ae5!important;color:#fff!important;}
+
+/* Unified Electron dark theme for shared dialogs and the remaining legacy
+   workspace surfaces.  Printable label content intentionally stays white. */
+.teModalCard{
+  background:#07162a;
+  color:#eef6ff;
+  border-color:rgba(96,165,250,.38);
+  box-shadow:0 28px 80px rgba(0,0,0,.58);
+}
+.teModalHeader,.teModalBody,.teModalFooter{
+  background:#07162a;
+  color:#c7d9f0;
+  border-color:rgba(96,165,250,.24);
+}
+.teModalTitleBlock h3{color:#f8fbff;}
+.teModalSubtitle{color:#9db4d6;}
+.teModalX{background:rgba(37,99,235,.23);color:#edf6ff;}
+.teModalX:hover{background:rgba(37,99,235,.46);}
+.teModalCard label,.teModalCard .inlineCheck{color:#dceaff;}
+.teModalCard input,.teModalCard select,.teModalCard textarea{
+  background:#061428;
+  color:#eef6ff;
+  border-color:rgba(96,165,250,.46);
+}
+.teModalCard input::placeholder,.teModalCard textarea::placeholder{color:#7186a7;}
+.teModalCard .small,.teModalCard .muted{color:#9db4d6;}
+.teModalCard .teBtnSecondary{background:rgba(148,163,184,.24);color:#f8fbff;}
+.teModalCard .teBtnGhost{color:#7dd3fc;}
+.teModalCard code,.teModalCard pre{background:#030d1e;color:#e5efff;}
+.teModalCard .previewWelcome p,.teModalCard .previewWelcome ul{color:#c7d9f0;}
+.teModalCard .previewScreenshotPaste{
+  border-color:rgba(96,165,250,.52);
+  background:rgba(11,33,62,.82);
+  color:#dceaff;
+}
+.teModalCard .previewScreenshotPaste b{color:#eef6ff;}
+.teModalCard .previewScreenshotPaste span,
+.teModalCard .previewScreenshotPaste small,
+.teModalCard .previewFeedbackStatus{color:#9db4d6;}
+.teModalCard .previewScreenshotThumb{
+  border-color:rgba(96,165,250,.32);
+  background:#0b213e;
+}
+.teModalCard .previewScreenshotThumb span{color:#c7d9f0;}
+.teModalCard .databaseManagerStats div{
+  border-color:rgba(96,165,250,.32);
+  background:#0b213e;
+}
+.teModalCard .databaseManagerStats span{color:#9db4d6;}
+.teModalCard .databaseManagerStats b{color:#eef6ff;}
+.teModalCard .databaseManagerWarning{
+  border-color:rgba(248,113,113,.58);
+  background:rgba(127,29,29,.30);
+  color:#fecaca;
+}
+.teModalCard .deviceCommandHelpSection{
+  border-color:rgba(96,165,250,.30);
+  background:#0b213e;
+}
+.teModalCard .deviceCommandHelpSection b{color:#7dd3fc;}
+.teModalCard .deviceCommandHelpSection p{color:#c7d9f0;}
+.teModalCard .electronReportFormat{
+  border-color:rgba(96,165,250,.36);
+  background:#0b213e;
+  color:#eef6ff;
+}
+.teModalCard .electronReportFormat:hover{
+  border-color:#60a5fa;
+  background:#12345c;
+  box-shadow:0 8px 20px rgba(0,0,0,.30);
+}
+.teModalCard .electronReportFormat b{color:#eef6ff;}
+.teModalCard .electronReportFormat span{color:#b9cce5;}
+
+.helpEngineOverlay{background:rgba(2,6,23,.68);backdrop-filter:blur(4px);}
+.helpEngineCard{
+  background:#07162a;
+  color:#dceaff;
+  border-color:rgba(96,165,250,.38);
+  box-shadow:0 24px 70px rgba(0,0,0,.58);
+}
+.helpEngineHeader{
+  background:#0b213e;
+  border-color:rgba(96,165,250,.24);
+}
+.helpEngineHeader h3{color:#f8fbff;}
+.helpEngineBody{color:#c7d9f0;}
+.helpNavigationGrid>div{
+  border-color:rgba(96,165,250,.28);
+  background:rgba(11,33,62,.82);
+}
+.helpNavigationGrid b{color:#eef6ff;}
+.helpNavigationGrid span{color:#b9cce5;}
+
+#tab-cardlab .electronReportReadyCard{
+  border-color:rgba(74,222,128,.46);
+  background:linear-gradient(145deg,rgba(20,83,45,.34),rgba(7,21,41,.94));
+  color:#dffbea;
+  box-shadow:none;
+}
+#tab-cardlab .electronReportReadyCard h3,
+#tab-cardlab .electronReportReadyGrid b{color:#eefcf3;}
+#tab-cardlab .electronReportReadyGrid span{color:#9fc8ae;}
+#tab-cardlab .electronSourceNotice{
+  border-color:rgba(96,165,250,.36);
+  background:rgba(14,72,122,.28);
+}
+#tab-cardlab .electronSourceNotice b{color:#bfdbfe;}
+#tab-cardlab .electronSourceNotice p,
+#tab-cardlab .electronSourceNotice small{color:#b9cce5;}
+
+#tab-research .atlasHeroEmpty{
+  border-color:rgba(96,165,250,.28);
+  background:linear-gradient(145deg,rgba(12,45,79,.92),rgba(7,21,41,.92));
+  color:#dceaff;
+  box-shadow:none;
+}
+#tab-research .atlasHeroEmpty h3,
+#tab-research .atlasHeroEmpty b{color:#eef6ff;}
+#tab-research .atlasHeroEmpty p,
+#tab-research .atlasHeroEmpty .small{color:#a9bdd8;}
+
+#assetTable tbody tr:hover td{background:#102b4d;color:#eef6ff;}
+
+.previewExpiredBody{background:#061426;color:#e8f1ff;}
+.previewExpiredPanel{
+  background:#07162a;
+  color:#dceaff;
+  border-color:rgba(96,165,250,.38);
+  box-shadow:0 24px 80px rgba(0,0,0,.58);
+}
+.previewExpiredPanel h1{color:#f8fbff;}
+.previewExpiredPanel p{color:#b9cce5;}
+.previewExpiredStatus div{
+  border-color:rgba(96,165,250,.30);
+  background:#0b213e;
+}
+.previewExpiredStatus span{color:#9db4d6;}
+.previewExpiredStatus b{color:#eef6ff;}
+.previewExpiredPanel input{
+  background:#061428;
+  color:#eef6ff;
+  border-color:rgba(96,165,250,.46);
+}
+
+/* Card Lab detail surfaces opened from the intelligence page. */
+#tab-cardlab .electronKnowledgeChip{
+  border-color:rgba(96,165,250,.38);
+  background:rgba(20,52,91,.82);
+  color:#cfe4ff;
+}
+#tab-cardlab .electronDeviceChip{
+  border-color:rgba(74,222,128,.38);
+  background:rgba(20,83,45,.42);
+  color:#bbf7d0;
+}
+#tab-cardlab .electronKnowledgeChip:hover,
+#tab-cardlab .electronDeviceChip:hover{filter:brightness(1.16);}
+
+.teModalCard .electronKnowledgeDetail>p,
+.teModalCard .electronKnowledgeDetail li{color:#c7d9f0;}
+.teModalCard .electronDetailGrid section,
+.teModalCard .electronKnowledgePanel{
+  border-color:rgba(96,165,250,.28);
+  background:#0b213e;
+  color:#dceaff;
+  box-shadow:none;
+}
+.teModalCard .electronDetailGrid h4,
+.teModalCard .electronKnowledgePanel>b{color:#eef6ff;}
+.teModalCard .electronDetailGrid p,
+.teModalCard .electronDetailGrid ul{color:#c7d9f0;}
+.teModalCard .electronKnowledgeChip{
+  border-color:rgba(96,165,250,.38);
+  background:rgba(20,52,91,.82);
+  color:#cfe4ff;
+}
+.teModalCard .electronDeviceChip{
+  border-color:rgba(74,222,128,.38);
+  background:rgba(20,83,45,.42);
+  color:#bbf7d0;
+}
+.teModalCard .electronCommandIntro code{
+  border-color:rgba(96,165,250,.50);
+  background:#0b213e;
+  color:#7dd3fc;
+}
+.teModalCard .electronCommandIntro{color:#dceaff;}
+.teModalCard .electronInlineCommandRunner,
+.teModalCard .electronCommandPreview{
+  border-color:rgba(96,165,250,.30);
+  background:rgba(3,13,30,.72);
+}
+.teModalCard .electronCommandPreview b,
+.teModalCard .electronInlineCommandHeader b{color:#eef6ff;}
+.teModalCard .electronInlineCommandHeader span{
+  border-color:rgba(96,165,250,.32);
+  background:#0b213e;
+  color:#b9cce5;
+}
+
+/* Custom command review
+   Keep this safety-sensitive dialog compact, readable and visually consistent
+   with Electron's dark workspace without changing command execution. */
+.teModalCard.customPm3ActionDetailCard{
+  width:min(760px,calc(100vw - 48px));
+}
+.teModalCard.customPm3ActionDetailCard .teModalHeader{
+  padding-bottom:16px;
+}
+.teModalCard.customPm3ActionDetailCard .teModalBody{
+  padding:20px 22px;
+}
+.teModalCard.customPm3ActionDetailCard .teModalFooter{
+  padding-top:14px;
+}
+.customPm3ActionDetail{
+  display:grid;
+  gap:14px;
+}
+.customPm3ActionDetail section{
+  margin:0;
+}
+.customPm3ActionSummary{
+  padding:14px 16px;
+  border:1px solid rgba(96,165,250,.28);
+  border-radius:13px;
+  background:linear-gradient(135deg,rgba(14,72,122,.28),rgba(7,21,41,.38));
+}
+.customPm3ActionSummary>span,
+.customPm3SectionHeading span{
+  display:block;
+  color:#7dd3fc;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.customPm3ActionSummary p{
+  margin:6px 0 0;
+  color:#e4efff;
+  font-size:1rem;
+  line-height:1.45;
+}
+.customPm3CommandSection{
+  padding:14px;
+  border:1px solid rgba(96,165,250,.24);
+  border-radius:13px;
+  background:rgba(2,10,25,.34);
+}
+.customPm3SectionHeading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+}
+.customPm3SectionHeading b{
+  display:block;
+  margin-top:3px;
+  color:#eef6ff;
+  font-size:.96rem;
+}
+.customPm3SectionHeading small{
+  flex:0 0 auto;
+  padding:4px 8px;
+  border:1px solid rgba(96,165,250,.3);
+  border-radius:999px;
+  background:#0b213e;
+  color:#b9cce5;
+  font-size:.7rem;
+  font-weight:850;
+}
+.customPm3ActionDetail .customPm3CommandList{
+  display:grid;
+  gap:8px;
+  margin:12px 0 0;
+  padding:0;
+  list-style:none;
+}
+.customPm3ActionDetail .customPm3CommandItem{
+  display:grid;
+  grid-template-columns:28px minmax(0,1fr);
+  gap:10px;
+  align-items:start;
+  margin:0;
+  padding:11px;
+  border:1px solid rgba(96,165,250,.2);
+  border-radius:11px;
+  background:rgba(11,33,62,.68);
+}
+.customPm3ActionDetail .customPm3CommandItem.blocked{
+  border-color:rgba(248,113,113,.5);
+  background:rgba(127,29,29,.18);
+}
+.customPm3CommandNumber{
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  border-radius:9px;
+  background:rgba(37,99,235,.24);
+  color:#bfdbfe;
+  font-size:.75rem;
+  font-weight:900;
+}
+.customPm3CommandItem.blocked .customPm3CommandNumber{
+  background:rgba(220,38,38,.28);
+  color:#fecaca;
+}
+.teModalCard .customPm3CommandItem code{
+  display:block;
+  padding:8px 10px;
+  border:1px solid rgba(96,165,250,.18);
+  border-radius:8px;
+  background:#020817;
+  color:#f0f7ff;
+  font-size:.82rem;
+  overflow-wrap:anywhere;
+  white-space:pre-wrap;
+}
+.customPm3CommandSafety{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:7px;
+}
+.customPm3CommandSafety b{
+  padding:3px 7px;
+  border-radius:999px;
+  background:rgba(22,163,74,.16);
+  color:#bbf7d0;
+  font-size:.68rem;
+}
+.customPm3CommandItem.blocked .customPm3CommandSafety b{
+  background:rgba(220,38,38,.2);
+  color:#fecaca;
+}
+.customPm3CommandSafety small{
+  color:#9db4d6;
+  font-size:.72rem;
+  line-height:1.35;
+}
+.customPm3RiskBox{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr);
+  gap:12px;
+  padding:14px 16px;
+  border-radius:13px;
+}
+.customPm3RiskBox.available{
+  border:1px solid rgba(74,222,128,.38);
+  background:rgba(20,83,45,.22);
+}
+.customPm3RiskBox.blocked{
+  border:1px solid rgba(248,113,113,.48);
+  background:rgba(127,29,29,.2);
+}
+.customPm3RiskIcon{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:rgba(22,163,74,.24);
+  color:#bbf7d0;
+  font-size:1rem;
+  font-weight:950;
+}
+.customPm3RiskBox.blocked .customPm3RiskIcon{
+  background:rgba(220,38,38,.28);
+  color:#fecaca;
+}
+.customPm3RiskBox>div>b{
+  display:block;
+  color:#f0fdf4;
+  font-size:.9rem;
+}
+.customPm3RiskBox p{
+  margin:4px 0 7px;
+  color:#c8decf;
+  font-size:.78rem;
+  line-height:1.42;
+}
+.customPm3RiskBox strong{
+  display:block;
+  color:#86efac;
+  font-size:.76rem;
+}
+.customPm3RiskBox.blocked>div>b,
+.customPm3RiskBox.blocked strong{color:#fecaca;}
+.customPm3RiskBox.blocked p{color:#e8c1c6;}
+.customPm3ActionDetail .electronInlineCommandRunner{
+  margin:0;
+  padding:14px;
+  border-radius:13px;
+}
+.customPm3ActionDetail .electronInlineCommandHeader{
+  margin-bottom:10px;
+}
+.teModalCard .customPm3ActionDetail .electronInlineCommandOutput{
+  box-sizing:border-box;
+  width:100%;
+  min-height:112px;
+  height:138px;
+  max-height:260px;
+  padding:13px 14px;
+  border:1px solid rgba(96,165,250,.16);
+  border-radius:10px;
+  color:#d9e8fb;
+  font-size:.8rem;
+  line-height:1.5;
+}
+@media(max-width:640px){
+  .teModalCard.customPm3ActionDetailCard{width:calc(100vw - 24px);}
+  .teModalCard.customPm3ActionDetailCard .teModalBody{padding:16px;}
+  .customPm3SectionHeading{align-items:flex-start;flex-direction:column;gap:7px;}
+  .customPm3RiskBox{grid-template-columns:1fr;}
+}
+
+.teModalCard .electronMemoryHeader{
+  border-color:rgba(96,165,250,.34);
+  background:linear-gradient(145deg,rgba(12,45,79,.92),rgba(7,21,41,.92));
+}
+.teModalCard .electronMemoryHeader h3{color:#eef6ff;}
+.teModalCard .electronMemoryHeader p{color:#b9cce5;}
+.teModalCard .electronMemorySummary{
+  border-color:rgba(96,165,250,.38);
+  background:#0b213e;
+}
+.teModalCard .electronMemorySummary b{color:#7dd3fc;}
+.teModalCard .electronMemorySummary small{color:#9db4d6;}
+.teModalCard .electronMemoryIntro,
+.teModalCard .electronMemoryNotes,
+.teModalCard .electronSecondaryDetails{
+  border-color:rgba(96,165,250,.28);
+  background:#0b213e;
+  color:#dceaff;
+}
+.teModalCard .electronMemoryNotes b,
+.teModalCard .electronSecondaryDetails summary{color:#eef6ff;}
+.teModalCard .electronMemoryNotes ul{color:#c7d9f0;}
+.teModalCard .electronMemoryCell{
+  border-color:rgba(148,163,184,.30);
+  background:#0a1b32;
+}
+.teModalCard .electronMemoryCell b{color:#eef6ff;}
+.teModalCard .electronMemoryCell small{color:#b9cce5;}
+.teModalCard .electronMemoryCell em{color:#8fa4c5;}
+.teModalCard .electronMemoryCell.mem_known{
+  border-color:rgba(74,222,128,.48);
+  background:rgba(20,83,45,.36);
+}
+.teModalCard .electronMemoryCell.mem_possible{
+  border-color:rgba(96,165,250,.50);
+  background:rgba(30,64,175,.24);
+}
+.teModalCard .electronMemoryCell.mem_unknown{
+  border-color:rgba(148,163,184,.30);
+  background:rgba(30,41,59,.62);
+}
+.teModalCard .electronMemoryCell.mem_protected{
+  border-color:rgba(250,204,21,.48);
+  background:rgba(113,63,18,.34);
+}
+
+/* Public Preview UX-001: self-contained RFID Tag entry and Collection picker. */
+.rfidTagEntryHeading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+}
+.rfidTagEntryHeading h2{margin:4px 0 0;}
+.rfidTagEntryActions{margin:0;justify-content:flex-end;}
+.rfidTagSelectionStatus{
+  margin-top:8px;
+  color:#a9bdd8;
+  font-size:.94rem;
+  font-weight:750;
+}
+.rfidWorkspaceSelection{
+  display:grid;
+  align-content:start;
+  justify-items:start;
+  gap:9px;
+  padding:12px;
+  border:1px solid rgba(96,165,250,.24);
+  border-radius:12px;
+  background:rgba(7,21,41,.7);
+}
+.rfidWorkspaceSelection .rfidTagSelectionStatus{margin-top:0;}
+.rfidTagOpenControls{
+  display:grid;
+  gap:7px;
+}
+.rfidTagOpenControls label{
+  font-size:.82rem;
+  font-weight:850;
+  letter-spacing:.02em;
+}
+.rfidTagOpenControls input{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid rgba(96,165,250,.46);
+  border-radius:10px;
+}
+.rfidTagSearchOptions{
+  margin:14px 0;
+  padding:11px 13px;
+  border:1px solid rgba(96,165,250,.24);
+  border-radius:12px;
+  background:rgba(11,33,62,.72);
+}
+.rfidTagSearchOptions summary{
+  color:#bae6fd;
+  font-weight:800;
+  cursor:pointer;
+}
+.rfidTagSearchFieldGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px 14px;
+  margin-top:12px;
+}
+.rfidTagSearchFieldOption{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+  font-size:.84rem;
+}
+.rfidTagSearchFieldOption input{
+  width:auto;
+  flex:none;
+}
+.rfidTagOpenResultCount{
+  margin:0 0 8px;
+  color:#9db4d6;
+  font-size:.8rem;
+  font-weight:800;
+}
+.rfidTagOpenTableWrap{
+  max-height:390px;
+  overflow:auto;
+  border:1px solid rgba(96,165,250,.30);
+  border-radius:12px;
+}
+.rfidTagOpenTable{
+  margin:0;
+  font-size:.82rem;
+}
+.rfidTagOpenTable th{
+  background:#12345d;
+  color:#dceaff;
+}
+.rfidTagOpenTable th[data-sort-field]{cursor:pointer;user-select:none;}
+.rfidTagOpenTable th[data-sort-field]::after{content:" ↕";color:#7f97b8;}
+.rfidTagOpenTable th[data-sort-field].is-sorted[data-sort-direction="asc"]::after{content:" ▲";color:#7dd3fc;}
+.rfidTagOpenTable th[data-sort-field].is-sorted[data-sort-direction="desc"]::after{content:" ▼";color:#7dd3fc;}
+.rfidTagOpenTable th[data-sort-field]:focus{outline:2px solid #38bdf8;outline-offset:-2px;}
+.rfidTagOpenTable td{
+  max-width:240px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.rfidTagOpenTable tr[data-asset-id]{
+  cursor:pointer;
+  outline:none;
+}
+.rfidTagOpenTable tr[data-asset-id]:hover,
+.rfidTagOpenTable tr[data-asset-id]:focus{
+  background:rgba(56,189,248,.09);
+}
+.rfidTagOpenTable tr[data-asset-id].is-selected{
+  background:rgba(37,99,235,.28);
+  box-shadow:inset 3px 0 #38bdf8;
+}
+.rfidTagOpenEmpty{
+  padding:24px;
+  text-align:center;
+  color:#9db4d6;
+}
+@media(max-width:720px){
+  .rfidTagEntryHeading{flex-direction:column;}
+  .rfidTagEntryActions{justify-content:flex-start;}
+  .rfidTagSearchFieldGrid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}

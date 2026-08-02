@@ -1,0 +1,89 @@
+{
+  "id": "proxmark3-easy",
+  "name": "Proxmark3 Easy",
+  "deviceStudioVersion": "0.1",
+  "assetSet": "Ronald Peters teardown photos",
+  "supportStatus": "prototype",
+  "ledTestCommandMap": {
+    "a": "a",
+    "b": "d",
+    "c": "c",
+    "d": "b"
+  },
+  "defaultImage": "images/pcb/mainboard-full.jpeg",
+  "componentsFile": "components.json",
+  "hotspotsFile": "hotspots.json",
+  "notes": "Initial Device Studio photo asset pack for a read-only Proxmark3 Easy visualizer. Component identification is educational and should be refined against board documentation when available.",
+  "images": [
+    {
+      "file": "images/pcb/mainboard-full.jpeg",
+      "description": "Mainboard full top view",
+      "source_original": "originals/A441C4CA-83E1-407A-8747-93B86261F595.jpeg"
+    },
+    {
+      "file": "images/pcb/mainboard-closeup.jpeg",
+      "description": "Mainboard close-up",
+      "source_original": "originals/849A2AB9-0B79-4DE8-91FB-ADDCDBB959C5.jpeg"
+    },
+    {
+      "file": "images/profile/front-profile-usb.jpeg",
+      "description": "Front profile with USB",
+      "source_original": "originals/998D1451-3521-4777-A326-87AB32B35FC3.jpeg"
+    },
+    {
+      "file": "images/profile/left-profile.jpeg",
+      "description": "Left profile",
+      "source_original": "originals/417EF155-2E51-4326-AA94-A73E46174ADB.jpeg"
+    },
+    {
+      "file": "images/profile/right-profile.jpeg",
+      "description": "Right profile",
+      "source_original": "originals/1A8484C5-64AF-4802-8515-70567C60F289.jpeg"
+    },
+    {
+      "file": "images/profile/back-profile.jpeg",
+      "description": "Back profile",
+      "source_original": "originals/IMG_7701.JPG"
+    },
+    {
+      "file": "images/components/lf-antenna-module.jpeg",
+      "description": "LF antenna module",
+      "source_original": "originals/C79055A2-CAEE-47D3-B6B8-06CB54525822.jpeg"
+    },
+    {
+      "file": "images/pcb/mainboard-lower-closeup.jpeg",
+      "description": "Mainboard lower electronics close-up",
+      "source_original": "originals/6C71EC9E-4B51-4F92-B2A7-0EC48A048CDA_1_201_a.jpeg"
+    },
+    {
+      "file": "images/macros/atmel-at91sam7s512.jpeg",
+      "description": "Atmel AT91SAM7S512 macro",
+      "source_original": "originals/CE661473-0235-4AC8-BEAF-1F22D4074CEE_1_201_a.jpeg"
+    },
+    {
+      "file": "images/macros/xilinx-spartan-xc2s30.jpeg",
+      "description": "Xilinx Spartan XC2S30 macro",
+      "source_original": "originals/BFE4E61E-38FB-4963-BD7A-445FE430F527_1_201_a.jpeg"
+    },
+    {
+      "file": "images/macros/74hc244-buffer-chips.jpeg",
+      "description": "74HC244 buffer chips macro",
+      "source_original": "originals/17DC8999-F9DF-46B3-B5D8-EE69725D55C7_1_201_a.jpeg"
+    },
+    {
+      "file": "images/components/top-cover-front.jpeg",
+      "description": "Top/front cover",
+      "source_original": "originals/863B0153-5EF4-445F-88EF-C142E268B083_1_201_a.jpeg"
+    },
+    {
+      "file": "images/components/assembled-front-lf.jpeg",
+      "description": "Assembled front with LF antenna",
+      "source_original": "originals/7F78E7F0-9E21-4BDA-8DAE-D6E4B5333BA8_1_201_a.jpeg"
+    }
+  ],
+  "dataNotes": {
+    "components": "Component descriptions live in components.json.",
+    "hotspots": "Image maps and hotspot positions live in hotspots.json.",
+    "confidence": "Some lower-board power and memory labels are intentionally marked as provisional until verified against board documentation."
+  }
+}

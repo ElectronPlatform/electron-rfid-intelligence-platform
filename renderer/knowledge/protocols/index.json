@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "items": [
+    {"id": "iso15693", "file": "iso15693.json"},
+    {"id": "iso14443a", "file": "iso14443a.json"},
+    {"id": "iso14443b", "file": "iso14443b.json"},
+    {"id": "iso14443_4", "file": "iso14443_4.json"},
+    {"id": "emv_contactless", "file": "emv_contactless.json"}
+  ]
+}

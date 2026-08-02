@@ -1,0 +1,1 @@
+{"id":"read_uid","kind":"capability","displayName":"Read UID","aliases":["Read identifier"],"category":"read","risk":"low","summary":"Read safe public card identifiers when exposed by the card."}

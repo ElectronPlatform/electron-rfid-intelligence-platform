@@ -1,0 +1,11 @@
+{
+  "id": "flipper_zero",
+  "kind": "device",
+  "displayName": "Flipper Zero",
+  "aliases": ["Flipper"],
+  "category": "portable RFID/NFC tool",
+  "families": ["HF", "LF", "NFC"],
+  "capabilityIds": ["read_uid", "identify", "read_memory", "write_memory", "emulation", "clone_support", "safe_metadata_only"],
+  "supportedProtocols": ["iso14443a", "iso15693"],
+  "notes": "Future integration target for supported RFID/NFC identification workflows."
+}

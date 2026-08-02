@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "deviceId": "flipper_zero",
+  "commands": [
+    {
+      "command": "read-nfc",
+      "title": "Read NFC tag",
+      "category": "HF",
+      "device": "flipper_zero",
+      "capability": "hf",
+      "safetyLevel": "read-only",
+      "description": "Flipper Zero NFC reading is not available in this Preview.",
+      "examples": ["read-nfc"],
+      "expectedOutput": ["tag type", "UID", "public data"],
+      "notes": "Electron does not yet include a Flipper adapter.",
+      "tags": ["planned", "hf"]
+    },
+    {
+      "command": "read-rfid",
+      "title": "Read LF RFID tag",
+      "category": "LF",
+      "device": "flipper_zero",
+      "capability": "lf",
+      "safetyLevel": "read-only",
+      "description": "Flipper Zero LF reading is not available in this Preview.",
+      "examples": ["read-rfid"],
+      "expectedOutput": ["decoded ID", "format"],
+      "notes": "Planned profile only.",
+      "tags": ["planned", "lf"]
+    }
+  ]
+}

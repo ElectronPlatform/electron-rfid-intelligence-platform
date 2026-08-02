@@ -1,0 +1,22 @@
+{
+  "id": "icode_slix",
+  "kind": "cardFamily",
+  "displayName": "ICODE SLIX",
+  "aliases": ["I-CODE SLIX", "SLIX", "NXP ICODE"],
+  "category": "ISO15693 vicinity tag",
+  "manufacturer": "NXP",
+  "manufacturerIds": ["nxp"],
+  "protocol": "ISO/IEC 15693",
+  "protocolIds": ["iso15693"],
+  "frequency": "13.56 MHz",
+  "memory": {"model": "block", "notes": "ICODE SLIX uses ISO15693 block memory."},
+  "security": {"model": "lock/password features vary by chip"},
+  "commonApplications": ["Library tags", "Asset tracking", "Industrial labels"],
+  "readableFields": ["uid", "afi", "dsfid", "blocks"],
+  "protectedFields": ["lockedBlocks", "passwordProtectedAreas"],
+  "supportedDevices": ["proxmark3", "flipper_zero", "pn532"],
+  "capabilityIds": ["read_uid", "identify", "read_memory"],
+  "proxmarkCommands": ["hf search", "hf 15 info", "hf 15 reader"],
+  "references": [],
+  "notes": "Specific SLIX variant determines memory size and security features."
+}

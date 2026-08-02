@@ -1,0 +1,1 @@
+{"id":"read_memory","kind":"capability","displayName":"Read Memory","aliases":["Read blocks","Read pages"],"category":"read","risk":"medium","summary":"Read card memory where supported and authorised."}

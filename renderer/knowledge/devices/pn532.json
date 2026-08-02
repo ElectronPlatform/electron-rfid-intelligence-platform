@@ -1,0 +1,11 @@
+{
+  "id": "pn532",
+  "kind": "device",
+  "displayName": "PN532",
+  "aliases": ["PN532 NFC reader"],
+  "category": "NFC reader",
+  "families": ["HF", "NFC"],
+  "capabilityIds": ["read_uid", "identify", "read_info", "read_memory", "write_memory"],
+  "supportedProtocols": ["iso14443a", "iso14443b", "iso15693"],
+  "notes": "Future lower-cost NFC reader target."
+}

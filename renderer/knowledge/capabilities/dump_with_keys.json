@@ -1,0 +1,1 @@
+{"id":"dump_with_keys","kind":"capability","displayName":"Dump with keys","risk":"controlled","summary":"Create a dump only when keys and authorisation are available."}

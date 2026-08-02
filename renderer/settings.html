@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Electron Settings</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="../buildConfig.js"></script>
+  <script src="../appConfig.js"></script>
+</head>
+<body class="settingsWindowBody">
+<main class="settingsWindowMain">
+  <div class="settingsPage">
+    <div class="settingsHero">
+      <div>
+        <span>Electron settings</span>
+        <h2>Settings</h2>
+        <p>Application preferences, safety rules and database maintenance.</p>
+      </div>
+      <div class="settingsHeroActions">
+        <button id="exitSettingsFullScreenBtn" type="button" hidden>Exit Full Screen</button>
+        <button id="closeSettingsBtn" type="button" class="warn">Close Settings</button>
+      </div>
+    </div>
+    <div class="settingsGrid">
+      <div class="settingsStack">
+        <section class="settingsCard" id="settingsPhoto">
+          <h3>Photo Storage</h3>
+          <p class="small">Image size and quality settings for newly selected RFID tag photos.</p>
+          <div class="grid">
+            <label>Thumbnail max side <input id="photoThumbMaxSide" type="number" min="80" max="800" step="10"><button type="button" class="smallBtn" id="revertPhotoThumbMaxSide">Revert field</button></label>
+            <label>Thumbnail quality (%) <input id="photoThumbQuality" type="number" min="1" max="100" step="1"><button type="button" class="smallBtn" id="revertPhotoThumbQuality">Revert field</button></label><div id="photoThumbQualityMsg" class="small"></div>
+            <label>Full preview max side <input id="photoFullMaxSide" type="number" min="400" max="3000" step="50"><button type="button" class="smallBtn" id="revertPhotoFullMaxSide">Revert field</button></label>
+            <label>Full preview quality (%) <input id="photoFullQuality" type="number" min="1" max="100" step="1"><button type="button" class="smallBtn" id="revertPhotoFullQuality">Revert field</button></label><div id="photoFullQualityMsg" class="small"></div>
+          </div>
+          <div class="toolbar compactToolbar">
+            <button id="savePhotoSettingsBtn">Save Photo Settings</button>
+            <button id="resetPhotoSettingsBtn" class="warn">Reset Photo Settings</button>
+          </div>
+          <p class="small" id="photoSettingsStatus">Photo settings apply to newly selected photos only.</p>
+        </section>
+
+        <section class="settingsCard" id="settingsHelp">
+          <h3>Help Engine</h3>
+          <label class="helpEngineToggleLabel">
+            <input type="checkbox" id="showHelpEngineIcons" checked>
+            Show Help Engine icons
+          </label>
+          <p class="small">Displays contextual Team Electron help icons throughout the application. Turn this off if you no longer need on-screen guidance.</p>
+        </section>
+
+        <section class="settingsCard engineeringModeSettingsCard" id="settingsEngineeringMode" data-maintainer-only="true" hidden>
+          <div class="settingsCardTitleRow">
+            <div>
+              <h3>Engineering Mode <button type="button" class="sectionHelpIcon" data-help-key="engineeringModeHelp" title="Engineering Mode help" aria-label="Engineering Mode help">i</button></h3>
+              <p class="small">Optional context for advanced engineering, protocol analysis and local research.</p>
+            </div>
+            <span id="engineeringModeBadge" class="engineeringModeBadge" data-enabled="false">Off</span>
+          </div>
+          <label class="engineeringModeToggleLabel">
+            <input type="checkbox" id="engineeringModeEnabled">
+            Enable Engineering Mode
+          </label>
+          <p class="small">Engineering Mode is disabled by default. The framework does not currently change parser output, viewer content, storage or device actions.</p>
+          <p class="engineeringModeStatus small" id="engineeringModeStatus" aria-live="polite">Standard mode is active.</p>
+        </section>
+
+        <section class="settingsCard" id="settingsSafety">
+          <h3>Device Command Safety</h3>
+          <p class="small">Manage extra device commands or command patterns that Electron should block before running.</p>
+          <div class="grid">
+            <label>Command or pattern
+              <input id="pm3SafetyPattern" placeholder="Example: hf mf wrbl">
+            </label>
+            <label>Reason
+              <input id="pm3SafetyReason" placeholder="Example: Writes data blocks.">
+            </label>
+          </div>
+          <div class="toolbar compactToolbar">
+            <button id="addPm3SafetyBlockBtn" class="warn">Add Blocked Command</button>
+          </div>
+          <p class="small" id="pm3SafetyStatus"></p>
+          <div id="pm3SafetyRules"></div>
+        </section>
+
+        <section class="settingsCard" id="settingsDatabase">
+          <h3>Database management</h3>
+          <p class="small">Back up, import or clear the complete Electron RFID database.</p>
+          <div class="toolbar compactToolbar">
+            <button id="openDatabaseManagerBtn" class="warn">Database Manager</button>
+          </div>
+          <p class="small" id="databaseManagerStatus"></p>
+        </section>
+
+        <section class="settingsCard previewAccessCard" id="settingsPreviewBuild">
+          <div class="previewAccessHeading">
+            <div>
+              <span class="previewAccessKicker">Electron Public Preview</span>
+              <h3>Preview Access</h3>
+              <p class="small">See what access you currently have and what happens when the Preview period ends.</p>
+            </div>
+            <span id="previewAccessBadge" class="previewAccessBadge">Checking access…</span>
+          </div>
+
+          <div id="previewLicenseStatus" class="previewLicenseStatus small">Loading Preview access…</div>
+
+          <div class="previewAccessExplanation">
+            <article>
+              <h4>What you have now</h4>
+              <p id="previewCurrentAccessText">The standard Preview provides the complete current feature set for 30 days from first launch.</p>
+            </article>
+            <article>
+              <h4>What happens after expiry</h4>
+              <p>The full app stops opening, but your saved RFID Collection is not deleted. You can request additional testing time from Electron Support.</p>
+            </article>
+            <article>
+              <h4>This Mac</h4>
+              <p id="previewDeviceVerificationText">Electron is checking whether this Preview installation is still running on the same Mac.</p>
+            </article>
+          </div>
+
+          <div class="previewAccessOptions">
+            <h4>Available access options</h4>
+            <div class="previewAccessOptionGrid">
+              <article>
+                <span>Included</span>
+                <strong>30-day Public Preview</strong>
+                <p>Full access to the current Preview feature set from the first launch.</p>
+              </article>
+              <article>
+                <span>By request</span>
+                <strong>Preview extension</strong>
+                <p>Additional testing time may be provided with a signed Preview Extension Key tied to your Installation ID.</p>
+              </article>
+              <article>
+                <span>Not currently offered</span>
+                <strong>Other licence types</strong>
+                <p>No other public licence is available yet. Any future Community, Professional or commercial option will be announced clearly before it is offered.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="previewExtensionSteps">
+            <h4>How to request additional testing time</h4>
+            <ol>
+              <li>Select <strong>Request Additional Testing Time</strong>.</li>
+              <li>Your email app opens with your Installation ID and Preview status already included.</li>
+              <li>Add why you would like to continue testing, review the message and send it yourself.</li>
+              <li>If approved, Electron Support sends a signed Preview Extension Key. Open the section below, paste the complete key and select <strong>Apply Extension Key</strong>.</li>
+            </ol>
+          </div>
+
+          <div class="previewAccessActions">
+            <button id="requestPreviewExtensionBtn" type="button" class="no-auto-help-icon">Request Additional Testing Time</button>
+            <button id="askPreviewLicenceOptionsBtn" type="button" class="secondary no-auto-help-icon">Ask About Other Access Options</button>
+            <p class="small">Electron prepares an email containing your Installation ID. Nothing is sent automatically.</p>
+          </div>
+
+          <details class="previewExtensionDetails">
+            <summary>Have you received a Preview Extension Key?</summary>
+            <div class="previewExtensionBody">
+              <p><strong>Most users do not need to do anything here.</strong> Only use this field when Electron Support has sent you a signed Preview Extension Key for this Installation ID.</p>
+              <label>Paste the complete key
+                <input id="previewExtensionKeyInput" placeholder="Starts with EPST1…" autocomplete="off" spellcheck="false">
+              </label>
+              <div class="toolbar compactToolbar">
+                <button id="applyPreviewExtensionKeyBtn" class="no-auto-help-icon">Apply Extension Key</button>
+              </div>
+              <p class="small" id="previewExtensionKeyStatus" aria-live="polite"></p>
+            </div>
+          </details>
+
+          <details class="previewTechnicalDetails">
+            <summary>Technical access details</summary>
+            <div id="previewTechnicalStatus" class="previewLicenseGrid"></div>
+          </details>
+
+          <div class="toolbar compactToolbar" data-maintainer-only="true" hidden>
+            <button id="runPreviewChecklistBtn" data-maintainer-only="true" hidden>Run Preview Build Checklist</button>
+          </div>
+          <div id="previewChecklistResult" class="previewChecklistResult small" data-maintainer-only="true" hidden>Checklist not run yet.</div>
+        </section>
+
+        <section class="settingsCard" id="settingsBackup">
+          <h3>Backup storage</h3>
+          <p class="small">Exports and backups use this folder by default.</p>
+          <label>Current backup folder
+            <input id="backupFolderPath" readonly>
+          </label>
+          <p class="small" id="backupFolderDefault"></p>
+          <div class="toolbar compactToolbar">
+            <button id="browseBackupFolderBtn">Choose Backup Folder</button>
+            <button id="resetBackupFolderBtn" class="warn">Restore Path to Default Location</button>
+          </div>
+          <p class="small" id="backupFolderStatus"></p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="security/pm3CommandSafety.js"></script>
+<script src="uiEngine.js"></script>
+<script src="engineeringMode.js"></script>
+<script src="photoManager.js"></script>
+<script src="settingsRenderer.js"></script>
+<script src="helpEngine.js"></script>
+</body>
+</html>

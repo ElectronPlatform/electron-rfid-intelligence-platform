@@ -1,0 +1,1 @@
+{"id":"write_memory","kind":"capability","displayName":"Write Memory","aliases":["Write blocks","Write pages"],"category":"write","risk":"controlled","summary":"Write memory only on owned or authorised test tags."}

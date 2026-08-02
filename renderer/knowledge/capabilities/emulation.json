@@ -1,0 +1,1 @@
+{"id":"emulation","kind":"capability","displayName":"Emulation","aliases":["Card emulation"],"category":"emulation","risk":"controlled","summary":"Emulate compatible card families where supported and authorised."}

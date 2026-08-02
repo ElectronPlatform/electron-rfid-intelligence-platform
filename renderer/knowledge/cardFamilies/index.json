@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "items": [
+    {"id": "iso14443a", "file": "iso14443a.json"},
+    {"id": "iso14443b", "file": "iso14443b.json"},
+    {"id": "iso15693", "file": "iso15693.json"},
+    {"id": "mifare_classic", "file": "mifare_classic.json"},
+    {"id": "mifare_desfire", "file": "mifare_desfire.json"},
+    {"id": "ntag21x", "file": "ntag21x.json"},
+    {"id": "icode_slix", "file": "icode_slix.json"},
+    {"id": "emv_payment", "file": "emv_payment.json"}
+  ]
+}

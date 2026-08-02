@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Electron - RFID Intelligence Platform</title><link rel="stylesheet" href="style.css"><script src="../buildConfig.js"></script><script src="../appConfig.js"></script></head>
+<body>
+<div class="appChrome">
+<header><div class="appBrand"><img id="appBrandIcon" src="../assets/electron-icon.png" alt="Electron icon"><div><h1 id="appDisplayName">Electron</h1><p id="appSubtitle">RFID Intelligence Platform</p></div></div><div id="headerPm3LedPanel" class="headerPm3LedPanel" role="group" aria-label="Proxmark3 LED indicators" title="Power follows PM3 USB presence. LED A to D follow firmware-reported board LED outputs."><span class="headerPm3LedCaption">PM3 LEDs</span><span class="headerPm3Led headerPm3LedPower" data-header-pm3-led="power" aria-label="Power LED off"><i></i><b>P</b></span><span class="headerPm3LedDivider" aria-hidden="true"></span><span class="headerPm3Led" data-header-pm3-led="d" aria-label="LED D off"><i></i><b>D</b></span><span class="headerPm3Led" data-header-pm3-led="c" aria-label="LED C off"><i></i><b>C</b></span><span class="headerPm3Led" data-header-pm3-led="b" aria-label="LED B off"><i></i><b>B</b></span><span class="headerPm3Led" data-header-pm3-led="a" aria-label="LED A off"><i></i><b>A</b></span></div><div class="previewHeaderActions"><span id="previewBuildBadge" class="previewBuildBadge hidden">Preview Build</span><button id="sendFeedbackBtn" type="button">Send Feedback</button></div></header>
+<nav id="tabs">
+<button data-tab="dashboard" class="active" title="Choose a workspace and start a guided workflow.">Workshop</button><button data-tab="inventory" title="Browse, search and manage saved RFID records.">Collection</button><button data-tab="edit" title="Create or edit one RFID tag record and its backup references.">RFID Tag</button><button data-tab="live" title="Connect to the Proxmark3, run commands and inspect output.">Device Console</button><button data-tab="device-studio" title="Explore the connected Proxmark3 hardware with safe diagnostics.">Device Studio</button><button data-tab="restore" title="Generate reviewable restore commands from registered backup information.">Restore Helper</button><button data-tab="compare" title="Compare registered or manually selected backup dumps.">Compare</button><button data-tab="labels" title="Preview and print a label for a saved RFID tag.">Labels</button><button data-tab="cardlab" title="Guided scan, identification and explanation workflow.">Scan / Intelligence</button><button data-tab="research" title="View and improve Electron's local card knowledge.">Research</button><button data-tab="portal" title="Open Preview, support and feedback information.">Electron Portal</button><button data-tab="history" title="Review saved history and observations.">History</button><button data-tab="log" title="Review changes made to local RFID records.">Change Log</button><button id="navigationGuideHelpBtn" class="sectionHelpIcon navigationGuideHelpIcon" data-help-key="navigationGuideHelp" title="What do these workspaces do?" aria-label="Navigation guide" type="button">i</button>
+</nav>
+</div>
+<main>
+<section id="tab-dashboard">
+  <div class="studioDirectory panel" aria-labelledby="studioDirectoryTitle">
+    <div class="studioDirectoryHeader">
+      <div>
+        <div class="atlasKicker">Electron workshop</div>
+        <h2 id="studioDirectoryTitle">Choose a workspace</h2>
+        <p class="small">New to Electron? Start with Card Lab for your first guided scan. Choose another workspace when you already know what you want to do.</p>
+      </div>
+      <span class="studioDirectoryBoundary">No workflows removed</span>
+    </div>
+    <div id="studioDirectoryCards" class="studioDirectoryCards"></div>
+  </div>
+</section>
+<section id="tab-inventory" class="hidden collectionStudio">
+  <div class="collectionHero panel" aria-labelledby="collectionTitle">
+    <div>
+      <div class="atlasKicker">Collection workspace</div>
+      <h2 id="collectionTitle">Your RFID collection</h2>
+      <p>Browse the RFID records you have saved, see what needs a backup, and open a record when you want to work with it.</p>
+    </div>
+    <span class="collectionHeroHint">Click a tile to filter the records below</span>
+  </div>
+  <div class="cards collectionMetricCards" id="dashboardCards"></div>
+  <div class="collectionSummaryGrid">
+    <div class="panel collectionSummaryPanel"><div class="collectionPanelKicker">At a glance</div><h3>Summary by type</h3><table id="summaryTable"></table></div>
+    <div class="panel collectionSummaryPanel"><div class="collectionPanelKicker">Care and storage</div><h3>Collection health</h3><table id="backupSummaryTable"></table></div>
+  </div>
+  <div class="panel collectionInventoryPanel"><div class="collectionInventoryHeading"><div><div class="collectionPanelKicker">All saved records</div><h2 class="sectionTitleWithHelp">Inventory <button id="inventoryHelpBtn" class="sectionHelpIcon" data-help-key="inventoryHelpBtn" title="Inventory tools help" aria-label="Inventory tools help">i</button></h2></div><p class="small">Search, open, import, export or select saved RFID records.</p></div><div class="toolbar"><div style="position:relative;flex:1;"><input id="search" placeholder="Search by RFID Tag ID, UID, type, notes..." style="width:100%;padding-right:34px;"><button id="clearSearchBtn" title="Clear search" style="display:none;position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:transparent;color:#6b7280;font-size:18px;cursor:pointer;padding:0 4px;">×</button></div><button id="selectVisibleBtn">Select All</button><button id="clearSelectionBtn">Clear Selection</button><span id="selectionStatus" class="small">0 selected</span><button id="exportJsonBtn">Export JSON</button><button id="updateLastExportBtn">Export to Last File</button><button id="updateExistingExportBtn">Export to Existing File...</button><button id="importJsonBtn">Import Tags</button><button id="exportCsvBtn">Export CSV</button></div><div class="tablewrap"><table id="assetTable"></table></div></div>
+</section>
+<section id="tab-edit" class="hidden"><div class="panel rfidTagEntryPanel"><div class="rfidTagEntryHeading"><div><div class="collectionPanelKicker">RFID TAG WORKSPACE</div><h2 id="rfidTagPageTitle">RFID Tag</h2><div id="rfidTagSelectionStatus" class="rfidTagSelectionStatus">No RFID tag selected</div></div><div class="toolbar rfidTagEntryActions"><button id="openAssetDialogBtn">Open RFID Tag…</button><button id="newAssetEntryBtn" class="green">New RFID Tag</button></div></div></div><div class="panel rfidTagEditorPanel hidden"><h2 id="rfidTagFormTitle">RFID Tag details</h2><div class="grid" id="editForm"></div><div class="photoBox">
+  <div class="photoPreview" id="photoPreviewBox" title="Click to view full size">
+    <div class="photoPlaceholder" id="photoPlaceholder">No photo selected</div>
+    <img id="photoPreviewImg" class="hidden" alt="RFID Tag photo">
+  </div>
+  <div class="photoInfo">
+    <b>RFID Tag Photo</b><br>
+    <span class="small">Click the photo to view it full size. The image is stored inside the database.</span>
+    <div id="photoPathText" class="small photoName">No photo selected</div>
+    <div class="toolbar compactToolbar photoToolbar">
+      <button id="selectPhotoBtn">Select Photo</button>
+      <button id="removePhotoBtn" class="bad" disabled>Remove Photo</button>
+    </div>
+  </div>
+</div><div class="toolbar"><button id="newAssetBtn">New RFID Tag</button><button id="saveAssetBtn" class="green">Save RFID Tag</button><button id="duplicateAssetBtn">Duplicate RFID Tag</button><button id="markUnusableBtn" class="warn">Mark Unusable</button><button id="deleteAssetBtn" class="bad">Delete RFID Tag</button></div></div><div class="panel rfidTagEditorPanel hidden"><h2>Paste Proxmark3 Output</h2><textarea id="scanInput"></textarea><div class="toolbar"><button id="parseNewBtn">Parse as New RFID Tag</button><button id="updateFromScanBtn" class="warn">Update Current RFID Tag from Scan</button><button id="clearScanBtn">Clear</button></div></div><div class="panel backupInlinePanel rfidTagEditorPanel hidden"><details><summary><b>Backup info</b><span class="small">Register backup files for this RFID tag</span></summary><div id="backupStatusPanel" class="backupStatusPanel"></div><div class="backupInlineGrid"><label class="backupSelectField"><span class="backupFieldTitle">RFID Tag</span><span class="fieldHint">Select a saved RFID tag from your Collection to register backup files.</span><select id="backupAsset"></select></label><label id="backupDumpField" class="backupFileField"><span class="backupFieldTitle">Dump file <button type="button" id="backupDumpFieldHelpBtn" class="sectionHelpIcon" data-help-key="backupDumpFieldHelp" title="Dump file help" aria-label="Dump file help">i</button></span><span class="fieldHint">Reference to the complete card memory dump (.bin).</span><div class="backupFilePicker"><input id="backupDump"><button type="button" id="browseBackupDumpBtn">Browse...</button></div></label><label id="backupJsonField" class="backupFileField"><span class="backupFieldTitle">JSON file <button type="button" id="backupJsonFieldHelpBtn" class="sectionHelpIcon" data-help-key="backupJsonFieldHelp" title="JSON file help" aria-label="JSON file help">i</button></span><span class="fieldHint">Optional JSON export generated by supported Proxmark3 commands.</span><div class="backupFilePicker"><input id="backupJson"><button type="button" id="browseBackupJsonBtn">Browse...</button></div></label><label id="backupKeyField" class="backupFileField"><span class="backupFieldTitle">Key file <button type="button" id="backupKeyFieldHelpBtn" class="sectionHelpIcon" data-help-key="backupKeyFieldHelp" title="Key file help" aria-label="Key file help">i</button></span><span class="fieldHint">Reference to recovered authentication keys for this RFID tag.</span><div class="backupFilePicker"><input id="backupKey"><button type="button" id="browseBackupKeyBtn">Browse...</button></div></label></div><label class="backupOutputLabel"><span class="backupFieldTitle">Automatic key recovery output <button type="button" id="backupOutputHelpBtn" class="sectionHelpIcon" data-help-key="backupOutputHelp" title="Automatic key recovery output help" aria-label="Automatic key recovery output help">i</button></span><span class="fieldHint">Paste the complete output of hf mf autopwn here. Electron will try to detect dumps, JSON files, keys and other useful information automatically.</span><textarea id="backupOutput" placeholder="Paste automatic key recovery output here"></textarea></label><div class="toolbar"><button id="detectBackupBtn">Detect Backup Files</button><button id="saveBackupBtn" class="green">Save Backup Info</button></div><h3 class="backupWorkflowTitle">Suggested backup workflow <button id="backupCommandsHelpBtn" class="sectionHelpIcon" data-help-key="backupCommandsHelp" title="Suggested backup workflow help" aria-label="Suggested backup workflow help">i</button></h3><div id="backupCommands" class="backupWorkflow"></div></details></div></section>
+<section id="tab-live" class="hidden liveSection">
+  <div class="liveWorkspace">
+    <div class="liveTop">
+      <div class="panel liveControlPanel">
+        <h2>Device Console</h2>
+        <div class="deviceConnectionStatusCardHost" data-device-connection-status data-status-context="console"></div>
+        <div class="status" id="pm3Status" hidden>🟠 PM3 USB status: checking…</div>
+        <div class="status smallStatus" id="commandStatus">Status: Idle</div>
+        <div id="scanSummary" class="matchPanel">No scan parsed yet.</div>
+        <p class="small">Check Device only looks for a PM3 USB port. Connect Device starts Electron’s active PM3 session. Close Chrome/Web Serial before connecting: only one app can use the RFID device serial port at a time.</p>
+        <div class="deviceConnectPanel">
+          <label>Device<select id="deviceProfileSelect"></select></label>
+          <div id="deviceProfileSummary" class="deviceProfileSummary">Loading device profiles...</div>
+        </div>
+        <div class="toolbar compactToolbar">
+          <button id="listPm3Btn">Check Device</button><button id="startPm3Btn">Connect Device</button><button id="stopPm3Btn">Disconnect Device</button><button id="readRegisterBtn" class="green">Read / Identify</button><button id="hwVersionBtn" data-cmd="hw version">Device Information</button><button id="scanHfBtn" data-cmd="hf search">Scan HF</button><button id="scanLfBtn" data-cmd="lf search">Scan LF</button><button id="hfMfInfoBtn" data-cmd="hf mf info">HF MF Info</button>
+        </div>
+        <div class="deviceQuickCommandBlock">
+          <div class="deviceCommandBlockLabel">Custom command buttons</div>
+          <div class="toolbar compactToolbar" id="customPm3ActionToolbar"></div>
+        </div>
+        <div class="toolbar compactToolbar">
+          <input id="manualCmd" placeholder="Manual device command"><button id="sendCmdBtn">Send</button><button id="parseConsoleBtn" class="green">Parse Console into Form</button>
+        </div>
+        <details class="commandSetPanel" open>
+          <summary><b>Saved Commands / Command Sets</b></summary>
+          <div class="commandSetGrid">
+            <label>Name<input id="commandSetName" placeholder="Example: MIFARE quick check"></label>
+            <label>Saved sets<select id="commandSetSelect"></select></label>
+          </div>
+          <label>Commands<textarea id="commandSetCommands" placeholder="One device command per line"></textarea></label>
+          <label class="inlineCheck"><input type="checkbox" id="commandSetContinue"> Continue on error</label>
+          <div class="toolbar compactToolbar">
+            <button id="saveCommandSetBtn">Save Command Set</button><button id="runCommandSetBtn" class="green">Run Selected Command Set</button><button id="deleteCommandSetBtn" class="bad">Delete</button>
+          </div>
+          <div class="small" id="commandSetStatus">No command set selected.</div>
+        </details>
+        <div class="deviceCommandLibraryPanel">
+          <div class="deviceCommandLibraryLauncher">
+            <div><b>Device Command Library</b><span id="deviceCommandLibraryCount" class="small">Loading commands...</span></div>
+            <button id="openDeviceCommandLibraryBtn" type="button">Open Command Library</button>
+          </div>
+        </div>
+      </div>
+      <div id="liveTopScrollHint" class="liveTopScrollHint" hidden>More Device Console tools below — scroll ↓</div>
+    </div>
+    <div class="consolePanel">
+      <div class="consolePanelHeader"><b>Command output</b><div class="consolePanelActions"><button id="copyConsoleBtn" type="button">Copy Console</button><button id="followConsoleBtn" type="button">Follow Output</button><button id="clearConsoleBtn" type="button">Clear Console</button></div></div>
+      <pre id="console"></pre>
+    </div>
+  </div>
+  <div id="deviceConsoleWorkflowProgressHost" class="electronWorkflowProgressHost" aria-live="polite"></div>
+</section>
+<section id="tab-device-studio" class="hidden">
+  <div class="panel deviceStudioPanel">
+    <div class="deviceStudioHeader">
+      <div>
+        <div class="atlasKicker">Device Studio · Proxmark3 Easy</div>
+        <h2>Live hardware diagnostics</h2>
+        <p class="small">Explore the connected Proxmark3 Easy with safe, read-only Iceman diagnostics. Device Studio never flashes firmware or changes RFID data.</p>
+      </div>
+      <div class="deviceStudioHeaderActions">
+        <div class="deviceStudioBoundary">Diagnostic mode only</div>
+        <div class="deviceStudioSafeModeGroup"><label class="deviceStudioSafeModeControl" title="Firmware support is checked when Device Studio opens."><input id="deviceStudioSafeModeToggle" type="checkbox" checked disabled> Device Studio Safe Mode</label><button id="deviceStudioSafeModeHelpBtn" class="sectionHelpIcon deviceStudioSafeModeHelpIcon" data-help-key="deviceStudioSafeModeHelp" title="Device Studio Safe Mode help" aria-label="Device Studio Safe Mode help" type="button"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.2"></circle><text x="10" y="13.6" text-anchor="middle">i</text></svg></button></div>
+        <button id="deviceStudioHotspotEditorBtn" type="button" class="deviceStudioDeveloperOnly" data-internal-tool="true" hidden>Calibrate hotspots</button>
+        <div class="deviceStudioRefreshActions" aria-label="Diagnostic refresh actions">
+          <button id="deviceStudioQuickRefreshBtn" type="button" title="Reads the latest Device Studio status from the warm session. It does not measure RF antennas.">Quick Refresh</button>
+          <button id="deviceStudioFullCheckBtn" type="button" title="Runs the complete safe version and HF/LF antenna check. This normally takes several seconds.">Full RF Check</button>
+          <div id="deviceStudioRefreshProgress" class="deviceStudioRefreshProgress" hidden aria-live="polite">
+            <div class="deviceStudioRefreshProgressLabel"><span class="deviceStudioRefreshSpinner" aria-hidden="true"></span><span id="deviceStudioRefreshProgressText">Preparing diagnostics</span><b id="deviceStudioRefreshProgressValue">0%</b></div>
+            <div class="deviceStudioRefreshProgressTrack" role="progressbar" aria-label="Device Studio diagnostic progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="deviceStudioRefreshProgressBar"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="deviceConnectionStatusCardHost" data-device-connection-status data-status-context="studio"></div>
+    <div class="deviceStudioLayout">
+      <aside class="deviceStudioLeft">
+        <div class="deviceStudioBox">
+          <h3>Image categories</h3>
+          <div id="deviceStudioCategories" class="deviceStudioCategories"></div>
+        </div>
+        <div class="deviceStudioBox">
+          <h3>Components</h3>
+          <div id="deviceStudioComponentList" class="deviceStudioComponentList"></div>
+        </div>
+      </aside>
+      <div class="deviceStudioMain">
+        <div id="deviceStudioStage" class="deviceStudioStage">Loading Device Studio...</div>
+        <div id="deviceStudioGallery" class="deviceStudioGallery"></div>
+        <div class="deviceStudioLegacyCache" aria-hidden="true">
+          <details id="deviceStudioLiveDetails"><summary>Live status</summary><div class="deviceStudioStatusPanel"><div><h3>Live status area</h3><p id="deviceStudioStatusSummary" class="small">Detecting a connected Proxmark3 and loading safe diagnostics...</p></div><div id="deviceStudioStatus" class="deviceStudioStatusGrid"></div></div></details>
+          <details id="deviceStudioFirmwareDetails"><summary>Firmware Explorer</summary><div id="deviceStudioFirmwareLearning" class="deviceStudioFirmwareLearning"></div></details>
+          <details id="deviceStudioHardwareDetails"><summary>Hardware details</summary></details>
+          <details id="deviceStudioHistoryDetails"><summary>Diagnostic history</summary></details>
+          <details id="deviceStudioCapabilitiesDetails"><summary>Capabilities</summary></details>
+          <details id="deviceStudioAdvancedDetails"><summary>Advanced / audit</summary></details>
+        </div>
+      </div>
+      <aside id="deviceStudioInfo" class="deviceStudioInfo">Select a component to view details.</aside>
+    </div>
+    <div id="deviceStudioOverlayHost"></div>
+  </div>
+</section>
+<section id="tab-restore" class="hidden"><div class="panel"><h2>Restore Helper</h2><div class="grid"><div class="rfidWorkspaceSelection"><b>RFID Tag</b><div id="restoreAssetStatus" class="rfidTagSelectionStatus">No RFID tag selected.</div><button id="restoreOpenAssetBtn" type="button">Open RFID Tag...</button><select id="restoreAsset" class="hidden" aria-hidden="true" tabindex="-1"></select></div><label>Target <select id="restoreTarget"><option>Magic Gen1A MIFARE Classic 1K</option><option>EM410x writable LF/T5577</option><option>Unknown / manual</option></select></label></div><div class="toolbar"><button id="generateRestoreBtn" disabled>Generate Restore Commands</button><button id="copyRestoreBtn" disabled>Copy Commands</button></div><pre class="normalPre" id="restoreCommands">No RFID tag selected.</pre></div></section>
+
+
+<section id="tab-compare" class="hidden">
+  <div class="panel">
+    <h2>Compare RFID Tags</h2>
+    <p class="small">Compare registered dump backups from the internal database. No random file searching on your Mac.</p>
+
+    <h3>1. Compare registered RFID tags</h3>
+    <div class="grid">
+      <div class="rfidWorkspaceSelection"><b>Source RFID Tag</b><div id="compareAssetAStatus" class="rfidTagSelectionStatus">No RFID tag selected.</div><button id="compareOpenAssetABtn" type="button">Open RFID Tag...</button><select id="compareAssetA" class="hidden" aria-hidden="true" tabindex="-1"></select></div>
+      <div class="rfidWorkspaceSelection"><b>Destination RFID Tag</b><div id="compareAssetBStatus" class="rfidTagSelectionStatus">No RFID tag selected.</div><button id="compareOpenAssetBBtn" type="button">Open RFID Tag...</button><select id="compareAssetB" class="hidden" aria-hidden="true" tabindex="-1"></select></div>
+    </div>
+    <div class="toolbar">
+      <button id="compareManagedBtn" class="green" disabled>Compare Registered Backups</button>
+    </div>
+    <div id="compareManagedResult" class="matchPanel">Select two RFID tags with stored dumps.</div>
+
+    <hr>
+
+    <h3>2. Store dump in database</h3>
+    <p class="small">Use this to import an existing .bin dump into the selected RFID tag record.</p>
+    <div class="grid">
+      <div class="rfidWorkspaceSelection"><b>Store dump for RFID Tag</b><div id="compareStoreAssetStatus" class="rfidTagSelectionStatus">No RFID tag selected.</div><button id="compareStoreOpenAssetBtn" type="button">Open RFID Tag...</button><select id="compareStoreAsset" class="hidden" aria-hidden="true" tabindex="-1"></select></div>
+      <label>Dump file to store <input id="compareStoreFile" type="file" accept=".bin"></label>
+    </div>
+    <div class="toolbar">
+      <button id="storeManagedDumpBtn" disabled>Store Dump in Database</button>
+    </div>
+
+    <details>
+      <summary><b>Advanced: compare two loose .bin files</b></summary>
+      <p class="small">For specialist/manual checks only. These files are not automatically linked to the database.</p>
+      <div class="grid">
+        <label>Source dump <input id="compareFileA" type="file" accept=".bin"></label>
+        <label>Clone / destination dump <input id="compareFileB" type="file" accept=".bin"></label>
+      </div>
+      <div class="toolbar">
+        <button id="compareDumpsBtn">Compare Loose Dump Files</button>
+      </div>
+      <div id="compareResult" class="matchPanel">Select two dump files.</div>
+    </details>
+  </div>
+</section>
+
+<section id="tab-labels" class="hidden"><div class="panel"><h2>Label Preview</h2><div class="grid"><div class="rfidWorkspaceSelection"><b>RFID Tag</b><div id="labelAssetStatus" class="rfidTagSelectionStatus">No RFID tag selected.</div><button id="labelOpenAssetBtn" type="button">Open RFID Tag...</button><select id="labelAsset" class="hidden" aria-hidden="true" tabindex="-1"></select></div><label>Label style <select id="labelStyle"><option>Compact</option><option>Detailed</option></select></label></div><div class="toolbar"><button id="refreshLabelBtn" disabled>Refresh Label</button><button id="printLabelBtn" disabled>Print Preview</button><button id="directPrintLabelBtn" disabled title="Select a configured label printer before direct printing.">Direct Print</button></div><div id="labelPreview" class="labelPreview"><div class="small">No RFID tag selected.</div></div><p class="small">Print Preview opens the current label in the print dialog. Direct Print is reserved for configured label printers.</p></div></section>
+
+<section id="tab-cardlab" class="hidden">
+  <div class="panel atlasWorkspace">
+    <div class="atlasTopBar">
+      <div>
+        <h2 class="sectionTitleWithHelp atlasTitle">Card Lab <button id="cardLabSectionHelpBtn" class="sectionHelpIcon" data-help-key="cardLabHelpBtn" title="Card Lab help" aria-label="Card Lab help">i</button></h2>
+        <p class="small">Electron guided workspace. Start here when you want the software to scan, identify and explain a card.</p>
+      </div>
+      <div class="atlasTopBarActions"><div class="cardViewerLaunch"><button id="atlasCardViewerBtn" class="no-auto-help-icon" type="button" title="Summarise the latest card data already read by Electron.">Card Viewer</button><button id="cardViewerHelpBtn" class="sectionHelpIcon no-auto-help-icon" data-help-key="cardViewerHelp" title="Card Viewer help" aria-label="Card Viewer help" type="button">i</button></div><button id="atlasAssistantPackBtn" class="secondary" data-internal-tool="true">Create Assistant Review Pack</button></div>
+    </div>
+
+    <div id="atlasWizard" class="atlasWizard">
+      <div class="atlasWizardStep active" data-step="1"><span>1</span><b>Start</b><small>Scan</small></div>
+      <div class="atlasWizardStep" data-step="2"><span>2</span><b>Detect</b><small>HF / LF</small></div>
+      <div class="atlasWizardStep" data-step="3"><span>3</span><b>Explain</b><small>Knowledge</small></div>
+      <div class="atlasWizardStep" data-step="4"><span>4</span><b>Report</b><small>Actions</small></div>
+    </div>
+
+    <div id="atlasStatusPanel" class="atlasStatusPanel">
+      <div class="atlasHero atlasHeroEmpty">
+        <div>
+          <div class="atlasKicker">Electron · Beginner Guided Mode</div>
+          <h3>Scan your first card</h3>
+          <p>Place one RFID card/tag on the Proxmark3 and click Start. Electron will try HF first, then LF if needed, and explain the result.</p>
+          <div class="atlasPillRow"><span class="atlasPill">No commands to remember</span><span class="atlasPill">No paste needed</span><span class="atlasPill">Read-only scan</span></div>
+        </div>
+        <div class="atlasScore atlasScoreNeutral"><span>1</span><small>start</small></div>
+      </div>
+    </div>
+
+    <div class="atlasMainActions">
+      <button id="atlasStartScanBtn" class="green atlasPrimaryAction">Quick Scan</button>
+      <button id="atlasExploreCardBtn" class="atlasPrimaryAction atlasExploreAction">Explore Card</button>
+      <button id="atlasClearBtn">Clear</button>
+    </div>
+
+    <div id="atlasIntelligenceOutput" class="atlasOutput"></div>
+    <div id="cardLabWorkflowProgressHost" class="electronWorkflowProgressHost" aria-live="polite"></div>
+  </div>
+
+  <div class="two">
+    <div class="panel">
+      <details id="atlasOtherInputDetails" class="atlasOtherInput">
+        <summary><b>Other input options — only if needed</b></summary>
+        <p class="small">Use this only when you already have device output from another source, or when no RFID reader is connected.</p>
+        <textarea id="atlasPasteInput" placeholder="Optional fallback: paste raw device output here, such as hf search, hf mf info, lf search, NTAG/NDEF output."></textarea>
+        <div class="toolbar compactToolbar">
+          <button id="atlasAnalysePasteBtn">Analyse pasted device output</button>
+          <button id="atlasLoadLatestBtn">Load latest console output</button>
+        </div>
+      </details>
+    </div>
+    <div class="panel">
+      <details class="atlasKnowledgeDetails">
+        <summary><b>Electron Knowledge</b><span id="atlasKnowledgeSummary">Knowledge records loaded</span></summary>
+        <div id="atlasModuleList" class="atlasModuleList"></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="panel">
+    <details class="atlasRawJson">
+      <summary>Technical details</summary>
+      <div class="resizablePreWrap"><pre class="normalPre" id="atlasRawDetails">No analysis yet.</pre><div class="terminalResizeHandle" id="atlasRawDetailsResizeHandle">Drag to resize technical details</div></div>
+    </details>
+  </div>
+  <div id="cardViewerOverlayHost"></div>
+</section>
+
+
+<section id="tab-standalone-studio" class="hidden">
+  <div class="panel standaloneStudioPanel">
+    <div class="standaloneStudioHeader">
+      <div>
+        <div class="atlasKicker">Standalone Studio · transition workspace</div>
+        <h2>Standalone-mode learning</h2>
+        <p class="small">This is a separate workspace entry. Standalone-specific controls are still being separated from Device Studio and remain diagnostic/read-only.</p>
+      </div>
+      <div class="deviceStudioBoundary">Diagnostic mode only</div>
+    </div>
+    <div class="standaloneStudioGrid">
+      <div><h3>Available now</h3><p>Review source-derived button gestures, LED roles and safe simulation from the connected board’s Device Studio details.</p></div>
+      <div><h3>Not enabled here</h3><p>This workspace does not start standalone firmware, change button profiles or write RFID data.</p></div>
+    </div>
+    <button id="openDeviceStudioFromStandaloneBtn" type="button" class="blueAction">Open Device Studio details</button>
+  </div>
+</section>
+
+<section id="tab-research" class="hidden">
+  <div class="panel electronResearchLibraryPanel">
+    <div class="atlasTopBar">
+      <div>
+        <h2>Electron Research Library</h2>
+        <p class="small">Research records taught by you, stored locally in the Electron Database. Nothing is uploaded automatically.</p>
+      </div>
+      <button id="electronResearchExportBtn">Export Research Backup</button>
+    </div>
+    <div id="electronResearchStats" class="cards"></div>
+    <div id="electronResearchLibrary"></div>
+  </div>
+</section>
+<section id="tab-portal" class="hidden">
+  <div class="panel electronPortalPanel">
+    <div class="portalHeader">
+      <div>
+        <h2>Electron Portal</h2>
+        <p class="small">Platform overview, support, preview status and release information. Nothing is uploaded automatically.</p>
+      </div>
+      <div class="portalHeaderActions">
+        <button id="portalVisitWebsiteBtn" type="button">Visit Electron Portal</button>
+        <button id="portalSendFeedbackBtn" type="button">Send Feedback</button>
+        <button id="portalRefreshBtn" type="button">Refresh</button>
+      </div>
+    </div>
+    <div class="portalLayout">
+      <div class="portalNav" role="tablist" aria-label="Electron Portal sections">
+        <button type="button" data-portal-page="overview" class="active">Overview</button>
+        <button type="button" data-portal-page="support">Support</button>
+        <button type="button" data-portal-page="license">License</button>
+        <button type="button" data-portal-page="updates">Updates</button>
+        <button type="button" data-portal-page="about">About</button>
+      </div>
+      <div id="portalContent" class="portalContent">Loading Electron Portal...</div>
+    </div>
+  </div>
+</section>
+<section id="tab-history" class="hidden"><div class="panel"><h2>UID History</h2><table id="historyTable"></table></div></section>
+<section id="tab-log" class="hidden"><div class="panel"><h2>Change Log</h2><div class="logTableWrap"><table id="logTable"></table></div></div></section>
+</main><script src="security/pm3CommandSafety.js"></script><script src="devices/deviceRegistry.js"></script><script src="security/deviceGuard.js"></script><script src="engineeringMode.js"></script><script src="photoManager.js"></script><script src="inventoryManager.js"></script><script src="backupManager.js"></script><script src="changeLogManager.js"></script><script src="compareManager.js"></script><script src="deltaEngine.js"></script><script src="knowledgeEngine.js"></script><script src="uiEngine.js"></script><script src="workflowProgressPanel.js"></script><script src="intelligence/readableDataExtractor.js"></script><script src="intelligence/emvDataRedactor.js"></script><script src="electronDatabase.js"></script><script src="domain/historyService.js"></script><script src="domain/scanSessionService.js"></script><script src="domain/observationService.js"></script><script src="intelligence/cardProfileEngine.js"></script><script src="intelligence/cardReportBuilder.js"></script><script src="intelligence/cardViewerModel.js"></script><script src="intelligence/deepScanProfileRegistry.js"></script><script src="intelligence/advancedWorkflowResultBuilder.js"></script><script src="researchManager.js"></script><script src="cardLabManager.js"></script><script src="cardViewerManager.js"></script><script src="helpEngine.js"></script><script src="portalManager.js"></script><script src="deviceStudioManager.js"></script>
+<script src="renderer.js"></script>
+</body></html>

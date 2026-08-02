@@ -1,0 +1,22 @@
+{
+  "id": "mifare_desfire",
+  "kind": "cardFamily",
+  "displayName": "MIFARE DESFire",
+  "aliases": ["DESFire", "DESFire EV1", "DESFire EV2", "DESFire EV3"],
+  "category": "Secure HF smartcard",
+  "manufacturer": "NXP",
+  "manufacturerIds": ["nxp"],
+  "protocol": "ISO/IEC 14443-4",
+  "protocolIds": ["iso14443a", "iso14443_4"],
+  "frequency": "13.56 MHz",
+  "memory": {"model": "application/file", "notes": "Application and file based secure memory."},
+  "security": {"model": "AES/3DES application security", "notes": "Protected applications require keys and authorisation."},
+  "commonApplications": ["Access control", "Transit", "Campus cards"],
+  "readableFields": ["uid", "ats", "publicApplicationDirectory"],
+  "protectedFields": ["applicationKeys", "secureFiles", "transactionData"],
+  "supportedDevices": ["proxmark3", "flipper_zero", "chameleon_ultra", "pn532"],
+  "capabilityIds": ["read_uid", "identify", "safe_metadata_only"],
+  "proxmarkCommands": ["hf search", "hf 14a info"],
+  "references": [],
+  "notes": "Electron should stay conservative until DESFire-specific application support is added."
+}

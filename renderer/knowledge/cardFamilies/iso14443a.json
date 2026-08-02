@@ -1,0 +1,21 @@
+{
+  "id": "iso14443a",
+  "kind": "cardFamily",
+  "displayName": "ISO14443-A",
+  "aliases": ["ISO 14443A", "ISO/IEC 14443-A", "NFC-A"],
+  "category": "HF proximity",
+  "manufacturer": "",
+  "protocol": "ISO/IEC 14443-A",
+  "protocolIds": ["iso14443a"],
+  "frequency": "13.56 MHz",
+  "memory": {"model": "family dependent"},
+  "security": {"model": "family dependent"},
+  "commonApplications": ["Access cards", "NFC cards", "Smartcards"],
+  "readableFields": ["uid", "atqa", "sak"],
+  "protectedFields": ["applicationData", "keys", "secureMemory"],
+  "supportedDevices": ["proxmark3", "flipper_zero", "chameleon_ultra", "pn532"],
+  "capabilityIds": ["read_uid", "identify", "read_memory"],
+  "proxmarkCommands": ["hf search", "hf 14a info"],
+  "references": [],
+  "notes": "Protocol family. Exact behavior depends on card family."
+}
