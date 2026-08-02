@@ -1,9 +1,9 @@
 # Third-Party Inventory
 
 Initial audit: 26 July 2026
-Last technical review: 30 July 2026
+Last technical review: 2 August 2026
 
-This inventory is derived from the current `package-lock.json`, installed package manifests, Electron 31.7.7 distribution files, the internal finalization application in `dist-rc-finalization`, the configured `extraResources`, the linked libraries reported by the bundled Proxmark3 client, and the current local Proxmark3 source checkout.
+This inventory is derived from the current `package-lock.json`, installed package manifests, Electron 43.2.0 distribution files, the internal Electron 43 verification application in `dist/mac-arm64`, the configured `extraResources`, the linked libraries reported by the bundled Proxmark3 client, and the current local Proxmark3 source checkout.
 
 “Bundled with Electron?” means bundled in the current packaged Electron application or DMG, not merely installed on the development machine.
 
@@ -11,14 +11,14 @@ This inventory is derived from the current `package-lock.json`, installed packag
 
 | Name | Version (if known) | License | Purpose | Bundled with Electron? (Yes/No) | Action required before Public Preview (if any) |
 | --- | --- | --- | --- | --- | --- |
-| Electron | 31.7.7 | MIT | Desktop application runtime. | Yes | Preserve the Electron MIT licence and its embedded third-party notices in the release materials. |
-| Chromium | 126.0.6478.234 | BSD-3-Clause plus separately licensed embedded components | Browser and renderer engine included by Electron. | Yes | Preserve the complete Electron/Chromium embedded notice set in the release materials. |
-| Node.js | 20.18.0 | MIT | Main-process JavaScript runtime included by Electron. | Yes | Preserve the Node.js licence through the Electron notice set. |
-| V8 | 12.6.228.30-electron.0 | BSD-3-Clause | JavaScript engine included by Electron. | Yes | Preserve the V8 licence and its embedded component notices through the Electron notice set. |
+| Electron | 43.2.0 | MIT | Desktop application runtime. | Yes | Preserve the Electron MIT licence and its embedded third-party notices in the release materials. |
+| Chromium | 150.0.7871.129 | BSD-3-Clause plus separately licensed embedded components | Browser and renderer engine included by Electron. | Yes | Preserve the complete Electron/Chromium embedded notice set in the release materials. |
+| Node.js | 24.18.0 | MIT | Main-process JavaScript runtime included by Electron. | Yes | Preserve the Node.js licence through the Electron notice set. |
+| V8 | 15.0.1240245-electron.0 | BSD-3-Clause | JavaScript engine included by Electron. | Yes | Preserve the V8 licence and its embedded component notices through the Electron notice set. |
 | ReactiveObjC | 3.1.0 | MIT | macOS reactive programming framework included in the Electron runtime. | Yes | Preserve its licence through the Electron notice set. |
 | Squirrel.Mac | 1.0 | MIT | macOS update framework included in the Electron runtime. | Yes | Preserve its licence through the Electron notice set. |
 | Mantle | 1.0 | MIT | macOS model framework included in the Electron runtime. | Yes | Preserve its licence through the Electron notice set. |
-| Electron/Chromium embedded third-party components | Electron 31.7.7 | Multiple; individually enumerated in `LICENSES.chromium.html` | Third-party components embedded in Electron and Chromium; `LICENSES.chromium.html` is their authoritative sub-inventory and licence text. | Yes | Include or reproduce the complete `LICENSES.chromium.html` notice set in the distributable release and make it reachable from the planned third-party notices surface. |
+| Electron/Chromium embedded third-party components | Electron 43.2.0 | Multiple; individually enumerated in `LICENSES.chromium.html` | Third-party components embedded in Electron and Chromium; `LICENSES.chromium.html` is their authoritative sub-inventory and licence text. | Yes | Include or reproduce the complete `LICENSES.chromium.html` notice set in the distributable release and make it reachable from the planned third-party notices surface. |
 | Proxmark3 launcher script | Adjacent source checkout at `dc327884d298fce2fd0abff8c464e1f5db1958e0`, launcher locally modified | GPL-3.0-or-later | Starts the matching Proxmark3 client with the project configuration. | Yes | Record the exact distributed launcher state; include GPL text, corresponding source, local patches and reproducible build/use instructions. |
 | Proxmark3 client binary | `Iceman/master/v4.21611-suspect`, release-source checksum `389522379`, macOS arm64 | GPL-3.0-or-later | Communicates with and controls supported Proxmark3 hardware. | Yes | Preserve the exact source package described in the provenance finding below and complete a clean-machine test of the portable candidate. |
 
@@ -152,8 +152,9 @@ source package before it can replace the current client.
 
 ### Historical proposed Public Preview 1 PM3 feature matrix
 
-This is an evidence-based record of the Public Preview 1 PM3 scope; it does
-not change the product Roadmap or remove functionality.
+This is an evidence-based historical scope proposal for the project owner and
+release maintainer; it does not change the product Roadmap or remove
+functionality.
 
 | Feature | Keep | Remove | Reason |
 | --- | --- | --- | --- |
@@ -231,7 +232,7 @@ The project has no npm production dependencies. The following complete lockfile 
 | ansi-styles | 4.3.0 | MIT | Development/build dependency: ANSI escape codes for styling strings in the terminal | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | ansi-styles | 6.2.3 | MIT | Development/build dependency: ANSI escape codes for styling strings in the terminal | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | app-builder-bin | 4.0.0 | MIT | Development/build dependency: app-builder precompiled binaries | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| app-builder-lib | 24.13.3 | MIT | Development/build dependency: electron-builder lib | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| app-builder-lib | 26.15.7 | MIT | Development/build dependency: electron-builder lib | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | archiver | 5.3.2 | MIT | Development/build dependency: a streaming interface for archive generation | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | archiver-utils | 2.1.0 | MIT | Development/build dependency: utility functions for archiver | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | archiver-utils | 3.0.4 | MIT | Development/build dependency: utility functions for archiver | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
@@ -248,14 +249,15 @@ The project has no npm production dependencies. The following complete lockfile 
 | bluebird | 3.7.2 | MIT | Development/build dependency: Full featured Promises/A+ implementation with exceptionally good performance | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | bluebird-lst | 1.0.9 | MIT | Development/build dependency: Bluebird — longStackTraces: true, cancellation: true | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | boolean | 3.2.0 | MIT | Development/build dependency: boolean converts lots of things to boolean. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| brace-expansion | 1.1.15 | MIT | Development/build dependency: Brace expansion as known from sh/bash | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| brace-expansion | 2.1.1 | MIT | Development/build dependency: Brace expansion as known from sh/bash | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| brace-expansion | 1.1.18 | MIT | Development/build dependency: Brace expansion as known from sh/bash | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| brace-expansion | 2.1.4 | MIT | Development/build dependency: Brace expansion as known from sh/bash | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| brace-expansion | 5.0.9 | MIT | Development/build dependency: Brace expansion as known from sh/bash | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | buffer | 5.7.1 | MIT | Development/build dependency: Node.js Buffer API, for the browser | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | buffer-crc32 | 0.2.13 | MIT | Development/build dependency: A pure javascript CRC32 algorithm that plays nice with binary data | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | buffer-equal | 1.0.1 | MIT | Development/build dependency: return whether two buffers are equal | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | buffer-from | 1.1.2 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| builder-util | 24.13.1 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| builder-util-runtime | 9.2.4 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| builder-util | 26.15.3 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| builder-util-runtime | 9.7.0 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | cacheable-lookup | 5.0.4 | MIT | Development/build dependency: A cacheable dns.lookup(…) that respects the TTL | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | cacheable-request | 7.0.4 | MIT | Development/build dependency: Wrap native HTTP requests with RFC compliant cache support | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | call-bind-apply-helpers | 1.0.2 | MIT | Development/build dependency: Helper functions around Function call/apply/bind, for use in `call-bind` | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
@@ -287,16 +289,16 @@ The project has no npm production dependencies. The following complete lockfile 
 | delayed-stream | 1.0.0 | MIT | Development/build dependency: Buffers events from a stream until you are ready to handle them. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | detect-node | 2.1.0 | MIT | Development/build dependency: Detect Node.JS (as opposite to browser environment) (reliable) | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | dir-compare | 3.3.0 | MIT | Development/build dependency: Node JS directory compare | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| dmg-builder | 24.13.3 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| dmg-builder | 26.15.7 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | dmg-license | 1.0.11 | MIT | Development/build dependency: Generate license agreements for macOS .dmg files | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | dotenv | 9.0.2 | BSD-2-Clause | Development/build dependency: Loads environment variables from .env file | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | dotenv-expand | 5.1.0 | BSD-2-Clause | Development/build dependency: Expand environment variables using dotenv | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | dunder-proto | 1.0.1 | MIT | Development/build dependency: If available, the `Object.prototype.__proto__` accessor and mutator, call-bound | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | eastasianwidth | 0.2.0 | MIT | Development/build dependency: Get East Asian Width from a character. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | ejs | 3.1.10 | Apache-2.0 | Development/build dependency: Embedded JavaScript templates | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| electron-builder | 24.13.3 | MIT | Builds and packages the Electron application and macOS DMG. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| electron-builder-squirrel-windows | 24.13.3 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| electron-publish | 24.13.1 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| electron-builder | 26.15.7 | MIT | Builds and packages the Electron application and macOS DMG. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| electron-builder-squirrel-windows | 26.15.7 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| electron-publish | 26.15.3 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | emoji-regex | 8.0.0 | MIT | Development/build dependency: A regular expression to match all Emoji-only symbols as per the Unicode Standard. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | emoji-regex | 9.2.2 | MIT | Development/build dependency: A regular expression to match all Emoji-only symbols as per the Unicode Standard. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | end-of-stream | 1.4.5 | MIT | Development/build dependency: Call a callback when a readable/writable/duplex stream has completed or failed. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
@@ -358,7 +360,7 @@ The project has no npm production dependencies. The following complete lockfile 
 | isexe | 2.0.0 | ISC | Development/build dependency: Minimal module to check if a file is executable. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | jackspeak | 3.4.3 | BlueOak-1.0.0 | Development/build dependency: A very strict and proper argument parser. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | jake | 10.9.4 | Apache-2.0 | Development/build dependency: JavaScript build tool, similar to Make or Rake | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| js-yaml | 4.2.0 | MIT | Development/build dependency: YAML 1.2 parser and serializer | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| js-yaml | 4.3.1 | MIT | Development/build dependency: YAML 1.2 parser and serializer | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | json-buffer | 3.0.1 | MIT | Development/build dependency: JSON parse & stringify that supports binary via bops & base64 | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | json-schema-traverse | 0.4.1 | MIT | Development/build dependency: Traverse JSON Schema passing each schema object to callback | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | json-stringify-safe | 5.0.1 | ISC | Development/build dependency: Like JSON.stringify, but doesn't blow up on circular refs. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
@@ -451,7 +453,7 @@ The project has no npm production dependencies. The following complete lockfile 
 | strip-ansi-cjs | 6.0.1 | MIT | Development/build dependency: Strip ANSI escape codes from a string | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | sumchecker | 3.0.1 | Apache-2.0 | Development/build dependency: Checksum validator | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | supports-color | 7.2.0 | MIT | Development/build dependency: Detect whether a terminal supports color | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
-| tar | 6.2.1 | ISC | Development/build dependency: tar for node | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
+| tar | 7.5.22 | ISC | Development/build dependency: tar for node | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | tar-stream | 2.2.0 | MIT | Development/build dependency: tar-stream is a streaming tar parser and generator and nothing else. It is streams2 and operates purely using streams which means you can easily extract/parse tarballs without ever hitting the file system. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | temp-file | 3.4.0 | MIT | Transitive development, build or packaging dependency. | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |
 | tmp | 0.2.7 | MIT | Development/build dependency: Temporary file and directory creator | No | Confirm it remains build-only; no packaged notice action unless the distribution scope changes. |

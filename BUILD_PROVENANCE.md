@@ -32,11 +32,11 @@ avoids placing self-referential artefact hashes inside that source commit.
 | Xcode | 26.6, build 17F113 |
 | Node.js build shell | 24.16.0 |
 | npm | 11.16.0 |
-| Electron | 31.7.7 |
-| Electron embedded Node.js | 20.18.0 |
-| Chromium | 126.0.6478.234 |
-| V8 | 12.6.228.30-electron.0 |
-| electron-builder | 24.13.3 |
+| Electron | 43.2.0 |
+| Electron embedded Node.js | 24.18.0 |
+| Chromium | 150.0.7871.129 |
+| V8 | 15.0.1240245-electron.0 |
+| electron-builder | 26.15.7 |
 
 ## 3. Electron source freeze
 
@@ -62,12 +62,15 @@ without Ronald's explicit publication approval.
   data are excluded.
 - The complete bundled command library is verified before packaging.
 
-Final packaging command:
+Internal verification packaging command:
 
 ```sh
-ELECTRON_LOCAL_ADHOC_SIGN=1 npx electron-builder --mac --arm64 \
-  --config.directories.output=dist-early-public-preview-1
+npm run build:mac
 ```
+
+The build script prepares Electron's lazy-downloaded runtime before packaging
+so the Electron licence and complete Chromium notice set are available to
+`extraResources` on a clean installation.
 
 The final execution time, result and artefact checksums are recorded in the
 release staging manifest.
@@ -82,7 +85,8 @@ release staging manifest.
 | Clean description | `v4.21611-5-g4e41c2b37` |
 | Client identity | `Iceman/HEAD/v4.21611-5-g4e41c2b37 2026-08-02 18:44:39` |
 | Client architecture | Mach-O arm64 |
-| Launcher/client SHA-256 | `4da5c3373aed4b97545790fe9a632e50cacbf2732f33e4f41fa4802e4a5608b6` |
+| Launcher SHA-256 | `8c7161f97d4f7be2a262b0f2298069ccdb2a0389355fd6000ea003fe7763deb9` |
+| Client SHA-256 | `4da5c3373aed4b97545790fe9a632e50cacbf2732f33e4f41fa4802e4a5608b6` |
 | Corresponding-source archive | `Electron-Preview-0.8.0-Proxmark3-Corresponding-Source.tar.gz` |
 | Source archive SHA-256 | `efbc72437077eb2e50df44da26c14e4d92fc4dd3721f49ac720ceccd5b473fc2` |
 

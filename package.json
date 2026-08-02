@@ -11,12 +11,13 @@
     "preview:check": "node scripts/preview-build-check.js",
     "command-library:verify": "node tests/device-command-library-bundled.test.js",
     "pm3:preview:verify": "node scripts/verify-pm3-preview-runtime.js",
-    "pack:mac": "npm run preview:check && npm run command-library:verify && npm run pm3:preview:verify && ELECTRON_LOCAL_ADHOC_SIGN=1 electron-builder --mac dir",
-    "build:mac": "npm run preview:check && npm run command-library:verify && npm run pm3:preview:verify && ELECTRON_LOCAL_ADHOC_SIGN=1 electron-builder --mac"
+    "electron:runtime:prepare": "node -e \"require('electron')\"",
+    "pack:mac": "npm run electron:runtime:prepare && npm run preview:check && npm run command-library:verify && npm run pm3:preview:verify && ELECTRON_LOCAL_ADHOC_SIGN=1 electron-builder --mac dir",
+    "build:mac": "npm run electron:runtime:prepare && npm run preview:check && npm run command-library:verify && npm run pm3:preview:verify && ELECTRON_LOCAL_ADHOC_SIGN=1 electron-builder --mac"
   },
   "devDependencies": {
-    "electron": "^31.7.7",
-    "electron-builder": "^24.13.3"
+    "electron": "43.2.0",
+    "electron-builder": "26.15.7"
   },
   "build": {
     "appId": "app.electronrfid.preview",
@@ -79,7 +80,7 @@
     ],
     "extraResources": [
       {
-        "from": "../proxmark3-iceman-device-studio/client/build-electron-public-preview-1/pm3-electron-public-preview-1",
+        "from": "../proxmark3-iceman-device-studio/pm3",
         "to": "pm3/pm3-electron-public-preview-1"
       },
       {
@@ -111,11 +112,11 @@
         "to": "legal/RELEASE_NOTES_PUBLIC_PREVIEW_1.md"
       },
       {
-        "from": "third_party/electron/LICENSE",
+        "from": "node_modules/electron/dist/LICENSE",
         "to": "legal/ELECTRON_LICENSE.txt"
       },
       {
-        "from": "third_party/electron/LICENSES.chromium.html",
+        "from": "node_modules/electron/dist/LICENSES.chromium.html",
         "to": "legal/CHROMIUM_THIRD_PARTY_LICENSES.html"
       },
       {
@@ -123,8 +124,5 @@
         "to": "legal/PROXMARK3_GPL_LICENSE.txt"
       }
     ]
-  },
-  "allowScripts": {
-    "electron@31.7.7": true
   }
 }

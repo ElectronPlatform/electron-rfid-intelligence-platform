@@ -82,6 +82,7 @@ contextBridge.exposeInMainWorld('pm3api',{
   openElectronPortalWebsite:()=>ipcRenderer.invoke('portal:open-website'),
   openElectronPortalDocumentation:()=>ipcRenderer.invoke('portal:open-documentation'),
   openElectronPortalContact:()=>ipcRenderer.invoke('portal:open-contact'),
+  openElectronSupport:()=>ipcRenderer.invoke('portal:open-support'),
   requestPreviewExtension:(payload)=>ipcRenderer.invoke('portal:request-preview-extension', payload || {}),
   openFeedbackPackagesFolder:()=>ipcRenderer.invoke('portal:open-feedback-packages-folder'),
   exportCardReport:(payload)=>ipcRenderer.invoke('card-report:export', payload),

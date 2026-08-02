@@ -1,18 +1,18 @@
 'use strict';
 
 const fs=require('fs');
+const os=require('os');
 const path=require('path');
 const {execFileSync}=require('child_process');
 
 const projectRoot=path.resolve(__dirname,'..');
+const sourceRoot=path.resolve(projectRoot,'..','proxmark3-iceman-device-studio');
 const runtimeRoot=path.resolve(
-  projectRoot,
-  '..',
-  'proxmark3-iceman-device-studio',
+  sourceRoot,
   'client',
   'build-electron-public-preview-1'
 );
-const helperPath=path.join(runtimeRoot,'pm3-electron-public-preview-1');
+const helperSourcePath=path.join(sourceRoot,'pm3');
 const clientPath=path.join(runtimeRoot,'proxmark3');
 
 function fail(message){
@@ -27,7 +27,7 @@ function requireExecutable(filePath,label){
   catch{ fail(`${label} is not executable: ${filePath}`); }
 }
 
-requireExecutable(helperPath,'Preview helper');
+requireExecutable(helperSourcePath,'Preview helper source');
 requireExecutable(clientPath,'Preview client');
 
 if(process.platform==='darwin'){
@@ -51,20 +51,31 @@ if(process.platform==='darwin'){
   }
 }
 
+const verificationRoot=fs.mkdtempSync(path.join(os.tmpdir(),'electron-pm3-preview-runtime-'));
+const helperPath=path.join(verificationRoot,'pm3-electron-public-preview-1');
+const pairedClientPath=path.join(verificationRoot,'proxmark3');
+fs.copyFileSync(helperSourcePath,helperPath);
+fs.copyFileSync(clientPath,pairedClientPath);
+fs.chmodSync(helperPath,0o755);
+fs.chmodSync(pairedClientPath,0o755);
+
 let versionOutput='';
 try{
+  execFileSync(helperPath,['--list'],{encoding:'utf8',stdio:['ignore','pipe','pipe']});
   versionOutput=execFileSync(
     helperPath,
     ['--incognito','--version'],
     {encoding:'utf8',stdio:['ignore','pipe','pipe']}
   );
 }catch(error){
-  fail(`Preview helper could not start its matching client: ${String(error.stderr||error.message||error).trim()}`);
+  fail(`Preview helper discovery or matching client launch failed: ${String(error.stderr||error.message||error).trim()}`);
+}finally{
+  fs.rmSync(verificationRoot,{recursive:true,force:true});
 }
 if(!/Client:\s+Iceman\//.test(versionOutput)){
   fail('Preview helper returned no recognisable Iceman client identity.');
 }
 
 console.log('PM3 Preview runtime verification passed.');
-console.log(`Helper: ${helperPath}`);
+console.log(`Helper source: ${helperSourcePath}`);
 console.log(`Client: ${clientPath}`);

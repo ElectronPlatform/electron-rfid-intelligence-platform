@@ -243,10 +243,17 @@ function previewState(settings=ensurePlatformIdentity()){
 function platformState(){
   const settings=ensurePlatformIdentity();
   const trial=previewLicenseManager().getStatus();
+  const configuredSupport=BUILD_CONFIG.SUPPORT_OPTIONS || {};
   return {
     installationId:settings.platform.installationId,
     installationCreatedAt:settings.platform.installationCreatedAt,
     supportEmail:BUILD_CONFIG.SUPPORT_EMAIL || "electron.platform@gmail.com",
+    support:{
+      enabled:!!configuredSupport.enabled && !!String(configuredSupport.supportUrl || "").trim(),
+      provider:String(configuredSupport.provider || "external"),
+      buttonLabel:String(configuredSupport.buttonLabel || "Support Electron"),
+      expectationText:String(configuredSupport.expectationText || "Financial support is voluntary.")
+    },
     preview:previewState(settings),
     trial,
     build:buildInfo()
@@ -1937,6 +1944,16 @@ async function openElectronPortalDocumentation(){
 async function openElectronPortalContact(){
   return openElectronPortalPage("contact.html", BUILD_CONFIG.PORTAL_CONTACT_URL || `${BUILD_CONFIG.PORTAL_URL || ""}/contact.html`);
 }
+async function openElectronSupport(){
+  const configuredSupport=BUILD_CONFIG.SUPPORT_OPTIONS || {};
+  const supportUrl=String(configuredSupport.supportUrl || "").trim();
+  if(!configuredSupport.enabled || !supportUrl) return {ok:false,error:"Electron support is not configured yet."};
+  let parsed;
+  try{ parsed=new URL(supportUrl); }catch(_err){ return {ok:false,error:"Electron support URL is not valid."}; }
+  if(parsed.protocol!=="https:") return {ok:false,error:"Electron support requires a secure HTTPS link."};
+  await shell.openExternal(parsed.toString());
+  return {ok:true,target:parsed.toString(),provider:String(configuredSupport.provider || "external")};
+}
 async function openElectronPortalPage(fileName, configuredUrl){
   const portalUrl=String(configuredUrl || "").trim();
   if(portalUrl){
@@ -2106,6 +2123,7 @@ ipcMain.handle('portal:get-state', async()=>platformState());
 ipcMain.handle('portal:open-website', async()=>openElectronPortalWebsite());
 ipcMain.handle('portal:open-documentation', async()=>openElectronPortalDocumentation());
 ipcMain.handle('portal:open-contact', async()=>openElectronPortalContact());
+ipcMain.handle('portal:open-support', async()=>openElectronSupport());
 ipcMain.handle('portal:open-feedback-packages-folder', async()=>{
   const folder=previewFeedbackFolder();
   shell.openPath(folder);

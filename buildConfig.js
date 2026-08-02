@@ -37,10 +37,10 @@
     PORTAL_DOCUMENTATION_URL:"https://electronplatform.github.io/documentation.html",
     PORTAL_CONTACT_URL:"https://electronplatform.github.io/contact.html",
     SUPPORT_OPTIONS:{
-      enabled:false,
+      enabled:true,
       provider:"paypal",
       buttonLabel:"Support Electron",
-      supportUrl:"",
+      supportUrl:"https://www.paypal.com/ncp/payment/SH3BTJERWR5XG",
       expectationText:"Support helps Electron Platform continue to grow. It is voluntary appreciation, not a purchase of guaranteed features or individual support."
     },
     FEEDBACK_EMAIL:"",

@@ -15,10 +15,10 @@ The detailed working inventory is maintained in
 
 | Component | Reviewed version | Licence | Distribution status |
 | --- | --- | --- | --- |
-| Electron | 31.7.7 | MIT | Bundled |
-| Chromium | 126.0.6478.234 | BSD-3-Clause and separately licensed embedded components | Bundled by Electron |
-| Node.js | 20.18.0 | MIT | Bundled by Electron |
-| V8 | 12.6.228.30-electron.0 | BSD-3-Clause | Bundled by Electron |
+| Electron | 43.2.0 | MIT | Bundled |
+| Chromium | 150.0.7871.129 | BSD-3-Clause and separately licensed embedded components | Bundled by Electron |
+| Node.js | 24.18.0 | MIT | Bundled by Electron |
+| V8 | 15.0.1240245-electron.0 | BSD-3-Clause | Bundled by Electron |
 | ReactiveObjC | 3.1.0 | MIT | Bundled by Electron |
 | Squirrel.Mac | 1.0 | MIT | Bundled by Electron |
 | Mantle | 1.0 | MIT | Bundled by Electron |
@@ -34,12 +34,13 @@ The final packaged-app inspection remains a release gate.
 | Electron PM3 launcher | Source commit `4e41c2b37efcfd6432568bf846d87ab9a103ff5f` | GPL-3.0-or-later | Bundled by `extraResources` |
 | Proxmark3 client | `Iceman/HEAD/v4.21611-5-g4e41c2b37`, macOS arm64 | GPL-3.0-or-later | Bundled by `extraResources` |
 
-The two packaged executables are reproducible from the same frozen source and
-currently have the same SHA-256:
+The packaged discovery helper and client are taken from the same frozen source
+revision. The helper is the repository's Bash launcher and the client is the
+reproducible macOS arm64 binary:
 
 | Packaged file | SHA-256 |
 | --- | --- |
-| `pm3/pm3-electron-public-preview-1` | `4da5c3373aed4b97545790fe9a632e50cacbf2732f33e4f41fa4802e4a5608b6` |
+| `pm3/pm3-electron-public-preview-1` | `8c7161f97d4f7be2a262b0f2298069ccdb2a0389355fd6000ea003fe7763deb9` |
 | `pm3/proxmark3` | `4da5c3373aed4b97545790fe9a632e50cacbf2732f33e4f41fa4802e4a5608b6` |
 
 The inspected upstream base is tag `v4.21611`, commit
@@ -88,8 +89,8 @@ runtime and electron-builder supplies the packaging toolchain.
 
 | Direct package | Reviewed version | Licence | Packaged as application runtime |
 | --- | --- | --- | --- |
-| `electron` | 31.7.7 | MIT | Yes |
-| `electron-builder` | 24.13.3 | MIT | No |
+| `electron` | 43.2.0 | MIT | Yes |
+| `electron-builder` | 26.15.7 | MIT | No |
 
 The complete transitive build inventory is recorded in
 `docs/THIRD_PARTY_INVENTORY.md`.

@@ -65,6 +65,8 @@
   }
   function supportPage(){
     const state=portalState || {};
+    const financialSupport=state.support?.enabled ? `
+        <div><b>Voluntary Financial Support</b><p>${html(state.support.expectationText || "Financial support is voluntary.")}</p><button type="button" data-portal-financial-support>${html(state.support.buttonLabel || "Support Electron")}</button></div>` : "";
     return portalShell("Support", "Create local support material and decide what to share.", `
       <div class="portalSupportGrid">
         <div class="portalCard wide"><span>Official support email</span><b>${html(state.supportEmail || "electron.platform@gmail.com")}</b><small>Use this address for Preview feedback and extension requests.</small></div>
@@ -75,6 +77,7 @@
         <div><b>Portal Contact</b><p>Open the public Contact page for the official support route, documentation links and user-controlled sharing instructions.</p><button type="button" data-portal-contact>Open Contact Page</button></div>
         <div><b>Feedback Packages Folder</b><p>Open the local folder where feedback ZIP files are created.</p><button type="button" data-portal-open-feedback-folder>Open Folder</button></div>
         <div><b>Support Info</b><p>Copy basic support information without logs, cards, keys or dumps.</p><button type="button" data-portal-copy-support>Copy Support Info</button></div>
+        ${financialSupport}
       </div>
     `);
   }
@@ -154,6 +157,11 @@
     if(result?.ok) window.UIEngine?.toast?.("Electron contact page opened.","success");
     else window.UIEngine?.toast?.(result?.error || "Electron contact URL is not configured yet.","warning");
   }
+  async function visitFinancialSupport(){
+    const result=await window.pm3api.openElectronSupport?.();
+    if(result?.ok) window.UIEngine?.toast?.("Electron support page opened.","success");
+    else window.UIEngine?.toast?.(result?.error || "Electron support is not configured yet.","warning");
+  }
   function showTestingInstructions(){
     if(window.showPreviewTestingInstructionsModal){
       window.showPreviewTestingInstructionsModal();
@@ -203,6 +211,7 @@
     root.querySelectorAll("[data-portal-visit-website]").forEach(btn=>btn.onclick=visitPortalWebsite);
     root.querySelectorAll("[data-portal-documentation]").forEach(btn=>btn.onclick=visitPortalDocumentation);
     root.querySelectorAll("[data-portal-contact]").forEach(btn=>btn.onclick=visitPortalContact);
+    root.querySelectorAll("[data-portal-financial-support]").forEach(btn=>btn.onclick=visitFinancialSupport);
     root.querySelectorAll("[data-portal-open-feedback-folder]").forEach(btn=>btn.onclick=()=>window.pm3api.openFeedbackPackagesFolder?.());
     root.querySelectorAll("[data-portal-extension]").forEach(btn=>btn.onclick=requestExtension);
     root.querySelectorAll("[data-portal-instructions]").forEach(btn=>btn.onclick=showTestingInstructions);

@@ -19,7 +19,7 @@ for every release that bundles Proxmark3/Iceman software.
 
 | Package path | Architecture | SHA-256 |
 | --- | --- | --- |
-| `Resources/pm3/pm3-electron-public-preview-1` | Mach-O arm64 | `4da5c3373aed4b97545790fe9a632e50cacbf2732f33e4f41fa4802e4a5608b6` |
+| `Resources/pm3/pm3-electron-public-preview-1` | Bash helper | `8c7161f97d4f7be2a262b0f2298069ccdb2a0389355fd6000ea003fe7763deb9` |
 | `Resources/pm3/proxmark3` | Mach-O arm64 | `4da5c3373aed4b97545790fe9a632e50cacbf2732f33e4f41fa4802e4a5608b6` |
 
 - [x] Firmware and FPGA images are not included.
