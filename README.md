@@ -11,8 +11,9 @@ access to technical evidence.
 
 ## Public Preview 1
 
-Electron Early Public Preview 1 is publicly available for MacOs on Apple
-Silicon. The application version is `0.8.0`.
+Electron Early Public Preview 1 version `0.8.0` is publicly available for
+macOS. Separate installers are provided for Apple Silicon (arm64) and Apple
+Intel (x64); choose the installer that matches your Mac.
 
 Download only through the official website or its linked GitHub release, and
 verify the published SHA-256 before opening the installer.
